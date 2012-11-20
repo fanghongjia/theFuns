@@ -15,6 +15,7 @@
 - (void)dealloc
 {
     [_window release];
+    NSLog(@"sss");
     [super dealloc];
 }
 
