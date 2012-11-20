@@ -27,7 +27,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@";sdfjjlfjdl");
     [self hideTabBar];
     //    [self showTabBar];
 }
