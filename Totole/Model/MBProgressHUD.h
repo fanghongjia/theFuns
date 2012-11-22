@@ -105,7 +105,8 @@ typedef enum {
 	float progress;
 	
 #if __has_feature(objc_arc)
-	id<MBProgressHUDDelegate> __weak delegate;
+	id<MBProgressHUDDelegate> __unsafe_unretained
+ delegate;
 #else
 	id<MBProgressHUDDelegate> delegate;
 #endif
@@ -195,7 +196,7 @@ typedef enum {
  * object will not be retained.
  */
 #if __has_feature(objc_arc)
-@property (weak) id<MBProgressHUDDelegate> delegate;
+@property (assign) id<MBProgressHUDDelegate> delegate;
 #else
 @property (assign) id<MBProgressHUDDelegate> delegate;
 #endif
