@@ -32,17 +32,11 @@
 
 - (void)viewDidUnload
 {
-    [activate_btn release];
     activate_btn = nil;
-    [mall_btn release];
     mall_btn = nil;
-    [activity_btn release];
     activity_btn = nil;
-    [announcement_btn release];
     announcement_btn = nil;
-    [management_btn release];
     management_btn = nil;
-    [myFavorites_btn release];
     myFavorites_btn = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -114,13 +108,4 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [activate_btn release];
-    [mall_btn release];
-    [activity_btn release];
-    [announcement_btn release];
-    [management_btn release];
-    [myFavorites_btn release];
-    [super dealloc];
-}
 @end

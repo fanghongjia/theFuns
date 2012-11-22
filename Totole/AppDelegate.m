@@ -12,16 +12,11 @@
 
 @synthesize window = _window;
 
-- (void)dealloc
-{
-    [_window release];
-    [super dealloc];
-}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
     NSLog(@"- (BOOL)application:");
@@ -30,8 +25,6 @@
     LoginViewController *loginVC = [[LoginViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginVC];
     self.window.rootViewController = nav;
-    [loginVC release];
-    [nav release];
     
 
     
@@ -84,39 +77,24 @@
         activateVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_activate.png"];
         UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:activateVC];
         
-        
-         NSArray *controllers_array = [NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5,nav6,nav7, nil];
+        NSArray *controllers_array = [NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5,nav6,nav7, nil];
         tabBarControl.viewControllers = controllers_array;
-        [activateVC release];
-        [nav2 release];
-    }
-    
-    else 
+        
+    }else 
     {
+        
         NSArray *controll_array = [NSArray arrayWithObjects:nav1,nav3,nav4,nav5,nav6,nav7, nil];
         tabBarControl.viewControllers = controll_array;
+        
     }
     
     tabBarControl.navigationController.navigationBarHidden = YES;
     tabBarControl.moreNavigationController.navigationBarHidden = YES;
     self.window.rootViewController = tabBarControl;
     
-    [nav1 release];
 
-    [nav3 release];
-    [nav4 release];
-    [nav5 release];
-    [nav6 release];
-    [nav7 release];
-    [homeVC release];
 
-    [mallVC release];
-    [activityVC release];
-    [announceVC release];
-    [managementVC release];
-    [myFavoritesVC release];
     
-    [tabBarControl release];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

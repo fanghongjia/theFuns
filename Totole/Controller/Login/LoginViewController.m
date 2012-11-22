@@ -87,7 +87,6 @@
                                                       delegate:nil 
                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
-        [alert release];
     }
     else 
     {
@@ -179,7 +178,6 @@
 {
     RegisterViewController *registerVC = [[RegisterViewController alloc]init];
     [self.navigationController pushViewController:registerVC animated:YES];
-    [registerVC release];
 }
 #pragma mark-
 #pragma mark 忘记密码
@@ -188,20 +186,14 @@
 {
     ForgotPasswordViewController *forgotPasswordVC = [[ForgotPasswordViewController alloc]init];
     [self.navigationController pushViewController:forgotPasswordVC animated:YES];
-    [forgotPasswordVC release];
 }
 
 - (void)viewDidUnload
 {
-    [hotel_btn release];
     hotel_btn = nil;
-    [cook_btn release];
     cook_btn = nil;
-    [account_TF release];
     account_TF = nil;
-    [password_TF release];
     password_TF = nil;
-    [rememberPassword_btn release];
     rememberPassword_btn = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -213,12 +205,4 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [hotel_btn release];
-    [cook_btn release];
-    [account_TF release];
-    [password_TF release];
-    [rememberPassword_btn release];
-    [super dealloc];
-}
 @end

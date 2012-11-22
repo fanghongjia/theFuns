@@ -13,11 +13,6 @@
 @end
 
 @implementation RegisterViewController
--(void)dealloc
-{
-    [hotel_array release];
-    [super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +33,6 @@
                                              initWithTarget:self action:@selector(handleBackgroundTap:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
-    [tapRecognizer release];
     
     hotel_tableView  = [[UITableView alloc]initWithFrame:CGRectMake(10, 80, 300, 370) style:UITableViewStylePlain];
     hotel_tableView.delegate = self;
@@ -48,7 +42,6 @@
     hotel_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 //    hotel_tableView.contentSize = CGSizeMake(300, 2800);
     [self.view addSubview:hotel_tableView];
-    [hotel_tableView release];
     
     hotel_array = [[NSArray alloc]initWithObjects:@"省/市:",@"饭店名称:",@"用户名:",@"密码:",@"确认密码:",@"订餐电话:",@"地址:",@"饭店类型:",@"联系人:",@"联系人职务:",@"联系人手机:",@"邀请人ID:", nil];
     
@@ -93,7 +86,7 @@
     {
         
     }
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableCellIdentify] autorelease];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableCellIdentify];
     
     if (tableView == hotel_tableView) 
     {
@@ -110,7 +103,6 @@
                     myLable.text = [hotel_array objectAtIndex:indexPath.row];
                     //                myLable.font = [UIFont systemFontOfSize:16.0];
                     [cell.contentView addSubview:myLable];
-                    [myLable release]; 
                 }
                 
             }
@@ -125,14 +117,12 @@
             myTF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
             myTF.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:myTF];
-            [myTF release];
         }
         else if (indexPath.row > 0 && indexPath.row < 7) 
         {
             myTF_1 = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
             myTF_1.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:myTF_1];
-            [myTF_1 release];
         }
 
         //cell 内容

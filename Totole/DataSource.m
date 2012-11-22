@@ -50,7 +50,6 @@
     [mArray setParameter:inviteCode Parameter:@"inviteCode"];
     
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/register_Restaurant" Type:NetWorkTypePOST];
-    [mArray release];
 }
 
 //登录 {userName:"loginName",password:"123456",userType:"1"}    fandiantest  123
@@ -64,7 +63,6 @@
     [mArray setParameter:userType Parameter:@"userType"];
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/login" Type:NetWorkTypePOST];
     //    NSLog(@"mArray == %@",mArray);
-    [mArray release];
 }
 
 @end
