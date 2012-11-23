@@ -33,9 +33,38 @@
                                                                                   action:@selector(handleBackgroundTap:)];
     tapRecognizer.cancelsTouchesInView= NO;
     [self.view addGestureRecognizer:tapRecognizer];
+    
+    hotel = YES;
 
 }
+- (IBAction)hotelORcook_click:(id)sender 
+{
+    if (sender == hotel_btn) 
+    {
+        [hotel_btn setBackgroundImage:[UIImage imageNamed:@"login_selectIn.png"] forState:UIControlStateNormal];
+        [cook_btn setBackgroundImage:[UIImage imageNamed:@"login_selectOut.png"] forState:UIControlStateNormal];
+        hotel = YES;       
+    }
+    else 
+    {
+        [hotel_btn setBackgroundImage:[UIImage imageNamed:@"login_selectOut.png"] forState:UIControlStateNormal];
+        [cook_btn setBackgroundImage:[UIImage imageNamed:@"login_selectIn.png"] forState:UIControlStateNormal];
+        hotel = NO;
+    }
+}
 
+- (IBAction)submit_click:(id)sender 
+{
+    //饭店注册
+    if (hotel == YES) 
+    {
+        ;
+    }
+    else 
+    {
+        ;
+    }
+}
 
 - (void) handleBackgroundTap:(UITapGestureRecognizer *)sender
 {
@@ -45,6 +74,10 @@
 
 - (void)viewDidUnload
 {
+    hotel_btn = nil;
+    cook_btn = nil;
+    account_TF = nil;
+    phoneNumber_TF = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

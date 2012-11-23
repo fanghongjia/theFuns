@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "ForgotPasswordViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
 {
     IBOutlet UITextField *account_TF;
     IBOutlet UITextField *password_TF;
@@ -19,10 +19,14 @@
     
     IBOutlet UIButton *cook_btn;
     IBOutlet UIButton *rememberPassword_btn;
+    __unsafe_unretained IBOutlet UIToolbar *toolbar;
+    __unsafe_unretained IBOutlet UIPickerView *myPickerView;
     //标识是否选中饭店
-    BOOL hotel,rememberPassword;
+    BOOL hotel,rememberPassword,Equal;
     
     NSMutableDictionary *accountInfo_mutableDic;
+    NSMutableArray *save_mutableArray;
+    NSArray *accountTitle_array;
 }
 
 @end

@@ -40,7 +40,7 @@
     hotel_tableView.backgroundColor = [UIColor whiteColor];
     hotel_tableView.showsVerticalScrollIndicator = YES;
     hotel_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//    hotel_tableView.contentSize = CGSizeMake(300, 2800);
+    hotel_tableView.contentSize = CGSizeMake(300, 2800);
     [self.view addSubview:hotel_tableView];
     
     hotel_array = [[NSArray alloc]initWithObjects:@"省/市:",@"饭店名称:",@"用户名:",@"密码:",@"确认密码:",@"订餐电话:",@"地址:",@"饭店类型:",@"联系人:",@"联系人职务:",@"联系人手机:",@"邀请人ID:", nil];
@@ -56,6 +56,7 @@
 
 #pragma mark -
 #pragma mark UITableViewDataSource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
 {
     return 1;
