@@ -45,7 +45,7 @@
     
     hotel_array = [[NSArray alloc]initWithObjects:@"省/市:",@"饭店名称:",@"用户名:",@"密码:",@"确认密码:",@"订餐电话:",@"地址:",@"饭店类型:",@"联系人:",@"联系人职务:",@"联系人手机:",@"邀请人ID:", nil];
     
-    
+    agree = YES;
 }
 
 - (void) handleBackgroundTap:(UITapGestureRecognizer*)sender
@@ -91,7 +91,7 @@
     
     if (tableView == hotel_tableView) 
     {
-        if (indexPath.row < 12 ) 
+        if (indexPath.row < 12 ) //共13行
         {
             for (int i = 0; i<12; i++) 
             {
@@ -111,7 +111,28 @@
         }
         else 
         {
-            ;
+            UIButton *agree_button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [agree_button setBackgroundImage:[UIImage imageNamed:@"register_agree.png"] forState:UIControlStateNormal];
+            agree_button.frame = CGRectMake(45, 10, 10, 10);
+            [agree_button addTarget:self action:@selector(register_agree:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:agree_button];
+            
+            UIButton *agreement_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            agreement_btn.frame = CGRectMake(60, 0, 200, 30);
+            [agreement_btn setTitle:@"同意《NTA饭店联盟协议》" forState:UIControlStateNormal];
+            agreement_btn.titleLabel.font = [UIFont systemFontOfSize:15];
+            agreement_btn.titleLabel.textAlignment = UITextAlignmentLeft;
+            [agreement_btn setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
+            [agreement_btn addTarget:self action:@selector(agreement:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:agreement_btn];
+            
+            UIButton *register_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [register_btn setBackgroundImage:[UIImage imageNamed:@"register_register.png"] forState:UIControlStateNormal];
+            register_btn.frame = CGRectMake(110, 30, 80, 35);
+            [agree_button addTarget:self action:@selector(register_click:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:register_btn];
+            
+            
         }//0 < indexPath.row < 7 ||
         if (indexPath.row == 8 || indexPath.row == 10 || indexPath.row == 11) 
         {
@@ -153,7 +174,7 @@
         }
         else 
         {
-            return 60;
+            return 80;
         }
     }
     else 
@@ -164,6 +185,31 @@
 }
 //跳转
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(void)register_agree:(UIButton *)sender
+{
+    if (agree == YES) 
+    {
+        [sender setBackgroundImage:[UIImage imageNamed:@"register_disagree.png"] forState:UIControlStateNormal];
+        agree = NO;
+    }
+    else
+    {
+        [sender setBackgroundImage:[UIImage imageNamed:@"register_agree.png"] forState:UIControlStateNormal];
+        agree = YES;
+    }
+}
+#pragma mark-
+#pragma mark 注册
+-(void)register_click:(UIButton *)sender
+{
+    
+}
+
+-(void)agreement:(UIButton *)sender
 {
     
 }

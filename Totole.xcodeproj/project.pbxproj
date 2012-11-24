@@ -36,6 +36,8 @@
 		78F1DA1D163D8AA300FBBA0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F1DA1C163D8AA300FBBA0B /* Foundation.framework */; };
 		78F1DA23163D8AA300FBBA0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78F1DA21163D8AA300FBBA0B /* InfoPlist.strings */; };
 		78F1DA25163D8AA300FBBA0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F1DA24163D8AA300FBBA0B /* main.m */; };
+		78FEB3861660CB940086ACCF /* register_agree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3841660CB930086ACCF /* register_agree.png */; };
+		78FEB3871660CB940086ACCF /* register_disagree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3851660CB930086ACCF /* register_disagree.png */; };
 		9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC932A0165E7E9900338E3B /* HomeCookViewController.m */; };
 		9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */; };
 		AF416ACD165A00AE00FA0846 /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AC9165A00AD00FA0846 /* tabbar_home.png */; };
@@ -153,6 +155,8 @@
 		78F1DA22163D8AA300FBBA0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		78F1DA24163D8AA300FBBA0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		78F1DA26163D8AA300FBBA0B /* Totole-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Totole-Prefix.pch"; sourceTree = "<group>"; };
+		78FEB3841660CB930086ACCF /* register_agree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_agree.png; sourceTree = "<group>"; };
+		78FEB3851660CB930086ACCF /* register_disagree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_disagree.png; sourceTree = "<group>"; };
 		9FC9329F165E7E9900338E3B /* HomeCookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCookViewController.h; path = Totole/Controller/Home/HomeCookViewController.h; sourceTree = SOURCE_ROOT; };
 		9FC932A0165E7E9900338E3B /* HomeCookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCookViewController.m; path = Totole/Controller/Home/HomeCookViewController.m; sourceTree = SOURCE_ROOT; };
 		9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeCookViewController.xib; path = Totole/Controller/Home/HomeCookViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -592,6 +596,8 @@
 				7853FF5D165D242E00E85C4C /* register_cookNomal.png */,
 				7853FF5E165D243000E85C4C /* register_cookSelect.png */,
 				7853FF5F165D243200E85C4C /* register_HotelNomal.png */,
+				78FEB3841660CB930086ACCF /* register_agree.png */,
+				78FEB3851660CB930086ACCF /* register_disagree.png */,
 				7853FF60165D243500E85C4C /* register_HotelSelect.png */,
 				AFFD58E8165CE66E00DCFED4 /* top_bar.png */,
 			);
@@ -706,6 +712,8 @@
 				7853FF63165D243700E85C4C /* register_HotelNomal.png in Resources */,
 				7853FF64165D243700E85C4C /* register_HotelSelect.png in Resources */,
 				9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */,
+				78FEB3861660CB940086ACCF /* register_agree.png in Resources */,
+				78FEB3871660CB940086ACCF /* register_disagree.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

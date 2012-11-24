@@ -14,6 +14,7 @@
     NSArray *hotel_array;
     
     UITextField *myTF,*myTF_1;
+    BOOL agree;
 }
 
 @end
