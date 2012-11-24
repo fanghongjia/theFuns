@@ -11,12 +11,20 @@
 #import "LoginViewController.h"
 
 #import "HomeViewController.h"
+#import "HomeCookViewController.h"
+
 #import "ActivateViewController.h"
 #import "MallViewController.h"
 #import "ActivityViewController.h"
 #import "AnnouncementViewController.h"
 #import "ManagementCenterViewController.h"
 #import "MyFavoritesViewController.h"
+
+typedef enum 
+{
+    LoginType_hotel,
+    LoginType_cook
+}LoginType;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
 {
@@ -25,6 +33,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void)initTabBarControl:(int)sender;
+-(void)initTabBarControl:(LoginType)sender;
 
 @end

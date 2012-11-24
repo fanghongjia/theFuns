@@ -137,14 +137,16 @@
         if (indexPath.row == 8 || indexPath.row == 10 || indexPath.row == 11) 
         {
             myTF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
+            myTF.tag = indexPath.row;
+            myTF.delegate = self;
             myTF.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:myTF];
         }
         else if (indexPath.row > 0 && indexPath.row < 7) 
         {
-            myTF_1 = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
-            myTF_1.backgroundColor = [UIColor clearColor];
-            [cell.contentView addSubview:myTF_1];
+            myTF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
+            myTF.backgroundColor = [UIColor clearColor];
+            [cell.contentView addSubview:myTF];
         }
 
         //cell 内容

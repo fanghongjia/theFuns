@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -33,16 +34,12 @@
     return YES;
 }
 
--(void)initTabBarControl:(int)sender
+-(void)initTabBarControl:(LoginType)type
 {
     UITabBarController *tabBarControl = [[UITabBarController alloc]init];
     tabBarControl.delegate = self;
     
-    HomeViewController *homeVC = [[HomeViewController alloc]init];
-    homeVC.tabBarItem.title = @"首页";
-    homeVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home.png"];    
-    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:homeVC];
-    nav1.navigationBarHidden = YES;
+    
     
 
     MallViewController *mallVC = [[MallViewController alloc]init];
@@ -69,8 +66,13 @@
     myFavoritesVC.tabBarItem.title = @"我的收藏";
     myFavoritesVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_myfavorites.png"]; 
     UINavigationController *nav7 = [[UINavigationController alloc]initWithRootViewController:myFavoritesVC];
-    if (sender == 1) 
+    if (type == LoginType_hotel) 
     {
+        HomeViewController *homeVC = [[HomeViewController alloc]init];
+        homeVC.tabBarItem.title = @"首页";
+        homeVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home.png"];    
+        UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:homeVC];
+        nav1.navigationBarHidden = YES;
         
         ActivateViewController *activateVC = [[ActivateViewController alloc]init];
         activateVC.tabBarItem.title = @"激活";
@@ -80,8 +82,15 @@
         NSArray *controllers_array = [NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5,nav6,nav7, nil];
         tabBarControl.viewControllers = controllers_array;
         
-    }else 
+    }
+    else 
     {
+        
+        HomeCookViewController *homeCookVC = [[HomeCookViewController alloc]init];
+        homeCookVC.tabBarItem.title = @"首页";
+        homeCookVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home.png"];    
+        UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:homeCookVC];
+        nav1.navigationBarHidden = YES;
         
         NSArray *controll_array = [NSArray arrayWithObjects:nav1,nav3,nav4,nav5,nav6,nav7, nil];
         tabBarControl.viewControllers = controll_array;

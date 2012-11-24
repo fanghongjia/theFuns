@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     UITableView *hotel_tableView;
     NSArray *hotel_array;

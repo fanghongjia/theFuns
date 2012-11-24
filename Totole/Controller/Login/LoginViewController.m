@@ -171,11 +171,11 @@
         //选中饭店
         if (hotel == YES) 
         {
-            [(AppDelegate*)[UIApplication sharedApplication].delegate initTabBarControl:1];
+            [(AppDelegate*)[UIApplication sharedApplication].delegate initTabBarControl:LoginType_hotel];
         }
         else //选中厨师
         {
-            [(AppDelegate*)[UIApplication sharedApplication].delegate initTabBarControl:2];
+            [(AppDelegate*)[UIApplication sharedApplication].delegate initTabBarControl:LoginType_cook];
         }
     }
    

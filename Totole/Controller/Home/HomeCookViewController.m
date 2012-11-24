@@ -32,24 +32,24 @@
 {
     if (sender == mall_btn)
     {
-        self.tabBarController.selectedIndex = 2;
+        self.tabBarController.selectedIndex = 1;
     }
     else if (sender == activity_btn)
     {
-        self.tabBarController.selectedIndex = 3;
+        self.tabBarController.selectedIndex = 2;
     }
     else if (sender == announcement_btn)
     {
-        self.tabBarController.selectedIndex = 4;
+        self.tabBarController.selectedIndex = 3;
         //        [self.tabBarController.moreNavigationController pushViewController:self.tabBarController.selectedViewController animated:YES];
     }
     else if (sender == management_btn)
     {
-        self.tabBarController.selectedIndex = 5;
+        self.tabBarController.selectedIndex = 4;
     }
     else if (sender == myFavorites_btn)
     {   
-        self.tabBarController.selectedIndex = 6;
+        self.tabBarController.selectedIndex = 5;
     }
 }
 
