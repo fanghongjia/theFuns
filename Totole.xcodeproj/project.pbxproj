@@ -38,6 +38,10 @@
 		78F1DA25163D8AA300FBBA0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F1DA24163D8AA300FBBA0B /* main.m */; };
 		78FEB3861660CB940086ACCF /* register_agree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3841660CB930086ACCF /* register_agree.png */; };
 		78FEB3871660CB940086ACCF /* register_disagree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3851660CB930086ACCF /* register_disagree.png */; };
+		9F1D285816625EC00080E96E /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D285716625EC00080E96E /* StartView.m */; };
+		9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D2860166260E40080E96E /* StyledPageControl.m */; };
+		9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2862166261810080E96E /* pageControIcon_disable.png */; };
+		9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2863166261810080E96E /* pageControIcon_enable.png */; };
 		9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC932A0165E7E9900338E3B /* HomeCookViewController.m */; };
 		9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */; };
 		AF416ACD165A00AE00FA0846 /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AC9165A00AD00FA0846 /* tabbar_home.png */; };
@@ -157,6 +161,12 @@
 		78F1DA26163D8AA300FBBA0B /* Totole-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Totole-Prefix.pch"; sourceTree = "<group>"; };
 		78FEB3841660CB930086ACCF /* register_agree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_agree.png; sourceTree = "<group>"; };
 		78FEB3851660CB930086ACCF /* register_disagree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_disagree.png; sourceTree = "<group>"; };
+		9F1D285616625EC00080E96E /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
+		9F1D285716625EC00080E96E /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
+		9F1D285F166260E40080E96E /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = "<group>"; };
+		9F1D2860166260E40080E96E /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = "<group>"; };
+		9F1D2862166261810080E96E /* pageControIcon_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControIcon_disable.png; sourceTree = "<group>"; };
+		9F1D2863166261810080E96E /* pageControIcon_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControIcon_enable.png; sourceTree = "<group>"; };
 		9FC9329F165E7E9900338E3B /* HomeCookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCookViewController.h; path = Totole/Controller/Home/HomeCookViewController.h; sourceTree = SOURCE_ROOT; };
 		9FC932A0165E7E9900338E3B /* HomeCookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCookViewController.m; path = Totole/Controller/Home/HomeCookViewController.m; sourceTree = SOURCE_ROOT; };
 		9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeCookViewController.xib; path = Totole/Controller/Home/HomeCookViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -340,6 +350,7 @@
 				AF416B31165A28D400FA0846 /* AppDelegate.m */,
 				AF416B61165A299A00FA0846 /* DataSource.h */,
 				AF416B62165A299A00FA0846 /* DataSource.m */,
+				9F1D285E166260E40080E96E /* UItitlView */,
 				AFDEDB29165C862600EC461A /* Login */,
 				AF416B39165A28F800FA0846 /* Home */,
 				AF416B24165A28D100FA0846 /* Activate */,
@@ -383,6 +394,15 @@
 				78C3B26816592BFB004EA92C /* p3_1.png */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		9F1D285E166260E40080E96E /* UItitlView */ = {
+			isa = PBXGroup;
+			children = (
+				9F1D285F166260E40080E96E /* StyledPageControl.h */,
+				9F1D2860166260E40080E96E /* StyledPageControl.m */,
+			);
+			path = UItitlView;
 			sourceTree = "<group>";
 		};
 		AF416B24165A28D100FA0846 /* Activate */ = {
@@ -559,6 +579,8 @@
 				AFDEDB64165CB97D00EC461A /* ForgotPasswordViewController.h */,
 				AFDEDB65165CB97D00EC461A /* ForgotPasswordViewController.m */,
 				AFDEDB66165CB97D00EC461A /* ForgotPasswordViewController.xib */,
+				9F1D285616625EC00080E96E /* StartView.h */,
+				9F1D285716625EC00080E96E /* StartView.m */,
 			);
 			name = Login;
 			path = Controller/Login;
@@ -567,6 +589,8 @@
 		AFFD58C1165CE5EE00DCFED4 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				9F1D2862166261810080E96E /* pageControIcon_disable.png */,
+				9F1D2863166261810080E96E /* pageControIcon_enable.png */,
 				7853FF59165D1F6A00E85C4C /* tabbar_myfavorites.png */,
 				AF416AD6165A0A1900FA0846 /* tabbar_management.png */,
 				AF416AD7165A0A1900FA0846 /* tabbar_announcement.png */,
@@ -714,6 +738,8 @@
 				9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */,
 				78FEB3861660CB940086ACCF /* register_agree.png in Resources */,
 				78FEB3871660CB940086ACCF /* register_disagree.png in Resources */,
+				9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */,
+				9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +792,8 @@
 				7853FF4C165D09A900E85C4C /* ActivationSuccessfulViewController.m in Sources */,
 				7853FF4E165D09A900E85C4C /* InputPointsViewController.m in Sources */,
 				9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */,
+				9F1D285816625EC00080E96E /* StartView.m in Sources */,
+				9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
