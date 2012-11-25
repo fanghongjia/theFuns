@@ -39,7 +39,7 @@
 		78FEB3861660CB940086ACCF /* register_agree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3841660CB930086ACCF /* register_agree.png */; };
 		78FEB3871660CB940086ACCF /* register_disagree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3851660CB930086ACCF /* register_disagree.png */; };
 		9F1D285816625EC00080E96E /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D285716625EC00080E96E /* StartView.m */; };
-		9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D2860166260E40080E96E /* StyledPageControl.m */; };
+		9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D2860166260E40080E96E /* StyledPageControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2862166261810080E96E /* pageControIcon_disable.png */; };
 		9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2863166261810080E96E /* pageControIcon_enable.png */; };
 		9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC932A0165E7E9900338E3B /* HomeCookViewController.m */; };

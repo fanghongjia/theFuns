@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "StyledPageControl.h"
 
-@interface StartView : NSObject{
+@interface StartView : UIView <UIScrollViewDelegate>{
     
-    __strong UIScrollView *startScrollView;
+    __strong UIScrollView       *startScrollView;
+    __strong StyledPageControl  *pageControl;
     
 }
 
