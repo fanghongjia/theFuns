@@ -16,9 +16,10 @@
 #import "ActivateViewController.h"
 #import "MallViewController.h"
 #import "ActivityViewController.h"
-#import "AnnouncementViewController.h"
-#import "ManagementCenterViewController.h"
-#import "MyFavoritesViewController.h"
+
+#import "MoreViewController.h"
+
+
 
 typedef enum 
 {

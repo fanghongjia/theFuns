@@ -13,7 +13,7 @@
     UITableView *hotel_tableView;
     NSArray *hotel_array;
     
-    UITextField *myTF,*myTF_1;
+    UITextField *myTF;
     BOOL agree;
 }
 

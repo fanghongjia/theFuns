@@ -58,16 +58,18 @@
     }
     else if (sender == announcement_btn)
     {
-        self.tabBarController.selectedIndex = 4;
-//        [self.tabBarController.moreNavigationController pushViewController:self.tabBarController.selectedViewController animated:YES];
+        AnnouncementViewController *announceVC = [[AnnouncementViewController alloc]init];
+        [self.navigationController pushViewController:announceVC animated:YES];
     }
     else if (sender == management_btn)
     {
-        self.tabBarController.selectedIndex = 5;
+        ManagementCenterViewController *managementVC = [[ManagementCenterViewController alloc]init];
+        [self.navigationController pushViewController:managementVC animated:YES]; 
     }
     else if (sender == myFavorites_btn)
     {   
-        self.tabBarController.selectedIndex = 6;
+        MyFavoritesViewController *myFavoritesVC = [[MyFavoritesViewController alloc]init];
+        [self.navigationController pushViewController:myFavoritesVC animated:YES];
     }
 }
 

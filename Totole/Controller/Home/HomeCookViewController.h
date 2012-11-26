@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AnnouncementViewController.h"
+#import "ManagementCenterViewController.h"
+#import "MyFavoritesViewController.h"
+
 @interface HomeCookViewController : UIViewController
 {
     IBOutlet UIButton *mall_btn;
