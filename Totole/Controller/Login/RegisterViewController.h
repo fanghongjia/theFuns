@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 {
     UITableView *hotel_tableView;
     NSArray *hotel_array;
     
     UITextField *myTF;
     BOOL agree;
+    IBOutlet UIPickerView *province_PickView;
+    IBOutlet UIToolbar *toolbar;
+    
+    NSMutableArray *province_Mutale;
+    
+    UIButton *province_btn,*city_btn;
 }
 
 @end

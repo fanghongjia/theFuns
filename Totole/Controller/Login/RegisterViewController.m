@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    province_Mutale = [NSMutableArray arrayWithObjects:@"四川",@"重庆",@"甘肃",@"青海",@"贵州",@"云南",@"北京",@"上海",@"天津",@"河北",@"山西",@"内蒙古",@"辽宁",@"吉林",@"黑龙江",@"江苏",@"浙江",@"安徽",@"福建",@"江西",@"山东",@"河南",@"湖北",@"湖南",@"广东",@"广西",@"海南",@"西藏",@"陕西",@"宁夏",@"新疆",nil];
+    
     self.navigationController.navigationBarHidden = YES;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
@@ -145,7 +148,7 @@
         {
             myTF.font = [UIFont systemFontOfSize:14.0];
             myTF.secureTextEntry = YES;
-            myTF.placeholder = @"6-20个英文字母，数字，下划线";
+            myTF.placeholder = @"6-20个英文字母,数字,下划线";
         }
         if (myTF.tag == 4) 
         {
@@ -161,15 +164,25 @@
     
     if (indexPath.row == 0) 
     {
-        UIButton *province_btn=[UIButton buttonWithType:UIButtonTypeCustom];
-		[province_btn setFrame:CGRectMake(115, 12, 86, 18)];
+        province_btn=[UIButton buttonWithType:UIButtonTypeCustom];
+		[province_btn setFrame:CGRectMake(110, 12, 86, 18)];
 		[province_btn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
         [province_btn setTitle:@"--请选择--" forState:UIControlStateNormal];
-        province_btn.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        province_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
         province_btn.titleLabel.textAlignment = UITextAlignmentLeft;
 		[province_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:province_btn];
 		[province_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        city_btn=[UIButton buttonWithType:UIButtonTypeCustom];
+		[city_btn setFrame:CGRectMake(210, 12, 70, 18)];
+		[city_btn setBackgroundImage:[UIImage imageNamed:@"register_DownLittleBox.png"] forState:UIControlStateNormal];
+        [city_btn setTitle:@"--请选择--" forState:UIControlStateNormal];
+        city_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+        city_btn.titleLabel.textAlignment = UITextAlignmentLeft;
+		[city_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:city_btn];
+		[city_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
 
         //cell 内容
@@ -184,8 +197,46 @@
     return cell;
 }
 
+
+#pragma mark - 
+#pragma mark Picker DataSource Methods
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{    
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (pickerView == province_PickView) 
+    {
+        return province_Mutale.count;
+    }
+}
+
+#pragma mark Picker Delegate Methods
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (pickerView == province_PickView) 
+    {
+        return [province_Mutale objectAtIndex:row];
+    }
+}
+
+
 -(void)pickerViewSelect:(UIButton *)sender
 {
+    [self.view bringSubviewToFront:province_PickView];
+    [self.view bringSubviewToFront:toolbar];
+    province_PickView.hidden = NO;
+    toolbar.hidden = NO;
+}
+- (IBAction)infoSelect_click:(id)sender 
+{ 
+    int selectedRow = [province_PickView  selectedRowInComponent:0 ];
+    province_PickView.hidden = YES;
+    toolbar.hidden = YES;
+    province_btn.titleLabel.text = [province_Mutale objectAtIndex:selectedRow];
     
 }
 
@@ -300,6 +351,8 @@
 
 - (void)viewDidUnload
 {
+    province_PickView = nil;
+    toolbar = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

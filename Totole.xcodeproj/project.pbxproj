@@ -16,6 +16,7 @@
 		7853FF63165D243700E85C4C /* register_HotelNomal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF5F165D243200E85C4C /* register_HotelNomal.png */; };
 		7853FF64165D243700E85C4C /* register_HotelSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF60165D243500E85C4C /* register_HotelSelect.png */; };
 		7870AF2316626FD500255A96 /* CookPersonal_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7870AF2216626FD400255A96 /* CookPersonal_TableView.m */; };
+		78BD091E1663AA7C00006E4E /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 78BD091D1663AA7C00006E4E /* tabbar_more.png */; };
 		78C3B26916592BFB004EA92C /* p3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26816592BFB004EA92C /* p3_1.png */; };
 		78C3B26B16592CD5004EA92C /* p3.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26A16592CD5004EA92C /* p3.png */; };
 		78C3B26D16592D91004EA92C /* back_tob.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26C16592D91004EA92C /* back_tob.png */; };
@@ -105,7 +106,6 @@
 		AFF53F0E1663118300882AFD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F0A1663118300882AFD /* HomeViewController.xib */; };
 		AFF53F161663161E00882AFD /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53F141663161E00882AFD /* MoreViewController.m */; };
 		AFF53F171663161E00882AFD /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F151663161E00882AFD /* MoreViewController.xib */; };
-		AFF53F191663203C00882AFD /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F181663203C00882AFD /* tabbar_more.png */; };
 		AFFD58D5165CE5EF00DCFED4 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C2165CE5EF00DCFED4 /* back.png */; };
 		AFFD58D6165CE5EF00DCFED4 /* firstLogin_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */; };
 		AFFD58D7165CE5EF00DCFED4 /* firstLogin_2.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */; };
@@ -138,6 +138,7 @@
 		7853FF60165D243500E85C4C /* register_HotelSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_HotelSelect.png; sourceTree = "<group>"; };
 		7870AF2116626FD400255A96 /* CookPersonal_TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookPersonal_TableView.h; sourceTree = "<group>"; };
 		7870AF2216626FD400255A96 /* CookPersonal_TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookPersonal_TableView.m; sourceTree = "<group>"; };
+		78BD091D1663AA7C00006E4E /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
 		78C3B26816592BFB004EA92C /* p3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p3_1.png; sourceTree = "<group>"; };
 		78C3B26A16592CD5004EA92C /* p3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p3.png; sourceTree = "<group>"; };
 		78C3B26C16592D91004EA92C /* back_tob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_tob.png; sourceTree = "<group>"; };
@@ -280,7 +281,6 @@
 		AFF53F131663161E00882AFD /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		AFF53F141663161E00882AFD /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		AFF53F151663161E00882AFD /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
-		AFF53F181663203C00882AFD /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_more.png; path = ../../../../tabbar_more.png; sourceTree = "<group>"; };
 		AFFD58C2165CE5EF00DCFED4 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_1.png; sourceTree = "<group>"; };
 		AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_2.png; sourceTree = "<group>"; };
@@ -628,8 +628,8 @@
 				AF416AC9165A00AD00FA0846 /* tabbar_home.png */,
 				AF416ACA165A00AD00FA0846 /* tabbar_activate.png */,
 				7853FF55165D1E7600E85C4C /* tabbar_mall.png */,
+				78BD091D1663AA7C00006E4E /* tabbar_more.png */,
 				7853FF57165D1EE600E85C4C /* tabbar_activity.png */,
-				AFF53F181663203C00882AFD /* tabbar_more.png */,
 				AFFD58C2165CE5EF00DCFED4 /* back.png */,
 				AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */,
 				AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */,
@@ -773,7 +773,7 @@
 				AFF53F0C1663118300882AFD /* HomeCookViewController.xib in Resources */,
 				AFF53F0E1663118300882AFD /* HomeViewController.xib in Resources */,
 				AFF53F171663161E00882AFD /* MoreViewController.xib in Resources */,
-				AFF53F191663203C00882AFD /* tabbar_more.png in Resources */,
+				78BD091E1663AA7C00006E4E /* tabbar_more.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
