@@ -12,7 +12,7 @@
 
 @interface CookPersonal_TableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 {
-    
+    NSArray *cook_array;
 }
 
 @end

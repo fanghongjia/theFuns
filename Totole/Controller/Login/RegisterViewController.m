@@ -28,8 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    province_Mutale = [NSMutableArray arrayWithObjects:@"四川",@"重庆",@"甘肃",@"青海",@"贵州",@"云南",@"北京",@"上海",@"天津",@"河北",@"山西",@"内蒙古",@"辽宁",@"吉林",@"黑龙江",@"江苏",@"浙江",@"安徽",@"福建",@"江西",@"山东",@"河南",@"湖北",@"湖南",@"广东",@"广西",@"海南",@"西藏",@"陕西",@"宁夏",@"新疆",nil];
-    
+    province_Mutable = [NSMutableArray arrayWithObjects:@"四川",@"重庆",@"甘肃",@"青海",@"贵州",@"云南",@"北京",@"上海",@"天津",@"河北",@"山西",@"内蒙古",@"辽宁",@"吉林",@"黑龙江",@"江苏",@"浙江",@"安徽",@"福建",@"江西",@"山东",@"河南",@"湖北",@"湖南",@"广东",@"广西",@"海南",@"西藏",@"陕西",@"宁夏",@"新疆",nil];
+    hotelType_Mutable = [NSMutableArray arrayWithObjects:@"三星级",@"四星级",@"五星级", nil];
+    post_Mutable = [NSMutableArray arrayWithObjects:@"经理",@"厨师长",@"配菜", nil];
     self.navigationController.navigationBarHidden = YES;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
@@ -49,6 +50,7 @@
     hotel_array = [[NSArray alloc]initWithObjects:@"省/市:",@"饭店名称:",@"用户名:",@"密码:",@"确认密码:",@"订餐电话:",@"地址:",@"饭店类型:",@"联系人:",@"联系人职务:",@"联系人手机:",@"邀请人ID:", nil];
     
     agree = YES;
+    hotelRegister = YES;
 }
 
 - (void) handleBackgroundTap:(UITapGestureRecognizer*)sender
@@ -71,18 +73,19 @@
         return 13;
 }
 //单元格的内容
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
     
-    NSString *TableCellIdentify = [NSString stringWithFormat:@"Cell_%d_%d",indexPath.section,indexPath.row];
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableCellIdentify];
-    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableCellIdentify];
-    if (cell == nil) 
-    {
-        
-    }
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableCellIdentify];
+    static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+     if (cell == nil) 
+     {  
+     } 
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+//    NSString *TableCellIdentify = [NSString stringWithFormat:@"Cell_%d_%d",indexPath.section,indexPath.row];
+   
 //    if (tableView == hotel_tableView) 
 //    {
     if (indexPath.row < 12 ) //共13行
@@ -137,7 +140,7 @@
         myTF.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:myTF];        
     }
-    if (indexPath.row > 0 && indexPath.row < 7) 
+    else if (indexPath.row > 0 && indexPath.row < 7) 
     {
         myTF = [[UITextField alloc]initWithFrame:CGRectMake(100, 10, 200, 31)];
         myTF.tag = indexPath.row;
@@ -162,31 +165,56 @@
         [cell.contentView addSubview:myTF];
     }
     
-    if (indexPath.row == 0) 
+    else if (indexPath.row == 0) 
     {
         province_btn=[UIButton buttonWithType:UIButtonTypeCustom];
-		[province_btn setFrame:CGRectMake(110, 12, 86, 18)];
+		[province_btn setFrame:CGRectMake(110, 11, 86, 18)];
 		[province_btn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
-        [province_btn setTitle:@"--请选择--" forState:UIControlStateNormal];
+        [province_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
         province_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
-        province_btn.titleLabel.textAlignment = UITextAlignmentLeft;
+        province_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 		[province_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:province_btn];
+        [cell addSubview:province_btn];
 		[province_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
         city_btn=[UIButton buttonWithType:UIButtonTypeCustom];
-		[city_btn setFrame:CGRectMake(210, 12, 70, 18)];
+		[city_btn setFrame:CGRectMake(210, 11, 70, 18)];
 		[city_btn setBackgroundImage:[UIImage imageNamed:@"register_DownLittleBox.png"] forState:UIControlStateNormal];
-        [city_btn setTitle:@"--请选择--" forState:UIControlStateNormal];
+        [city_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
         city_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
-        city_btn.titleLabel.textAlignment = UITextAlignmentLeft;
+        city_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 		[city_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:city_btn];
 		[city_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
+    else if (indexPath.row == 7) 
+    {
+        hotelType_btn=[UIButton buttonWithType:UIButtonTypeCustom];
+		[hotelType_btn setFrame:CGRectMake(110, 11, 86, 18)];
+		[hotelType_btn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
+        [hotelType_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
+        hotelType_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+        hotelType_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+		[hotelType_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:hotelType_btn];
+		[hotelType_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    else if (indexPath.row == 9) 
+    {
+        post_btn=[UIButton buttonWithType:UIButtonTypeCustom];
+		[post_btn setFrame:CGRectMake(110, 11, 86, 18)];
+		[post_btn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
+        [post_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
+        post_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+        post_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+		[post_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:post_btn];
+		[post_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    
 
         //cell 内容
-        cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"xiankuang.png"]];
+//        cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"xiankuang.png"]];
 //    }
 
     cell.backgroundColor = [UIColor clearColor];    
@@ -195,6 +223,38 @@
     
     
     return cell;
+}
+// 注册，选中饭店or厨师
+- (IBAction)registerSelect_click:(id)sender 
+{
+    if (sender == hotelRegister_btn ) 
+    {
+        cookPersonal_TableView.hidden = YES;
+        hotel_tableView.hidden = NO;
+        [hotelRegister_btn setBackgroundImage:[UIImage imageNamed:@"register_HotelSelect.png"] forState:UIControlStateNormal];
+        [cookRegister_btn setBackgroundImage:[UIImage imageNamed:@"register_cookNomal.png"] forState:UIControlStateNormal];
+        hotelRegister = YES;
+    }
+    else 
+    {
+        hotel_tableView.hidden = YES;
+        
+        if (cookPersonal_TableView) 
+        {
+            cookPersonal_TableView.hidden = NO;
+        } 
+        else 
+        {
+            cookPersonal_TableView = [[CookPersonal_TableView alloc]init];
+            cookPersonal_TableView.frame = CGRectMake(10, 100, 300, 310);
+//            cookPersonal_TableView = [[CookPersonal_TableView alloc]initWithFrame:CGRectMake(10, 100, 300, 310) style:UITableViewStylePlain];
+            [self.view addSubview:cookPersonal_TableView];
+        }
+        
+        [hotelRegister_btn setBackgroundImage:[UIImage imageNamed:@"register_HotelNomal.png"] forState:UIControlStateNormal];
+        [cookRegister_btn setBackgroundImage:[UIImage imageNamed:@"register_cookSelect.png"] forState:UIControlStateNormal];
+        hotelRegister = NO;
+    }
 }
 
 
@@ -210,7 +270,19 @@
 {
     if (pickerView == province_PickView) 
     {
-        return province_Mutale.count;
+        return province_Mutable.count;
+    }
+    else if (pickerView == city_PickView) 
+    {
+        return city_Mutable.count;
+    }
+    else if (pickerView == hotelType_PickView) 
+    {
+        return hotelType_Mutable.count;
+    }
+    else 
+    {
+        return post_Mutable.count;
     }
 }
 
@@ -219,25 +291,94 @@
 {
     if (pickerView == province_PickView) 
     {
-        return [province_Mutale objectAtIndex:row];
+        return [province_Mutable objectAtIndex:row];
+    }
+    else if (pickerView == city_PickView) 
+    {
+        return [city_Mutable objectAtIndex:row];
+    }
+    else if (pickerView == hotelType_PickView) 
+    {
+        return [hotelType_Mutable objectAtIndex:row];
+    }
+    else 
+    {
+        return [post_Mutable objectAtIndex:row];
     }
 }
 
 
 -(void)pickerViewSelect:(UIButton *)sender
 {
-    [self.view bringSubviewToFront:province_PickView];
-    [self.view bringSubviewToFront:toolbar];
-    province_PickView.hidden = NO;
-    toolbar.hidden = NO;
+    if (sender == province_btn) 
+    {
+        [province_PickView reloadAllComponents];
+        [self.view bringSubviewToFront:province_PickView];
+        [self.view bringSubviewToFront:toolbar];
+        province_PickView.hidden = NO;
+        city_PickView.hidden = YES;
+        hotelType_PickView.hidden = YES;
+        post_PickView.hidden = YES;
+        toolbar.hidden = NO;
+    }
+    else if (sender == city_btn) 
+    {
+        [city_PickView reloadAllComponents];
+        [self.view bringSubviewToFront:city_PickView];
+        [self.view bringSubviewToFront:toolbar];
+        province_PickView.hidden = YES;
+        city_PickView.hidden = NO;
+        hotelType_PickView.hidden = YES;
+        post_PickView.hidden = YES;
+        toolbar.hidden = NO;
+    }
+    else if (sender == hotelType_btn) 
+    {
+        [hotelType_PickView reloadAllComponents];
+        [self.view bringSubviewToFront:hotelType_PickView];
+        [self.view bringSubviewToFront:toolbar];
+        province_PickView.hidden = YES;
+        city_PickView.hidden = YES;
+        hotelType_PickView.hidden = NO;
+        post_PickView.hidden = YES;
+        toolbar.hidden = NO;
+    }
+    else 
+    {
+        [post_PickView reloadAllComponents];
+        [self.view bringSubviewToFront:post_PickView];
+        [self.view bringSubviewToFront:toolbar];
+        province_PickView.hidden = YES;
+        city_PickView.hidden = YES;
+        hotelType_PickView.hidden = YES;
+        post_PickView.hidden = NO;
+        toolbar.hidden = NO;
+    }
+    
 }
+//确定按钮
 - (IBAction)infoSelect_click:(id)sender 
 { 
-    int selectedRow = [province_PickView  selectedRowInComponent:0 ];
-    province_PickView.hidden = YES;
-    toolbar.hidden = YES;
-    province_btn.titleLabel.text = [province_Mutale objectAtIndex:selectedRow];
+    int province_selectedRow = [province_PickView  selectedRowInComponent:0 ];
+    int city_selectedRow = [city_PickView  selectedRowInComponent:0 ];
+    int hotelType_selectedRow = [hotelType_PickView  selectedRowInComponent:0 ];
+    int post_selectedRow = [post_PickView  selectedRowInComponent:0 ];
     
+    province_PickView.hidden = YES;
+    city_PickView.hidden = YES;
+    toolbar.hidden = YES;
+    hotelType_PickView.hidden = YES;
+    post_PickView.hidden = YES;
+    
+    province_btn.titleLabel.text = [province_Mutable objectAtIndex:province_selectedRow];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"plist"];
+    city_Mutable = [[[NSMutableArray alloc] initWithContentsOfFile:path] objectAtIndex:province_selectedRow];    
+    city_btn.titleLabel.text = [city_Mutable objectAtIndex:city_selectedRow];    
+    
+    hotelType_btn.titleLabel.text = [hotelType_Mutable objectAtIndex:hotelType_selectedRow];
+    
+    post_btn.titleLabel.text = [post_Mutable objectAtIndex:post_selectedRow];
 }
 
 #pragma mark-
@@ -252,6 +393,7 @@
 
     if (textField.tag == 10) 
     {
+        textField.keyboardType = UIKeyboardTypeNumberPad;
         CGRect rect = CGRectMake(0.0f, -130, width, height);
         self.view.frame= rect;
     }
@@ -265,8 +407,13 @@
         CGRect rect = CGRectMake(0.0f, -225, width, height);
         self.view.frame= rect;
     }
+    else if(textField.tag == 5 || textField.tag == 12)
+    {
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }
         
-        [UIView commitAnimations];
+    [UIView commitAnimations];
+    
 
     return YES;
 }
@@ -353,6 +500,11 @@
 {
     province_PickView = nil;
     toolbar = nil;
+    city_PickView = nil;
+    hotelType_PickView = nil;
+    post_PickView = nil;
+    hotelRegister_btn = nil;
+    cookRegister_btn = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
