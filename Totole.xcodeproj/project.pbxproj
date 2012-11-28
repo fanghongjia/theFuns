@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7853FF4A165D09A900E85C4C /* ActivationFailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7853FF42165D09A900E85C4C /* ActivationFailsViewController.m */; };
-		7853FF4B165D09A900E85C4C /* ActivationFailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF43165D09A900E85C4C /* ActivationFailsViewController.xib */; };
-		7853FF4C165D09A900E85C4C /* ActivationSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7853FF45165D09A900E85C4C /* ActivationSuccessfulViewController.m */; };
-		7853FF4D165D09A900E85C4C /* ActivationSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF46165D09A900E85C4C /* ActivationSuccessfulViewController.xib */; };
-		7853FF4E165D09A900E85C4C /* InputPointsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7853FF48165D09A900E85C4C /* InputPointsViewController.m */; };
-		7853FF4F165D09A900E85C4C /* InputPointsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF49165D09A900E85C4C /* InputPointsViewController.xib */; };
 		7853FF56165D1E7A00E85C4C /* tabbar_mall.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF55165D1E7600E85C4C /* tabbar_mall.png */; };
 		7853FF58165D1EE800E85C4C /* tabbar_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF57165D1EE600E85C4C /* tabbar_activity.png */; };
 		7853FF5A165D1F6C00E85C4C /* tabbar_myfavorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF59165D1F6A00E85C4C /* tabbar_myfavorites.png */; };
@@ -21,6 +15,7 @@
 		7853FF62165D243700E85C4C /* register_cookSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF5E165D243000E85C4C /* register_cookSelect.png */; };
 		7853FF63165D243700E85C4C /* register_HotelNomal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF5F165D243200E85C4C /* register_HotelNomal.png */; };
 		7853FF64165D243700E85C4C /* register_HotelSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF60165D243500E85C4C /* register_HotelSelect.png */; };
+		7870AF2316626FD500255A96 /* CookPersonal_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7870AF2216626FD400255A96 /* CookPersonal_TableView.m */; };
 		78C3B26916592BFB004EA92C /* p3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26816592BFB004EA92C /* p3_1.png */; };
 		78C3B26B16592CD5004EA92C /* p3.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26A16592CD5004EA92C /* p3.png */; };
 		78C3B26D16592D91004EA92C /* back_tob.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26C16592D91004EA92C /* back_tob.png */; };
@@ -40,10 +35,13 @@
 		78FEB3871660CB940086ACCF /* register_disagree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3851660CB930086ACCF /* register_disagree.png */; };
 		9F1D285816625EC00080E96E /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D285716625EC00080E96E /* StartView.m */; };
 		9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D2860166260E40080E96E /* StyledPageControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		9F1D2864166261810080E96E /* pageControIcon_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2862166261810080E96E /* pageControIcon_disable@2x.png */; };
-		9F1D2865166261810080E96E /* pageControIcon_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2863166261810080E96E /* pageControIcon_enable@2x.png */; };
-		9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC932A0165E7E9900338E3B /* HomeCookViewController.m */; };
-		9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */; };
+		9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2862166261810080E96E /* pageControIcon_disable.png */; };
+		9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2863166261810080E96E /* pageControIcon_enable.png */; };
+		AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */ = {isa = PBXBuildFile; fileRef = AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */; };
+		AF1188501665FA58007DB7DD /* register_next.png in Resources */ = {isa = PBXBuildFile; fileRef = AF11884F1665FA58007DB7DD /* register_next.png */; };
+		AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1188511665FF65007DB7DD /* HotelUserRegisterView.m */; };
+		AF118855166606F5007DB7DD /* hotelUserRegister.png in Resources */ = {isa = PBXBuildFile; fileRef = AF118854166606F5007DB7DD /* hotelUserRegister.png */; };
+		AF2D39B916645C9F00720690 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2D39B816645C9F00720690 /* city.plist */; };
 		AF416ACD165A00AE00FA0846 /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AC9165A00AD00FA0846 /* tabbar_home.png */; };
 		AF416ACE165A00AE00FA0846 /* tabbar_activate.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416ACA165A00AD00FA0846 /* tabbar_activate.png */; };
 		AF416AD9165A0A1900FA0846 /* tabbar_management.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AD6165A0A1900FA0846 /* tabbar_management.png */; };
@@ -80,18 +78,7 @@
 		AF416BAF165A2B0C00FA0846 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BAE165A2B0C00FA0846 /* CFNetwork.framework */; };
 		AF416BB1165A2B1900FA0846 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB0165A2B1900FA0846 /* MobileCoreServices.framework */; };
 		AF416BB3165A2B2800FA0846 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB2165A2B2800FA0846 /* libz.dylib */; };
-		AFDEDB0E165C852900EC461A /* MallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB0C165C852900EC461A /* MallViewController.m */; };
-		AFDEDB0F165C852900EC461A /* MallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB0D165C852900EC461A /* MallViewController.xib */; };
-		AFDEDB13165C854400EC461A /* ManagementCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB11165C854400EC461A /* ManagementCenterViewController.m */; };
-		AFDEDB14165C854400EC461A /* ManagementCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB12165C854400EC461A /* ManagementCenterViewController.xib */; };
-		AFDEDB18165C855700EC461A /* MyFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB16165C855700EC461A /* MyFavoritesViewController.m */; };
-		AFDEDB19165C855700EC461A /* MyFavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB17165C855700EC461A /* MyFavoritesViewController.xib */; };
-		AFDEDB1D165C856D00EC461A /* ActivateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB1B165C856D00EC461A /* ActivateViewController.m */; };
-		AFDEDB1E165C856D00EC461A /* ActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB1C165C856D00EC461A /* ActivateViewController.xib */; };
-		AFDEDB22165C857C00EC461A /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB20165C857C00EC461A /* ActivityViewController.m */; };
-		AFDEDB23165C857C00EC461A /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB21165C857C00EC461A /* ActivityViewController.xib */; };
-		AFDEDB27165C859100EC461A /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB25165C859100EC461A /* AnnouncementViewController.m */; };
-		AFDEDB28165C859100EC461A /* AnnouncementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB26165C859100EC461A /* AnnouncementViewController.xib */; };
+		AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC50E16661302005DACF3 /* tabbar_more.png */; };
 		AFDEDB37165C862600EC461A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB31165C862600EC461A /* RegisterViewController.m */; };
 		AFDEDB38165C862600EC461A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB32165C862600EC461A /* RegisterViewController.xib */; };
 		AFDEDB6D165CB97D00EC461A /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB65165CB97D00EC461A /* ForgotPasswordViewController.m */; };
@@ -100,8 +87,30 @@
 		AFDEDB70165CB97D00EC461A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB69165CB97D00EC461A /* LoginViewController.xib */; };
 		AFDEDB71165CB97D00EC461A /* RegisterAgreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB6B165CB97D00EC461A /* RegisterAgreeViewController.m */; };
 		AFDEDB72165CB97D00EC461A /* RegisterAgreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB6C165CB97D00EC461A /* RegisterAgreeViewController.xib */; };
-		AFFD58A7165CBA1400DCFED4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD58A5165CBA1400DCFED4 /* HomeViewController.m */; };
-		AFFD58A8165CBA1400DCFED4 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58A6165CBA1400DCFED4 /* HomeViewController.xib */; };
+		AFF53ED51663100A00882AFD /* MyFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53ED31663100A00882AFD /* MyFavoritesViewController.m */; };
+		AFF53ED61663100A00882AFD /* MyFavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53ED41663100A00882AFD /* MyFavoritesViewController.xib */; };
+		AFF53EDB1663102800882AFD /* ManagementCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53ED91663102800882AFD /* ManagementCenterViewController.m */; };
+		AFF53EDC1663102800882AFD /* ManagementCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EDA1663102800882AFD /* ManagementCenterViewController.xib */; };
+		AFF53EE11663113F00882AFD /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EDF1663113F00882AFD /* AnnouncementViewController.m */; };
+		AFF53EE21663113F00882AFD /* AnnouncementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EE01663113F00882AFD /* AnnouncementViewController.xib */; };
+		AFF53EE71663115600882AFD /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EE51663115600882AFD /* ActivityViewController.m */; };
+		AFF53EE81663115600882AFD /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EE61663115600882AFD /* ActivityViewController.xib */; };
+		AFF53EED1663116700882AFD /* MallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EEB1663116700882AFD /* MallViewController.m */; };
+		AFF53EEE1663116700882AFD /* MallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EEC1663116700882AFD /* MallViewController.xib */; };
+		AFF53EFC1663117600882AFD /* ActivateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EF11663117600882AFD /* ActivateViewController.m */; };
+		AFF53EFD1663117600882AFD /* ActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EF21663117600882AFD /* ActivateViewController.xib */; };
+		AFF53EFE1663117600882AFD /* ActivationFailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EF41663117600882AFD /* ActivationFailsViewController.m */; };
+		AFF53EFF1663117600882AFD /* ActivationFailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EF51663117600882AFD /* ActivationFailsViewController.xib */; };
+		AFF53F001663117600882AFD /* ActivationSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EF71663117600882AFD /* ActivationSuccessfulViewController.m */; };
+		AFF53F011663117600882AFD /* ActivationSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EF81663117600882AFD /* ActivationSuccessfulViewController.xib */; };
+		AFF53F021663117600882AFD /* InputPointsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EFA1663117600882AFD /* InputPointsViewController.m */; };
+		AFF53F031663117600882AFD /* InputPointsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EFB1663117600882AFD /* InputPointsViewController.xib */; };
+		AFF53F0B1663118300882AFD /* HomeCookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53F061663118300882AFD /* HomeCookViewController.m */; };
+		AFF53F0C1663118300882AFD /* HomeCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F071663118300882AFD /* HomeCookViewController.xib */; };
+		AFF53F0D1663118300882AFD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53F091663118300882AFD /* HomeViewController.m */; };
+		AFF53F0E1663118300882AFD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F0A1663118300882AFD /* HomeViewController.xib */; };
+		AFF53F161663161E00882AFD /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53F141663161E00882AFD /* MoreViewController.m */; };
+		AFF53F171663161E00882AFD /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F151663161E00882AFD /* MoreViewController.xib */; };
 		AFFD58D5165CE5EF00DCFED4 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C2165CE5EF00DCFED4 /* back.png */; };
 		AFFD58D6165CE5EF00DCFED4 /* firstLogin_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */; };
 		AFFD58D7165CE5EF00DCFED4 /* firstLogin_2.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */; };
@@ -124,15 +133,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7853FF41165D09A900E85C4C /* ActivationFailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivationFailsViewController.h; path = Totole/Controller/Activate/ActivationFailsViewController.h; sourceTree = SOURCE_ROOT; };
-		7853FF42165D09A900E85C4C /* ActivationFailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivationFailsViewController.m; path = Totole/Controller/Activate/ActivationFailsViewController.m; sourceTree = SOURCE_ROOT; };
-		7853FF43165D09A900E85C4C /* ActivationFailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActivationFailsViewController.xib; path = Totole/Controller/Activate/ActivationFailsViewController.xib; sourceTree = SOURCE_ROOT; };
-		7853FF44165D09A900E85C4C /* ActivationSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivationSuccessfulViewController.h; path = Totole/Controller/Activate/ActivationSuccessfulViewController.h; sourceTree = SOURCE_ROOT; };
-		7853FF45165D09A900E85C4C /* ActivationSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivationSuccessfulViewController.m; path = Totole/Controller/Activate/ActivationSuccessfulViewController.m; sourceTree = SOURCE_ROOT; };
-		7853FF46165D09A900E85C4C /* ActivationSuccessfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActivationSuccessfulViewController.xib; path = Totole/Controller/Activate/ActivationSuccessfulViewController.xib; sourceTree = SOURCE_ROOT; };
-		7853FF47165D09A900E85C4C /* InputPointsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputPointsViewController.h; path = Totole/Controller/Activate/InputPointsViewController.h; sourceTree = SOURCE_ROOT; };
-		7853FF48165D09A900E85C4C /* InputPointsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputPointsViewController.m; path = Totole/Controller/Activate/InputPointsViewController.m; sourceTree = SOURCE_ROOT; };
-		7853FF49165D09A900E85C4C /* InputPointsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputPointsViewController.xib; path = Totole/Controller/Activate/InputPointsViewController.xib; sourceTree = SOURCE_ROOT; };
 		7853FF55165D1E7600E85C4C /* tabbar_mall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_mall.png; path = ../tabbar_mall.png; sourceTree = "<group>"; };
 		7853FF57165D1EE600E85C4C /* tabbar_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_activity.png; path = ../tabbar_activity.png; sourceTree = "<group>"; };
 		7853FF59165D1F6A00E85C4C /* tabbar_myfavorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_myfavorites.png; path = ../tabbar_myfavorites.png; sourceTree = "<group>"; };
@@ -141,6 +141,8 @@
 		7853FF5E165D243000E85C4C /* register_cookSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_cookSelect.png; sourceTree = "<group>"; };
 		7853FF5F165D243200E85C4C /* register_HotelNomal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_HotelNomal.png; sourceTree = "<group>"; };
 		7853FF60165D243500E85C4C /* register_HotelSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_HotelSelect.png; sourceTree = "<group>"; };
+		7870AF2116626FD400255A96 /* CookPersonal_TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookPersonal_TableView.h; sourceTree = "<group>"; };
+		7870AF2216626FD400255A96 /* CookPersonal_TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookPersonal_TableView.m; sourceTree = "<group>"; };
 		78C3B26816592BFB004EA92C /* p3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p3_1.png; sourceTree = "<group>"; };
 		78C3B26A16592CD5004EA92C /* p3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p3.png; sourceTree = "<group>"; };
 		78C3B26C16592D91004EA92C /* back_tob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_tob.png; sourceTree = "<group>"; };
@@ -165,11 +167,15 @@
 		9F1D285716625EC00080E96E /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		9F1D285F166260E40080E96E /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = "<group>"; };
 		9F1D2860166260E40080E96E /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = "<group>"; };
-		9F1D2862166261810080E96E /* pageControIcon_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControIcon_disable@2x.png"; sourceTree = "<group>"; };
-		9F1D2863166261810080E96E /* pageControIcon_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControIcon_enable@2x.png"; sourceTree = "<group>"; };
-		9FC9329F165E7E9900338E3B /* HomeCookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCookViewController.h; path = Totole/Controller/Home/HomeCookViewController.h; sourceTree = SOURCE_ROOT; };
-		9FC932A0165E7E9900338E3B /* HomeCookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCookViewController.m; path = Totole/Controller/Home/HomeCookViewController.m; sourceTree = SOURCE_ROOT; };
-		9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeCookViewController.xib; path = Totole/Controller/Home/HomeCookViewController.xib; sourceTree = SOURCE_ROOT; };
+		9F1D2862166261810080E96E /* pageControIcon_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControIcon_disable.png; sourceTree = "<group>"; };
+		9F1D2863166261810080E96E /* pageControIcon_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControIcon_enable.png; sourceTree = "<group>"; };
+		AF1188491665BD4A007DB7DD /* CookPersonal_view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookPersonal_view.h; sourceTree = "<group>"; };
+		AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookPersonal_view.m; sourceTree = "<group>"; };
+		AF11884F1665FA58007DB7DD /* register_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_next.png; sourceTree = "<group>"; };
+		AF1188511665FF65007DB7DD /* HotelUserRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelUserRegisterView.m; sourceTree = "<group>"; };
+		AF1188521665FF65007DB7DD /* HotelUserRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelUserRegisterView.h; sourceTree = "<group>"; };
+		AF118854166606F5007DB7DD /* hotelUserRegister.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotelUserRegister.png; sourceTree = "<group>"; };
+		AF2D39B816645C9F00720690 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		AF416AC9165A00AD00FA0846 /* tabbar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_home.png; path = ../tabbar_home.png; sourceTree = "<group>"; };
 		AF416ACA165A00AD00FA0846 /* tabbar_activate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_activate.png; path = ../tabbar_activate.png; sourceTree = "<group>"; };
 		AF416AD6165A0A1900FA0846 /* tabbar_management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_management.png; path = ../tabbar_management.png; sourceTree = "<group>"; };
@@ -238,24 +244,7 @@
 		AF416BAE165A2B0C00FA0846 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AF416BB0165A2B1900FA0846 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AF416BB2165A2B2800FA0846 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		AFDEDB0B165C852900EC461A /* MallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MallViewController.h; path = Totole/Controller/Mall/MallViewController.h; sourceTree = SOURCE_ROOT; };
-		AFDEDB0C165C852900EC461A /* MallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MallViewController.m; path = Totole/Controller/Mall/MallViewController.m; sourceTree = SOURCE_ROOT; };
-		AFDEDB0D165C852900EC461A /* MallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MallViewController.xib; path = Totole/Controller/Mall/MallViewController.xib; sourceTree = SOURCE_ROOT; };
-		AFDEDB10165C854400EC461A /* ManagementCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagementCenterViewController.h; path = Totole/Controller/Management/ManagementCenterViewController.h; sourceTree = SOURCE_ROOT; };
-		AFDEDB11165C854400EC461A /* ManagementCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagementCenterViewController.m; path = Totole/Controller/Management/ManagementCenterViewController.m; sourceTree = SOURCE_ROOT; };
-		AFDEDB12165C854400EC461A /* ManagementCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagementCenterViewController.xib; path = Totole/Controller/Management/ManagementCenterViewController.xib; sourceTree = SOURCE_ROOT; };
-		AFDEDB15165C855700EC461A /* MyFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFavoritesViewController.h; path = Totole/Controller/MyFavorites/MyFavoritesViewController.h; sourceTree = SOURCE_ROOT; };
-		AFDEDB16165C855700EC461A /* MyFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFavoritesViewController.m; path = Totole/Controller/MyFavorites/MyFavoritesViewController.m; sourceTree = SOURCE_ROOT; };
-		AFDEDB17165C855700EC461A /* MyFavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyFavoritesViewController.xib; path = Totole/Controller/MyFavorites/MyFavoritesViewController.xib; sourceTree = SOURCE_ROOT; };
-		AFDEDB1A165C856D00EC461A /* ActivateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivateViewController.h; path = Totole/Controller/Activate/ActivateViewController.h; sourceTree = SOURCE_ROOT; };
-		AFDEDB1B165C856D00EC461A /* ActivateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivateViewController.m; path = Totole/Controller/Activate/ActivateViewController.m; sourceTree = SOURCE_ROOT; };
-		AFDEDB1C165C856D00EC461A /* ActivateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActivateViewController.xib; path = Totole/Controller/Activate/ActivateViewController.xib; sourceTree = SOURCE_ROOT; };
-		AFDEDB1F165C857C00EC461A /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Totole/Controller/Activity/ActivityViewController.h; sourceTree = SOURCE_ROOT; };
-		AFDEDB20165C857C00EC461A /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Totole/Controller/Activity/ActivityViewController.m; sourceTree = SOURCE_ROOT; };
-		AFDEDB21165C857C00EC461A /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActivityViewController.xib; path = Totole/Controller/Activity/ActivityViewController.xib; sourceTree = SOURCE_ROOT; };
-		AFDEDB24165C859100EC461A /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnouncementViewController.h; path = Totole/Controller/Announcement/AnnouncementViewController.h; sourceTree = SOURCE_ROOT; };
-		AFDEDB25165C859100EC461A /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnouncementViewController.m; path = Totole/Controller/Announcement/AnnouncementViewController.m; sourceTree = SOURCE_ROOT; };
-		AFDEDB26165C859100EC461A /* AnnouncementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnouncementViewController.xib; path = Totole/Controller/Announcement/AnnouncementViewController.xib; sourceTree = SOURCE_ROOT; };
+		AF9EC50E16661302005DACF3 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
 		AFDEDB30165C862600EC461A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		AFDEDB31165C862600EC461A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		AFDEDB32165C862600EC461A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -268,9 +257,42 @@
 		AFDEDB6A165CB97D00EC461A /* RegisterAgreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAgreeViewController.h; sourceTree = "<group>"; };
 		AFDEDB6B165CB97D00EC461A /* RegisterAgreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAgreeViewController.m; sourceTree = "<group>"; };
 		AFDEDB6C165CB97D00EC461A /* RegisterAgreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterAgreeViewController.xib; sourceTree = "<group>"; };
-		AFFD58A4165CBA1400DCFED4 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Totole/Controller/Home/HomeViewController.h; sourceTree = SOURCE_ROOT; };
-		AFFD58A5165CBA1400DCFED4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Totole/Controller/Home/HomeViewController.m; sourceTree = SOURCE_ROOT; };
-		AFFD58A6165CBA1400DCFED4 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Totole/Controller/Home/HomeViewController.xib; sourceTree = SOURCE_ROOT; };
+		AFF53ED21663100A00882AFD /* MyFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoritesViewController.h; sourceTree = "<group>"; };
+		AFF53ED31663100A00882AFD /* MyFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoritesViewController.m; sourceTree = "<group>"; };
+		AFF53ED41663100A00882AFD /* MyFavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoritesViewController.xib; sourceTree = "<group>"; };
+		AFF53ED81663102800882AFD /* ManagementCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagementCenterViewController.h; sourceTree = "<group>"; };
+		AFF53ED91663102800882AFD /* ManagementCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagementCenterViewController.m; sourceTree = "<group>"; };
+		AFF53EDA1663102800882AFD /* ManagementCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagementCenterViewController.xib; sourceTree = "<group>"; };
+		AFF53EDE1663113F00882AFD /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementViewController.h; sourceTree = "<group>"; };
+		AFF53EDF1663113F00882AFD /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementViewController.m; sourceTree = "<group>"; };
+		AFF53EE01663113F00882AFD /* AnnouncementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementViewController.xib; sourceTree = "<group>"; };
+		AFF53EE41663115600882AFD /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		AFF53EE51663115600882AFD /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		AFF53EE61663115600882AFD /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
+		AFF53EEA1663116700882AFD /* MallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallViewController.h; sourceTree = "<group>"; };
+		AFF53EEB1663116700882AFD /* MallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallViewController.m; sourceTree = "<group>"; };
+		AFF53EEC1663116700882AFD /* MallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MallViewController.xib; sourceTree = "<group>"; };
+		AFF53EF01663117600882AFD /* ActivateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivateViewController.h; sourceTree = "<group>"; };
+		AFF53EF11663117600882AFD /* ActivateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivateViewController.m; sourceTree = "<group>"; };
+		AFF53EF21663117600882AFD /* ActivateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivateViewController.xib; sourceTree = "<group>"; };
+		AFF53EF31663117600882AFD /* ActivationFailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationFailsViewController.h; sourceTree = "<group>"; };
+		AFF53EF41663117600882AFD /* ActivationFailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationFailsViewController.m; sourceTree = "<group>"; };
+		AFF53EF51663117600882AFD /* ActivationFailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationFailsViewController.xib; sourceTree = "<group>"; };
+		AFF53EF61663117600882AFD /* ActivationSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationSuccessfulViewController.h; sourceTree = "<group>"; };
+		AFF53EF71663117600882AFD /* ActivationSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationSuccessfulViewController.m; sourceTree = "<group>"; };
+		AFF53EF81663117600882AFD /* ActivationSuccessfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationSuccessfulViewController.xib; sourceTree = "<group>"; };
+		AFF53EF91663117600882AFD /* InputPointsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputPointsViewController.h; sourceTree = "<group>"; };
+		AFF53EFA1663117600882AFD /* InputPointsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputPointsViewController.m; sourceTree = "<group>"; };
+		AFF53EFB1663117600882AFD /* InputPointsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputPointsViewController.xib; sourceTree = "<group>"; };
+		AFF53F051663118300882AFD /* HomeCookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCookViewController.h; sourceTree = "<group>"; };
+		AFF53F061663118300882AFD /* HomeCookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCookViewController.m; sourceTree = "<group>"; };
+		AFF53F071663118300882AFD /* HomeCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCookViewController.xib; sourceTree = "<group>"; };
+		AFF53F081663118300882AFD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		AFF53F091663118300882AFD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		AFF53F0A1663118300882AFD /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		AFF53F131663161E00882AFD /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		AFF53F141663161E00882AFD /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		AFF53F151663161E00882AFD /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		AFFD58C2165CE5EF00DCFED4 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_1.png; sourceTree = "<group>"; };
 		AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_2.png; sourceTree = "<group>"; };
@@ -352,13 +374,14 @@
 				AF416B62165A299A00FA0846 /* DataSource.m */,
 				9F1D285E166260E40080E96E /* UItitlView */,
 				AFDEDB29165C862600EC461A /* Login */,
-				AF416B39165A28F800FA0846 /* Home */,
-				AF416B24165A28D100FA0846 /* Activate */,
-				AF416B40165A28F900FA0846 /* Mall */,
-				AF416B28165A28D200FA0846 /* Activity */,
-				AF416B2C165A28D300FA0846 /* Announcement */,
-				AF416B44165A28F900FA0846 /* Management */,
-				AF416B49165A28FA00FA0846 /* MyFavorites */,
+				AFF53F041663118300882AFD /* Home */,
+				AFF53EEF1663117600882AFD /* Activate */,
+				AFF53EE91663116700882AFD /* Mall */,
+				AFF53EE31663115600882AFD /* Activity */,
+				AFF53F121663160500882AFD /* More */,
+				AFF53EDD1663113F00882AFD /* Announcement */,
+				AFF53ED71663102800882AFD /* Management */,
+				AFF53ED11663100A00882AFD /* MyFavorites */,
 				AF416B48165A28FA00FA0846 /* Model */,
 				78F1DA67163D9C6D00FBBA0B /* Photo */,
 				78F1DA1F163D8AA300FBBA0B /* Supporting Files */,
@@ -405,81 +428,10 @@
 			path = UItitlView;
 			sourceTree = "<group>";
 		};
-		AF416B24165A28D100FA0846 /* Activate */ = {
-			isa = PBXGroup;
-			children = (
-				AFDEDB1A165C856D00EC461A /* ActivateViewController.h */,
-				AFDEDB1B165C856D00EC461A /* ActivateViewController.m */,
-				AFDEDB1C165C856D00EC461A /* ActivateViewController.xib */,
-				7853FF47165D09A900E85C4C /* InputPointsViewController.h */,
-				7853FF48165D09A900E85C4C /* InputPointsViewController.m */,
-				7853FF49165D09A900E85C4C /* InputPointsViewController.xib */,
-				7853FF41165D09A900E85C4C /* ActivationFailsViewController.h */,
-				7853FF42165D09A900E85C4C /* ActivationFailsViewController.m */,
-				7853FF43165D09A900E85C4C /* ActivationFailsViewController.xib */,
-				7853FF44165D09A900E85C4C /* ActivationSuccessfulViewController.h */,
-				7853FF45165D09A900E85C4C /* ActivationSuccessfulViewController.m */,
-				7853FF46165D09A900E85C4C /* ActivationSuccessfulViewController.xib */,
-			);
-			path = Activate;
-			sourceTree = "<group>";
-		};
-		AF416B28165A28D200FA0846 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				AFDEDB1F165C857C00EC461A /* ActivityViewController.h */,
-				AFDEDB20165C857C00EC461A /* ActivityViewController.m */,
-				AFDEDB21165C857C00EC461A /* ActivityViewController.xib */,
-			);
-			path = Activity;
-			sourceTree = "<group>";
-		};
-		AF416B2C165A28D300FA0846 /* Announcement */ = {
-			isa = PBXGroup;
-			children = (
-				AFDEDB24165C859100EC461A /* AnnouncementViewController.h */,
-				AFDEDB25165C859100EC461A /* AnnouncementViewController.m */,
-				AFDEDB26165C859100EC461A /* AnnouncementViewController.xib */,
-			);
-			path = Announcement;
-			sourceTree = "<group>";
-		};
-		AF416B39165A28F800FA0846 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				9FC9329F165E7E9900338E3B /* HomeCookViewController.h */,
-				9FC932A0165E7E9900338E3B /* HomeCookViewController.m */,
-				9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */,
-				AFFD58A4165CBA1400DCFED4 /* HomeViewController.h */,
-				AFFD58A5165CBA1400DCFED4 /* HomeViewController.m */,
-				AFFD58A6165CBA1400DCFED4 /* HomeViewController.xib */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		AF416B40165A28F900FA0846 /* Mall */ = {
-			isa = PBXGroup;
-			children = (
-				AFDEDB0B165C852900EC461A /* MallViewController.h */,
-				AFDEDB0C165C852900EC461A /* MallViewController.m */,
-				AFDEDB0D165C852900EC461A /* MallViewController.xib */,
-			);
-			path = Mall;
-			sourceTree = "<group>";
-		};
-		AF416B44165A28F900FA0846 /* Management */ = {
-			isa = PBXGroup;
-			children = (
-				AFDEDB10165C854400EC461A /* ManagementCenterViewController.h */,
-				AFDEDB11165C854400EC461A /* ManagementCenterViewController.m */,
-				AFDEDB12165C854400EC461A /* ManagementCenterViewController.xib */,
-			);
-			path = Management;
-			sourceTree = "<group>";
-		};
 		AF416B48165A28FA00FA0846 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AF2D39B816645C9F00720690 /* city.plist */,
 				AF416B64165A2AC800FA0846 /* ASI */,
 				AF416B7B165A2AC800FA0846 /* SBJSON */,
 				AF416B58165A293C00FA0846 /* MBProgressHUD.h */,
@@ -491,16 +443,6 @@
 				AF416B5D165A293C00FA0846 /* QNetWorkConfig.h */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		AF416B49165A28FA00FA0846 /* MyFavorites */ = {
-			isa = PBXGroup;
-			children = (
-				AFDEDB15165C855700EC461A /* MyFavoritesViewController.h */,
-				AFDEDB16165C855700EC461A /* MyFavoritesViewController.m */,
-				AFDEDB17165C855700EC461A /* MyFavoritesViewController.xib */,
-			);
-			path = MyFavorites;
 			sourceTree = "<group>";
 		};
 		AF416B64165A2AC800FA0846 /* ASI */ = {
@@ -573,6 +515,12 @@
 				AFDEDB30165C862600EC461A /* RegisterViewController.h */,
 				AFDEDB31165C862600EC461A /* RegisterViewController.m */,
 				AFDEDB32165C862600EC461A /* RegisterViewController.xib */,
+				AF1188521665FF65007DB7DD /* HotelUserRegisterView.h */,
+				AF1188511665FF65007DB7DD /* HotelUserRegisterView.m */,
+				7870AF2116626FD400255A96 /* CookPersonal_TableView.h */,
+				7870AF2216626FD400255A96 /* CookPersonal_TableView.m */,
+				AF1188491665BD4A007DB7DD /* CookPersonal_view.h */,
+				AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */,
 				AFDEDB6A165CB97D00EC461A /* RegisterAgreeViewController.h */,
 				AFDEDB6B165CB97D00EC461A /* RegisterAgreeViewController.m */,
 				AFDEDB6C165CB97D00EC461A /* RegisterAgreeViewController.xib */,
@@ -586,11 +534,111 @@
 			path = Controller/Login;
 			sourceTree = "<group>";
 		};
+		AFF53ED11663100A00882AFD /* MyFavorites */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53ED21663100A00882AFD /* MyFavoritesViewController.h */,
+				AFF53ED31663100A00882AFD /* MyFavoritesViewController.m */,
+				AFF53ED41663100A00882AFD /* MyFavoritesViewController.xib */,
+			);
+			name = MyFavorites;
+			path = Controller/MyFavorites;
+			sourceTree = "<group>";
+		};
+		AFF53ED71663102800882AFD /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53ED81663102800882AFD /* ManagementCenterViewController.h */,
+				AFF53ED91663102800882AFD /* ManagementCenterViewController.m */,
+				AFF53EDA1663102800882AFD /* ManagementCenterViewController.xib */,
+			);
+			name = Management;
+			path = Controller/Management;
+			sourceTree = "<group>";
+		};
+		AFF53EDD1663113F00882AFD /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53EDE1663113F00882AFD /* AnnouncementViewController.h */,
+				AFF53EDF1663113F00882AFD /* AnnouncementViewController.m */,
+				AFF53EE01663113F00882AFD /* AnnouncementViewController.xib */,
+			);
+			name = Announcement;
+			path = Controller/Announcement;
+			sourceTree = "<group>";
+		};
+		AFF53EE31663115600882AFD /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53EE41663115600882AFD /* ActivityViewController.h */,
+				AFF53EE51663115600882AFD /* ActivityViewController.m */,
+				AFF53EE61663115600882AFD /* ActivityViewController.xib */,
+			);
+			name = Activity;
+			path = Controller/Activity;
+			sourceTree = "<group>";
+		};
+		AFF53EE91663116700882AFD /* Mall */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53EEA1663116700882AFD /* MallViewController.h */,
+				AFF53EEB1663116700882AFD /* MallViewController.m */,
+				AFF53EEC1663116700882AFD /* MallViewController.xib */,
+			);
+			name = Mall;
+			path = Controller/Mall;
+			sourceTree = "<group>";
+		};
+		AFF53EEF1663117600882AFD /* Activate */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53EF01663117600882AFD /* ActivateViewController.h */,
+				AFF53EF11663117600882AFD /* ActivateViewController.m */,
+				AFF53EF21663117600882AFD /* ActivateViewController.xib */,
+				AFF53EF31663117600882AFD /* ActivationFailsViewController.h */,
+				AFF53EF41663117600882AFD /* ActivationFailsViewController.m */,
+				AFF53EF51663117600882AFD /* ActivationFailsViewController.xib */,
+				AFF53EF61663117600882AFD /* ActivationSuccessfulViewController.h */,
+				AFF53EF71663117600882AFD /* ActivationSuccessfulViewController.m */,
+				AFF53EF81663117600882AFD /* ActivationSuccessfulViewController.xib */,
+				AFF53EF91663117600882AFD /* InputPointsViewController.h */,
+				AFF53EFA1663117600882AFD /* InputPointsViewController.m */,
+				AFF53EFB1663117600882AFD /* InputPointsViewController.xib */,
+			);
+			name = Activate;
+			path = Controller/Activate;
+			sourceTree = "<group>";
+		};
+		AFF53F041663118300882AFD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53F081663118300882AFD /* HomeViewController.h */,
+				AFF53F091663118300882AFD /* HomeViewController.m */,
+				AFF53F0A1663118300882AFD /* HomeViewController.xib */,
+				AFF53F051663118300882AFD /* HomeCookViewController.h */,
+				AFF53F061663118300882AFD /* HomeCookViewController.m */,
+				AFF53F071663118300882AFD /* HomeCookViewController.xib */,
+			);
+			name = Home;
+			path = Controller/Home;
+			sourceTree = "<group>";
+		};
+		AFF53F121663160500882AFD /* More */ = {
+			isa = PBXGroup;
+			children = (
+				AFF53F131663161E00882AFD /* MoreViewController.h */,
+				AFF53F141663161E00882AFD /* MoreViewController.m */,
+				AFF53F151663161E00882AFD /* MoreViewController.xib */,
+			);
+			name = More;
+			path = Controller/More;
+			sourceTree = "<group>";
+		};
 		AFFD58C1165CE5EE00DCFED4 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				9F1D2862166261810080E96E /* pageControIcon_disable@2x.png */,
-				9F1D2863166261810080E96E /* pageControIcon_enable@2x.png */,
+				9F1D2862166261810080E96E /* pageControIcon_disable.png */,
+				9F1D2863166261810080E96E /* pageControIcon_enable.png */,
 				7853FF59165D1F6A00E85C4C /* tabbar_myfavorites.png */,
 				AF416AD6165A0A1900FA0846 /* tabbar_management.png */,
 				AF416AD7165A0A1900FA0846 /* tabbar_announcement.png */,
@@ -598,6 +646,7 @@
 				AF416ACA165A00AD00FA0846 /* tabbar_activate.png */,
 				7853FF55165D1E7600E85C4C /* tabbar_mall.png */,
 				7853FF57165D1EE600E85C4C /* tabbar_activity.png */,
+				AF9EC50E16661302005DACF3 /* tabbar_more.png */,
 				AFFD58C2165CE5EF00DCFED4 /* back.png */,
 				AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */,
 				AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */,
@@ -615,14 +664,16 @@
 				AFFD58CF165CE5EF00DCFED4 /* login_selectOut.png */,
 				AFFD58D0165CE5EF00DCFED4 /* login_welcome.png */,
 				AFFD58D1165CE5EF00DCFED4 /* register_DownBigBox.png */,
+				AF118854166606F5007DB7DD /* hotelUserRegister.png */,
+				AF11884F1665FA58007DB7DD /* register_next.png */,
 				AFFD58D2165CE5EF00DCFED4 /* register_DownLittleBox.png */,
 				AFFD58D3165CE5EF00DCFED4 /* register_register.png */,
 				7853FF5D165D242E00E85C4C /* register_cookNomal.png */,
 				7853FF5E165D243000E85C4C /* register_cookSelect.png */,
 				7853FF5F165D243200E85C4C /* register_HotelNomal.png */,
+				7853FF60165D243500E85C4C /* register_HotelSelect.png */,
 				78FEB3841660CB930086ACCF /* register_agree.png */,
 				78FEB3851660CB930086ACCF /* register_disagree.png */,
-				7853FF60165D243500E85C4C /* register_HotelSelect.png */,
 				AFFD58E8165CE66E00DCFED4 /* top_bar.png */,
 			);
 			path = login;
@@ -694,17 +745,10 @@
 				AF416ACE165A00AE00FA0846 /* tabbar_activate.png in Resources */,
 				AF416AD9165A0A1900FA0846 /* tabbar_management.png in Resources */,
 				AF416ADA165A0A1900FA0846 /* tabbar_announcement.png in Resources */,
-				AFDEDB0F165C852900EC461A /* MallViewController.xib in Resources */,
-				AFDEDB14165C854400EC461A /* ManagementCenterViewController.xib in Resources */,
-				AFDEDB19165C855700EC461A /* MyFavoritesViewController.xib in Resources */,
-				AFDEDB1E165C856D00EC461A /* ActivateViewController.xib in Resources */,
-				AFDEDB23165C857C00EC461A /* ActivityViewController.xib in Resources */,
-				AFDEDB28165C859100EC461A /* AnnouncementViewController.xib in Resources */,
 				AFDEDB38165C862600EC461A /* RegisterViewController.xib in Resources */,
 				AFDEDB6E165CB97D00EC461A /* ForgotPasswordViewController.xib in Resources */,
 				AFDEDB70165CB97D00EC461A /* LoginViewController.xib in Resources */,
 				AFDEDB72165CB97D00EC461A /* RegisterAgreeViewController.xib in Resources */,
-				AFFD58A8165CBA1400DCFED4 /* HomeViewController.xib in Resources */,
 				AFFD58D5165CE5EF00DCFED4 /* back.png in Resources */,
 				AFFD58D6165CE5EF00DCFED4 /* firstLogin_1.png in Resources */,
 				AFFD58D7165CE5EF00DCFED4 /* firstLogin_2.png in Resources */,
@@ -724,9 +768,6 @@
 				AFFD58E5165CE5EF00DCFED4 /* register_DownLittleBox.png in Resources */,
 				AFFD58E6165CE5EF00DCFED4 /* register_register.png in Resources */,
 				AFFD58E9165CE66E00DCFED4 /* top_bar.png in Resources */,
-				7853FF4B165D09A900E85C4C /* ActivationFailsViewController.xib in Resources */,
-				7853FF4D165D09A900E85C4C /* ActivationSuccessfulViewController.xib in Resources */,
-				7853FF4F165D09A900E85C4C /* InputPointsViewController.xib in Resources */,
 				7853FF56165D1E7A00E85C4C /* tabbar_mall.png in Resources */,
 				7853FF58165D1EE800E85C4C /* tabbar_activity.png in Resources */,
 				7853FF5A165D1F6C00E85C4C /* tabbar_myfavorites.png in Resources */,
@@ -735,11 +776,26 @@
 				7853FF62165D243700E85C4C /* register_cookSelect.png in Resources */,
 				7853FF63165D243700E85C4C /* register_HotelNomal.png in Resources */,
 				7853FF64165D243700E85C4C /* register_HotelSelect.png in Resources */,
-				9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */,
 				78FEB3861660CB940086ACCF /* register_agree.png in Resources */,
 				78FEB3871660CB940086ACCF /* register_disagree.png in Resources */,
-				9F1D2864166261810080E96E /* pageControIcon_disable@2x.png in Resources */,
-				9F1D2865166261810080E96E /* pageControIcon_enable@2x.png in Resources */,
+				9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */,
+				9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */,
+				AFF53ED61663100A00882AFD /* MyFavoritesViewController.xib in Resources */,
+				AFF53EDC1663102800882AFD /* ManagementCenterViewController.xib in Resources */,
+				AFF53EE21663113F00882AFD /* AnnouncementViewController.xib in Resources */,
+				AFF53EE81663115600882AFD /* ActivityViewController.xib in Resources */,
+				AFF53EEE1663116700882AFD /* MallViewController.xib in Resources */,
+				AFF53EFD1663117600882AFD /* ActivateViewController.xib in Resources */,
+				AFF53EFF1663117600882AFD /* ActivationFailsViewController.xib in Resources */,
+				AFF53F011663117600882AFD /* ActivationSuccessfulViewController.xib in Resources */,
+				AFF53F031663117600882AFD /* InputPointsViewController.xib in Resources */,
+				AFF53F0C1663118300882AFD /* HomeCookViewController.xib in Resources */,
+				AFF53F0E1663118300882AFD /* HomeViewController.xib in Resources */,
+				AFF53F171663161E00882AFD /* MoreViewController.xib in Resources */,
+				AF2D39B916645C9F00720690 /* city.plist in Resources */,
+				AF1188501665FA58007DB7DD /* register_next.png in Resources */,
+				AF118855166606F5007DB7DD /* hotelUserRegister.png in Resources */,
+				AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,23 +833,27 @@
 				AF416BA7165A2AC900FA0846 /* SBJsonTokeniser.m in Sources */,
 				AF416BA8165A2AC900FA0846 /* SBJsonUTF8Stream.m in Sources */,
 				AF416BA9165A2AC900FA0846 /* SBJsonWriter.m in Sources */,
-				AFDEDB0E165C852900EC461A /* MallViewController.m in Sources */,
-				AFDEDB13165C854400EC461A /* ManagementCenterViewController.m in Sources */,
-				AFDEDB18165C855700EC461A /* MyFavoritesViewController.m in Sources */,
-				AFDEDB1D165C856D00EC461A /* ActivateViewController.m in Sources */,
-				AFDEDB22165C857C00EC461A /* ActivityViewController.m in Sources */,
-				AFDEDB27165C859100EC461A /* AnnouncementViewController.m in Sources */,
 				AFDEDB37165C862600EC461A /* RegisterViewController.m in Sources */,
 				AFDEDB6D165CB97D00EC461A /* ForgotPasswordViewController.m in Sources */,
 				AFDEDB6F165CB97D00EC461A /* LoginViewController.m in Sources */,
 				AFDEDB71165CB97D00EC461A /* RegisterAgreeViewController.m in Sources */,
-				AFFD58A7165CBA1400DCFED4 /* HomeViewController.m in Sources */,
-				7853FF4A165D09A900E85C4C /* ActivationFailsViewController.m in Sources */,
-				7853FF4C165D09A900E85C4C /* ActivationSuccessfulViewController.m in Sources */,
-				7853FF4E165D09A900E85C4C /* InputPointsViewController.m in Sources */,
-				9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */,
 				9F1D285816625EC00080E96E /* StartView.m in Sources */,
 				9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */,
+				7870AF2316626FD500255A96 /* CookPersonal_TableView.m in Sources */,
+				AFF53ED51663100A00882AFD /* MyFavoritesViewController.m in Sources */,
+				AFF53EDB1663102800882AFD /* ManagementCenterViewController.m in Sources */,
+				AFF53EE11663113F00882AFD /* AnnouncementViewController.m in Sources */,
+				AFF53EE71663115600882AFD /* ActivityViewController.m in Sources */,
+				AFF53EED1663116700882AFD /* MallViewController.m in Sources */,
+				AFF53EFC1663117600882AFD /* ActivateViewController.m in Sources */,
+				AFF53EFE1663117600882AFD /* ActivationFailsViewController.m in Sources */,
+				AFF53F001663117600882AFD /* ActivationSuccessfulViewController.m in Sources */,
+				AFF53F021663117600882AFD /* InputPointsViewController.m in Sources */,
+				AFF53F0B1663118300882AFD /* HomeCookViewController.m in Sources */,
+				AFF53F0D1663118300882AFD /* HomeViewController.m in Sources */,
+				AFF53F161663161E00882AFD /* MoreViewController.m in Sources */,
+				AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */,
+				AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

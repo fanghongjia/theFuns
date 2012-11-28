@@ -20,6 +20,7 @@
 #import "ManagementCenterViewController.h"
 #import "MyFavoritesViewController.h"
 #import "StartView.h"
+#import "MoreViewController.h"
 
 typedef enum 
 {

@@ -7,14 +7,33 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "CookPersonal_view.h"
+#import "HotelUserRegisterView.h"
 
-@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface RegisterViewController : UIViewController<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,HotelUserRegisterDelegate>
 {
-    UITableView *hotel_tableView;
+//    UITableView *hotel_tableView;
     NSArray *hotel_array;
     
-    UITextField *myTF,*myTF_1;
+    __unsafe_unretained IBOutlet UIButton *hotelRegister_btn;
+    __unsafe_unretained IBOutlet UIButton *cookRegister_btn;
+    UITextField *myTF;
     BOOL agree;
+    __unsafe_unretained IBOutlet UIPickerView *province_PickView;
+    __unsafe_unretained IBOutlet UIToolbar *toolbar;
+    __unsafe_unretained IBOutlet UIPickerView *city_PickView;
+    __unsafe_unretained IBOutlet UIPickerView *hotelType_PickView;    
+    __unsafe_unretained IBOutlet UIPickerView *post_PickView;
+    NSMutableArray *province_Mutable,*city_Mutable,*hotelType_Mutable,*post_Mutable;
+    
+    UIButton *province_btn,*city_btn,*hotelType_btn,*post_btn;
+    
+    BOOL hotelRegister;
+    
+    
+    CookPersonal_view *cookPersonalView;
+    HotelUserRegisterView *hotelUserView;
 }
 
 @end
