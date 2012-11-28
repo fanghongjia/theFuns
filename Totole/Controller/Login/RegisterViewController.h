@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CookPersonal_TableView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CookPersonal_view.h"
+#import "HotelUserRegisterView.h"
 
-@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface RegisterViewController : UIViewController<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,HotelUserRegisterDelegate>
 {
-    UITableView *hotel_tableView;
+//    UITableView *hotel_tableView;
     NSArray *hotel_array;
     
     __unsafe_unretained IBOutlet UIButton *hotelRegister_btn;
@@ -29,7 +31,9 @@
     
     BOOL hotelRegister;
     
-    CookPersonal_TableView *cookPersonal_TableView;
+    
+    CookPersonal_view *cookPersonalView;
+    HotelUserRegisterView *hotelUserView;
 }
 
 @end

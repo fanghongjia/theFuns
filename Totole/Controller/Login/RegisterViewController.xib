@@ -147,7 +147,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{160, 44}, {160, 26}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="997221467"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -203,6 +203,7 @@
 						<int key="NSvFlags">-2147483358</int>
 						<string key="NSFrame">{{0, 244}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="833177896"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIShowsSelectionIndicator">YES</bool>
@@ -212,6 +213,7 @@
 						<int key="NSvFlags">-2147483358</int>
 						<string key="NSFrame">{{0, 244}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="902498610"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIShowsSelectionIndicator">YES</bool>
@@ -415,16 +417,16 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="491035297"/>
 							<reference ref="372745165"/>
 							<reference ref="103431424"/>
-							<reference ref="760834914"/>
 							<reference ref="577633898"/>
 							<reference ref="357863271"/>
 							<reference ref="997221467"/>
 							<reference ref="895808310"/>
 							<reference ref="833177896"/>
 							<reference ref="902498610"/>
+							<reference ref="760834914"/>
+							<reference ref="491035297"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -528,7 +530,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">46</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

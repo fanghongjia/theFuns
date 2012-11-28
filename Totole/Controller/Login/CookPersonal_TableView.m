@@ -22,6 +22,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.showsVerticalScrollIndicator = YES;
         self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.scrollEnabled = NO;
         
     }
     return self;
@@ -69,6 +70,16 @@
         
     }
     
+    if (indexPath.row > 0 && indexPath.row < 5) 
+    {
+        cookPersonal_TF = [[UITextField alloc]initWithFrame:CGRectMake(100, 10, 200, 31)];
+        cookPersonal_TF.delegate = self;
+        cookPersonal_TF.tag = indexPath.row;
+        cookPersonal_TF.font = [UIFont systemFontOfSize:16.0];
+        cookPersonal_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:cookPersonal_TF];
+    }
+    
     cell.backgroundColor = [UIColor clearColor];    
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -79,7 +90,19 @@
 //定义单元格 间距
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 36;
+}
+
+#pragma mark-
+#pragma mark UITextFieldDelegate Methods
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
 }
 
 @end

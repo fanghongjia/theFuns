@@ -10,9 +10,11 @@
 
 
 
-@interface CookPersonal_TableView : UITableView<UITableViewDelegate,UITableViewDataSource>
+@interface CookPersonal_TableView : UITableView<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     NSArray *cook_array;
+    
+    UITextField *cookPersonal_TF;
 }
 
 @end
