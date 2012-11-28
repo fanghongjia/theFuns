@@ -49,7 +49,7 @@
 //下一步
 -(void)next_click:(UIButton *)sender
 {
-    
+    self.hidden = YES;
 }
 
 
@@ -129,6 +129,34 @@
 		[post_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     
+    else if(indexPath.row < 5 && indexPath.row > 0 )
+    {
+        cook_TF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
+        if (indexPath.row == 3) 
+        {
+            cook_TF.font = [UIFont systemFontOfSize:14.0];
+            cook_TF.secureTextEntry = YES;
+            cook_TF.placeholder = @"6-20个英文字母,数字.下划线";
+        }
+        else if (indexPath.row == 4)
+        {
+            cook_TF.secureTextEntry = YES;
+        }
+        cook_TF.tag = indexPath.row;
+        cook_TF.delegate = self;
+        cook_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:cook_TF];
+    }
+    else if(indexPath.row == 6 || indexPath.row == 7 )
+    {
+        cook_TF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
+        cook_TF.tag = indexPath.row;
+        cook_TF.delegate = self;
+        cook_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:cook_TF];
+    }
+    
+    
     cell.backgroundColor = [UIColor clearColor];    
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -145,6 +173,69 @@
 -(void)pickerViewSelect:(UIButton *)sender
 {
     
+}
+
+#pragma mark-
+#pragma mark UITextFieldDelegate Methods
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:@"ResizeForKeyboard"context:nil];
+    [UIView setAnimationDuration:.3f];
+    float width = self.frame.size.width;
+    float height = self.frame.size.height;
+    
+    if (textField.tag == 2) 
+    {
+        CGRect rect = CGRectMake(10.0f, -10, width, height);
+        self.frame= rect;
+    }
+    else if (textField.tag == 3) 
+    {
+        CGRect rect = CGRectMake(10.0f, -2, width, height);
+        self.frame= rect;
+    }
+    else if (textField.tag == 4) 
+    {
+        CGRect rect = CGRectMake(10.0f, -15, width, height);
+        self.frame= rect;
+    }
+    else if (textField.tag == 6) 
+    {
+        CGRect rect = CGRectMake(10.0f, -80, width, height);
+        self.frame= rect;
+    }
+    else if (textField.tag == 7) 
+    {
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        CGRect rect = CGRectMake(10.0f, -115, width, height);
+        self.frame= rect;
+    }
+
+    
+    [UIView commitAnimations];
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+
+    if (textField.tag == 2 || textField.tag == 3 ||textField.tag == 4  || textField.tag == 6 ||textField.tag == 7) 
+    {
+        for(UIView*view in self.subviews) 
+        {
+            [view resignFirstResponder];            
+            [UIView beginAnimations:@"ResizeForKeyboard"context:nil];
+            [UIView setAnimationDuration:.3f];
+            float width = self.frame.size.width;
+            float height = self.frame.size.height;
+            CGRect rect = CGRectMake(10.0f, 72.0f, width, height);
+            self.frame= rect;
+            
+            [UIView commitAnimations];
+        }
+    }
+    
+    return YES;
 }
 
 

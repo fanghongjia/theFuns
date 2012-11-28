@@ -61,11 +61,13 @@
         UITextField *passwordText = [[UITextField alloc]initWithFrame:CGRectMake(110, 126, 200, 31)];
         passwordText.backgroundColor = [UIColor clearColor];
         passwordText.font = [UIFont systemFontOfSize:14.0];
+        passwordText.secureTextEntry = YES;
         passwordText.placeholder = @"6-20个英文字母,数字.下划线";
         [rootView addSubview:passwordText];
         
         UITextField *comfrimPassText = [[UITextField alloc]initWithFrame:CGRectMake(110, 166, 200, 31)];
         comfrimPassText.backgroundColor = [UIColor clearColor];
+        comfrimPassText.secureTextEntry = YES;
         comfrimPassText.font = [UIFont systemFontOfSize:14.0];
         [rootView addSubview:comfrimPassText];
         

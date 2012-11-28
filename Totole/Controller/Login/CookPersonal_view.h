@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface CookPersonal_view : UIView<UITableViewDelegate,UITableViewDataSource>
+@interface CookPersonal_view : UIView<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     NSArray *cook_array;
     UITableView *cookPersonal_tableView;
     
     UIButton *province_btn,*city_btn,*post_btn,*next_btn;
 
+    UITextField *cook_TF;
 }
 
 
