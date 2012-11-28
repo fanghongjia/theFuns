@@ -9,11 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "StyledPageControl.h"
 
-@interface StartView : UIView <UIScrollViewDelegate>{
-    
-    __strong UIScrollView       *startScrollView;
-    __strong StyledPageControl  *pageControl;
-    
-}
+@protocol StartViewDelegate <NSObject>
+@optional
+-(void)didStartApp;
 
 @end
+
+@interface StartView : UIView <UIScrollViewDelegate>{
+    
+    __strong UIScrollView       *_startScrollView;
+    __strong StyledPageControl  *_pageControl;
+
+}
+@property (nonatomic,assign) NSObject<StartViewDelegate> *delegate;
+
+-(void)statAppEvent:(id)sender;
+@end
+

@@ -40,8 +40,8 @@
 		78FEB3871660CB940086ACCF /* register_disagree.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB3851660CB930086ACCF /* register_disagree.png */; };
 		9F1D285816625EC00080E96E /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D285716625EC00080E96E /* StartView.m */; };
 		9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D2860166260E40080E96E /* StyledPageControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2862166261810080E96E /* pageControIcon_disable.png */; };
-		9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2863166261810080E96E /* pageControIcon_enable.png */; };
+		9F1D2864166261810080E96E /* pageControIcon_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2862166261810080E96E /* pageControIcon_disable@2x.png */; };
+		9F1D2865166261810080E96E /* pageControIcon_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D2863166261810080E96E /* pageControIcon_enable@2x.png */; };
 		9FC932A2165E7E9900338E3B /* HomeCookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC932A0165E7E9900338E3B /* HomeCookViewController.m */; };
 		9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */; };
 		AF416ACD165A00AE00FA0846 /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AC9165A00AD00FA0846 /* tabbar_home.png */; };
@@ -165,8 +165,8 @@
 		9F1D285716625EC00080E96E /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		9F1D285F166260E40080E96E /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = "<group>"; };
 		9F1D2860166260E40080E96E /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = "<group>"; };
-		9F1D2862166261810080E96E /* pageControIcon_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControIcon_disable.png; sourceTree = "<group>"; };
-		9F1D2863166261810080E96E /* pageControIcon_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControIcon_enable.png; sourceTree = "<group>"; };
+		9F1D2862166261810080E96E /* pageControIcon_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControIcon_disable@2x.png"; sourceTree = "<group>"; };
+		9F1D2863166261810080E96E /* pageControIcon_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControIcon_enable@2x.png"; sourceTree = "<group>"; };
 		9FC9329F165E7E9900338E3B /* HomeCookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCookViewController.h; path = Totole/Controller/Home/HomeCookViewController.h; sourceTree = SOURCE_ROOT; };
 		9FC932A0165E7E9900338E3B /* HomeCookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCookViewController.m; path = Totole/Controller/Home/HomeCookViewController.m; sourceTree = SOURCE_ROOT; };
 		9FC932A1165E7E9900338E3B /* HomeCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeCookViewController.xib; path = Totole/Controller/Home/HomeCookViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -589,8 +589,8 @@
 		AFFD58C1165CE5EE00DCFED4 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				9F1D2862166261810080E96E /* pageControIcon_disable.png */,
-				9F1D2863166261810080E96E /* pageControIcon_enable.png */,
+				9F1D2862166261810080E96E /* pageControIcon_disable@2x.png */,
+				9F1D2863166261810080E96E /* pageControIcon_enable@2x.png */,
 				7853FF59165D1F6A00E85C4C /* tabbar_myfavorites.png */,
 				AF416AD6165A0A1900FA0846 /* tabbar_management.png */,
 				AF416AD7165A0A1900FA0846 /* tabbar_announcement.png */,
@@ -738,8 +738,8 @@
 				9FC932A3165E7E9900338E3B /* HomeCookViewController.xib in Resources */,
 				78FEB3861660CB940086ACCF /* register_agree.png in Resources */,
 				78FEB3871660CB940086ACCF /* register_disagree.png in Resources */,
-				9F1D2864166261810080E96E /* pageControIcon_disable.png in Resources */,
-				9F1D2865166261810080E96E /* pageControIcon_enable.png in Resources */,
+				9F1D2864166261810080E96E /* pageControIcon_disable@2x.png in Resources */,
+				9F1D2865166261810080E96E /* pageControIcon_enable@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

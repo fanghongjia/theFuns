@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -22,16 +23,23 @@
     
     NSLog(@"- (BOOL)application:");
 
-
-    LoginViewController *loginVC = [[LoginViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginVC];
-    self.window.rootViewController = nav;
-    
-
+    StartView *_startView = [[StartView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _startView.delegate = self;
+    [self.window addSubview:_startView];
     
     self.window.backgroundColor = [UIColor colorWithRed:254.0f/255.0f green:239.0f/255.0f blue:222.0f/255.0f alpha:1];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void)didStartApp{
+    //startView
+    [[[self.window subviews] objectAtIndex:0] removeFromSuperview];
+    
+    LoginViewController *loginVC = [[LoginViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginVC];
+    self.window.rootViewController = nav;
+    
 }
 
 -(void)initTabBarControl:(LoginType)type

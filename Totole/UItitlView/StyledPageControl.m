@@ -285,11 +285,11 @@
             {
                 if (i==_currentPage)
                 {
-                    [self.selectedThumbImage drawInRect:CGRectMake(x,(self.frame.size.height-_diameter)/2,_diameter,_diameter)];
+                    [self.selectedThumbImage drawInRect:CGRectMake(x,(self.frame.size.height-_diameter)/2,_diameter/2,_diameter/2)];
                 }
                 else
                 {
-                    [self.thumbImage drawInRect:CGRectMake(x,(self.frame.size.height-_diameter)/2,_diameter,_diameter)];
+                    [self.thumbImage drawInRect:CGRectMake(x,(self.frame.size.height-_diameter)/2,_diameter/2,_diameter/2)];
                 }
             }
         }

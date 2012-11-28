@@ -19,6 +19,7 @@
 #import "AnnouncementViewController.h"
 #import "ManagementCenterViewController.h"
 #import "MyFavoritesViewController.h"
+#import "StartView.h"
 
 typedef enum 
 {
@@ -26,7 +27,7 @@ typedef enum
     LoginType_cook
 }LoginType;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,StartViewDelegate>
 {
     BOOL cook;
 }
