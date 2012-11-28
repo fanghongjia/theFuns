@@ -31,6 +31,7 @@ typedef enum
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,StartViewDelegate>
 {
     BOOL cook;
+    StartView *_startView;
 }
 
 @property (strong, nonatomic) UIWindow *window;

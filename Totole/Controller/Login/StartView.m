@@ -31,7 +31,7 @@
             UIImageView *adView = [[UIImageView alloc]initWithFrame:vFrame];
             [adView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"firstLogin_%d.png",i+1]]];
             if (i==2) {
-                UIImage *starimg = [UIImage imageNamed:@"login_login.png"];
+                UIImage *starimg = [UIImage imageNamed:@"stare_experience.png"];
                 UIButton *starBtn = [[UIButton alloc]initWithFrame:CGRectMake(192/2, 763/2, starimg.size.width/2, starimg.size.height/2)];
                 [starBtn setImage:starimg forState:UIControlStateNormal];
                 [starBtn addTarget:self action:@selector(statAppEvent:) forControlEvents:UIControlEventTouchUpInside];
@@ -45,7 +45,7 @@
             
         }
         
-        _pageControl = [[StyledPageControl alloc] initWithFrame:CGRectMake(6, (self.frame.size.height-20), self.frame.size.width, 20)];
+        _pageControl = [[StyledPageControl alloc] initWithFrame:CGRectMake(6, (self.frame.size.height-35), self.frame.size.width, 20)];
         [_pageControl setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [_pageControl setPageControlStyle:PageControlStyleThumb];
         [_pageControl setThumbImage:[UIImage imageNamed:@"pageControIcon_disable@2x.png"]];

@@ -22,19 +22,40 @@
     // Override point for customization after application launch.
     
     NSLog(@"- (BOOL)application:");
+    
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstLaunch"])
+    {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+        
+        
+        _startView = [[StartView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        _startView.delegate = self;
+        [self.window addSubview:_startView];
+        
+        
+    }
+    else
+    {
+        [self didStartApp];
+    }
 
-    StartView *_startView = [[StartView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    _startView.delegate = self;
-    [self.window addSubview:_startView];
     
     self.window.backgroundColor = [UIColor colorWithRed:254.0f/255.0f green:239.0f/255.0f blue:222.0f/255.0f alpha:1];
-    [self.window makeKeyAndVisible];
+    
+    [self.window makeKeyAndVisible]; 
     return YES;
+    
+    
 }
 
--(void)didStartApp{
+-(void)didStartApp
+{
     //startView
-    [[[self.window subviews] objectAtIndex:0] removeFromSuperview];
+    if (_startView) 
+    {
+        [[[self.window subviews] objectAtIndex:0] removeFromSuperview];
+    }
+    
     
     LoginViewController *loginVC = [[LoginViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginVC];

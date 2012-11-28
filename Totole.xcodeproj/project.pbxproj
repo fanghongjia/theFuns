@@ -16,6 +16,10 @@
 		7853FF63165D243700E85C4C /* register_HotelNomal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF5F165D243200E85C4C /* register_HotelNomal.png */; };
 		7853FF64165D243700E85C4C /* register_HotelSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7853FF60165D243500E85C4C /* register_HotelSelect.png */; };
 		7870AF2316626FD500255A96 /* CookPersonal_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7870AF2216626FD400255A96 /* CookPersonal_TableView.m */; };
+		7880C64E166664FB00A19E4D /* firstLogin_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7880C64B166664F900A19E4D /* firstLogin_1.png */; };
+		7880C64F166664FB00A19E4D /* firstLogin_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7880C64C166664F900A19E4D /* firstLogin_2.png */; };
+		7880C650166664FB00A19E4D /* firstLogin_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7880C64D166664FA00A19E4D /* firstLogin_3.png */; };
+		7880C6521666656100A19E4D /* stare_experience.png in Resources */ = {isa = PBXBuildFile; fileRef = 7880C6511666656000A19E4D /* stare_experience.png */; };
 		78C3B26916592BFB004EA92C /* p3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26816592BFB004EA92C /* p3_1.png */; };
 		78C3B26B16592CD5004EA92C /* p3.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26A16592CD5004EA92C /* p3.png */; };
 		78C3B26D16592D91004EA92C /* back_tob.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C3B26C16592D91004EA92C /* back_tob.png */; };
@@ -112,9 +116,6 @@
 		AFF53F161663161E00882AFD /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53F141663161E00882AFD /* MoreViewController.m */; };
 		AFF53F171663161E00882AFD /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53F151663161E00882AFD /* MoreViewController.xib */; };
 		AFFD58D5165CE5EF00DCFED4 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C2165CE5EF00DCFED4 /* back.png */; };
-		AFFD58D6165CE5EF00DCFED4 /* firstLogin_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */; };
-		AFFD58D7165CE5EF00DCFED4 /* firstLogin_2.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */; };
-		AFFD58D8165CE5EF00DCFED4 /* firstLogin_3.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C5165CE5EF00DCFED4 /* firstLogin_3.png */; };
 		AFFD58D9165CE5EF00DCFED4 /* forgotPassword_cancle.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C6165CE5EF00DCFED4 /* forgotPassword_cancle.png */; };
 		AFFD58DA165CE5EF00DCFED4 /* forgotPassword_submit.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C7165CE5EF00DCFED4 /* forgotPassword_submit.png */; };
 		AFFD58DB165CE5EF00DCFED4 /* login_forgotPassBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AFFD58C8165CE5EF00DCFED4 /* login_forgotPassBackground.png */; };
@@ -143,6 +144,10 @@
 		7853FF60165D243500E85C4C /* register_HotelSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_HotelSelect.png; sourceTree = "<group>"; };
 		7870AF2116626FD400255A96 /* CookPersonal_TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookPersonal_TableView.h; sourceTree = "<group>"; };
 		7870AF2216626FD400255A96 /* CookPersonal_TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookPersonal_TableView.m; sourceTree = "<group>"; };
+		7880C64B166664F900A19E4D /* firstLogin_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_1.png; sourceTree = "<group>"; };
+		7880C64C166664F900A19E4D /* firstLogin_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_2.png; sourceTree = "<group>"; };
+		7880C64D166664FA00A19E4D /* firstLogin_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_3.png; sourceTree = "<group>"; };
+		7880C6511666656000A19E4D /* stare_experience.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stare_experience.png; sourceTree = "<group>"; };
 		78C3B26816592BFB004EA92C /* p3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p3_1.png; sourceTree = "<group>"; };
 		78C3B26A16592CD5004EA92C /* p3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p3.png; sourceTree = "<group>"; };
 		78C3B26C16592D91004EA92C /* back_tob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_tob.png; sourceTree = "<group>"; };
@@ -294,9 +299,6 @@
 		AFF53F141663161E00882AFD /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		AFF53F151663161E00882AFD /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		AFFD58C2165CE5EF00DCFED4 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_1.png; sourceTree = "<group>"; };
-		AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_2.png; sourceTree = "<group>"; };
-		AFFD58C5165CE5EF00DCFED4 /* firstLogin_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstLogin_3.png; sourceTree = "<group>"; };
 		AFFD58C6165CE5EF00DCFED4 /* forgotPassword_cancle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgotPassword_cancle.png; sourceTree = "<group>"; };
 		AFFD58C7165CE5EF00DCFED4 /* forgotPassword_submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgotPassword_submit.png; sourceTree = "<group>"; };
 		AFFD58C8165CE5EF00DCFED4 /* login_forgotPassBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_forgotPassBackground.png; sourceTree = "<group>"; };
@@ -637,6 +639,10 @@
 		AFFD58C1165CE5EE00DCFED4 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				7880C64B166664F900A19E4D /* firstLogin_1.png */,
+				7880C64C166664F900A19E4D /* firstLogin_2.png */,
+				7880C64D166664FA00A19E4D /* firstLogin_3.png */,
+				7880C6511666656000A19E4D /* stare_experience.png */,
 				9FE7455116665E2200962C2F /* pageControIcon_disable@2x.png */,
 				9FE7455216665E2200962C2F /* pageControIcon_enable@2x.png */,
 				7853FF59165D1F6A00E85C4C /* tabbar_myfavorites.png */,
@@ -648,9 +654,6 @@
 				7853FF57165D1EE600E85C4C /* tabbar_activity.png */,
 				AF9EC50E16661302005DACF3 /* tabbar_more.png */,
 				AFFD58C2165CE5EF00DCFED4 /* back.png */,
-				AFFD58C3165CE5EF00DCFED4 /* firstLogin_1.png */,
-				AFFD58C4165CE5EF00DCFED4 /* firstLogin_2.png */,
-				AFFD58C5165CE5EF00DCFED4 /* firstLogin_3.png */,
 				AFFD58C6165CE5EF00DCFED4 /* forgotPassword_cancle.png */,
 				AFFD58C7165CE5EF00DCFED4 /* forgotPassword_submit.png */,
 				AFFD58C8165CE5EF00DCFED4 /* login_forgotPassBackground.png */,
@@ -750,9 +753,6 @@
 				AFDEDB70165CB97D00EC461A /* LoginViewController.xib in Resources */,
 				AFDEDB72165CB97D00EC461A /* RegisterAgreeViewController.xib in Resources */,
 				AFFD58D5165CE5EF00DCFED4 /* back.png in Resources */,
-				AFFD58D6165CE5EF00DCFED4 /* firstLogin_1.png in Resources */,
-				AFFD58D7165CE5EF00DCFED4 /* firstLogin_2.png in Resources */,
-				AFFD58D8165CE5EF00DCFED4 /* firstLogin_3.png in Resources */,
 				AFFD58D9165CE5EF00DCFED4 /* forgotPassword_cancle.png in Resources */,
 				AFFD58DA165CE5EF00DCFED4 /* forgotPassword_submit.png in Resources */,
 				AFFD58DB165CE5EF00DCFED4 /* login_forgotPassBackground.png in Resources */,
@@ -796,6 +796,10 @@
 				AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */,
 				9FE7455316665E2200962C2F /* pageControIcon_disable@2x.png in Resources */,
 				9FE7455416665E2200962C2F /* pageControIcon_enable@2x.png in Resources */,
+				7880C64E166664FB00A19E4D /* firstLogin_1.png in Resources */,
+				7880C64F166664FB00A19E4D /* firstLogin_2.png in Resources */,
+				7880C650166664FB00A19E4D /* firstLogin_3.png in Resources */,
+				7880C6521666656100A19E4D /* stare_experience.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
