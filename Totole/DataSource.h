@@ -10,4 +10,38 @@
 
 @interface DataSource : QInterFace
 
+//饭店用户注册
+-(void)registeruser_province:(NSString *)province
+                        city:(NSString *)city
+              restaurantName:(NSString *)restaurantName
+                    userName:(NSString *)userName
+                    password:(NSString *)password
+              reservationTel:(NSString *)reservationTel
+                     address:(NSString *)address
+              restaurantType:(NSString *)restaurantType
+                     contact:(NSString *)contact
+             contactPosition:(NSString *)contactPosition
+               contactMobile:(NSString *)contactMobile
+                  inviteCode:(NSString *)inviteCode;
+
+//用户登录
+-(void)login:(NSString *)username
+    passwrod:(NSString *)password
+    userType:(NSString *)userType;
+
+//获得省份列表（包含城市）
+-(void)getProvincesAndCities;
+
+//获得省份列表
+-(void)getProvinces;
+
+
+//获得饭店类型
+-(void)getResTypes;
+
+
+//获得联系人职务
+-(void)getPositions;
+
+
 @end

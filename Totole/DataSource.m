@@ -65,4 +65,30 @@
     //    NSLog(@"mArray == %@",mArray);
 }
 
+
+//获得省份列表（包含城市）
+-(void)getProvincesAndCities{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getProvincesAndCities" Type:NetWorkTypePOST];
+}
+
+//获得省份列表
+-(void)getProvinces{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getProvinces" Type:NetWorkTypePOST];
+}
+
+//获得饭店类型
+-(void)getResTypes{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getResTypes" Type:NetWorkTypePOST];
+}
+
+//获得联系人职务
+-(void)getPositions{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getPositions" Type:NetWorkTypePOST];
+}
+
+
 @end

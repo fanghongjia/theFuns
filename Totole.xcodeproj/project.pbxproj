@@ -83,6 +83,7 @@
 		AF416BB1165A2B1900FA0846 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB0165A2B1900FA0846 /* MobileCoreServices.framework */; };
 		AF416BB3165A2B2800FA0846 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB2165A2B2800FA0846 /* libz.dylib */; };
 		AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC50E16661302005DACF3 /* tabbar_more.png */; };
+		AFD3A2711667246100F39BE3 /* CookHotel_View.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD3A2701667246000F39BE3 /* CookHotel_View.m */; };
 		AFDEDB37165C862600EC461A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB31165C862600EC461A /* RegisterViewController.m */; };
 		AFDEDB38165C862600EC461A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB32165C862600EC461A /* RegisterViewController.xib */; };
 		AFDEDB6D165CB97D00EC461A /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB65165CB97D00EC461A /* ForgotPasswordViewController.m */; };
@@ -250,6 +251,8 @@
 		AF416BB0165A2B1900FA0846 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AF416BB2165A2B2800FA0846 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AF9EC50E16661302005DACF3 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
+		AFD3A26F1667246000F39BE3 /* CookHotel_View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookHotel_View.h; sourceTree = "<group>"; };
+		AFD3A2701667246000F39BE3 /* CookHotel_View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookHotel_View.m; sourceTree = "<group>"; };
 		AFDEDB30165C862600EC461A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		AFDEDB31165C862600EC461A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		AFDEDB32165C862600EC461A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -519,10 +522,12 @@
 				AFDEDB32165C862600EC461A /* RegisterViewController.xib */,
 				AF1188521665FF65007DB7DD /* HotelUserRegisterView.h */,
 				AF1188511665FF65007DB7DD /* HotelUserRegisterView.m */,
-				7870AF2116626FD400255A96 /* CookPersonal_TableView.h */,
-				7870AF2216626FD400255A96 /* CookPersonal_TableView.m */,
 				AF1188491665BD4A007DB7DD /* CookPersonal_view.h */,
 				AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */,
+				AFD3A26F1667246000F39BE3 /* CookHotel_View.h */,
+				AFD3A2701667246000F39BE3 /* CookHotel_View.m */,
+				7870AF2116626FD400255A96 /* CookPersonal_TableView.h */,
+				7870AF2216626FD400255A96 /* CookPersonal_TableView.m */,
 				AFDEDB6A165CB97D00EC461A /* RegisterAgreeViewController.h */,
 				AFDEDB6B165CB97D00EC461A /* RegisterAgreeViewController.m */,
 				AFDEDB6C165CB97D00EC461A /* RegisterAgreeViewController.xib */,
@@ -858,6 +863,7 @@
 				AFF53F161663161E00882AFD /* MoreViewController.m in Sources */,
 				AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */,
 				AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */,
+				AFD3A2711667246100F39BE3 /* CookHotel_View.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

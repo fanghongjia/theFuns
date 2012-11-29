@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol HotelUserRegisterDelegate;
+@protocol HotelUserRegisterDelegate;   
 @interface HotelUserRegisterView : UIScrollView<UITextFieldDelegate>
 {
+    
+    UITextField *hotelNameText,*userNameText,*passwordText,*comfrimPassText,*orderMobileText,*UITextField,*addressText,*contactText,*contactPhoneText,*invitePeopleText;
+    
     BOOL    isAgree;
 }
 @property (nonatomic,assign) id<HotelUserRegisterDelegate> childDelegate;
@@ -18,6 +21,8 @@
 @property (nonatomic,retain) UIButton *cityBtn;
 @property (nonatomic,retain) UIButton *hotelTypeBtn;
 @property (nonatomic,retain) UIButton *contactPostBtn;
+@property (nonatomic,copy)  NSString  *provinceId;
+@property (nonatomic,copy)  NSString  *cityId;
 
 @end
 

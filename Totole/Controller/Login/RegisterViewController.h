@@ -10,8 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CookPersonal_view.h"
 #import "HotelUserRegisterView.h"
+#import "CookHotel_View.h"
 
-@interface RegisterViewController : UIViewController<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,HotelUserRegisterDelegate>
+@interface RegisterViewController : UIViewController<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,HotelUserRegisterDelegate,CookPersonal_viewDelegate,CookHotel_viewDelegate>
 {
 //    UITableView *hotel_tableView;
     NSArray *hotel_array;
@@ -31,9 +32,10 @@
     
     BOOL hotelRegister;
     
-    
+    NSMutableArray *cityIDArray;
     CookPersonal_view *cookPersonalView;
     HotelUserRegisterView *hotelUserView;
+    CookHotel_View *cookHotel;
 }
 
 @end

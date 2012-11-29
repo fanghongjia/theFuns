@@ -11,6 +11,7 @@
 @implementation HotelUserRegisterView
 @synthesize childDelegate;
 @synthesize provinceBtn,cityBtn,hotelTypeBtn,contactPostBtn;
+@synthesize provinceId,cityId;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -47,39 +48,39 @@
         
         
         
-        UITextField *hotelNameText = [[UITextField alloc]initWithFrame:CGRectMake(110, 48, 200, 31)];
+        hotelNameText = [[UITextField alloc]initWithFrame:CGRectMake(110, 48, 200, 31)];
         hotelNameText.backgroundColor = [UIColor clearColor];
         hotelNameText.font = [UIFont systemFontOfSize:14.0];
         [rootView addSubview:hotelNameText];
         
-        UITextField *userNameText = [[UITextField alloc]initWithFrame:CGRectMake(110, 86, 200, 31)];
+        userNameText = [[UITextField alloc]initWithFrame:CGRectMake(110, 86, 200, 31)];
         userNameText.backgroundColor = [UIColor clearColor];
         userNameText.font = [UIFont systemFontOfSize:14.0];
         [rootView addSubview:userNameText];
         
         
-        UITextField *passwordText = [[UITextField alloc]initWithFrame:CGRectMake(110, 126, 200, 31)];
+        passwordText = [[UITextField alloc]initWithFrame:CGRectMake(110, 126, 200, 31)];
         passwordText.backgroundColor = [UIColor clearColor];
         passwordText.font = [UIFont systemFontOfSize:14.0];
         passwordText.secureTextEntry = YES;
         passwordText.placeholder = @"6-20个英文字母,数字.下划线";
         [rootView addSubview:passwordText];
         
-        UITextField *comfrimPassText = [[UITextField alloc]initWithFrame:CGRectMake(110, 166, 200, 31)];
+        comfrimPassText = [[UITextField alloc]initWithFrame:CGRectMake(110, 166, 200, 31)];
         comfrimPassText.backgroundColor = [UIColor clearColor];
         comfrimPassText.secureTextEntry = YES;
         comfrimPassText.font = [UIFont systemFontOfSize:14.0];
         [rootView addSubview:comfrimPassText];
         
         
-        UITextField *orderMobileText = [[UITextField alloc]initWithFrame:CGRectMake(110, 202, 200, 31)];
+        orderMobileText = [[UITextField alloc]initWithFrame:CGRectMake(110, 202, 200, 31)];
         orderMobileText.keyboardType = UIKeyboardTypeNumberPad;
         orderMobileText.backgroundColor = [UIColor clearColor];
         orderMobileText.font = [UIFont systemFontOfSize:14.0];
         orderMobileText.placeholder = @"订餐电话或手机号";
         [rootView addSubview:orderMobileText];
         
-        UITextField *addressText = [[UITextField alloc]initWithFrame:CGRectMake(110, 245, 200, 31)];
+        addressText = [[UITextField alloc]initWithFrame:CGRectMake(110, 245, 200, 31)];
         addressText.backgroundColor = [UIColor clearColor];
         addressText.font = [UIFont systemFontOfSize:14.0];
         [rootView addSubview:addressText];
@@ -94,7 +95,7 @@
         [hotelTypeBtn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
         [rootView addSubview:hotelTypeBtn];
         
-        UITextField *contactText = [[UITextField alloc]initWithFrame:CGRectMake(110, 318, 200, 31)];
+        contactText = [[UITextField alloc]initWithFrame:CGRectMake(110, 318, 200, 31)];
         contactText.tag = 8;
         contactText.delegate = self;
         contactText.backgroundColor = [UIColor clearColor];
@@ -114,7 +115,7 @@
         
         
         
-        UITextField *contactPhoneText = [[UITextField alloc]initWithFrame:CGRectMake(110, 397, 200, 31)];
+        contactPhoneText = [[UITextField alloc]initWithFrame:CGRectMake(110, 397, 200, 31)];
         contactPhoneText.tag = 10;
         contactPhoneText.delegate = self;
         contactPhoneText.keyboardType = UIKeyboardTypeNumberPad;
@@ -123,7 +124,7 @@
         [rootView addSubview:contactPhoneText];
         
         //邀请人ID
-        UITextField *invitePeopleText = [[UITextField alloc]initWithFrame:CGRectMake(110, 435, 200, 31)];
+        invitePeopleText = [[UITextField alloc]initWithFrame:CGRectMake(110, 435, 200, 31)];
         invitePeopleText.tag = 11;
         invitePeopleText.delegate = self;
         invitePeopleText.keyboardType = UIKeyboardTypeNumberPad;
@@ -162,22 +163,7 @@
 
 -(void)pickerViewSelect:(UIButton *)sender
 {
-    if (sender.tag == 100) 
-    {
-        [self.childDelegate selectedControlFromPickView:self indexAtControl:sender.tag];
-    }
-    else if (sender.tag == 101)
-    {
-        [self.childDelegate selectedControlFromPickView:self indexAtControl:sender.tag];
-    }
-    else if (sender.tag == 102)
-    {
-        [self.childDelegate selectedControlFromPickView:self indexAtControl:sender.tag];
-    }
-    else if (sender.tag == 103)
-    {
-        [self.childDelegate selectedControlFromPickView:self indexAtControl:sender.tag];
-    }
+    [self.childDelegate selectedControlFromPickView:self indexAtControl:sender.tag];
 }
 #pragma mark-
 #pragma mark UITextFieldDelegate Methods
@@ -192,17 +178,20 @@
     if (textField.tag == 10) 
     {
         CGRect rect = CGRectMake(10.0f, -130, width, height);
-        self.frame= rect;
+//        self.window.frame = rect;
+        self.superview.frame= rect;
     }
     else if (textField.tag == 8) 
     {
         CGRect rect = CGRectMake(10.0f, -60, width, height);
-        self.frame= rect;
+//        self.window.frame = rect;
+        self.superview.frame= rect;
     }
     else if (textField.tag == 11) 
     {
         CGRect rect = CGRectMake(10.0f, -225, width, height);
-        self.frame= rect;
+//        self.window.frame = rect;
+        self.superview.frame= rect;
     }
 
     
@@ -224,6 +213,7 @@
             float width = self.frame.size.width;
             float height = self.frame.size.height;
             CGRect rect = CGRectMake(10.0f, 80.0f, width, height);
+//            self.window.frame = rect;
             self.frame= rect;
             
             [UIView commitAnimations];
@@ -253,8 +243,54 @@
 #pragma mark registerEvent
 -(void)registerEvent:(UIButton *)sender
 {
+//    if ([hotelNameText.text isEqualToString:@""]) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"饭店名称不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([userNameText.text isEqualToString:@""]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"用户名不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([passwordText.text isEqualToString:@""]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([comfrimPassText.text isEqualToString:passwordText.text]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"两次密码输入不一致!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([orderMobileText.text isEqualToString:@""]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"订餐电话不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([addressText.text isEqualToString:@""]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"地址不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([contactText.text isEqualToString:@""]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"联系人不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }else if ([contactPhoneText.text isEqualToString:@""]){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"联系人手机不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }
+//    else
+//    {
+    NSLog(@"provinceId ==%@",provinceId);
+    NSLog(@"cityId ==%@",cityId);
     
+        DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response) {
+            NSDictionary *diction = [response objectForKey:@"output"];
+            NSLog(@"dcition == %@",diction);
+            
+        } loadInfo:@"正在加载..." HUDBackView:self];
+        [dataSource registeruser_province:provinceId city:cityId restaurantName:hotelNameText.text userName:userNameText.text password:passwordText.text reservationTel:orderMobileText.text address:addressText.text restaurantType:hotelTypeBtn.titleLabel.text contact:contactText.text contactPosition:contactPostBtn.titleLabel.text contactMobile:contactPhoneText.text inviteCode:invitePeopleText.text]; 
+//    }
 }
+
+
 
 
 

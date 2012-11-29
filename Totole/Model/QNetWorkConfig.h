@@ -3,7 +3,7 @@
 #define REQUST_TimeOut 20  //设置超时时间
 #define REQUST_ToRetry 2   //设置失败重置次数
 //#define ServerMainAddress @"http://192.168.0.59/" //设置内部测试地址
-#define ServerMainAddress @"http://nta.ws.we-win.tk/ws/" //设置外网地址
+#define ServerMainAddress @"http://61.172.246.12:8383/webservice/ws/" //设置外网地址
 
 
 

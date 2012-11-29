@@ -10,6 +10,9 @@
 
 @implementation CookPersonal_view
 
+@synthesize CookPersonal_viewDelegate;
+@synthesize province_btn,city_btn,post_btn;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -49,7 +52,16 @@
 //下一步
 -(void)next_click:(UIButton *)sender
 {
-    self.hidden = YES;
+//    self.hidden = YES;
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+//    [dic setObject:userName_TF.text forKey:@""];
+    
+    if (CookPersonal_viewDelegate  && [CookPersonal_viewDelegate respondsToSelector:@selector(nextStepRegister:diction:)]) 
+    {
+        [CookPersonal_viewDelegate nextStepRegister:self diction:dic];
+        
+    }
+
 }
 
 
@@ -100,6 +112,7 @@
 		[province_btn setFrame:CGRectMake(110, 11, 86, 18)];
 		[province_btn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
         [province_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
+        province_btn.tag = 1000;
         province_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
         province_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 		[province_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -110,6 +123,7 @@
 		[city_btn setFrame:CGRectMake(210, 11, 70, 18)];
 		[city_btn setBackgroundImage:[UIImage imageNamed:@"register_DownLittleBox.png"] forState:UIControlStateNormal];
         [city_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
+        city_btn.tag = 1001;
         city_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
         city_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 		[city_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -122,6 +136,7 @@
 		[post_btn setFrame:CGRectMake(110, 11, 86, 18)];
 		[post_btn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
         [post_btn setTitle:@"--请选择--  " forState:UIControlStateNormal];
+        post_btn.tag = 1002;
         post_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
         post_btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 		[post_btn addTarget:self action:@selector(pickerViewSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,33 +144,60 @@
 		[post_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     
-    else if(indexPath.row < 5 && indexPath.row > 0 )
+    else if (indexPath.row == 1) 
     {
-        cook_TF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
-        if (indexPath.row == 3) 
-        {
-            cook_TF.font = [UIFont systemFontOfSize:14.0];
-            cook_TF.secureTextEntry = YES;
-            cook_TF.placeholder = @"6-20个英文字母,数字.下划线";
-        }
-        else if (indexPath.row == 4)
-        {
-            cook_TF.secureTextEntry = YES;
-        }
-        cook_TF.tag = indexPath.row;
-        cook_TF.delegate = self;
-        cook_TF.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:cook_TF];
+        userName_TF = [[UITextField alloc]initWithFrame:CGRectMake(110, 10, 200, 31)];
+        userName_TF.tag = indexPath.row;
+        userName_TF.delegate = self;
+        userName_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:userName_TF];
     }
-    else if(indexPath.row == 6 || indexPath.row == 7 )
+    else if (indexPath.row == 2) 
     {
-        cook_TF = [[UITextField alloc]initWithFrame:CGRectMake(115, 10, 170, 31)];
-        cook_TF.tag = indexPath.row;
-        cook_TF.delegate = self;
-        cook_TF.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:cook_TF];
+        name_TF = [[UITextField alloc]initWithFrame:CGRectMake(110, 10, 200, 31)];
+        name_TF.tag = indexPath.row;
+        name_TF.delegate = self;
+        name_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:name_TF];
     }
-    
+    else if (indexPath.row == 3) 
+    {
+        password_TF = [[UITextField alloc]initWithFrame:CGRectMake(110, 10, 200, 31)];
+        password_TF.tag = indexPath.row;
+        password_TF.delegate = self;
+        password_TF.backgroundColor = [UIColor clearColor];
+        password_TF.font = [UIFont systemFontOfSize:14.0];
+        password_TF.secureTextEntry = YES;
+        password_TF.placeholder = @"6-20个英文字母,数字.下划线";
+        [cell.contentView addSubview:password_TF];
+    }
+    else if (indexPath.row == 4) 
+    {
+        confirmPassword_TF = [[UITextField alloc]initWithFrame:CGRectMake(110, 10, 200, 31)];
+        confirmPassword_TF.tag = indexPath.row;
+        confirmPassword_TF.secureTextEntry = YES;
+        confirmPassword_TF.delegate = self;
+        confirmPassword_TF.font = [UIFont systemFontOfSize:14.0];
+        confirmPassword_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:confirmPassword_TF];
+    }
+    else if (indexPath.row == 6) 
+    {
+        address_TF = [[UITextField alloc]initWithFrame:CGRectMake(110, 10, 200, 31)];
+        address_TF.tag = indexPath.row;
+        address_TF.delegate = self;
+        address_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:address_TF];
+    }
+    else if (indexPath.row == 7) 
+    {
+        phone_TF = [[UITextField alloc]initWithFrame:CGRectMake(110, 10, 200, 31)];
+        phone_TF.tag = indexPath.row;
+        phone_TF.delegate = self;
+        phone_TF.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:phone_TF];
+    }
+        
     
     cell.backgroundColor = [UIColor clearColor];    
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -170,10 +212,13 @@
     return 36;
 }
 
+//选择省市等
 -(void)pickerViewSelect:(UIButton *)sender
 {
-    
+    [self.CookPersonal_viewDelegate cook_selectedControlFromPickView:self indexAtControl:sender.tag];
 }
+
+
 
 #pragma mark-
 #pragma mark UITextFieldDelegate Methods
