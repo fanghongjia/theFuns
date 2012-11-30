@@ -33,21 +33,22 @@
                   inviteCode:(NSString *)inviteCode;
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [mArray setParameter:province Parameter:@"province"];
-    [mArray setParameter:city Parameter:@"city"];
-    [mArray setParameter:restaurantName Parameter:@"restaurantName"];
     
-    [mArray setParameter:userName Parameter:@"userName"];
-    [mArray setParameter:password Parameter:@"password"];
-    [mArray setParameter:reservationTel Parameter:@"reservationTel"];
+    [mArray setParameter:@"province" Parameter:province];
+    [mArray setParameter:@"city" Parameter:city];
+    [mArray setParameter:@"restaurantName" Parameter:restaurantName];
     
-    [mArray setParameter:address Parameter:@"address"];
-    [mArray setParameter:restaurantType Parameter:@"restaurantType"];
-    [mArray setParameter:contact Parameter:@"contact"];
+    [mArray setParameter:@"userName" Parameter:userName];
+    [mArray setParameter:@"password" Parameter:password];
+    [mArray setParameter:@"reservationTel" Parameter:reservationTel];
     
-    [mArray setParameter:contactPosition Parameter:@"contactPosition"];
-    [mArray setParameter:contactMobile Parameter:@"contactMobile"];
-    [mArray setParameter:inviteCode Parameter:@"inviteCode"];
+    [mArray setParameter:@"address" Parameter:address];
+    [mArray setParameter:@"restaurantType" Parameter:restaurantType];
+    [mArray setParameter:@"contact" Parameter:contact];
+    
+    [mArray setParameter:@"contactPosition" Parameter:contactPosition];
+    [mArray setParameter:@"contactMobile" Parameter:contactMobile];
+    [mArray setParameter:@"inviteCode" Parameter:inviteCode];
     
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/register_Restaurant" Type:NetWorkTypePOST];
 }
@@ -58,9 +59,9 @@
     userType:(NSString *)userType
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [mArray setParameter:username Parameter:@"username"];
-    [mArray setParameter:password Parameter:@"password"];
-    [mArray setParameter:userType Parameter:@"userType"];
+    [mArray setParameter:@"username" Parameter:username];
+    [mArray setParameter:@"password" Parameter:password];
+    [mArray setParameter:@"userType" Parameter:userType];
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/login" Type:NetWorkTypePOST];
     //    NSLog(@"mArray == %@",mArray);
 }

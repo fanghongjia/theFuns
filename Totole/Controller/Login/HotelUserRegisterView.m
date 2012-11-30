@@ -172,25 +172,22 @@
     
     [UIView beginAnimations:@"ResizeForKeyboard"context:nil];
     [UIView setAnimationDuration:.3f];
-    float width = self.frame.size.width;
-    float height = self.frame.size.height;
+    float width = 320;//self.frame.size.width;
+    float height = 460;//self.frame.size.height;
     
     if (textField.tag == 10) 
     {
-        CGRect rect = CGRectMake(10.0f, -130, width, height);
-//        self.window.frame = rect;
+        CGRect rect = CGRectMake(0.0f, -130, width, height);
         self.superview.frame= rect;
     }
     else if (textField.tag == 8) 
     {
-        CGRect rect = CGRectMake(10.0f, -60, width, height);
-//        self.window.frame = rect;
+        CGRect rect = CGRectMake(0.0f, -60, width, height);
         self.superview.frame= rect;
     }
     else if (textField.tag == 11) 
     {
-        CGRect rect = CGRectMake(10.0f, -225, width, height);
-//        self.window.frame = rect;
+        CGRect rect = CGRectMake(0.0f, -225, width, height);
         self.superview.frame= rect;
     }
 
@@ -210,11 +207,10 @@
             [view resignFirstResponder];            
             [UIView beginAnimations:@"ResizeForKeyboard"context:nil];
             [UIView setAnimationDuration:.3f];
-            float width = self.frame.size.width;
-            float height = self.frame.size.height;
-            CGRect rect = CGRectMake(10.0f, 80.0f, width, height);
-//            self.window.frame = rect;
-            self.frame= rect;
+            float width = 320;//self.frame.size.width;
+            float height = 460;//self.frame.size.height;
+            CGRect rect = CGRectMake(0.0f, 0.0f, width, height);
+            self.superview.frame= rect;
             
             [UIView commitAnimations];
         }
@@ -255,7 +251,7 @@
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码不能为空!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
 //        [alert show];
 //        return;
-//    }else if ([comfrimPassText.text isEqualToString:passwordText.text]){
+//    }else if (![comfrimPassText.text isEqualToString:passwordText.text]){
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"两次密码输入不一致!" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
 //        [alert show];
 //        return;

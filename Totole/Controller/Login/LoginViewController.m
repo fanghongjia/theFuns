@@ -100,8 +100,55 @@
     }
     else 
     {
-        //先调用接口，判断是否登录成功-------------------------
         
+        NSMutableDictionary *mDict = [[NSMutableDictionary alloc] init];
+        [mDict setObject:account_TF.text forKey:@"username"];
+        [mDict setObject:password_TF.text forKey:@"password"];
+        [mDict setObject:@"1" forKey:@"userType"];
+
+        
+		NSString *JSONString = [mDict JSONRepresentation];
+		NSLog(@" JSON :Format %@", [JSONString description]);
+		
+
+        NSURL *url= [NSURL URLWithString:@"http://61.172.246.12:8383/webservice/ws/userService/login"];
+        
+		NSData *postData = [JSONString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+		
+		NSLog(@"postData : %@", postData);
+		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        NSMutableURLRequest*requestPOST = [[NSMutableURLRequest alloc] initWithURL:url];
+        //		NSMutableURLRequest*requestPOST = [[[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20] autorelease];
+		//[requestPOST setURL:url]; 
+		[requestPOST setHTTPMethod:@"POST"];
+        [requestPOST setHTTPShouldUsePipelining:NO];
+		[requestPOST setValue:postLength forHTTPHeaderField:@"Content-Length"];
+		[requestPOST setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
+		[requestPOST setHTTPBody:postData];
+        
+        //		NSURLResponse*response= nil;
+        
+		NSError *error = nil;
+        NSString *returnString ;
+        NSData *returnData = [NSURLConnection sendSynchronousRequest:requestPOST returningResponse:nil error:&error];
+        if (error) {
+            NSLog(@"error == %@",error);
+        }else{
+            
+            returnString= [[NSString alloc] initWithBytes:returnData.bytes length:returnData.length encoding:NSUTF8StringEncoding];
+            NSLog(@"返回 == %@",returnString);
+        }
+        
+        
+        
+        
+        //先调用接口，判断是否登录成功-------------------------
+//        DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response) {
+//            NSDictionary *diction = [response objectForKey:@"output"];
+//            NSLog(@"dcition == %@",diction);
+//            
+//        } loadInfo:@"正在加载..." HUDBackView:self.view];
+//        [dataSource login:account_TF.text passwrod:password_TF.text userType:@"2"];
         
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
