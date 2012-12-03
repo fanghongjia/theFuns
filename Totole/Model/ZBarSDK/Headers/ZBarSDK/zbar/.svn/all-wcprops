@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar
+END
+Scanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Scanner.h
+END
+ImageScanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/ImageScanner.h
+END
+Exception.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Exception.h
+END
+Processor.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Processor.h
+END
+Image.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Image.h
+END
+Decoder.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Decoder.h
+END
+Symbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Symbol.h
+END
+Video.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Video.h
+END
+Window.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar/Window.h
+END

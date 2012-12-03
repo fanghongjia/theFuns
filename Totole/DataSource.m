@@ -53,15 +53,27 @@
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/register_Restaurant" Type:NetWorkTypePOST];
 }
 
-//登录 {userName:"loginName",password:"123456",userType:"1"}    fandiantest  123
--(void)login:(NSString *)username 
-    passwrod:(NSString *)password 
-    userType:(NSString *)userType
+//登录  "userName" : "yyyy", "password" : "111111", "userType" : 1, "operateSource" : 2, "mobileId" : "6546419866156515"  
+- (void)login:(NSString *)username 
+     passwrod:(NSString *)password 
+     userType:(NSString *)userType 
+operateSource:(NSString *)operateSource 
+     mobileId:(NSString *)mobileId
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [mArray setParameter:@"username" Parameter:username];
+    [mArray setParameter:@"userName" Parameter:username];
     [mArray setParameter:@"password" Parameter:password];
     [mArray setParameter:@"userType" Parameter:userType];
+    [mArray setParameter:@"operateSource" Parameter:operateSource];
+    [mArray setParameter:@"mobileId" Parameter:mobileId];
+    
+    
+//    [mArray setParameter:username Parameter:@"username"];
+//    [mArray setParameter:password Parameter:@"password"];
+//    [mArray setParameter:userType Parameter:@"userType"];
+//    [mArray setParameter:operateSource Parameter:@"operateSource"];
+//    [mArray setParameter:mobileId Parameter:@"mobileId"];
+    
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/login" Type:NetWorkTypePOST];
     //    NSLog(@"mArray == %@",mArray);
 }
@@ -70,25 +82,25 @@
 //获得省份列表（包含城市）
 -(void)getProvincesAndCities{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getProvincesAndCities" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getProvincesAndCities" Type:NetWorkTypeGET];
 }
 
 //获得省份列表
 -(void)getProvinces{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getProvinces" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getProvinces" Type:NetWorkTypeGET];
 }
 
 //获得饭店类型
 -(void)getResTypes{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getResTypes" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getResTypes" Type:NetWorkTypeGET];
 }
 
 //获得联系人职务
 -(void)getPositions{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getPositions" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getPositions" Type:NetWorkTypeGET];
 }
 
 

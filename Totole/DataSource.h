@@ -25,9 +25,11 @@
                   inviteCode:(NSString *)inviteCode;
 
 //用户登录
--(void)login:(NSString *)username
-    passwrod:(NSString *)password
-    userType:(NSString *)userType;
+- (void)login:(NSString *)username 
+     passwrod:(NSString *)password 
+     userType:(NSString *)userType 
+operateSource:(NSString *)operateSource 
+     mobileId:(NSString *)mobileId;
 
 //获得省份列表（包含城市）
 -(void)getProvincesAndCities;

@@ -31,13 +31,46 @@
 //    province_Mutable = [NSMutableArray arrayWithObjects:@"四川",@"重庆",@"甘肃",@"青海",@"贵州",@"云南",@"北京",@"上海",@"天津",@"河北",@"山西",@"内蒙古",@"辽宁",@"吉林",@"黑龙江",@"江苏",@"浙江",@"安徽",@"福建",@"江西",@"山东",@"河南",@"湖北",@"湖南",@"广东",@"广西",@"海南",@"西藏",@"陕西",@"宁夏",@"新疆",nil];
 //    hotelType_Mutable = [NSMutableArray arrayWithObjects:@"三星级",@"四星级",@"五星级", nil];
 //    post_Mutable = [NSMutableArray arrayWithObjects:@"经理",@"厨师长",@"配菜", nil];
-    self.navigationController.navigationBarHidden = YES;
-    city_Mutable =[[NSMutableArray alloc] init];
-    cityIDArray = [[NSMutableArray alloc] init];
     
+    
+
+ 
     NSUserDefaults *uDefault = [NSUserDefaults standardUserDefaults];
     NSString *recordDateStr = [uDefault objectForKey:@"recordDate"];
-    if (recordDateStr) {
+    
+    
+    
+//    if (recordDateStr) 
+//    {
+//        [uDefault removeObjectForKey:@"recordDate"];
+//        [uDefault synchronize];
+//    }
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"provinceCity.plist"];
+//    NSFileManager *myFM2 = [NSFileManager defaultManager];
+//    if([myFM2 fileExistsAtPath:savedImagePath])
+//    {
+//        [myFM2 removeItemAtPath:savedImagePath error:nil];
+//    }
+//    
+    
+    
+    self.navigationController.navigationBarHidden = YES;
+    
+    hotelType_Mutable = [[NSMutableArray alloc] init];
+    province_Mutable = [[NSMutableArray alloc] init];
+    city_Mutable =[[NSMutableArray alloc] init];
+    cityIDArray = [[NSMutableArray alloc] init];
+    post_Mutable = [[NSMutableArray alloc] init];
+    
+//    NSUserDefaults *uDefault = [NSUserDefaults standardUserDefaults];
+//    NSString *recordDateStr = [uDefault objectForKey:@"recordDate"];
+    
+    //recordDateStr 记录第二次注册
+    if (recordDateStr) 
+    {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         NSLocale *locale=[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
@@ -48,7 +81,7 @@
         NSDateComponents *comps = [[NSDateComponents alloc] init];
         [comps setDay:-7];
         NSCalendar *calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDate *mDate = [calender dateByAddingComponents:comps toDate:currentDate options:1];
+        NSDate *mDate = [calender dateByAddingComponents:comps toDate:currentDate options:0];
         NSString *lastWeek = [dateFormatter stringFromDate:mDate];
         NSLog(@"lastWeek == %@",lastWeek);
         
@@ -57,33 +90,45 @@
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"provinceCity.plist"];
         NSFileManager *myFM = [NSFileManager defaultManager];
-        switch ([recordDate compare:mDate]) {
-            case NSOrderedSame:{
-                if([myFM fileExistsAtPath:savedImagePath]){
+        switch ([mDate compare:recordDate]) 
+        {
+                //两个时间相同（）
+            case NSOrderedSame:
+            {
+                if([myFM fileExistsAtPath:savedImagePath])
+                {
                     province_Mutable  = [[ NSMutableArray alloc ] initWithContentsOfFile:savedImagePath];
                     city_Mutable  = [[province_Mutable objectAtIndex:0] objectForKey:@"city"];
                 }
             }
                 break;
-            case NSOrderedAscending:{
-                if([myFM fileExistsAtPath:savedImagePath]){
+                //在前
+            case NSOrderedAscending:
+            {
+                if([myFM fileExistsAtPath:savedImagePath])
+                {
                     province_Mutable  = [[ NSMutableArray alloc ] initWithContentsOfFile:savedImagePath];
                     city_Mutable  = [[province_Mutable objectAtIndex:0] objectForKey:@"city"];
                 }
             }
                 break;
-            case NSOrderedDescending:{
-                DataSource *dataSourc = [DataSource interFaceWithBlocks:^(id response) {
+                //在后
+            case NSOrderedDescending:
+            {
+                DataSource *dataSourc = [DataSource interFaceWithBlocks:^(id response) 
+                {
                     NSDictionary *dic2 = response;
                     NSArray *tempArray = [[[dic2  objectForKey:@"output"] objectForKey:@"provinces"] JSONValue];
-                    
-                    if([myFM fileExistsAtPath:savedImagePath]){
+                    NSLog(@"tempArray==%@",tempArray);
+                    if([myFM fileExistsAtPath:savedImagePath])
+                    {
                         [myFM removeItemAtPath:savedImagePath error:nil];
                     }
                     
                     NSMutableArray *provinceArray = [[NSMutableArray alloc] init];
                     
-                    for (int i=0; i<[tempArray count]; i++) {
+                    for (int i=0; i<[tempArray count]; i++) 
+                    {
                         NSMutableDictionary *mdiction = [[NSMutableDictionary alloc] init];
                         NSArray *citytempArr = [[[tempArray objectAtIndex:i] objectForKey:@"cityList"] JSONValue];
                         [mdiction setObject:[NSString stringWithFormat:@"%@",[[tempArray objectAtIndex:i] objectForKey:@"provinceId"]] forKey:@"provinceId"];
@@ -117,7 +162,10 @@
             default:
                 break;
         }
-    }else{
+    }
+    else
+    {
+        //第一次注册写入
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         NSLocale *locale=[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
@@ -135,13 +183,19 @@
             NSDictionary *dic2 = response;
             NSArray *tempArray = [[[dic2  objectForKey:@"output"] objectForKey:@"provinces"] JSONValue];
             
-            if([myFM2 fileExistsAtPath:savedImagePath]){
+            
+            NSLog(@"tempArray=else=%@",tempArray);
+            
+            
+            if([myFM2 fileExistsAtPath:savedImagePath])
+            {
                 [myFM2 removeItemAtPath:savedImagePath error:nil];
             }
             
             NSMutableArray *provinceArray = [[NSMutableArray alloc] init];
             
-            for (int i=0; i<[tempArray count]; i++) {
+            for (int i=0; i<[tempArray count]; i++) 
+            {
                 NSMutableDictionary *mdiction = [[NSMutableDictionary alloc] init];
                 NSArray *citytempArr = [[[tempArray objectAtIndex:i] objectForKey:@"cityList"] JSONValue];
                 [mdiction setObject:[NSString stringWithFormat:@"%@",[[tempArray objectAtIndex:i] objectForKey:@"provinceId"]] forKey:@"provinceId"];
@@ -162,7 +216,8 @@
             province_Mutable  = [[ NSMutableArray alloc ] initWithContentsOfFile:savedImagePath];
             NSArray *cityTemp = [[province_Mutable objectAtIndex:0] objectForKey:@"city"];
             NSLog(@"cityTemp ===%@",cityTemp);
-            for (int x = 0; x <[cityTemp count]; x++) {
+            for (int x = 0; x <[cityTemp count]; x++) 
+            {
                 [cityIDArray addObject:[[cityTemp objectAtIndex:x] objectForKey:@"cityId"]];
                 [city_Mutable addObject: [[cityTemp objectAtIndex:x] objectForKey:@"cityName"]];
             }
@@ -179,7 +234,9 @@
         NSDictionary *dic3 = response;
         NSArray *tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"resTypes"] JSONValue];
         hotelType_Mutable = [NSArray arrayWithArray:tempArr];
-        for (int i=0; i<[tempArr count]; i++) {
+        NSLog(@"hotelType_Mutable  === %@",hotelType_Mutable);
+        for (int i=0; i<[tempArr count]; i++) 
+        {
             
             NSLog(@"resTypeId[%i]====%@",i,[[tempArr objectAtIndex:i] objectForKey:@"resTypeId"]);
             NSLog(@"resTypeName[%i]====%@",i,[[tempArr objectAtIndex:i] objectForKey:@"resTypeName"]);
@@ -191,11 +248,13 @@
     
     
     
-    DataSource *daSources = [DataSource interFaceWithBlocks:^(id response) {
+    DataSource *daSources = [DataSource interFaceWithBlocks:^(id response) 
+    {
         NSDictionary *dic4 = response;
         NSArray *tempArr2 = [[[dic4 objectForKey:@"output"] objectForKey:@"positions"] JSONValue];
         post_Mutable = [NSArray arrayWithArray:tempArr2];
-        for (int i=0; i<[tempArr2 count]; i++) {
+        for (int i=0; i<[tempArr2 count]; i++) 
+        {
             NSLog(@"positionId[%i]====%@",i,[[tempArr2 objectAtIndex:i] objectForKey:@"positionId"]);
             NSLog(@"positionName[%i]====%@",i,[[tempArr2 objectAtIndex:i] objectForKey:@"positionName"]);
         }
@@ -215,9 +274,9 @@
     hotelUserView.hidden = NO;
     [self.view addSubview:hotelUserView];
     
-    hotel_array = [[NSArray alloc]initWithObjects:@"省/市:",@"饭店名称:",@"用户名:",@"密码:",@"确认密码:",@"订餐电话:",@"地址:",@"饭店类型:",@"联系人:",@"联系人职务:",@"联系人手机:",@"邀请人ID:", nil];
-    
-    agree = YES;
+//    hotel_array = [[NSArray alloc]initWithObjects:@"省/市:",@"饭店名称:",@"用户名:",@"密码:",@"确认密码:",@"订餐电话:",@"地址:",@"饭店类型:",@"联系人:",@"联系人职务:",@"联系人手机:",@"邀请人ID:", nil];
+//    
+//    agree = YES;
     hotelRegister = YES;
 }
 
@@ -281,14 +340,17 @@
 #pragma mark - 
 #pragma mark Picker DataSource Methods
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
     if (pickerView == province_PickView)
     {
-        if (city_Mutable && [city_Mutable count]>0) {
+        if (city_Mutable && [city_Mutable count]>0) 
+        {
             [city_Mutable removeAllObjects];
         }
         NSArray *tempArr = [[province_Mutable objectAtIndex:row] objectForKey:@"city"];
-        for (int iii =0; iii <[tempArr count]; iii++) {
+        for (int iii =0; iii <[tempArr count]; iii++) 
+        {
             [city_Mutable addObject:[[tempArr objectAtIndex:iii] objectForKey:@"cityName"]];
             [cityIDArray addObject:[[tempArr objectAtIndex:iii] objectForKey:@"cityId"]];
         }
@@ -303,43 +365,81 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (pickerView == province_PickView) 
+    if (province_PickView.hidden == NO) 
     {
-        return province_Mutable.count;
+       return province_Mutable.count;
     }
-    else if (pickerView == city_PickView) 
+    else if (city_PickView.hidden == NO) 
     {
         return city_Mutable.count;
     }
-    else if (pickerView == hotelType_PickView) 
+    else if (hotelType_PickView.hidden == NO) 
     {
         return hotelType_Mutable.count;
     }
-    else 
+    else if (post_PickView.hidden == NO) 
     {
         return post_Mutable.count;
     }
+    
+
+//    if (pickerView == province_PickView) 
+//    {
+//        return province_Mutable.count;
+//    }
+//    else if (pickerView == city_PickView) 
+//    {
+//        return city_Mutable.count;
+//    }
+//    else if (pickerView == hotelType_PickView) 
+//    {
+//        return hotelType_Mutable.count;
+//    }
+//    else if(pickerView == post_PickView)
+//    {
+//        return post_Mutable.count;
+//    }
+//    return nil;
 }
 
 #pragma mark Picker Delegate Methods
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (pickerView == province_PickView) 
+    if (province_PickView.hidden == NO) 
     {
         return [[province_Mutable objectAtIndex:row] objectForKey:@"provinceName"];
     }
-    else if (pickerView == city_PickView)
+    else if (city_PickView.hidden == NO) 
     {
         return  [city_Mutable objectAtIndex:row];
     }
-    else if (pickerView == hotelType_PickView) 
+    else if (hotelType_PickView.hidden == NO) 
     {
         return [[hotelType_Mutable objectAtIndex:row] objectForKey:@"resTypeName"];
     }
-    else 
+    else if (post_PickView.hidden == NO) 
     {
         return [[post_Mutable objectAtIndex:row] objectForKey:@"positionName"];
     }
+    
+
+//    if (pickerView == province_PickView) 
+//    {
+//        return [[province_Mutable objectAtIndex:row] objectForKey:@"provinceName"];
+//    }
+//    else if (pickerView == city_PickView)
+//    {
+//        return  [city_Mutable objectAtIndex:row];
+//    }
+//    else if (pickerView == hotelType_PickView) 
+//    {
+//        return [[hotelType_Mutable objectAtIndex:row] objectForKey:@"resTypeName"];
+//    }
+//    else if(pickerView == post_PickView)
+//    {
+//        return [[post_Mutable objectAtIndex:row] objectForKey:@"positionName"];
+//    }
+//    return nil;
 }
 
 #pragma mark - 
@@ -456,6 +556,9 @@
         toolbar.hidden = NO;
     }
 }
+
+#pragma mark - 
+#pragma mark 确定按钮 Delgtate Methods
 //确定按钮
 - (IBAction)infoSelect_click:(id)sender 
 { 
@@ -473,16 +576,36 @@
 
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"plist"];
 //    city_Mutable = [[[NSMutableArray alloc] initWithContentsOfFile:path] objectAtIndex:province_selectedRow];
-    
+    //---------饭店注册
     if (hotelUserView.hidden == NO) 
     {
-        hotelUserView.provinceBtn.titleLabel.text = [[province_Mutable objectAtIndex:province_selectedRow] objectForKey:@"provinceName"];
-        hotelUserView.provinceId = [[province_Mutable objectAtIndex:province_selectedRow] objectForKey:@"provinceId"];
-        hotelUserView.cityBtn.titleLabel.text = [city_Mutable objectAtIndex:city_selectedRow];
-        hotelUserView.cityId = [cityIDArray objectAtIndex:city_selectedRow];
-        hotelUserView.hotelTypeBtn.titleLabel.text = [[hotelType_Mutable objectAtIndex:hotelType_selectedRow] objectForKey:@"resTypeName"] ;
-        hotelUserView.contactPostBtn.titleLabel.text = [[post_Mutable objectAtIndex:post_selectedRow] objectForKey:@"positionName"];
+        //赋值之前判断那个PickView显示
+        if (province_PickView.hidden == NO) 
+        {
+            [province_PickView reloadAllComponents];
+            hotelUserView.provinceBtn.titleLabel.text = [[province_Mutable objectAtIndex:province_selectedRow] objectForKey:@"provinceName"];        
+            hotelUserView.provinceId = [[province_Mutable objectAtIndex:province_selectedRow] objectForKey:@"provinceId"];
+        }
+        else if (city_PickView.hidden == NO) 
+        {
+            [city_PickView reloadAllComponents];
+            hotelUserView.cityBtn.titleLabel.text = [city_Mutable objectAtIndex:city_selectedRow];        
+            hotelUserView.cityId = [cityIDArray objectAtIndex:city_selectedRow];
+        }
+        else if (hotelType_PickView.hidden == NO) 
+        {
+            [hotelType_PickView reloadAllComponents];
+            hotelUserView.hotelTypeBtn.titleLabel.text = [[hotelType_Mutable objectAtIndex:hotelType_selectedRow] objectForKey:@"resTypeName"] ;
+        }
+        else if (post_PickView.hidden == NO) 
+        {
+            [post_PickView reloadAllComponents];
+             hotelUserView.contactPostBtn.titleLabel.text = [[post_Mutable objectAtIndex:post_selectedRow] objectForKey:@"positionName"];
+        }
+         
+       
     }
+    //--------厨师注册
     else 
     {
         cookPersonalView.province_btn.titleLabel.text = [province_Mutable objectAtIndex:province_selectedRow];

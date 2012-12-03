@@ -51,6 +51,8 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
         
         NSMutableString *requestStr=[[NSMutableString alloc]init];
         NSArray *tempArr=[infoArr retain];
+        
+        
         for (int i=0; i<tempArr.count/2; i++) {
             
             if (i==0) {
@@ -62,7 +64,9 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
                 [requestStr appendFormat:@"&%@=%@",[tempArr objectAtIndex:i*2],[tempArr objectAtIndex:i*2+1]];
             }
             
+            
         }
+    
         /*
         for (NSDictionary *dict in tempArr) {
             
@@ -87,15 +91,26 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
         
     }else if(tpye==NetWorkTypePOST){
     
+        
+        NSMutableDictionary *tempDict =[NSMutableDictionary dictionary];
+        
         NSString *requestAddress = [NSString stringWithFormat:@"%@%@",URLStr,methodStr];
         request=QMackASIRequest(requestAddress);
         NSArray *tempArr=[infoArr retain];
         
         for (int i=0; i<tempArr.count/2; i++) {
         
-             [request setPostValue:[tempArr objectAtIndex:i*2+1] forKey:[tempArr objectAtIndex:i*2]];
+            // [request setPostValue:[tempArr objectAtIndex:i*2+1] forKey:[tempArr objectAtIndex:i*2]];
         
+            [tempDict setObject:[tempArr objectAtIndex:i*2+1] forKey:[tempArr objectAtIndex:i*2]];
+           
         }
+        
+        NSString *str=[tempDict JSONRepresentation];
+        [request appendPostData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+        [request setPostLength:str.length];
+        [request addRequestHeader:@"Content-Type" value:@"application/json"];
+
         /*
         for (NSDictionary *dict in tempArr) {
             

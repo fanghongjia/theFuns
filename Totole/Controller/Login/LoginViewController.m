@@ -101,11 +101,31 @@
     else 
     {
         
+        
+        DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response) {
+            NSDictionary *dic2 = response;
+            NSLog(@"dic2 ==  %@",dic2);
+//            NSArray *tempArray = [[[dic2  objectForKey:@"output"] objectForKey:@"provinces"] JSONValue];
+            
+             NSLog(@"account_TF.text =--= %@ password_TF.text =---= %@",account_TF.text,password_TF.text);
+                        
+        } loadInfo:@"正在加载..." HUDBackView:self.view];
+        [dataSource login:account_TF.text passwrod:password_TF.text userType:@"1" operateSource:@"2" mobileId:@"354406040249527"];
+    
+         
+        
+        
+        
+        
+        /*
         NSMutableDictionary *mDict = [[NSMutableDictionary alloc] init];
-        [mDict setObject:account_TF.text forKey:@"username"];
+        [mDict setObject:account_TF.text forKey:@"userName"];
         [mDict setObject:password_TF.text forKey:@"password"];
         [mDict setObject:@"1" forKey:@"userType"];
-
+        [mDict setObject:@"2" forKey:@"operateSource"];
+        [mDict setObject:@"354406040249527" forKey:@"mobileId"];
+        
+        
         
 		NSString *JSONString = [mDict JSONRepresentation];
 		NSLog(@" JSON :Format %@", [JSONString description]);
@@ -116,12 +136,12 @@
 		NSData *postData = [JSONString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
 		
 		NSLog(@"postData : %@", postData);
-		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+		NSString *postLength = [NSString stringWithFormat:@"%d", [JSONString length]];
         NSMutableURLRequest*requestPOST = [[NSMutableURLRequest alloc] initWithURL:url];
         //		NSMutableURLRequest*requestPOST = [[[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20] autorelease];
 		//[requestPOST setURL:url]; 
 		[requestPOST setHTTPMethod:@"POST"];
-        [requestPOST setHTTPShouldUsePipelining:NO];
+        //[requestPOST setHTTPShouldUsePipelining:NO];
 		[requestPOST setValue:postLength forHTTPHeaderField:@"Content-Length"];
 		[requestPOST setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
 		[requestPOST setHTTPBody:postData];
@@ -138,6 +158,9 @@
             returnString= [[NSString alloc] initWithBytes:returnData.bytes length:returnData.length encoding:NSUTF8StringEncoding];
             NSLog(@"返回 == %@",returnString);
         }
+        */
+         
+         
         
         
         

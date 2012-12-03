@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AVFoundation/AVFoundation.h"
+#import "ZBarSDK.h"
 
-@interface ActivateViewController : UIViewController
+
+@interface ActivateViewController : UIViewController<ZBarReaderDelegate>
+{
+    __unsafe_unretained IBOutlet UIImageView *activateResult_View;
+//    ZBarReaderController *reader;
+}
 
 @end

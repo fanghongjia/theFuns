@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK
+END
+ZBarImageScanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarImageScanner.h
+END
+ZBarReaderView.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarReaderView.h
+END
+zbar.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/zbar.h
+END
+ZBarReaderViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarReaderViewController.h
+END
+ZBarSDK.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarSDK.h
+END
+ZBarImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarImage.h
+END
+ZBarSymbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarSymbol.h
+END
+ZBarReaderController.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarReaderController.h
+END
+ZBarCaptureReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/75/trunk/iphone.scanbar/Classes/ZBarSDK/Headers/ZBarSDK/ZBarCaptureReader.h
+END
