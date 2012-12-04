@@ -32,7 +32,7 @@
         cookPersonal_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         cookPersonal_tableView.scrollEnabled = NO;
         [self addSubview:cookPersonal_tableView];
-        
+          
         UILabel *lable = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, 83, 21)];
         lable.backgroundColor = [UIColor clearColor];
         lable.text = @"个人信息";

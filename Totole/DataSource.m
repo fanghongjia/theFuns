@@ -104,4 +104,8 @@ operateSource:(NSString *)operateSource
 }
 
 
+//积分激活 userService/activateScore
+//- (void)activate
+
+
 @end

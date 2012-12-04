@@ -104,7 +104,15 @@
         
         DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response) {
             NSDictionary *dic2 = response;
-            NSLog(@"dic2 ==  %@",dic2);
+            NSLog(@"dic2dic2dic2 ==  %@",dic2);
+            
+            NSMutableArray *myArray = [[NSMutableArray alloc]init];
+            NSString *sessionId_string;
+            sessionId_string = [[dic2 objectForKey:@"output"]objectForKey:@"sessionId"];
+            
+            NSLog(@"sessionId_string == %@",sessionId_string);
+        
+            
 //            NSArray *tempArray = [[[dic2  objectForKey:@"output"] objectForKey:@"provinces"] JSONValue];
             
              NSLog(@"account_TF.text =--= %@ password_TF.text =---= %@",account_TF.text,password_TF.text);
