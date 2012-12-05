@@ -24,7 +24,7 @@
     BOOL agree;
 }
 
-@property (nonatomic,assign) id<CookHotel_viewDelegate> CookHotel_viewDelegate;
+@property (nonatomic,unsafe_unretained) id<CookHotel_viewDelegate> CookHotel_viewDelegate;
 
 @end
 

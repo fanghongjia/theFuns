@@ -20,12 +20,12 @@
 
     UITextField *userName_TF,*name_TF,*password_TF,*confirmPassword_TF,*address_TF,*phone_TF;
 }
-@property (nonatomic,retain) UIButton *province_btn;
-@property (nonatomic,retain) UIButton *city_btn;
-@property (nonatomic,retain) UIButton *post_btn;
+@property (nonatomic) UIButton *province_btn;
+@property (nonatomic) UIButton *city_btn;
+@property (nonatomic) UIButton *post_btn;
 
 
-@property (nonatomic,assign) id<CookPersonal_viewDelegate> CookPersonal_viewDelegate;
+@property (nonatomic,unsafe_unretained) id<CookPersonal_viewDelegate> CookPersonal_viewDelegate;
 
 @end
 

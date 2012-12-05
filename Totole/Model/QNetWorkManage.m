@@ -106,7 +106,9 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
            
         }
         
+//        NSLog(@"tempDict == %@",tempDict);
         NSString *str=[tempDict JSONRepresentation];
+//        NSLog(@"str:%@",str);
         [request appendPostData:[str dataUsingEncoding:NSUTF8StringEncoding]];
         [request setPostLength:str.length];
         [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -182,6 +184,7 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
     dispatch_block_t block = ^{
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         ASIFormDataRequest *request=setASIRequest(_info, _type, ServerMainAddress, _methodStr);
+        [request setUseCookiePersistence:YES];
         [request startSynchronous];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -196,8 +199,23 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
                 NETWORK_DeBug_Log(@"返回的String: %@",request.responseString);
 #endif
                 NSData  *responseData=[[NSData alloc] initWithData:request.responseData];
-                _finshBlock([responseData JSONValue]); 
+                
+                id object=[[responseData JSONValue] mutableCopy];
+                
+                
+                if ([object isKindOfClass:[NSDictionary class]]) {
+                    
+                    [object setObject:request.responseCookies forKey:@"cookies"];
+                    
+                }else if ([object isKindOfClass:[NSArray class]]) {
+                    
+                    [object addObject:request.responseCookies];
+                    
+                }
+                
+                _finshBlock(object); 
                 [responseData release];
+                [object release];
             }
             [request clearDelegatesAndCancel];
         });	 

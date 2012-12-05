@@ -35,6 +35,7 @@ typedef enum
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property(nonatomic,copy)NSMutableArray     *myCookie;
 
 -(void)initTabBarControl:(LoginType)sender;
 

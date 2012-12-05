@@ -13,7 +13,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-
+@synthesize myCookie;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

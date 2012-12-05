@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InputPointsViewController : UIViewController
+@interface InputPointsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView *myTableView;
+}
 
 @end

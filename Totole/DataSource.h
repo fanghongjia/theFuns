@@ -45,5 +45,12 @@ operateSource:(NSString *)operateSource
 //获得联系人职务
 -(void)getPositions;
 
+//激活积分
+- (void)activateScore:(NSString *)integralCodeList mobileId:(NSString *)mobileId;
+- (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList mobileId:(NSString *)mobileId;
+
+
+//商场列表
+- (void)getGiftCategorys;
 
 @end

@@ -21,7 +21,7 @@
     __strong StyledPageControl  *_pageControl;
 
 }
-@property (nonatomic,assign) NSObject<StartViewDelegate> *delegate;
+@property (nonatomic,unsafe_unretained) NSObject<StartViewDelegate> *delegate;
 
 -(void)statAppEvent:(id)sender;
 @end

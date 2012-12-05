@@ -80,6 +80,94 @@ Class object_getClass(id object);
     
 }
 #endif
+
+/***/
+
+- (void)starDownLoadWtihASI:(ASIFormDataRequest *)request MethodStr:(NSString *)_method Type:(NetWorkType)_type{
+
+    
+    if (isProgressHUD==YES) {
+        
+        if (HUDbackView) {
+            
+            HUD = [[MBProgressHUD showHUDAddedTo:HUDbackView animated:YES] retain]; 
+        }else{
+            
+            UIWindow *myWindows=[[UIApplication sharedApplication] keyWindow];
+            HUD = [[MBProgressHUD showHUDAddedTo:myWindows animated:YES] retain];
+            
+        }
+        HUD.animationType=MBProgressHUDAnimationFade;
+        HUD.square = YES;
+        HUD.labelText=HUDStr;
+        if (HUDMode==InterFaceHUDModeDefault) {
+            
+            HUD.dimBackground=NO;
+            
+        }else if(HUDMode==InterFaceHUDModeBlackBackground){
+            
+            HUD.dimBackground=YES;
+            
+        }else if(HUDMode==InterFaceHUDModeBlackViewTouch){
+            
+            HUD.userInteractionEnabled=NO;
+            
+        }else if(HUDMode==InterFaceHUDModeBlackViewTouchAndBlack){
+            
+            HUD.userInteractionEnabled=NO;
+            HUD.dimBackground=YES;
+        }
+    }
+
+    
+    [request setCompletionBlock:^{
+        
+        
+        if (object_getClass(self.delegate)==delegateClass) {
+            
+            if (finshBlock) {
+                finshBlock([request.responseString JSONValue]);
+            }
+            else if (didFinsh) {
+                
+                [delegate performSelector:didFinsh withObject:[request.responseString JSONValue]];
+            }
+            
+        }
+        if (isProgressHUD) {
+            
+            [HUD hide:NO];
+            [HUD release];
+            HUD=nil;
+            
+        }
+        [self release];
+        
+    }];
+    
+    [request setFailedBlock:^{
+        
+        if (object_getClass(self.delegate)==delegateClass) {
+            if (faildBlock) {
+                faildBlock(request.error);
+            }
+            else if (didFaild) {
+                
+                [delegate performSelector:didFaild withObject:request.error];
+            }
+        }
+        
+        
+        if (isProgressHUD) {
+            [HUD hide:NO];
+            [HUD release];
+            HUD=nil;
+        }
+        [self release];
+    }];
+    
+    [request startAsynchronous];
+}
 /*
  开始执行下载
  */

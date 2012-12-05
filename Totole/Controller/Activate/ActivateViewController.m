@@ -136,14 +136,41 @@
     //    [reader_MutableArr addObject:symbol.data];
     
     activateNumber_lb.text = symbol.data;//扫描所得到的信息
+    NSString *barcode_String = symbol.data;//扫描所得到的信息
     //扫描所得到的信息  
-    NSString *messStr=[symbol.data copy];
+
     
-    //
+    NSMutableDictionary *jsonDic = [[NSMutableDictionary alloc]init];
+    [jsonDic setObject:barcode_String forKey:@"integralCode"];//条形码
     
+    NSMutableArray *tempArr = [[NSMutableArray alloc]init];
+    [tempArr addObject:jsonDic];
+//    [tempArr addObject:jsonDic];
+    
+    NSMutableDictionary *finDic = [[NSMutableDictionary alloc]init];
+    [finDic setObject:tempArr forKey:@"integralCodeList"];
+    [finDic setObject:@"354406040249527" forKey:@"mobileId"];
+    
+    
+//    [jsonDic setObject:tempArr forKey:@"integralCode"];   
+//    NSString *jsonString = [finDic JSONRepresentation];
+//    NSString *arrayString = [tempArr JSONRepresentation];
+//    NSLog(@"jsonString == %@,arrayString == %@",jsonString,arrayString);
+    
+    DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic2 = response;
+        NSLog(@"dic2dic =-----=  %@",dic2);
+        
+
+        
+            
+            
+    } loadInfo:@"正在加载..." HUDBackView:self.view];
+    [dataSource activateScoreintegralCodeList:tempArr mobileId:@"354406040249527"];
+//    [dataSource activateScore:arrayString mobileId:@"354406040249527"];
     
     [self viewDidLoad];
-    [myTableView reloadData];
+//    [myTableView reloadData];
     [reader dismissModalViewControllerAnimated: YES];
     
 }
@@ -157,7 +184,9 @@
 //手动输入
 - (void)activateInput:(UIButton *)sender
 {
-    
+    [Reader dismissModalViewControllerAnimated: YES];
+    InputPointsViewController *inputVC = [[InputPointsViewController alloc]init];
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 
 - (IBAction)backHome_click:(id)sender 

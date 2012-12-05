@@ -106,13 +106,30 @@
             NSDictionary *dic2 = response;
             NSLog(@"dic2dic2dic2 ==  %@",dic2);
             
-            NSMutableArray *myArray = [[NSMutableArray alloc]init];
+            NSArray *cookes=[dic2 objectForKey:@"cookies"];
+            
+            //NSHTTPCookie *cooke=[cookes objectAtIndex:0];
+            
+            NSDictionary *dictd=[NSHTTPCookie requestHeaderFieldsWithCookies:cookes];
+            
+            NSLog(@"dictd:%@",dictd);
+            
+            mainDelegate = MYDELEGATE;
+            mainDelegate.myCookie = [dictd objectForKey:@"Cookie"];
+//            [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
             NSString *sessionId_string;
             sessionId_string = [[dic2 objectForKey:@"output"]objectForKey:@"sessionId"];
-            
+
+            [defaults setObject:sessionId_string forKey:@"sessionId"];
+
             NSLog(@"sessionId_string == %@",sessionId_string);
         
-            
+        
 //            NSArray *tempArray = [[[dic2  objectForKey:@"output"] objectForKey:@"provinces"] JSONValue];
             
              NSLog(@"account_TF.text =--= %@ password_TF.text =---= %@",account_TF.text,password_TF.text);
@@ -121,7 +138,7 @@
         [dataSource login:account_TF.text passwrod:password_TF.text userType:@"1" operateSource:@"2" mobileId:@"354406040249527"];
     
          
-        
+        //ASIHTTPRequest setSessionCookies:(NSMutableArray *)
         
         
         

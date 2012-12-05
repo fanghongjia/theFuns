@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AVFoundation/AVFoundation.h"
 #import "ZBarSDK.h"
+#import "InputPointsViewController.h"
+
 
 
 @interface ActivateViewController : UIViewController<ZBarReaderDelegate,UITableViewDelegate,UITableViewDataSource>

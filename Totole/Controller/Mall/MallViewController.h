@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MmUtil.h"
 
-@interface MallViewController : UIViewController
+#import "MallDetailViewController.h"
+
+@interface MallViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView *mytableView;
+    
+    NSArray *tempArr;
+    NSMutableArray *categoryIdMut;
+}
 
 @end

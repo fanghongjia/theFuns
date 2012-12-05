@@ -8,6 +8,7 @@
 
 #import "DataSource.h"
 
+
 @implementation DataSource
 
 
@@ -17,6 +18,8 @@
     //    NSLog(@"_muArr == %@",_muArr);
     [super starDownLoadWtihInfo:_muArr MethodStr:_method Type:_type];
 }
+
+
 //{province:"3",city:"427",restaurantName:"某餐厅",userName:"loginName",password:"123456",reservationTel:"02166551234",address:"某某区某某路165号",restaurantType:"中餐",contact:"王掌柜",contactPosition :"总经理",contactMobile:"13838381234",inviteCode:"113"}
 //1、会员注册
 -(void)registeruser_province:(NSString *)province 
@@ -92,20 +95,74 @@ operateSource:(NSString *)operateSource
 }
 
 //获得饭店类型
--(void)getResTypes{
+-(void)getResTypes
+{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
     [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getResTypes" Type:NetWorkTypeGET];
 }
 
 //获得联系人职务
--(void)getPositions{
+-(void)getPositions
+{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
     [self starDownLoadWtihInfo:mArray MethodStr:@"dropDownListService/getPositions" Type:NetWorkTypeGET];
 }
 
 
-//积分激活 userService/activateScore
-//- (void)activate
+//积分激活 userService/activateScore   sessionId,{integralCodeList:[{integralCode:"568745615871225"},{integralCode:"215846328795216"}],mobileId:"mobileId"}
+- (void)activateScore:(NSString *)integralCodeList mobileId:(NSString *)mobileId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    
+    [mArray setParameter:@"integralCodeList" Parameter:integralCodeList];
+    [mArray setParameter:@"mobileId" Parameter:mobileId];
 
+    [self starDownLoadWtihInfo:mArray MethodStr:@"userService/activateScore" Type:NetWorkTypePOST];
+}
+
+- (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList mobileId:(NSString *)mobileId
+{
+    ASIFormDataRequest *request=nil;
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];
+    
+    NSLog(@"cookit == %@",cookit);
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    
+    [mArray setParameter:@"integralCodeList" Parameter:integralCodeList];
+    [mArray setParameter:@"mobileId" Parameter:mobileId];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mArray];
+    NSMutableData *mData  = [NSMutableData dataWithData:data];
+    [request setPostBody:mData];
+    [self starDownLoadWtihASI:request MethodStr:@"userService/activateScore" Type:NetWorkTypePOST];
+
+//    [self starDownLoadWtihInfo:mArray MethodStr:@"userService/activateScore" Type:NetWorkTypePOST];
+}
+
+//商场列表
+- (void)getGiftCategorys
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftCategorys" Type:NetWorkTypeGET];
+}
+
+- (void)getResTypd
+{
+    ASIFormDataRequest *request=nil;
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"integralCodeList" Parameter:@""];
+    [mArray setParameter:@"mobileId" Parameter:@""];
+     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mArray];
+    NSMutableData *mData  = [NSMutableData dataWithData:data];
+    [request setPostBody:mData];
+    [self starDownLoadWtihASI:request MethodStr:@"mallService/getGiftCategorys" Type:NetWorkTypePOST];
+}
 
 @end

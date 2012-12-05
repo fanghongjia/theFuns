@@ -5,6 +5,8 @@
 #import <Availability.h>
 #import "DataSource.h"
 #import "NSObject+SBJson.h"
+#import "AppDelegate.h"
+#define MYDELEGATE (AppDelegate *)[[UIApplication sharedApplication]delegate]
 
 #ifndef __IPHONE_3_0
 #warning "This project uses features only available in iOS SDK 3.0 and later."
@@ -14,3 +16,4 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+AppDelegate *mainDelegate;

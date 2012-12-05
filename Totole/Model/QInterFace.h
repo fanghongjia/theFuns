@@ -51,6 +51,8 @@ typedef enum {
  开始执行下载
  */
 - (void)starDownLoadWtihInfo:(NSMutableArray *)_muArr MethodStr:(NSString *)_method Type:(NetWorkType)_type;
+- (void)starDownLoadWtihASI:(ASIFormDataRequest *)request MethodStr:(NSString *)_method Type:(NetWorkType)_type;
+
 @property(nonatomic,assign)QNetWorkDelegate  delegate;
 /*
  @property(nonatomic,assign)QNetWorkFinsh     didFinsh;

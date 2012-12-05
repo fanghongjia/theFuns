@@ -55,6 +55,12 @@
 		AF153DD9166C7738007EA6A5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF153DD8166C7738007EA6A5 /* CoreVideo.framework */; };
 		AF153DE0166CE342007EA6A5 /* activate_resultRG.png in Resources */ = {isa = PBXBuildFile; fileRef = AF153DDF166CE342007EA6A5 /* activate_resultRG.png */; };
 		AF153DE2166CE737007EA6A5 /* activate_continueToscan.png in Resources */ = {isa = PBXBuildFile; fileRef = AF153DE1166CE737007EA6A5 /* activate_continueToscan.png */; };
+		AF17D9F1166F800500C5FA8A /* mall_click.png in Resources */ = {isa = PBXBuildFile; fileRef = AF17D9F0166F800500C5FA8A /* mall_click.png */; };
+		AF18CC12166F836C0027343F /* MallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF18CC10166F836C0027343F /* MallDetailViewController.m */; };
+		AF18CC13166F836C0027343F /* MallDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC11166F836C0027343F /* MallDetailViewController.xib */; };
+		AF18CC18166F85D10027343F /* mall_top1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC15166F85D10027343F /* mall_top1.png */; };
+		AF18CC19166F85D10027343F /* mall_top2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC16166F85D10027343F /* mall_top2.png */; };
+		AF18CC1A166F85D10027343F /* mall_top3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC17166F85D10027343F /* mall_top3.png */; };
 		AF2D39B916645C9F00720690 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2D39B816645C9F00720690 /* city.plist */; };
 		AF3DB3A5166C4DAC00E29786 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3DB3A4166C4DAC00E29786 /* AVFoundation.framework */; };
 		AF416ACD165A00AE00FA0846 /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AC9165A00AD00FA0846 /* tabbar_home.png */; };
@@ -93,7 +99,13 @@
 		AF416BAF165A2B0C00FA0846 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BAE165A2B0C00FA0846 /* CFNetwork.framework */; };
 		AF416BB1165A2B1900FA0846 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB0165A2B1900FA0846 /* MobileCoreServices.framework */; };
 		AF416BB3165A2B2800FA0846 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB2165A2B2800FA0846 /* libz.dylib */; };
+		AF92F6C0166F4A550096DF21 /* mall_search.png in Resources */ = {isa = PBXBuildFile; fileRef = AF92F6BF166F4A550096DF21 /* mall_search.png */; };
 		AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC50E16661302005DACF3 /* tabbar_more.png */; };
+		AFC39E4F166F74AE00906DF5 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E46166F74AE00906DF5 /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFC39E50166F74AE00906DF5 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E49166F74AE00906DF5 /* EGOImageLoadConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFC39E51166F74AE00906DF5 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E4B166F74AE00906DF5 /* EGOImageLoader.m */; };
+		AFC39E52166F74AE00906DF5 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E4E166F74AE00906DF5 /* EGOImageView.m */; };
+		AFC39E55166F76BB00906DF5 /* MmUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E54166F76BB00906DF5 /* MmUtil.m */; };
 		AFD3A2711667246100F39BE3 /* CookHotel_View.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD3A2701667246000F39BE3 /* CookHotel_View.m */; };
 		AFD57DC6166DA21400E0347D /* activate_down.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD57DC5166DA21400E0347D /* activate_down.png */; };
 		AFD57DCA166DA26200E0347D /* register_cookBack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD57DC8166DA26200E0347D /* register_cookBack_1.png */; };
@@ -225,6 +237,13 @@
 		AF153DD8166C7738007EA6A5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		AF153DDF166CE342007EA6A5 /* activate_resultRG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activate_resultRG.png; sourceTree = "<group>"; };
 		AF153DE1166CE737007EA6A5 /* activate_continueToscan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activate_continueToscan.png; sourceTree = "<group>"; };
+		AF17D9F0166F800500C5FA8A /* mall_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_click.png; sourceTree = "<group>"; };
+		AF18CC0F166F836C0027343F /* MallDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallDetailViewController.h; sourceTree = "<group>"; };
+		AF18CC10166F836C0027343F /* MallDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallDetailViewController.m; sourceTree = "<group>"; };
+		AF18CC11166F836C0027343F /* MallDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MallDetailViewController.xib; sourceTree = "<group>"; };
+		AF18CC15166F85D10027343F /* mall_top1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_top1.png; sourceTree = "<group>"; };
+		AF18CC16166F85D10027343F /* mall_top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_top2.png; sourceTree = "<group>"; };
+		AF18CC17166F85D10027343F /* mall_top3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_top3.png; sourceTree = "<group>"; };
 		AF2D39B816645C9F00720690 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		AF3DB3A4166C4DAC00E29786 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AF416AC9165A00AD00FA0846 /* tabbar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_home.png; path = ../tabbar_home.png; sourceTree = "<group>"; };
@@ -295,7 +314,18 @@
 		AF416BAE165A2B0C00FA0846 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AF416BB0165A2B1900FA0846 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AF416BB2165A2B2800FA0846 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AF92F6BF166F4A550096DF21 /* mall_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mall_search.png; path = Totole/Photo/mall_search.png; sourceTree = SOURCE_ROOT; };
 		AF9EC50E16661302005DACF3 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
+		AFC39E45166F74AE00906DF5 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		AFC39E46166F74AE00906DF5 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		AFC39E48166F74AE00906DF5 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		AFC39E49166F74AE00906DF5 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		AFC39E4A166F74AE00906DF5 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		AFC39E4B166F74AE00906DF5 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		AFC39E4D166F74AE00906DF5 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
+		AFC39E4E166F74AE00906DF5 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
+		AFC39E53166F76BB00906DF5 /* MmUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MmUtil.h; sourceTree = "<group>"; };
+		AFC39E54166F76BB00906DF5 /* MmUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MmUtil.m; sourceTree = "<group>"; };
 		AFD3A26F1667246000F39BE3 /* CookHotel_View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookHotel_View.h; sourceTree = "<group>"; };
 		AFD3A2701667246000F39BE3 /* CookHotel_View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookHotel_View.m; sourceTree = "<group>"; };
 		AFD57DC5166DA21400E0347D /* activate_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activate_down.png; sourceTree = "<group>"; };
@@ -467,6 +497,7 @@
 		78F1DA67163D9C6D00FBBA0B /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				AF92F6BE166F4A490096DF21 /* mall */,
 				AF153DDE166CE336007EA6A5 /* activate */,
 				AFFD58C1165CE5EE00DCFED4 /* login */,
 				78C3B27216592FFE004EA92C /* shoucang.png */,
@@ -571,6 +602,11 @@
 			isa = PBXGroup;
 			children = (
 				AF2D39B816645C9F00720690 /* city.plist */,
+				AFC39E53166F76BB00906DF5 /* MmUtil.h */,
+				AFC39E54166F76BB00906DF5 /* MmUtil.m */,
+				AFC39E44166F74AE00906DF5 /* EGOCache */,
+				AFC39E47166F74AE00906DF5 /* EGOImageLoader */,
+				AFC39E4C166F74AE00906DF5 /* EGOImageView */,
 				AF153D0E166C54A1007EA6A5 /* ZBarSDK */,
 				AF416B64165A2AC800FA0846 /* ASI */,
 				AF416B7B165A2AC800FA0846 /* SBJSON */,
@@ -644,6 +680,47 @@
 				AF416B94165A2AC900FA0846 /* SBJsonWriter.m */,
 			);
 			path = SBJSON;
+			sourceTree = "<group>";
+		};
+		AF92F6BE166F4A490096DF21 /* mall */ = {
+			isa = PBXGroup;
+			children = (
+				AF18CC15166F85D10027343F /* mall_top1.png */,
+				AF18CC16166F85D10027343F /* mall_top2.png */,
+				AF18CC17166F85D10027343F /* mall_top3.png */,
+				AF17D9F0166F800500C5FA8A /* mall_click.png */,
+				AF92F6BF166F4A550096DF21 /* mall_search.png */,
+			);
+			path = mall;
+			sourceTree = "<group>";
+		};
+		AFC39E44166F74AE00906DF5 /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				AFC39E45166F74AE00906DF5 /* EGOCache.h */,
+				AFC39E46166F74AE00906DF5 /* EGOCache.m */,
+			);
+			path = EGOCache;
+			sourceTree = "<group>";
+		};
+		AFC39E47166F74AE00906DF5 /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				AFC39E48166F74AE00906DF5 /* EGOImageLoadConnection.h */,
+				AFC39E49166F74AE00906DF5 /* EGOImageLoadConnection.m */,
+				AFC39E4A166F74AE00906DF5 /* EGOImageLoader.h */,
+				AFC39E4B166F74AE00906DF5 /* EGOImageLoader.m */,
+			);
+			path = EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		AFC39E4C166F74AE00906DF5 /* EGOImageView */ = {
+			isa = PBXGroup;
+			children = (
+				AFC39E4D166F74AE00906DF5 /* EGOImageView.h */,
+				AFC39E4E166F74AE00906DF5 /* EGOImageView.m */,
+			);
+			path = EGOImageView;
 			sourceTree = "<group>";
 		};
 		AFDEDB29165C862600EC461A /* Login */ = {
@@ -726,6 +803,9 @@
 				AFF53EEA1663116700882AFD /* MallViewController.h */,
 				AFF53EEB1663116700882AFD /* MallViewController.m */,
 				AFF53EEC1663116700882AFD /* MallViewController.xib */,
+				AF18CC0F166F836C0027343F /* MallDetailViewController.h */,
+				AF18CC10166F836C0027343F /* MallDetailViewController.m */,
+				AF18CC11166F836C0027343F /* MallDetailViewController.xib */,
 			);
 			name = Mall;
 			path = Controller/Mall;
@@ -737,15 +817,15 @@
 				AFF53EF01663117600882AFD /* ActivateViewController.h */,
 				AFF53EF11663117600882AFD /* ActivateViewController.m */,
 				AFF53EF21663117600882AFD /* ActivateViewController.xib */,
+				AFF53EF91663117600882AFD /* InputPointsViewController.h */,
+				AFF53EFA1663117600882AFD /* InputPointsViewController.m */,
+				AFF53EFB1663117600882AFD /* InputPointsViewController.xib */,
 				AFF53EF31663117600882AFD /* ActivationFailsViewController.h */,
 				AFF53EF41663117600882AFD /* ActivationFailsViewController.m */,
 				AFF53EF51663117600882AFD /* ActivationFailsViewController.xib */,
 				AFF53EF61663117600882AFD /* ActivationSuccessfulViewController.h */,
 				AFF53EF71663117600882AFD /* ActivationSuccessfulViewController.m */,
 				AFF53EF81663117600882AFD /* ActivationSuccessfulViewController.xib */,
-				AFF53EF91663117600882AFD /* InputPointsViewController.h */,
-				AFF53EFA1663117600882AFD /* InputPointsViewController.m */,
-				AFF53EFB1663117600882AFD /* InputPointsViewController.xib */,
 			);
 			name = Activate;
 			path = Controller/Activate;
@@ -953,6 +1033,12 @@
 				AFD57DCB166DA26200E0347D /* register_cookBack.png in Resources */,
 				AFD57DD2166E187500E0347D /* activate_cancel.png in Resources */,
 				AFD57DD3166E187500E0347D /* activate_input.png in Resources */,
+				AF92F6C0166F4A550096DF21 /* mall_search.png in Resources */,
+				AF17D9F1166F800500C5FA8A /* mall_click.png in Resources */,
+				AF18CC13166F836C0027343F /* MallDetailViewController.xib in Resources */,
+				AF18CC18166F85D10027343F /* mall_top1.png in Resources */,
+				AF18CC19166F85D10027343F /* mall_top2.png in Resources */,
+				AF18CC1A166F85D10027343F /* mall_top3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,6 +1098,12 @@
 				AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */,
 				AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */,
 				AFD3A2711667246100F39BE3 /* CookHotel_View.m in Sources */,
+				AFC39E4F166F74AE00906DF5 /* EGOCache.m in Sources */,
+				AFC39E50166F74AE00906DF5 /* EGOImageLoadConnection.m in Sources */,
+				AFC39E51166F74AE00906DF5 /* EGOImageLoader.m in Sources */,
+				AFC39E52166F74AE00906DF5 /* EGOImageView.m in Sources */,
+				AFC39E55166F76BB00906DF5 /* MmUtil.m in Sources */,
+				AF18CC12166F836C0027343F /* MallDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
