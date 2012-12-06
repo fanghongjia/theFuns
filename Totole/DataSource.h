@@ -8,7 +8,17 @@
 #import <Foundation/Foundation.h>
 #import "QInterFace.h"
 
+
+
 @interface DataSource : QInterFace
+{
+    dispatch_queue_t loadImageQueue;
+}
+
++ (DataSource *)shareInstance;
+
+// 加载图片
+- (void)loadImageInThread:(NSString*)dict withView:(id)view;
 
 //饭店用户注册
 -(void)registeruser_province:(NSString *)province
@@ -52,5 +62,9 @@ operateSource:(NSString *)operateSource
 
 //商场列表
 - (void)getGiftCategorys;
+
+
+//根据分类获得商品列表     
+- (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
 
 @end

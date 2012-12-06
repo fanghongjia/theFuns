@@ -15,6 +15,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        loadImageQueue = dispatch_queue_create("LoadImage.MyQueue", NULL);
     }
     return self;
 }
@@ -35,6 +36,7 @@
     // Do any additional setup after loading the view from its nib.
     
     
+    
     mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 46, 320, 370) style:UITableViewStylePlain];
     mytableView.delegate = self;
     mytableView.dataSource = self;
@@ -52,15 +54,18 @@
         tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"categorys"] JSONValue];
         NSLog(@"dic_categorys == %@",tempArr);
         
+        categoryIdMut = [[NSMutableArray alloc]init];
         
-//        NSArray *tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"resTypes"] JSONValue];
-//        hotelType_Mutable = [NSArray arrayWithArray:tempArr];
-//        NSLog(@"hotelType_Mutable  === %@",hotelType_Mutable);
-//        for (int i=0; i<[tempArr count]; i++) 
-//        {
-//            NSLog(@"resTypeId[%i]====%@",i,[[tempArr objectAtIndex:i] objectForKey:@"resTypeId"]);
-//            NSLog(@"resTypeName[%i]====%@",i,[[tempArr objectAtIndex:i] objectForKey:@"resTypeName"]);
-//        }
+        for (int i = 0; i<tempArr.count; i++)
+        {
+            NSString *categoryId_string = [[tempArr objectAtIndex:i] objectForKey:@"categoryId"];
+                        
+            [categoryIdMut addObject:categoryId_string];
+        }
+        NSLog(@"categoryIdMut  == %@",categoryIdMut);
+        
+        
+        
         [mytableView reloadData];
     } loadInfo:@"正在加载..." HUDBackView:self.view];
     [daSource getGiftCategorys];
@@ -79,6 +84,7 @@
 {
 //    return reader_MutableArr.count;
     return tempArr.count;
+    NSLog(@"%d======", [tempArr count]);
 }
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -87,36 +93,42 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil) 
     {
-    }
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
-    
-    //  head_imgeView = [MmUtil loadUserHeadface:[NSString stringWithFormat:@"%@%@",url_string,infoimg]];
-    
-    for (int i = 0; i < tempArr.count; i++) 
-    {
-        if (indexPath.row == i) 
+         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        
+        for (int i = 0; i < tempArr.count; i++)
         {
-            NSString *categoryId_string = [[tempArr objectAtIndex:i] objectForKey:@"categoryId"];
-            categoryIdMut = [[NSMutableArray alloc]init];
-    
-            
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 3, 33, 33)];
-            NSString *url_string = [[tempArr objectAtIndex:i] objectForKey:@"image"];
-            imageView = [MmUtil loadUserHeadface:url_string];
-            [cell addSubview:imageView];
-            
-            UILabel *lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(50, 3, 120, 35)];
-            lable_1.backgroundColor = [UIColor clearColor];
-            lable_1.text = [[tempArr objectAtIndex:i] objectForKey:@"categoryName"];
-            lable_1.font = [UIFont systemFontOfSize:15.0];
-            [cell addSubview:lable_1];
-            
+            if (indexPath.row == i)
+            {
+                
+                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 3, 33, 33)];
+                NSString *url_string = [[tempArr objectAtIndex:i] objectForKey:@"image"];
+                
+                
+                NSLog(@"url_string == %@",url_string);
+                //            imageView = [MmUtil loadWebImage:url_string placeholderImage:nil];
+                [self loadImageInThread:[tempArr objectAtIndex:i] withView:imageView];
+                
+                
+                [cell.contentView addSubview:imageView];
+                
+                UILabel *lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(50, 3, 120, 35)];
+                lable_1.backgroundColor = [UIColor clearColor];
+                lable_1.text = [[tempArr objectAtIndex:i] objectForKey:@"categoryName"];
+                lable_1.font = [UIFont systemFontOfSize:15.0];
+                [cell addSubview:lable_1];
+                
+                UIImageView *click_imagView = [[UIImageView alloc]initWithFrame:CGRectMake(290,13,9,14)];
+                [click_imagView setImage:[UIImage imageNamed:@"mall_click.png"]];
+                [cell.contentView addSubview:click_imagView];
+                
+            }
         }
-    }
+
+    }  
+        
     
-    UIImageView *click_imagView = [[UIImageView alloc]initWithFrame:CGRectMake(290,13,9,14)];
-    [click_imagView setImage:[UIImage imageNamed:@"mall_click.png"]];
-    [cell.contentView addSubview:click_imagView];
+    
+    
     
     
     cell.backgroundColor = [UIColor clearColor];    
@@ -134,8 +146,40 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MallDetailViewController *mallDetailVC = [[MallDetailViewController alloc]init];
+    mallDetailVC.categoryId = [tempArr objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:mallDetailVC animated:YES];
 }
+
+// 加载图片
+- (void)loadImageInThread:(NSDictionary*)dict withView:(id)view
+{
+    dispatch_async(loadImageQueue, ^{
+//        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                                 [NSURL URLWithString:[dict objectForKey:@"image"]]]];
+        if (image) {
+            
+            //进入主线程里操作
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if ([view isKindOfClass:[UIButton class]])
+                {
+                    UIButton *button = (UIButton *)view;
+                    [button setBackgroundImage:image forState:UIControlStateNormal];
+                }
+                if ([view isKindOfClass:[UIImageView class]])
+                {
+                    UIImageView *iconView = (UIImageView *)view;
+                    iconView.image = image;
+                }
+                
+            });
+        }
+//        [pool drain];
+    });
+}
+
 
 - (void)viewDidUnload
 {

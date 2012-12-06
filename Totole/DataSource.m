@@ -7,11 +7,64 @@
 //
 
 #import "DataSource.h"
-
+static DataSource *loadImage = nil;
 
 @implementation DataSource
 
+-(id)init 
+{
+    self = [super init];
+    
+    if(self)
+    {
+        loadImageQueue = dispatch_queue_create("LoadImage.MyQueue", NULL);        
+    }
+    
+    return self;
+}
+//单例 下载图片
++ (DataSource *)shareInstance
+{
+    @synchronized(self)
+    {
+        if (loadImage == nil)
+        {
+            loadImage = [[DataSource alloc] init];
+        }
+    }
+    
+    return loadImage;
+}
 
+// 加载图片
+- (void)loadImageInThread:(NSString*)url_str withView:(id)view
+{
+    dispatch_async(loadImageQueue, ^{
+        //        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                                 [NSURL URLWithString:url_str]]];
+        if (image) {
+            
+            //进入主线程里操作
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if ([view isKindOfClass:[UIButton class]])
+                {
+                    UIButton *button = (UIButton *)view;
+                    [button setBackgroundImage:image forState:UIControlStateNormal];
+                }
+                if ([view isKindOfClass:[UIImageView class]])
+                {
+                    UIImageView *iconView = (UIImageView *)view;
+                    iconView.image = image;
+                }
+                
+            });
+        }
+        //        [pool drain];
+    });
+}
 
 -(void)starDownLoadWtihInfo:(NSMutableArray *)_muArr MethodStr:(NSString *)_method Type:(NetWorkType)_type
 {
@@ -122,21 +175,26 @@ operateSource:(NSString *)operateSource
 
 - (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList mobileId:(NSString *)mobileId
 {
-    ASIFormDataRequest *request=nil;
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,@"userService/activateScore"];
+    
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
     mainDelegate = MYDELEGATE;
     NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
     [request setUseCookiePersistence:YES];
     [request setRequestCookies:cookit];
+
     
-    NSLog(@"cookit == %@",cookit);
-    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    NSMutableDictionary *dictd=[NSMutableDictionary dictionary];
+    [dictd setObject:integralCodeList forKey:@"integralCodeList"];
+    NSString *strd=[dictd JSONRepresentation];
+    NSLog(@"strd:%@",strd);
     
-    [mArray setParameter:@"integralCodeList" Parameter:integralCodeList];
-    [mArray setParameter:@"mobileId" Parameter:mobileId];
     
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mArray];
-    NSMutableData *mData  = [NSMutableData dataWithData:data];
-    [request setPostBody:mData];
+    [request appendPostData:[strd dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setPostLength:strd.length];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    
+    
     [self starDownLoadWtihASI:request MethodStr:@"userService/activateScore" Type:NetWorkTypePOST];
 
 //    [self starDownLoadWtihInfo:mArray MethodStr:@"userService/activateScore" Type:NetWorkTypePOST];
@@ -149,6 +207,8 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftCategorys" Type:NetWorkTypeGET];
 }
 
+//
+
 - (void)getResTypd
 {
     ASIFormDataRequest *request=nil;
@@ -156,13 +216,27 @@ operateSource:(NSString *)operateSource
     NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
     [request setUseCookiePersistence:YES];
     [request setRequestCookies:cookit];
-    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];    
+    
     [mArray setParameter:@"integralCodeList" Parameter:@""];
     [mArray setParameter:@"mobileId" Parameter:@""];
+    
      NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mArray];
     NSMutableData *mData  = [NSMutableData dataWithData:data];
     [request setPostBody:mData];
     [self starDownLoadWtihASI:request MethodStr:@"mallService/getGiftCategorys" Type:NetWorkTypePOST];
 }
+
+//根据分类获得商品列表     categoryId,pageNo,pageSise
+- (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"categoryId" Parameter:categoryId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSise" Parameter:pageSise];
+        
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategory" Type:NetWorkTypePOST];
+}
+
 
 @end

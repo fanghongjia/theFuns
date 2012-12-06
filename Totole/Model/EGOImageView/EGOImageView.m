@@ -46,6 +46,7 @@
 - (void)setImageURL:(NSURL *)aURL {
 	if(imageURL) {
 		[[EGOImageLoader sharedImageLoader] removeObserver:self forURL:imageURL];
+		[imageURL release];
 		imageURL = nil;
 	}
 	
@@ -54,7 +55,7 @@
 		imageURL = nil;
 		return;
 	} else {
-		imageURL = aURL;
+		imageURL = [aURL retain];
 	}
    
 	[[EGOImageLoader sharedImageLoader] removeObserver:self];
@@ -105,6 +106,8 @@
 	[[EGOImageLoader sharedImageLoader] removeObserver:self];
 	self.delegate = nil;
 	self.imageURL = nil;
+	self.placeholderImage = nil;
+    [super dealloc];
 }
 
 @end

@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MallDetailViewController : UIViewController
+@interface MallDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
+    UITableView *mytableView;
+    
+    NSArray *tempArr;
+    NSMutableArray *mallIdMut;
+    
     __unsafe_unretained IBOutlet UIImageView *top_imagView;
     __unsafe_unretained IBOutlet UIButton *popular_btn;
     __unsafe_unretained IBOutlet UIButton *new_btn;
@@ -17,6 +22,6 @@
     
 }
 
-@property(nonatomic) NSString *categoryId;
+@property(unsafe_unretained, nonatomic) NSString *categoryId;
 
 @end

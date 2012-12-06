@@ -101,11 +101,8 @@
 		AF416BB3165A2B2800FA0846 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF416BB2165A2B2800FA0846 /* libz.dylib */; };
 		AF92F6C0166F4A550096DF21 /* mall_search.png in Resources */ = {isa = PBXBuildFile; fileRef = AF92F6BF166F4A550096DF21 /* mall_search.png */; };
 		AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC50E16661302005DACF3 /* tabbar_more.png */; };
-		AFC39E4F166F74AE00906DF5 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E46166F74AE00906DF5 /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AFC39E50166F74AE00906DF5 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E49166F74AE00906DF5 /* EGOImageLoadConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AFC39E51166F74AE00906DF5 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E4B166F74AE00906DF5 /* EGOImageLoader.m */; };
-		AFC39E52166F74AE00906DF5 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E4E166F74AE00906DF5 /* EGOImageView.m */; };
-		AFC39E55166F76BB00906DF5 /* MmUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E54166F76BB00906DF5 /* MmUtil.m */; };
+		AFAFE86C1670DC0000D809BD /* mall_star.png in Resources */ = {isa = PBXBuildFile; fileRef = AFAFE86B1670DC0000D809BD /* mall_star.png */; };
+		AFC39E55166F76BB00906DF5 /* MmUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC39E54166F76BB00906DF5 /* MmUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AFD3A2711667246100F39BE3 /* CookHotel_View.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD3A2701667246000F39BE3 /* CookHotel_View.m */; };
 		AFD57DC6166DA21400E0347D /* activate_down.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD57DC5166DA21400E0347D /* activate_down.png */; };
 		AFD57DCA166DA26200E0347D /* register_cookBack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD57DC8166DA26200E0347D /* register_cookBack_1.png */; };
@@ -120,6 +117,10 @@
 		AFDEDB70165CB97D00EC461A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB69165CB97D00EC461A /* LoginViewController.xib */; };
 		AFDEDB71165CB97D00EC461A /* RegisterAgreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEDB6B165CB97D00EC461A /* RegisterAgreeViewController.m */; };
 		AFDEDB72165CB97D00EC461A /* RegisterAgreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEDB6C165CB97D00EC461A /* RegisterAgreeViewController.xib */; };
+		AFE386FC16703F7D007C9639 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE386F316703F7D007C9639 /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFE386FD16703F7D007C9639 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE386F616703F7D007C9639 /* EGOImageLoadConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFE386FE16703F7D007C9639 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE386F816703F7D007C9639 /* EGOImageLoader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFE386FF16703F7D007C9639 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE386FB16703F7D007C9639 /* EGOImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AFF53ED51663100A00882AFD /* MyFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53ED31663100A00882AFD /* MyFavoritesViewController.m */; };
 		AFF53ED61663100A00882AFD /* MyFavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53ED41663100A00882AFD /* MyFavoritesViewController.xib */; };
 		AFF53EDB1663102800882AFD /* ManagementCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53ED91663102800882AFD /* ManagementCenterViewController.m */; };
@@ -316,14 +317,7 @@
 		AF416BB2165A2B2800FA0846 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AF92F6BF166F4A550096DF21 /* mall_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mall_search.png; path = Totole/Photo/mall_search.png; sourceTree = SOURCE_ROOT; };
 		AF9EC50E16661302005DACF3 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
-		AFC39E45166F74AE00906DF5 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		AFC39E46166F74AE00906DF5 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
-		AFC39E48166F74AE00906DF5 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
-		AFC39E49166F74AE00906DF5 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
-		AFC39E4A166F74AE00906DF5 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
-		AFC39E4B166F74AE00906DF5 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
-		AFC39E4D166F74AE00906DF5 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
-		AFC39E4E166F74AE00906DF5 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
+		AFAFE86B1670DC0000D809BD /* mall_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_star.png; sourceTree = "<group>"; };
 		AFC39E53166F76BB00906DF5 /* MmUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MmUtil.h; sourceTree = "<group>"; };
 		AFC39E54166F76BB00906DF5 /* MmUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MmUtil.m; sourceTree = "<group>"; };
 		AFD3A26F1667246000F39BE3 /* CookHotel_View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookHotel_View.h; sourceTree = "<group>"; };
@@ -345,6 +339,14 @@
 		AFDEDB6A165CB97D00EC461A /* RegisterAgreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAgreeViewController.h; sourceTree = "<group>"; };
 		AFDEDB6B165CB97D00EC461A /* RegisterAgreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAgreeViewController.m; sourceTree = "<group>"; };
 		AFDEDB6C165CB97D00EC461A /* RegisterAgreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterAgreeViewController.xib; sourceTree = "<group>"; };
+		AFE386F216703F7D007C9639 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		AFE386F316703F7D007C9639 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		AFE386F516703F7D007C9639 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		AFE386F616703F7D007C9639 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		AFE386F716703F7D007C9639 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		AFE386F816703F7D007C9639 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		AFE386FA16703F7D007C9639 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
+		AFE386FB16703F7D007C9639 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
 		AFF53ED21663100A00882AFD /* MyFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoritesViewController.h; sourceTree = "<group>"; };
 		AFF53ED31663100A00882AFD /* MyFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoritesViewController.m; sourceTree = "<group>"; };
 		AFF53ED41663100A00882AFD /* MyFavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoritesViewController.xib; sourceTree = "<group>"; };
@@ -604,9 +606,9 @@
 				AF2D39B816645C9F00720690 /* city.plist */,
 				AFC39E53166F76BB00906DF5 /* MmUtil.h */,
 				AFC39E54166F76BB00906DF5 /* MmUtil.m */,
-				AFC39E44166F74AE00906DF5 /* EGOCache */,
-				AFC39E47166F74AE00906DF5 /* EGOImageLoader */,
-				AFC39E4C166F74AE00906DF5 /* EGOImageView */,
+				AFE386F116703F7D007C9639 /* EGOCache */,
+				AFE386F416703F7D007C9639 /* EGOImageLoader */,
+				AFE386F916703F7D007C9639 /* EGOImageView */,
 				AF153D0E166C54A1007EA6A5 /* ZBarSDK */,
 				AF416B64165A2AC800FA0846 /* ASI */,
 				AF416B7B165A2AC800FA0846 /* SBJSON */,
@@ -685,6 +687,7 @@
 		AF92F6BE166F4A490096DF21 /* mall */ = {
 			isa = PBXGroup;
 			children = (
+				AFAFE86B1670DC0000D809BD /* mall_star.png */,
 				AF18CC15166F85D10027343F /* mall_top1.png */,
 				AF18CC16166F85D10027343F /* mall_top2.png */,
 				AF18CC17166F85D10027343F /* mall_top3.png */,
@@ -692,35 +695,6 @@
 				AF92F6BF166F4A550096DF21 /* mall_search.png */,
 			);
 			path = mall;
-			sourceTree = "<group>";
-		};
-		AFC39E44166F74AE00906DF5 /* EGOCache */ = {
-			isa = PBXGroup;
-			children = (
-				AFC39E45166F74AE00906DF5 /* EGOCache.h */,
-				AFC39E46166F74AE00906DF5 /* EGOCache.m */,
-			);
-			path = EGOCache;
-			sourceTree = "<group>";
-		};
-		AFC39E47166F74AE00906DF5 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				AFC39E48166F74AE00906DF5 /* EGOImageLoadConnection.h */,
-				AFC39E49166F74AE00906DF5 /* EGOImageLoadConnection.m */,
-				AFC39E4A166F74AE00906DF5 /* EGOImageLoader.h */,
-				AFC39E4B166F74AE00906DF5 /* EGOImageLoader.m */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		AFC39E4C166F74AE00906DF5 /* EGOImageView */ = {
-			isa = PBXGroup;
-			children = (
-				AFC39E4D166F74AE00906DF5 /* EGOImageView.h */,
-				AFC39E4E166F74AE00906DF5 /* EGOImageView.m */,
-			);
-			path = EGOImageView;
 			sourceTree = "<group>";
 		};
 		AFDEDB29165C862600EC461A /* Login */ = {
@@ -751,6 +725,35 @@
 			);
 			name = Login;
 			path = Controller/Login;
+			sourceTree = "<group>";
+		};
+		AFE386F116703F7D007C9639 /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				AFE386F216703F7D007C9639 /* EGOCache.h */,
+				AFE386F316703F7D007C9639 /* EGOCache.m */,
+			);
+			path = EGOCache;
+			sourceTree = "<group>";
+		};
+		AFE386F416703F7D007C9639 /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				AFE386F516703F7D007C9639 /* EGOImageLoadConnection.h */,
+				AFE386F616703F7D007C9639 /* EGOImageLoadConnection.m */,
+				AFE386F716703F7D007C9639 /* EGOImageLoader.h */,
+				AFE386F816703F7D007C9639 /* EGOImageLoader.m */,
+			);
+			path = EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		AFE386F916703F7D007C9639 /* EGOImageView */ = {
+			isa = PBXGroup;
+			children = (
+				AFE386FA16703F7D007C9639 /* EGOImageView.h */,
+				AFE386FB16703F7D007C9639 /* EGOImageView.m */,
+			);
+			path = EGOImageView;
 			sourceTree = "<group>";
 		};
 		AFF53ED11663100A00882AFD /* MyFavorites */ = {
@@ -1039,6 +1042,7 @@
 				AF18CC18166F85D10027343F /* mall_top1.png in Resources */,
 				AF18CC19166F85D10027343F /* mall_top2.png in Resources */,
 				AF18CC1A166F85D10027343F /* mall_top3.png in Resources */,
+				AFAFE86C1670DC0000D809BD /* mall_star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,12 +1102,12 @@
 				AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */,
 				AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */,
 				AFD3A2711667246100F39BE3 /* CookHotel_View.m in Sources */,
-				AFC39E4F166F74AE00906DF5 /* EGOCache.m in Sources */,
-				AFC39E50166F74AE00906DF5 /* EGOImageLoadConnection.m in Sources */,
-				AFC39E51166F74AE00906DF5 /* EGOImageLoader.m in Sources */,
-				AFC39E52166F74AE00906DF5 /* EGOImageView.m in Sources */,
 				AFC39E55166F76BB00906DF5 /* MmUtil.m in Sources */,
 				AF18CC12166F836C0027343F /* MallDetailViewController.m in Sources */,
+				AFE386FC16703F7D007C9639 /* EGOCache.m in Sources */,
+				AFE386FD16703F7D007C9639 /* EGOImageLoadConnection.m in Sources */,
+				AFE386FE16703F7D007C9639 /* EGOImageLoader.m in Sources */,
+				AFE386FF16703F7D007C9639 /* EGOImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1126,7 +1130,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jianmin diao (2S4JDP3JLN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jianmin diao (2S4JDP3JLN)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1141,6 +1147,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "B880DDAE-16CA-4FDE-833A-B12B2C9EAFA9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B880DDAE-16CA-4FDE-833A-B12B2C9EAFA9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1150,7 +1158,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jianmin diao (2S4JDP3JLN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jianmin diao (2S4JDP3JLN)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1159,6 +1169,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "B880DDAE-16CA-4FDE-833A-B12B2C9EAFA9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B880DDAE-16CA-4FDE-833A-B12B2C9EAFA9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

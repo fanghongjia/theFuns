@@ -69,7 +69,7 @@
 - (void)clearCacheForURL:(NSURL*)aURL;
 - (void)clearCacheForURL:(NSURL*)aURL style:(NSString*)style;
 
-@property(nonatomic) NSDictionary* currentConnections;
+@property(nonatomic,retain) NSDictionary* currentConnections;
 @end
 
 @protocol EGOImageLoaderObserver<NSObject>

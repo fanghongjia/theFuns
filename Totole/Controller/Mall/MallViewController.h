@@ -17,6 +17,9 @@
     
     NSArray *tempArr;
     NSMutableArray *categoryIdMut;
+    
+    dispatch_queue_t loadImageQueue;
+    
 }
 
 @end

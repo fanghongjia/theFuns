@@ -16,13 +16,13 @@
     NSArray *cook_array;
     UITableView *cookPersonal_tableView;
     
-    UIButton *province_btn,*city_btn,*post_btn,*next_btn;
+    UIButton *__unsafe_unretained province_btn,*__unsafe_unretained city_btn,*__unsafe_unretained post_btn,*next_btn;
 
     UITextField *userName_TF,*name_TF,*password_TF,*confirmPassword_TF,*address_TF,*phone_TF;
 }
-@property (nonatomic) UIButton *province_btn;
-@property (nonatomic) UIButton *city_btn;
-@property (nonatomic) UIButton *post_btn;
+@property (unsafe_unretained, nonatomic) UIButton *province_btn;
+@property (unsafe_unretained, nonatomic) UIButton *city_btn;
+@property (unsafe_unretained, nonatomic) UIButton *post_btn;
 
 
 @property (nonatomic,unsafe_unretained) id<CookPersonal_viewDelegate> CookPersonal_viewDelegate;
