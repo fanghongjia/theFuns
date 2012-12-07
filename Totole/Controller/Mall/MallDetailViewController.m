@@ -7,14 +7,10 @@
 //
 
 #import "MallDetailViewController.h"
-
-@interface MallDetailViewController ()
-
-@end
-
+#import "MallCell.h"
 
 @implementation MallDetailViewController
-@synthesize categoryId;
+@synthesize categoryId,title_str;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,60 +21,203 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)refreshData
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 86, 320, 330) style:UITableViewStylePlain];
-    mytableView.delegate = self;
-    mytableView.dataSource = self;
-    mytableView.backgroundColor = [UIColor clearColor];
-    mytableView.showsVerticalScrollIndicator = NO;
-    mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    [self.view addSubview:mytableView];
-    
-    tempArr = [[NSArray alloc]init];
-    
-    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+     {
+                                
+
         NSDictionary *dic3 = response;
-        NSLog(@"getGiftByCategorydic3 == %@",dic3);
-        tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
-        NSString *recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
-        NSLog(@"tempArr == %@",tempArr);
+
+        [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
+        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
         NSLog(@"recordCount_string == %@",recordCount_string);
         
-        
-        mallIdMut = [[NSMutableArray alloc]init];
-
         for (int i = 0; i<tempArr.count; i++)
         {
             NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
             
             [mallIdMut addObject:mallId_string];
         }
-        NSLog(@"mallIdMut  == %@",mallIdMut);
+        NSLog(@"Category mallIdMut  == %@",mallIdMut);
+        NSLog(@"Category tempArr == %@",tempArr);
+         
+        [mytableView reloadData];
+         [self stopLoadingDown];
+         [self stopLoadingUp];
+         
+    }loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource getGiftByCategory:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
+}
+
+- (void)viewDidLoad
+{
+    currentPage = 1;
+    // Do any additional setup after loading the view from its nib.
+    dataType = 0;
+    
+    NSLog(@"self.categoryId == %@",self.categoryId);
+    
+    title_lb.text = self.title_str;
+    
+    bgScroll = [[BgScrollView alloc] initWithFrame:CGRectMake(0,86,320,330 + REFRESH_HEADER_HEIGHT) andType:1];
+	bgScroll.delegate = self;
+	bgScroll.BgDelegate = self;
+	bgScroll.contentSize = CGSizeMake(320, 330 + REFRESH_HEADER_HEIGHT + 1);
+	[self.view addSubview:bgScroll];
+    
+    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 330) style:UITableViewStylePlain];
+    mytableView.delegate = self;
+    mytableView.dataSource = self;
+    mytableView.backgroundColor = [UIColor clearColor];
+    mytableView.showsVerticalScrollIndicator = NO;
+    mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    [bgScroll addSubview:mytableView];
+    
+    tempArr = [[NSMutableArray alloc]initWithCapacity:1];
+    mallIdMut = [[NSMutableArray alloc]init];
+    
+    [self refreshData];
+
+    [super viewDidLoad];
+}
+
+//热门列表
+- (IBAction)popular_click:(id)sender
+{
+    dataType = 1;
+    
+    [top_imagView setImage:[UIImage imageNamed:@"mall_top1.png"]];
+    
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
         
+        [self stopLoadingDown];
+        [self stopLoadingUp];
         
+        NSDictionary *dic3 = response;
+        
+
+     
+        if (tempArr)
+        {
+            [tempArr removeAllObjects];
+        }
+        
+        //获取到的数据
+        
+        [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
+        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        NSLog(@"recordCount_string == %@",recordCount_string);
+        
+        //商品的id放到 mallIdMut 里
+        if (mallIdMut)
+        {
+            [mallIdMut removeAllObjects];
+        }
+        
+        for (int i = 0; i<tempArr.count; i++)
+        {
+            NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
+            
+            [mallIdMut addObject:mallId_string];
+        }
+        NSLog(@"Hot mallIdMut  == %@",mallIdMut);
+        NSLog(@"Hot tempArr == %@",tempArr);
         
         [mytableView reloadData];
-    } loadInfo:@"正在加载..." HUDBackView:self.view];
-    [daSource getGiftByCategory:self.categoryId pageNo:@"1" pageSise:@"10"];
-
+        
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource getGiftsOrderHot:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
+    
+    
     
     
 }
-- (IBAction)popular_click:(id)sender 
-{
-    [top_imagView setImage:[UIImage imageNamed:@"mall_top1.png"]];
-}
+//最新列表
 - (IBAction)new_click:(id)sender 
 {
+    dataType = 2;
+    
     [top_imagView setImage:[UIImage imageNamed:@"mall_top2.png"]];
+    
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic3 = response;
+        
+        [self stopLoadingDown];
+        [self stopLoadingUp];
+        
+        if (tempArr)
+        {
+            [tempArr removeAllObjects];
+        }
+        tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
+        
+       recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        NSLog(@"recordCount_string == %@",recordCount_string);
+        
+        
+        if (mallIdMut)
+        {
+            [mallIdMut removeAllObjects];
+        }
+        
+        for (int i = 0; i<tempArr.count; i++)
+        {
+            NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
+            
+            [mallIdMut addObject:mallId_string];
+        }
+        NSLog(@"Time mallIdMut  == %@",mallIdMut);
+        NSLog(@"Time tempArr == %@",tempArr);
+        
+        [mytableView reloadData];
+        
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource getGiftsOrderTime:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
 }
+
+//积分列表
 - (IBAction)integral_click:(id)sender 
 {
+    dataType = 3;
+    
     [top_imagView setImage:[UIImage imageNamed:@"mall_top3.png"]];
+    
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic3 = response;
+
+        [self stopLoadingDown];
+        [self stopLoadingUp];
+        
+        if (tempArr)
+        {
+            [tempArr removeAllObjects];
+        }
+        tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
+        
+        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        NSLog(@"recordCount_string == %@",recordCount_string);
+        
+        
+        if (mallIdMut)
+        {
+            [mallIdMut removeAllObjects];
+        }
+        
+        for (int i = 0; i<tempArr.count; i++)
+        {
+            NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
+            
+            [mallIdMut addObject:mallId_string];
+        }
+        
+        NSLog(@"Price mallIdMut  == %@",mallIdMut);
+        NSLog(@"Price tempArr == %@",tempArr);
+        
+        [mytableView reloadData];
+        
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource getGiftsOrderPrice:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
 }
 
 #pragma mark -
@@ -97,71 +236,30 @@
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row]; // @"TableSampleIdentifier" ;
+    
+    MallCell *cell = (MallCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    NSUInteger row = [indexPath row];
+
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
-        
-        
-        
-         for (int i = 0; i < tempArr.count; i++)
-         {
-             if (indexPath.row == i)
-             {
-                 UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 60, 60)];
-                     
-                     
-                 NSString *url_string = [[tempArr objectAtIndex:i] objectForKey:@"avatar"];
-                 NSLog(@"url_string == %@",url_string);
-                     
-                [[DataSource shareInstance] loadImageInThread:url_string withView:imageView];
-                     
-                 [cell.contentView addSubview:imageView];
-                 
-                 UILabel *lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(65, 5, 240, 35)];
-                 lable_1.backgroundColor = [UIColor clearColor];
-                 lable_1.text = [[tempArr objectAtIndex:i] objectForKey:@"name"];
-                 lable_1.font = [UIFont systemFontOfSize:15.0];
-                 [cell addSubview:lable_1];
-                 
-                 UIImageView *imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(65, 45, 9, 15)];
-                 [imageView1 setImage:[UIImage imageNamed:@"mall_star.png"]];
-                 [cell addSubview:imageView1];
-                 
-                 UILabel *lable_price = [[UILabel alloc]initWithFrame:CGRectMake(80, 45, 200, 35)];
-                 lable_price.backgroundColor = [UIColor clearColor];
-                 NSString *price_str = [[tempArr objectAtIndex:i] objectForKey:@"price"];
-                 NSString *str = @"积分";
-                 
-//                 lable_price.text = price_str;
-                 lable_price.font = [UIFont systemFontOfSize:17.0];
-                 lable_price.textColor = [UIColor orangeColor];
-                 [cell addSubview:lable_price];
-                 
-                 
-                 UIImageView *click_imagView = [[UIImageView alloc]initWithFrame:CGRectMake(290,33,9,14)];
-                 [click_imagView setImage:[UIImage imageNamed:@"mall_click.png"]];
-                 [cell.contentView addSubview:click_imagView];
-             
-             }
-         }
-         
-        
-        
-        
-        
-        
-        
+        cell = [[MallCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+  
     }
     
     
-    //  head_imgeView = [MmUtil loadUserHeadface:[NSString stringWithFormat:@"%@%@",url_string,infoimg]];
+    NSString *url_string = [[tempArr objectAtIndex:row] objectForKey:@"avatar"];
+    [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
     
+    cell.lable_1.text = [[tempArr objectAtIndex:row] objectForKey:@"name"];
     
+    cell.lable_price.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"price"]];
     
+    cell.lable_unit.text = [@"积分/" stringByAppendingString:[[tempArr objectAtIndex:row] objectForKey:@"unit"]];
     
-    
+    NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
+    NSString *unit_str = [[tempArr objectAtIndex:row] objectForKey:@"unit"];
+    cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
     
     
     cell.backgroundColor = [UIColor clearColor];
@@ -173,13 +271,91 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 90;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
+
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	[bgScroll bgScrollViewDidScroll];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	[bgScroll bgScrollViewDidEndDragging];
+}
+
+#pragma mark -
+#pragma mark BgScrollViewDelegate
+- (void)stopLoadingDown
+{
+ 	[bgScroll stopLoadingDown];
+}
+
+- (void)startLoadingDown
+{
+    
+    if (ceil([recordCount_string intValue] / 10.0) > currentPage)
+    {
+        currentPage ++;
+    }
+	//上拉获取更多信息
+	switch (dataType)
+    {
+        case 0:
+            [self refreshData];
+            break;
+        case 1:
+            [self popular_click:nil];     // 热门
+            break;
+        case 2:
+            [self new_click:nil];         // 最新
+            break;
+        case 3:
+            [self integral_click:nil];    // 积分
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)startLoadingUp
+{
+    currentPage = 1;
+    // 下拉刷新
+    
+    //上拉获取更多信息
+	switch (dataType)
+    {
+        case 0:
+            [self refreshData];
+            break;
+        case 1:
+            [self popular_click:nil];     // 热门
+            break;
+        case 2:
+            [self new_click:nil];     // 最新
+            break;
+        case 3:
+            [self integral_click:nil];     // 积分
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)stopLoadingUp
+{
+    [bgScroll stopLoadingUp];
+}
+
 - (IBAction)back_click:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -192,6 +368,7 @@
     new_btn = nil;
     integral_btn = nil;
     top_imagView = nil;
+    title_lb = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

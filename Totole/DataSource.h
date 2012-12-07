@@ -67,4 +67,16 @@ operateSource:(NSString *)operateSource
 //根据分类获得商品列表     
 - (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
 
+
+//热门  根据兑换量显示
+-(void)getGiftsOrderHot:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+
+
+//最新  根据最新上架顺序显示商品
+-(void)getGiftsOrderTime:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+
+
+//分值  根据价格显示DESC
+-(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+
 @end

@@ -238,5 +238,37 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategory" Type:NetWorkTypePOST];
 }
 
+//热门  根据兑换量显示
+-(void)getGiftsOrderHot:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"categoryId" Parameter:categoryId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSise" Parameter:pageSise];
+    
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByExchangeAmountDESC" Type:NetWorkTypePOST];
+}
+
+//最新  根据最新上架顺序显示商品
+-(void)getGiftsOrderTime:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"categoryId" Parameter:categoryId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSise" Parameter:pageSise];
+    
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByCreateTimeDESC" Type:NetWorkTypePOST];
+}
+
+//分值  根据价格显示DESC
+-(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"categoryId" Parameter:categoryId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSise" Parameter:pageSise];
+    
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByPriceDESC" Type:NetWorkTypePOST];
+}
 
 @end

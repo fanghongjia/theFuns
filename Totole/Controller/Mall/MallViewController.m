@@ -89,48 +89,36 @@
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
+    NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil) 
     {
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
         
-        for (int i = 0; i < tempArr.count; i++)
-        {
-            if (indexPath.row == i)
-            {
-                
-                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 3, 33, 33)];
-                NSString *url_string = [[tempArr objectAtIndex:i] objectForKey:@"image"];
-                
-                
-                NSLog(@"url_string == %@",url_string);
-                //            imageView = [MmUtil loadWebImage:url_string placeholderImage:nil];
-                [self loadImageInThread:[tempArr objectAtIndex:i] withView:imageView];
-                
-                
-                [cell.contentView addSubview:imageView];
-                
-                UILabel *lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(50, 3, 120, 35)];
-                lable_1.backgroundColor = [UIColor clearColor];
-                lable_1.text = [[tempArr objectAtIndex:i] objectForKey:@"categoryName"];
-                lable_1.font = [UIFont systemFontOfSize:15.0];
-                [cell addSubview:lable_1];
-                
-                UIImageView *click_imagView = [[UIImageView alloc]initWithFrame:CGRectMake(290,13,9,14)];
-                [click_imagView setImage:[UIImage imageNamed:@"mall_click.png"]];
-                [cell.contentView addSubview:click_imagView];
-                
-            }
-        }
 
-    }  
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 3, 33, 33)];
+        NSString *url_string = [[tempArr objectAtIndex:indexPath.row] objectForKey:@"image"];
         
-    
-    
-    
-    
-    
+        
+        NSLog(@"url_string == %@",url_string);
+        [self loadImageInThread:[tempArr objectAtIndex:indexPath.row] withView:imageView];
+        
+        
+        [cell.contentView addSubview:imageView];
+        
+        UILabel *lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(50, 3, 120, 35)];
+        lable_1.backgroundColor = [UIColor clearColor];
+        lable_1.text = [[tempArr objectAtIndex:indexPath.row] objectForKey:@"categoryName"];
+        lable_1.font = [UIFont systemFontOfSize:15.0];
+        [cell addSubview:lable_1];
+        
+        UIImageView *click_imagView = [[UIImageView alloc]initWithFrame:CGRectMake(290,13,9,14)];
+        [click_imagView setImage:[UIImage imageNamed:@"mall_click.png"]];
+        [cell.contentView addSubview:click_imagView];
+        
+    }
+        
+
     cell.backgroundColor = [UIColor clearColor];    
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -146,7 +134,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MallDetailViewController *mallDetailVC = [[MallDetailViewController alloc]init];
-    mallDetailVC.categoryId = [tempArr objectAtIndex:indexPath.row];
+    mallDetailVC.categoryId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"categoryId"];
+    mallDetailVC.title_str = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"categoryName"];
+    NSLog(@"mallDetailVC.categoryId == %@",mallDetailVC.categoryId);
     [self.navigationController pushViewController:mallDetailVC animated:YES];
 }
 

@@ -7,21 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BgScrollView.h"
 
-@interface MallDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+@interface MallDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,BgScrollViewDelegate>
 {
     UITableView *mytableView;
     
-    NSArray *tempArr;
+    NSMutableArray *tempArr;
     NSMutableArray *mallIdMut;
+    
+    BgScrollView *bgScroll;
+    int pageNo_int,pageSise_int;
+    
+    NSString *recordCount_string;
+    int currentPage;
+    int dataType;
     
     __unsafe_unretained IBOutlet UIImageView *top_imagView;
     __unsafe_unretained IBOutlet UIButton *popular_btn;
     __unsafe_unretained IBOutlet UIButton *new_btn;
     __unsafe_unretained IBOutlet UIButton *integral_btn;
     
+    __unsafe_unretained IBOutlet UILabel *title_lb;
 }
 
 @property(unsafe_unretained, nonatomic) NSString *categoryId;
+@property(unsafe_unretained,nonatomic) NSString *title_str;
 
 @end
