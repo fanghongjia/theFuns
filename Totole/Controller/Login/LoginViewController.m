@@ -106,16 +106,15 @@
             NSDictionary *dic2 = response;
             NSLog(@"dic2dic2dic2 ==  %@",dic2);
             
-            NSArray *cookes=[dic2 objectForKey:@"cookies"];
+            NSMutableArray *cookes = [[NSMutableArray alloc]initWithArray:[dic2 objectForKey:@"cookies"]];
             
-            //NSHTTPCookie *cooke=[cookes objectAtIndex:0];
-            
-            NSDictionary *dictd=[NSHTTPCookie requestHeaderFieldsWithCookies:cookes];
-            
-            NSLog(@"dictd:%@",dictd);
+            //NSHTTPCookie *cooke=[cookes objectAtIndex:0];            
+//            NSDictionary *dictd=[NSHTTPCookie requestHeaderFieldsWithCookies:cookes];            
+//            NSLog(@"dictd:%@",dictd);
             
             mainDelegate = MYDELEGATE;
-            mainDelegate.myCookie = [dictd objectForKey:@"Cookie"];
+            mainDelegate.myCookie = cookes;//[dictd objectForKey:@"Cookie"];
+            [cookes release];
 //            [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
 //            [[NSUserDefaults standardUserDefaults] synchronize];
             

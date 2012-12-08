@@ -22,6 +22,7 @@
     __unsafe_unretained IBOutlet UILabel *activateResult_lb;
     
     __unsafe_unretained IBOutlet UIView *myView;
+    __unsafe_unretained IBOutlet UILabel *incomeScore_lb;
     ZBarReaderController *Reader;
 }
 

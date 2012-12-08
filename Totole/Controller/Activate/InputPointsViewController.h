@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InputPointsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface InputPointsViewController : UIViewController<UITableViewDelegate,
+UITableViewDataSource,UITextFieldDelegate>
 {
     UITableView *myTableView;
+//    __unsafe_unretained IBOutlet UIScrollView *back_scrollView;
+    
+    __unsafe_unretained IBOutlet UIView *headerView;
+    int numberOfRow;
+    UIButton *input_btn,*doneButton;
 }
 
 @end

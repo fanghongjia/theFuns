@@ -57,7 +57,7 @@ operateSource:(NSString *)operateSource
 
 //激活积分
 - (void)activateScore:(NSString *)integralCodeList mobileId:(NSString *)mobileId;
-- (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList mobileId:(NSString *)mobileId;
+- (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList;
 
 
 //商场列表

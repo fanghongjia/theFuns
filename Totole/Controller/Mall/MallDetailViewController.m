@@ -27,6 +27,7 @@
      {
                                 
 
+         NSLog(@"currentPage == %d",currentPage);
         NSDictionary *dic3 = response;
 
         [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
@@ -75,6 +76,10 @@
     [bgScroll addSubview:mytableView];
     
     tempArr = [[NSMutableArray alloc]initWithCapacity:1];
+    popular_tempArr = [[NSMutableArray alloc]initWithCapacity:1];
+    new_tempArr = [[NSMutableArray alloc]initWithCapacity:1];
+    integral_tempArr = [[NSMutableArray alloc]initWithCapacity:1];
+    
     mallIdMut = [[NSMutableArray alloc]init];
     
     [self refreshData];
@@ -98,14 +103,14 @@
         
 
      
-        if (tempArr)
-        {
-            [tempArr removeAllObjects];
-        }
+//        if (tempArr)
+//        {
+//            [tempArr removeAllObjects];
+//        }
         
         //获取到的数据
         
-        [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
+        [popular_tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
         recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
         NSLog(@"recordCount_string == %@",recordCount_string);
         
@@ -115,14 +120,14 @@
             [mallIdMut removeAllObjects];
         }
         
-        for (int i = 0; i<tempArr.count; i++)
+        for (int i = 0; i<popular_tempArr.count; i++)
         {
-            NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
+            NSString *mallId_string = [[popular_tempArr objectAtIndex:i] objectForKey:@"id"];
             
             [mallIdMut addObject:mallId_string];
         }
         NSLog(@"Hot mallIdMut  == %@",mallIdMut);
-        NSLog(@"Hot tempArr == %@",tempArr);
+        NSLog(@"Hot popular_tempArr == %@",popular_tempArr);
         
         [mytableView reloadData];
         
@@ -146,11 +151,11 @@
         [self stopLoadingDown];
         [self stopLoadingUp];
         
-        if (tempArr)
-        {
-            [tempArr removeAllObjects];
-        }
-        tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
+//        if (tempArr)
+//        {
+//            [tempArr removeAllObjects];
+//        }
+        new_tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
         
        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
         NSLog(@"recordCount_string == %@",recordCount_string);
@@ -161,14 +166,14 @@
             [mallIdMut removeAllObjects];
         }
         
-        for (int i = 0; i<tempArr.count; i++)
+        for (int i = 0; i<new_tempArr.count; i++)
         {
-            NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
+            NSString *mallId_string = [[new_tempArr objectAtIndex:i] objectForKey:@"id"];
             
             [mallIdMut addObject:mallId_string];
         }
         NSLog(@"Time mallIdMut  == %@",mallIdMut);
-        NSLog(@"Time tempArr == %@",tempArr);
+        NSLog(@"Time new_tempArr == %@",new_tempArr);
         
         [mytableView reloadData];
         
@@ -189,11 +194,11 @@
         [self stopLoadingDown];
         [self stopLoadingUp];
         
-        if (tempArr)
-        {
-            [tempArr removeAllObjects];
-        }
-        tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
+//        if (tempArr)
+//        {
+//            [tempArr removeAllObjects];
+//        }
+        integral_tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
         
         recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
         NSLog(@"recordCount_string == %@",recordCount_string);
@@ -204,15 +209,15 @@
             [mallIdMut removeAllObjects];
         }
         
-        for (int i = 0; i<tempArr.count; i++)
+        for (int i = 0; i<integral_tempArr.count; i++)
         {
-            NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
+            NSString *mallId_string = [[integral_tempArr objectAtIndex:i] objectForKey:@"id"];
             
             [mallIdMut addObject:mallId_string];
         }
         
         NSLog(@"Price mallIdMut  == %@",mallIdMut);
-        NSLog(@"Price tempArr == %@",tempArr);
+        NSLog(@"Price integral_tempArr == %@",integral_tempArr);
         
         [mytableView reloadData];
         
@@ -231,7 +236,29 @@
 //cell 个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return tempArr.count;
+//    if (dataType == 0)
+//    {
+//        return tempArr.count;
+//    }
+//    el
+    switch (dataType)
+    {
+        case 0:
+            return tempArr.count;
+            break;
+        case 1:
+            return popular_tempArr.count;     //热门
+            break;
+        case 2:
+            return new_tempArr.count;         // 最新
+            break;
+        case 3:
+            return integral_tempArr.count;    // 积分
+            break;
+        default:
+            break;
+    }
+    
 }
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -247,19 +274,68 @@
   
     }
     
+    if (dataType == 0)
+    {
+        NSString *url_string = [[tempArr objectAtIndex:row] objectForKey:@"avatar"];
+        [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
+        
+        cell.lable_1.text = [[tempArr objectAtIndex:row] objectForKey:@"name"];
+        
+        cell.lable_price.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"price"]];
+        
+        cell.lable_unit.text = [@"积分/" stringByAppendingString:[[tempArr objectAtIndex:row] objectForKey:@"unit"]];
+        
+        NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
+        NSString *unit_str = [[tempArr objectAtIndex:row] objectForKey:@"unit"];
+        cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
+    }
+    else if (dataType == 1)
+    {
+        NSString *url_string = [[popular_tempArr objectAtIndex:row] objectForKey:@"avatar"];
+        [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
+        
+        cell.lable_1.text = [[popular_tempArr objectAtIndex:row] objectForKey:@"name"];
+        
+        cell.lable_price.text = [NSString stringWithFormat:@"%@",[[popular_tempArr objectAtIndex:row] objectForKey:@"price"]];
+        
+        cell.lable_unit.text = [@"积分/" stringByAppendingString:[[popular_tempArr objectAtIndex:row] objectForKey:@"unit"]];
+        
+        NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[popular_tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
+        NSString *unit_str = [[popular_tempArr objectAtIndex:row] objectForKey:@"unit"];
+        cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
+    }
+    else if (dataType == 2)
+    {
+        NSString *url_string = [[new_tempArr objectAtIndex:row] objectForKey:@"avatar"];
+        [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
+        
+        cell.lable_1.text = [[new_tempArr objectAtIndex:row] objectForKey:@"name"];
+        
+        cell.lable_price.text = [NSString stringWithFormat:@"%@",[[new_tempArr objectAtIndex:row] objectForKey:@"price"]];
+        
+        cell.lable_unit.text = [@"积分/" stringByAppendingString:[[new_tempArr objectAtIndex:row] objectForKey:@"unit"]];
+        
+        NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[new_tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
+        NSString *unit_str = [[new_tempArr objectAtIndex:row] objectForKey:@"unit"];
+        cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
+    }
+    else if (dataType == 3)
+    {
+        NSString *url_string = [[integral_tempArr objectAtIndex:row] objectForKey:@"avatar"];
+        [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
+        
+        cell.lable_1.text = [[integral_tempArr objectAtIndex:row] objectForKey:@"name"];
+        
+        cell.lable_price.text = [NSString stringWithFormat:@"%@",[[integral_tempArr objectAtIndex:row] objectForKey:@"price"]];
+        
+        cell.lable_unit.text = [@"积分/" stringByAppendingString:[[integral_tempArr objectAtIndex:row] objectForKey:@"unit"]];
+        
+        NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[integral_tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
+        NSString *unit_str = [[integral_tempArr objectAtIndex:row] objectForKey:@"unit"];
+        cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
+    }
     
-    NSString *url_string = [[tempArr objectAtIndex:row] objectForKey:@"avatar"];
-    [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
     
-    cell.lable_1.text = [[tempArr objectAtIndex:row] objectForKey:@"name"];
-    
-    cell.lable_price.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"price"]];
-    
-    cell.lable_unit.text = [@"积分/" stringByAppendingString:[[tempArr objectAtIndex:row] objectForKey:@"unit"]];
-    
-    NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
-    NSString *unit_str = [[tempArr objectAtIndex:row] objectForKey:@"unit"];
-    cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
     
     
     cell.backgroundColor = [UIColor clearColor];
@@ -328,7 +404,7 @@
 
 - (void)startLoadingUp
 {
-    currentPage = 1;
+//    currentPage = 1;
     // 下拉刷新
     
     //上拉获取更多信息
@@ -341,7 +417,7 @@
             [self popular_click:nil];     // 热门
             break;
         case 2:
-            [self new_click:nil];     // 最新
+            [self new_click:nil];         // 最新
             break;
         case 3:
             [self integral_click:nil];     // 积分

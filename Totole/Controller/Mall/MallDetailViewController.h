@@ -14,7 +14,7 @@
 {
     UITableView *mytableView;
     
-    NSMutableArray *tempArr;
+    NSMutableArray *tempArr,*popular_tempArr,*new_tempArr,*integral_tempArr;
     NSMutableArray *mallIdMut;
     
     BgScrollView *bgScroll;

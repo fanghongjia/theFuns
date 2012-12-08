@@ -131,43 +131,43 @@
     for(symbol in results)
         break;
     
-    
-    //往数组末尾添加
-    //    [reader_MutableArr addObject:symbol.data];
-    
+
     activateNumber_lb.text = symbol.data;//扫描所得到的信息
     NSString *barcode_String = symbol.data;//扫描所得到的信息
     //扫描所得到的信息  
 
-    
+    //字典 key integralCode
     NSMutableDictionary *jsonDic = [[NSMutableDictionary alloc]init];
     [jsonDic setObject:barcode_String forKey:@"integralCode"];//条形码
     
+    //数组
     NSMutableArray *tempArr = [[NSMutableArray alloc]init];
     [tempArr addObject:jsonDic];
-//    [tempArr addObject:jsonDic];
-    
-    NSMutableDictionary *finDic = [[NSMutableDictionary alloc]init];
-    [finDic setObject:tempArr forKey:@"integralCodeList"];
-    [finDic setObject:@"354406040249527" forKey:@"mobileId"];
-    
-    
-//    [jsonDic setObject:tempArr forKey:@"integralCode"];   
-//    NSString *jsonString = [finDic JSONRepresentation];
-//    NSString *arrayString = [tempArr JSONRepresentation];
-//    NSLog(@"jsonString == %@,arrayString == %@",jsonString,arrayString);
-    
-    DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response) {
+
+    DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response)
+    {
         NSDictionary *dic2 = response;
         NSLog(@"dic2dic =-----=  %@",dic2);
+        NSDictionary *respond_dic = [[NSDictionary alloc]init];
+        respond_dic = [dic2 objectForKey:@"output"];
+        incomeScore_lb.text = [respond_dic objectForKey:@"incomeScore"];
         
-
+        NSDictionary *resultStatus_dic = [[respond_dic objectForKey:@"resultStatus"]JSONValue];
+        NSString *resultcode = [resultStatus_dic objectForKey:@"code"];
+        if ([resultcode isEqualToString:@"0"])
+        {
+            activateResult_lb.text = @"激活失败";
+            activateResult_lb.textColor = [UIColor redColor];
+        }
+        else
+        {
+            activateResult_lb.text = @"激活成功";
+            activateResult_lb.textColor = [UIColor greenColor];
+        }
         
-            
-            
     } loadInfo:@"正在加载..." HUDBackView:self.view];
-    [dataSource activateScoreintegralCodeList:tempArr mobileId:@"354406040249527"];
-//    [dataSource activateScore:arrayString mobileId:@"354406040249527"];
+    [dataSource activateScoreintegralCodeList:tempArr];
+
     
     [self viewDidLoad];
 //    [myTableView reloadData];
@@ -274,6 +274,7 @@
     myView = nil;
     activateNumber_lb = nil;
     activateResult_lb = nil;
+    incomeScore_lb = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

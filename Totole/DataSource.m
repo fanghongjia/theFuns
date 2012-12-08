@@ -172,8 +172,8 @@ operateSource:(NSString *)operateSource
 
     [self starDownLoadWtihInfo:mArray MethodStr:@"userService/activateScore" Type:NetWorkTypePOST];
 }
-
-- (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList mobileId:(NSString *)mobileId
+//积分激活
+- (void)activateScoreintegralCodeList:(NSMutableArray *)integralCodeList 
 {
     NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,@"userService/activateScore"];
     
@@ -182,10 +182,11 @@ operateSource:(NSString *)operateSource
     NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
     [request setUseCookiePersistence:YES];
     [request setRequestCookies:cookit];
+    NSLog(@"cookit == %@",cookit);
 
     
     NSMutableDictionary *dictd=[NSMutableDictionary dictionary];
-    [dictd setObject:integralCodeList forKey:@"integralCodeList"];
+    [dictd setObject:integralCodeList forKey:@"integralCodeList"];    
     NSString *strd=[dictd JSONRepresentation];
     NSLog(@"strd:%@",strd);
     
@@ -221,7 +222,7 @@ operateSource:(NSString *)operateSource
     [mArray setParameter:@"integralCodeList" Parameter:@""];
     [mArray setParameter:@"mobileId" Parameter:@""];
     
-     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mArray];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mArray];
     NSMutableData *mData  = [NSMutableData dataWithData:data];
     [request setPostBody:mData];
     [self starDownLoadWtihASI:request MethodStr:@"mallService/getGiftCategorys" Type:NetWorkTypePOST];
