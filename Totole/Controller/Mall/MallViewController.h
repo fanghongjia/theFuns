@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MmUtil.h"
+
 
 #import "MallDetailViewController.h"
 
