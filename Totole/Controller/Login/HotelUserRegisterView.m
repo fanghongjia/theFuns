@@ -25,7 +25,7 @@
         rootView.userInteractionEnabled = YES;
         [self addSubview:rootView];
         
-        provinceBtn=[[UIButton alloc]initWithFrame:CGRectMake(110, 10, 80, 18)];
+        provinceBtn=[[UIButton buttonWithType:UIButtonTypeCustom]initWithFrame:CGRectMake(110, 10, 80, 18)];
         [provinceBtn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
         [provinceBtn setTitle:@"--请选择--  " forState:UIControlStateNormal];
         [provinceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -36,7 +36,7 @@
         [rootView addSubview:provinceBtn];
         
         
-        cityBtn=[[UIButton alloc] initWithFrame:CGRectMake(200, 10, 80, 18)];
+        cityBtn=[[UIButton buttonWithType:UIButtonTypeCustom] initWithFrame:CGRectMake(200, 10, 80, 18)];
         [cityBtn setBackgroundImage:[UIImage imageNamed:@"register_DownLittleBox.png"] forState:UIControlStateNormal];
         [cityBtn setTitle:@"--请选择--  " forState:UIControlStateNormal];
         [cityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -85,7 +85,7 @@
         addressText.font = [UIFont systemFontOfSize:14.0];
         [rootView addSubview:addressText];
         
-        hotelTypeBtn=[[UIButton alloc] initWithFrame:CGRectMake(110, 283, 86, 18)];
+        hotelTypeBtn=[[UIButton buttonWithType:UIButtonTypeCustom] initWithFrame:CGRectMake(110, 283, 86, 18)];
         [hotelTypeBtn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
         [hotelTypeBtn setTitle:@"--请选择--  " forState:UIControlStateNormal];
         [hotelTypeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -103,7 +103,7 @@
         [rootView addSubview:contactText];
         
         
-        contactPostBtn=[[UIButton alloc] initWithFrame:CGRectMake(110, 360, 86, 18)];
+        contactPostBtn=[[UIButton buttonWithType:UIButtonTypeCustom] initWithFrame:CGRectMake(110, 360, 86, 18)];
         [contactPostBtn setBackgroundImage:[UIImage imageNamed:@"register_DownBigBox.png"] forState:UIControlStateNormal];
         [contactPostBtn setTitle:@"--请选择--  " forState:UIControlStateNormal];
         [contactPostBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

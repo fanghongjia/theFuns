@@ -17,10 +17,10 @@
     BOOL    isAgree;
 }
 @property (nonatomic,unsafe_unretained) id<HotelUserRegisterDelegate> childDelegate;
-@property (nonatomic,unsafe_unretained) UIButton *provinceBtn;
-@property (nonatomic,unsafe_unretained) UIButton *cityBtn;
-@property (nonatomic,unsafe_unretained) UIButton *hotelTypeBtn;
-@property (nonatomic,unsafe_unretained) UIButton *contactPostBtn;
+@property (nonatomic,strong) UIButton *provinceBtn;
+@property (nonatomic,strong) UIButton *cityBtn;
+@property (nonatomic,strong) UIButton *hotelTypeBtn;
+@property (nonatomic,strong) UIButton *contactPostBtn;
 @property (nonatomic,copy)  NSString  *provinceId;
 @property (nonatomic,copy)  NSString  *cityId;
 

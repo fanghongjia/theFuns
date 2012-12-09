@@ -79,4 +79,16 @@ operateSource:(NSString *)operateSource
 //分值  根据价格显示DESC
 -(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
 
+//商场 查看某一商品详情
+-(void)giftDetail_giftId:(NSString *)giftId;
+
+//查看正在进行的活动
+-(void)getOngoingActivity;
+
+//查看往期活动
+-(void)getOldActivity;
+
+//查看预告活动
+-(void)getPublicActivity;
+
 @end

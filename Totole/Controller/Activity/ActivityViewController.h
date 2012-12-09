@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActivityViewController : UIViewController
+@interface ActivityViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    __unsafe_unretained IBOutlet UIImageView *topView;
+    
+    UITableView *myTableView;
+    
+}
 
 @end

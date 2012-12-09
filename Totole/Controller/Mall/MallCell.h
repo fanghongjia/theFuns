@@ -17,10 +17,10 @@
     UILabel *stockAmount_lb;
 }
 
-@property (nonatomic, retain) UIImageView *imageView;
-@property (nonatomic, retain) UILabel *lable_1;
-@property (nonatomic, retain) UILabel *lable_price;
-@property (nonatomic, retain) UILabel *lable_unit;
-@property (nonatomic, retain) UILabel *stockAmount_lb;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *lable_1;
+@property (nonatomic, strong) UILabel *lable_price;
+@property (nonatomic, strong) UILabel *lable_unit;
+@property (nonatomic, strong) UILabel *stockAmount_lb;
 
 @end

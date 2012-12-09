@@ -8,6 +8,8 @@
 
 #import "MallDetailViewController.h"
 #import "MallCell.h"
+#import "GiftDetailViewController.h"
+#import "MallSearchViewController.h"
 
 @implementation MallDetailViewController
 @synthesize categoryId,title_str;
@@ -85,6 +87,12 @@
     [self refreshData];
 
     [super viewDidLoad];
+}
+//搜索
+- (IBAction)MallSearch_click:(id)sender
+{
+    MallSearchViewController *mallSearckVC = [[MallSearchViewController alloc]init];
+    [self.navigationController pushViewController:mallSearckVC animated:YES];
 }
 
 //热门列表
@@ -352,7 +360,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //title_str,brand_str,price_str,unit_str,stockAmoun_str;
+    GiftDetailViewController *giftDetailVC = [[GiftDetailViewController alloc]init];
+    NSString *mallId;
+    if (dataType == 0)
+    {
+        mallId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"id"];
+    }
+    else if (dataType == 1)
+    {
+        mallId = [[popular_tempArr objectAtIndex:indexPath.row]objectForKey:@"id"];
+    }
+    else if (dataType == 2)
+    {
+        mallId = [[new_tempArr objectAtIndex:indexPath.row]objectForKey:@"id"];
+    }
+    else if (dataType == 3)
+    {
+        mallId = [[integral_tempArr objectAtIndex:indexPath.row]objectForKey:@"id"];
+    }
+    giftDetailVC.mallId_str = mallId;
+    [self.navigationController pushViewController:giftDetailVC animated:YES];
 }
 
 

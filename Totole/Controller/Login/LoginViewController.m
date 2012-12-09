@@ -114,7 +114,6 @@
             
             mainDelegate = MYDELEGATE;
             mainDelegate.myCookie = cookes;//[dictd objectForKey:@"Cookie"];
-            [cookes release];
 //            [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
 //            [[NSUserDefaults standardUserDefaults] synchronize];
             

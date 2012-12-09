@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActivationFailsViewController : UIViewController
 
+@interface ActivationFailsViewController : UIViewController<UITableViewDelegate,
+UITableViewDataSource>
+{
+    __unsafe_unretained IBOutlet UIView *head_view;
+    __unsafe_unretained IBOutlet UIView *foot_view;
+    UITableView *resule_tableView;
+    __unsafe_unretained IBOutlet UILabel *incomeScore_la;
+    NSString *incomeScore_str;
+}
+
+@property (nonatomic,strong)NSMutableArray *failedList_arr;
+@property (nonatomic,copy)NSString *incomeScore_str;
 @end

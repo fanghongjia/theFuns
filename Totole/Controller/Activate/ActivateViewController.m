@@ -144,6 +144,7 @@
     NSMutableArray *tempArr = [[NSMutableArray alloc]init];
     [tempArr addObject:jsonDic];
 
+
     DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response)
     {
         NSDictionary *dic2 = response;
@@ -152,9 +153,8 @@
         respond_dic = [dic2 objectForKey:@"output"];
         incomeScore_lb.text = [respond_dic objectForKey:@"incomeScore"];
         
-        NSDictionary *resultStatus_dic = [[respond_dic objectForKey:@"resultStatus"]JSONValue];
-        NSString *resultcode = [resultStatus_dic objectForKey:@"code"];
-        if ([resultcode isEqualToString:@"0"])
+        NSString *successAmount_str = [respond_dic objectForKey:@"successAmount"];
+        if ([successAmount_str isEqualToString:@"0"])
         {
             activateResult_lb.text = @"激活失败";
             activateResult_lb.textColor = [UIColor redColor];

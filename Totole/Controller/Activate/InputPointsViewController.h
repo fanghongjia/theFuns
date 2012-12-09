@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface InputPointsViewController : UIViewController<UITableViewDelegate,
 UITableViewDataSource,UITextFieldDelegate>
 {
@@ -15,8 +16,18 @@ UITableViewDataSource,UITextFieldDelegate>
 //    __unsafe_unretained IBOutlet UIScrollView *back_scrollView;
     
     __unsafe_unretained IBOutlet UIView *headerView;
-    int numberOfRow;
+
     UIButton *input_btn,*doneButton;
+//    NSMutableDictionary *jsonDic;
+    NSMutableArray *tempArr;
+    
+    NSMutableArray *failedList_arr;
+    
+    NSMutableArray *arrTags;
+    NSMutableArray *arrValues;
 }
+
+
+
 
 @end

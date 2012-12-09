@@ -13,10 +13,12 @@
     UIButton *input_btn;
     UITextField *input_TF;
     BOOL isAdd;         // 加号
+    NSInteger cellTag;
 }
 
-@property (nonatomic, retain) UIButton *input_btn;
-@property (nonatomic, retain) UITextField *input_TF;
+@property (nonatomic, strong) UIButton *input_btn;
+@property (nonatomic, strong) UITextField *input_TF;
 @property (nonatomic, assign) BOOL isAdd;
+@property (nonatomic, assign) NSInteger cellTag;
 
 @end

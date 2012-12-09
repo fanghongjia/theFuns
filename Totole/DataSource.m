@@ -272,4 +272,36 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByPriceDESC" Type:NetWorkTypePOST];
 }
 
+//商场 查看某一商品详情
+-(void)giftDetail_giftId:(NSString *)giftId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    
+    [mArray setParameter:@"giftId" Parameter:giftId];
+    
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/giftDetail" Type:NetWorkTypePOST];
+
+}
+
+//查看正在进行的活动
+-(void)getOngoingActivity
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"activityService/getOngoingActivity" Type:NetWorkTypeGET];
+}
+
+//查看往期活动
+-(void)getOldActivity
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"activityService/getOldActivity" Type:NetWorkTypeGET];
+}
+
+//查看预告活动
+-(void)getPublicActivity
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"activityService/getPublicActivity" Type:NetWorkTypeGET];
+}
+
 @end

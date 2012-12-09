@@ -8,12 +8,15 @@
 
 #import "InputPointsViewController.h"
 #import "InputCell.h"
+#import "ActivationFailsViewController.h"
 
 @interface InputPointsViewController ()
 
 @end
 
 @implementation InputPointsViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,11 +30,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //条形码数组
+    tempArr = [[NSMutableArray alloc]init];
+    failedList_arr = [[NSMutableArray alloc]init];
+    arrValues = [[NSMutableArray alloc] initWithCapacity:1];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShowOnDelay:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillDisappear:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    arrTags = [[NSMutableArray alloc] initWithCapacity:1];
+    [arrTags addObject:@"0"];
     // Do any additional setup after loading the view from its nib.
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
@@ -43,7 +55,7 @@
     myTableView.delegate = self;
     myTableView.dataSource = self;
     myTableView.backgroundColor = [UIColor clearColor];
-    myTableView.showsVerticalScrollIndicator = NO;
+    myTableView.showsVerticalScrollIndicator = YES;
     myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:myTableView];
     
@@ -52,26 +64,39 @@
     
     myTableView.tableHeaderView = headerView;
     
-    numberOfRow = 1;
     
-    
+
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    myTableView.frame = CGRectMake(0, 0, 320, 410 - 166);
+    
     
    [self performSelector:@selector(keyboardWillShow:) withObject:nil afterDelay:0];
   
 }
-//键盘将要消失的时候
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    myTableView.frame = CGRectMake(0, 0, 320, 410);
-    
+//    NSString *key = [NSString stringWithFormat:@"%d", textField.tag - 1000];
+//    
+//    for (NSDictionary *d in arrValues)
+//    {
+//        if ([d objectForKey:key])
+//        {
+//            [arrValues removeObject:d];
+//            
+//            break;
+//        }
+//    }
+//    
+//    NSDictionary *dict = [[NSDictionary alloc]
+//                          initWithObjectsAndKeys:textField.text, key, nil];
+//    [arrValues addObject:dict];
+//       
+//    NSLog(@"文本值: %@", arrValues);
     if (doneButton)
     {
         [doneButton removeFromSuperview];
-        [doneButton release];
         doneButton=nil;
     }
     return YES;
@@ -94,9 +119,14 @@
     }
 }
 
+- (void)keyboardWillDisappear:(NSNotification *)note
+{
+    myTableView.frame = CGRectMake(0, 0, 320, 410);
+}
+
 - (void)keyboardWillShow:(NSNotification *)note
 {
-    
+    myTableView.frame = CGRectMake(0, 0, 320, 410 - 166);
     UIView *foundKeyboard = nil;
     
     UIWindow *keyboardWindow = nil;
@@ -110,7 +140,7 @@
     }
     if (!keyboardWindow) return;
     
-    for (UIView *possibleKeyboard in [keyboardWindow subviews])
+    for (__strong UIView *possibleKeyboard in [keyboardWindow subviews])
     {
         //iOS3
         if ([[possibleKeyboard description] hasPrefix:@"<UIKeyboard"])
@@ -150,12 +180,60 @@
 
 -(void)doneButton:(UIButton *)sender
 {
-    for (int i = 0; i < numberOfRow; i ++)
+//    for (int i = 0; i < [arrValues count]; i ++)
+//    {
+    BOOL hasNil = NO;
+    for (UITextField *field in arrValues)
     {
-        InputCell *cell = (InputCell *)[myTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        NSString *inputStr = cell.input_TF.text;
-        NSLog(@"第%d个值:%@", i, inputStr);
+        if (field.text.length > 0)
+        {
+            NSMutableDictionary *jsonDic = [[NSMutableDictionary alloc]init];
+            [jsonDic setObject:field.text forKey:@"integralCode"];//条形码
+            
+            [tempArr addObject:jsonDic];
+        }
+        else
+        {
+            hasNil = YES;
+        }        
     }
+    
+    if (hasNil == YES)
+    {
+        // 潘孔
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"系统提示!"
+                                                       message:@"请填写完整!"
+                                                      delegate:nil
+                                             cancelButtonTitle:@"确定"
+                                             otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+//    NSLog(@"jsonDic == %@",jsonDic);
+    NSLog(@"tempArr == %@",tempArr);
+    
+    DataSource *dataSource = [DataSource interFaceWithBlocks:^(id response)
+                              {
+                                  NSDictionary *dic2 = response;
+                                  NSLog(@"dic2dic =-----=  %@",dic2);
+                                  NSDictionary *respond_dic = [[NSDictionary alloc]init];
+                                  respond_dic = [dic2 objectForKey:@"output"];
+                                  
+                                  failedList_arr = [[respond_dic objectForKey:@"failedList"]JSONValue];
+                                  NSString *incomeScore_str = [respond_dic objectForKey:@"incomeScore"];
+                                  NSLog(@"failedList_arr == %@",failedList_arr);
+                                  
+                                  ActivationFailsViewController *resuleVC = [[ActivationFailsViewController alloc]init];
+                                  resuleVC.failedList_arr = failedList_arr;
+                                  resuleVC.incomeScore_str = incomeScore_str;
+                                   NSLog(@"incomeScore_str == %@",incomeScore_str);
+                                  
+                                  [self.navigationController pushViewController:resuleVC animated:YES];
+                                  
+                              } loadInfo:@"正在加载..." HUDBackView:self.view];
+    [dataSource activateScoreintegralCodeList:tempArr];
 }
 #pragma mark - Button clicked
 - (void)doControlAction:(UIButton *)sender
@@ -165,12 +243,14 @@
     
     if (isAdd)          // 最后一个
     {
-        numberOfRow ++;
+        NSInteger lastIndex = [[arrTags lastObject] intValue] + 1;
+        [arrTags addObject:[NSString stringWithFormat:@"%d", lastIndex]];
         [myTableView reloadData];
     }
     else
     {
-        numberOfRow --;
+        [arrTags removeObject:[NSString stringWithFormat:@"%d", cell.cellTag]];
+        [arrValues removeObject:cell.input_TF];
         [myTableView reloadData];
     }
 }
@@ -186,113 +266,27 @@
 //cell 个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return numberOfRow;
+    return [arrTags count];
 }
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];//@"TableSampleIdentifier";
+    NSInteger unitTag = [[arrTags objectAtIndex:indexPath.row] intValue];
+    NSString *TableSampleIdentifier = [NSString stringWithFormat:@"CellIdentifier_%d",unitTag];
     InputCell *cell = (InputCell *)[tableView dequeueReusableCellWithIdentifier:
                                     TableSampleIdentifier];
     
     
     if (cell == nil)
     {
-        
         cell = [[InputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
         cell.input_TF.delegate = self;
-        
-//        UITextField *input_TF = [[UITextField alloc]initWithFrame:CGRectMake(30, 0, 220, 31)];
-//        input_TF.borderStyle = UITextBorderStyleRoundedRect;
-//        input_TF.keyboardType = UIKeyboardTypeNumberPad;
-//        input_TF.backgroundColor = [UIColor whiteColor];
-//        [cell.contentView addSubview:input_TF];
-//        
-//        
-//        input_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        
-//        input_btn.frame = CGRectMake(260, 6, 18, 18);
-//        //减
-//        if (indexPath.row < numberOfRow-1)
-//        {
-//            [input_btn addTarget:self action:@selector(minusCell:) forControlEvents:UIControlEventTouchUpInside];
-//            [input_btn setBackgroundImage:[UIImage imageNamed:@"activate_minus.png"] forState:UIControlStateNormal];
-//        }
-//        //加
-//        else
-//        {
-//            [input_btn addTarget:self action:@selector(plusCell:) forControlEvents:UIControlEventTouchUpInside];
-//            [input_btn setBackgroundImage:[UIImage imageNamed:@"activate_plus.png"] forState:UIControlStateNormal];
-//        }
-//        
-//        [cell.contentView addSubview:input_btn];
-//        
-//        
-//    }
-//    else
-//    {
-//        //减
-//        if (indexPath.row < numberOfRow-1)
-//        {
-//            [input_btn addTarget:self action:@selector(minusCell:) forControlEvents:UIControlEventTouchUpInside];
-//            [input_btn setBackgroundImage:[UIImage imageNamed:@"activate_minus.png"] forState:UIControlStateNormal];
-//        }
-//        //加
-//        else
-//        {
-//            [input_btn addTarget:self action:@selector(plusCell:) forControlEvents:UIControlEventTouchUpInside];
-//            [input_btn setBackgroundImage:[UIImage imageNamed:@"activate_plus.png"] forState:UIControlStateNormal];
-//        }
-//        
-////        [cell.contentView addSubview:input_btn];
-//    }
-    
-    
-    
-    
-    /*
-    for (int i = 0; i < reader_MutableArr.count; i++) 
-    {
-        if (indexPath.row == i) 
-        {
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 304, 70)];
-            [imageView setImage:[UIImage imageNamed:@"activate_resultRG.png"]];
-            [cell addSubview:imageView];
-            
-            UILabel *lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(42, 10, 82, 24)];
-            lable_1.backgroundColor = [UIColor clearColor];
-            lable_1.text = @"激活号码：";
-            lable_1.font = [UIFont systemFontOfSize:15.0];
-            [cell addSubview:lable_1];
-            
-            
-            UILabel *lable_2 = [[UILabel alloc]initWithFrame:CGRectMake(42, 38, 82, 24)];
-            lable_2.backgroundColor = [UIColor clearColor];
-            lable_2.text = @"激活状态：";
-            lable_2.font = [UIFont systemFontOfSize:15.0];
-            [cell addSubview:lable_2];
-            
-            UILabel *lableNumber = [[UILabel alloc]initWithFrame:CGRectMake(124, 10, 200, 24)];
-            lableNumber.backgroundColor = [UIColor clearColor];
-            lableNumber.text = [reader_MutableArr objectAtIndex:i];
-            lableNumber.font = [UIFont systemFontOfSize:15.0];
-            [cell addSubview:lableNumber];
-            
-            UILabel *lableState = [[UILabel alloc]initWithFrame:CGRectMake(124, 38, 82, 24)];
-            lableState.backgroundColor = [UIColor clearColor];
-            lableState.text = [reader_MutableArr objectAtIndex:i];
-            lableState.font = [UIFont systemFontOfSize:15.0];
-            [cell addSubview:lableState];
-            
-            cell.backgroundColor = [UIColor clearColor];    
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-    }
-    */
+        cell.cellTag = unitTag;
+        cell.input_TF.tag = unitTag + 1000;
+        [arrValues addObject:cell.input_TF];
     }
     
-    if (numberOfRow - 1 == indexPath.row)
+    if ([arrTags count] - 1 == indexPath.row)
     {
         [cell.input_btn setBackgroundImage:[UIImage imageNamed:@"activate_plus.png"] forState:UIControlStateNormal];
         
@@ -304,6 +298,7 @@
         
         cell.isAdd = NO;
     }
+    
     [cell.input_btn addTarget:self action:@selector(doControlAction:)
              forControlEvents:UIControlEventTouchUpInside];
     
@@ -319,24 +314,24 @@
     return 43;
 }
 
--(void)plusCell:(UIButton *)sender
-{
-    numberOfRow ++;
-    myTableView.frame = CGRectMake(0, 120, 320, 43*numberOfRow);
-//    back_scrollView.contentSize = CGSizeMake(320, 460+43*numberOfRow);
-    NSLog(@"numberOfRow == %d",numberOfRow);
-    [myTableView reloadData];
-}
-
-
--(void)minusCell:(UIButton *)sender
-{
-    numberOfRow --;
-    myTableView.frame = CGRectMake(0, 120, 320, 43*numberOfRow);
-//    back_scrollView.contentSize = CGSizeMake(320, 460+43*numberOfRow);
-    NSLog(@"numberOfRow == %d",numberOfRow);
-    [myTableView reloadData];
-}
+//-(void)plusCell:(UIButton *)sender
+//{
+//    numberOfRow ++;
+//    myTableView.frame = CGRectMake(0, 120, 320, 43*numberOfRow);
+////    back_scrollView.contentSize = CGSizeMake(320, 460+43*numberOfRow);
+//    NSLog(@"numberOfRow == %d",numberOfRow);
+//    [myTableView reloadData];
+//}
+//
+//
+//-(void)minusCell:(UIButton *)sender
+//{
+//    numberOfRow --;
+//    myTableView.frame = CGRectMake(0, 120, 320, 43*numberOfRow);
+////    back_scrollView.contentSize = CGSizeMake(320, 460+43*numberOfRow);
+//    NSLog(@"numberOfRow == %d",numberOfRow);
+//    [myTableView reloadData];
+//}
 
 - (void)viewDidUnload
 {

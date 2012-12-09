@@ -11,7 +11,7 @@
 @implementation InputCell
 
 @synthesize input_btn, input_TF;
-@synthesize isAdd;
+@synthesize isAdd, cellTag;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -39,12 +39,5 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc
-{
-    [input_btn release];
-    [input_TF release];
-    
-    [super dealloc];
-}
 
 @end
