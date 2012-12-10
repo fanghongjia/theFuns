@@ -20,6 +20,9 @@
 // 加载图片
 - (void)loadImageInThread:(NSString*)dict withView:(id)view;
 
+//截取特殊符号
++(NSString *)getHTMLChangge:(NSString *)_str;
+
 //饭店用户注册
 -(void)registeruser_province:(NSString *)province
                         city:(NSString *)city
@@ -65,30 +68,33 @@ operateSource:(NSString *)operateSource
 
 
 //根据分类获得商品列表     
-- (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+- (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
 
 //热门  根据兑换量显示
--(void)getGiftsOrderHot:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+-(void)getGiftsOrderHot:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
 
 //最新  根据最新上架顺序显示商品
--(void)getGiftsOrderTime:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+-(void)getGiftsOrderTime:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
 
 //分值  根据价格显示DESC
--(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise;
+-(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
 //商场 查看某一商品详情
 -(void)giftDetail_giftId:(NSString *)giftId;
 
 //查看正在进行的活动
--(void)getOngoingActivity;
+-(void)getOngoingActivity_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
 //查看往期活动
--(void)getOldActivity;
+-(void)getOldActivity_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
 //查看预告活动
--(void)getPublicActivity;
+-(void)getPublicActivity_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//加入购物车
+-(void)addToCart_giftId:(NSString *)giftId;
 
 @end

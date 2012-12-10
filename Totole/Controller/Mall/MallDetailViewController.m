@@ -42,20 +42,27 @@
             
             [mallIdMut addObject:mallId_string];
         }
-        NSLog(@"Category mallIdMut  == %@",mallIdMut);
-        NSLog(@"Category tempArr == %@",tempArr);
+//        NSLog(@"Category mallIdMut  == %@",mallIdMut);
+//        NSLog(@"Category tempArr == %@",tempArr);
          
         [mytableView reloadData];
          [self stopLoadingDown];
          [self stopLoadingUp];
          
     }loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getGiftByCategory:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
+    [daSource getGiftByCategory:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
 }
 
 - (void)viewDidLoad
 {
+    
+    NSLog(@"self.categoryId == %@",self.categoryId);
+    //先取第一页
     currentPage = 1;
+    popular_currentPage= 1;
+    new_currentPage= 1;
+    integral_currentPage= 1;
+    
     // Do any additional setup after loading the view from its nib.
     dataType = 0;
     
@@ -70,7 +77,7 @@
 	[self.view addSubview:bgScroll];
     
     mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 330) style:UITableViewStylePlain];
-    mytableView.delegate = self;
+    mytableView.delegate = self; 
     mytableView.dataSource = self;
     mytableView.backgroundColor = [UIColor clearColor];
     mytableView.showsVerticalScrollIndicator = NO;
@@ -99,6 +106,7 @@
 - (IBAction)popular_click:(id)sender
 {
     dataType = 1;
+     NSLog(@"currenpopular_currentPage == %d",popular_currentPage);
     
     [top_imagView setImage:[UIImage imageNamed:@"mall_top1.png"]];
     
@@ -108,25 +116,13 @@
         [self stopLoadingUp];
         
         NSDictionary *dic3 = response;
-        
 
-     
-//        if (tempArr)
-//        {
-//            [tempArr removeAllObjects];
-//        }
-        
         //获取到的数据
         
         [popular_tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
-        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
-        NSLog(@"recordCount_string == %@",recordCount_string);
+        popularRecordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        NSLog(@"popularRecordCount_string == %@",popularRecordCount_string);
         
-        //商品的id放到 mallIdMut 里
-        if (mallIdMut)
-        {
-            [mallIdMut removeAllObjects];
-        }
         
         for (int i = 0; i<popular_tempArr.count; i++)
         {
@@ -134,13 +130,13 @@
             
             [mallIdMut addObject:mallId_string];
         }
-        NSLog(@"Hot mallIdMut  == %@",mallIdMut);
-        NSLog(@"Hot popular_tempArr == %@",popular_tempArr);
+//        NSLog(@"Hot mallIdMut  == %@",mallIdMut);
+//        NSLog(@"Hot popular_tempArr == %@",popular_tempArr);
         
         [mytableView reloadData];
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getGiftsOrderHot:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
+    [daSource getGiftsOrderHot:self.categoryId pageNo:[NSString stringWithFormat:@"%d",popular_currentPage] pageSize:@"10"];
     
     
     
@@ -150,6 +146,7 @@
 - (IBAction)new_click:(id)sender 
 {
     dataType = 2;
+     NSLog(@"new_currentPage == %d",new_currentPage);
     
     [top_imagView setImage:[UIImage imageNamed:@"mall_top2.png"]];
     
@@ -158,21 +155,13 @@
         
         [self stopLoadingDown];
         [self stopLoadingUp];
+
+        [new_tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
+//        new_tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
         
-//        if (tempArr)
-//        {
-//            [tempArr removeAllObjects];
-//        }
-        new_tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
+       newRecordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        NSLog(@"newRecordCount_string == %@",newRecordCount_string);
         
-       recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
-        NSLog(@"recordCount_string == %@",recordCount_string);
-        
-        
-        if (mallIdMut)
-        {
-            [mallIdMut removeAllObjects];
-        }
         
         for (int i = 0; i<new_tempArr.count; i++)
         {
@@ -180,19 +169,20 @@
             
             [mallIdMut addObject:mallId_string];
         }
-        NSLog(@"Time mallIdMut  == %@",mallIdMut);
-        NSLog(@"Time new_tempArr == %@",new_tempArr);
+//        NSLog(@"Time mallIdMut  == %@",mallIdMut);
+//        NSLog(@"Time new_tempArr == %@",new_tempArr);
         
         [mytableView reloadData];
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getGiftsOrderTime:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
+    [daSource getGiftsOrderTime:self.categoryId pageNo:[NSString stringWithFormat:@"%d",new_currentPage] pageSize:@"10"];
 }
 
 //积分列表
 - (IBAction)integral_click:(id)sender 
 {
     dataType = 3;
+     NSLog(@"integral_currentPage == %d",integral_currentPage);
     
     [top_imagView setImage:[UIImage imageNamed:@"mall_top3.png"]];
     
@@ -202,14 +192,10 @@
         [self stopLoadingDown];
         [self stopLoadingUp];
         
-//        if (tempArr)
-//        {
-//            [tempArr removeAllObjects];
-//        }
-        integral_tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue];
+        [integral_tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
         
-        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
-        NSLog(@"recordCount_string == %@",recordCount_string);
+        integralRecordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        NSLog(@"integralRecordCount_string == %@",integralRecordCount_string);
         
         
         if (mallIdMut)
@@ -224,13 +210,13 @@
             [mallIdMut addObject:mallId_string];
         }
         
-        NSLog(@"Price mallIdMut  == %@",mallIdMut);
-        NSLog(@"Price integral_tempArr == %@",integral_tempArr);
+//        NSLog(@"Price mallIdMut  == %@",mallIdMut);
+//        NSLog(@"Price integral_tempArr == %@",integral_tempArr);
         
         [mytableView reloadData];
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getGiftsOrderPrice:self.categoryId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSise:@"10"];
+    [daSource getGiftsOrderPrice:self.categoryId pageNo:[NSString stringWithFormat:@"%d",integral_currentPage] pageSize:@"10"];
 }
 
 #pragma mark -
@@ -244,11 +230,7 @@
 //cell 个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (dataType == 0)
-//    {
-//        return tempArr.count;
-//    }
-//    el
+
     switch (dataType)
     {
         case 0:
@@ -342,10 +324,7 @@
         NSString *unit_str = [[integral_tempArr objectAtIndex:row] objectForKey:@"unit"];
         cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
     }
-    
-    
-    
-    
+
     cell.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -406,24 +385,60 @@
 - (void)startLoadingDown
 {
     
-    if (ceil([recordCount_string intValue] / 10.0) > currentPage)
-    {
-        currentPage ++;
-    }
+//    if (ceil([recordCount_string intValue] / 10.0) > currentPage)
+//    {
+//        currentPage ++;
+//    }
 	//上拉获取更多信息
 	switch (dataType)
     {
-        case 0:
-            [self refreshData];
+        case 0:            
+            if (ceil([recordCount_string intValue] / 10.0) > currentPage)
+            {
+                currentPage ++;
+                [self refreshData];
+            }
+            else
+            {
+                [self stopLoadingDown];
+                [self stopLoadingUp];
+            }
             break;
         case 1:
-            [self popular_click:nil];     // 热门
+            if (ceil([popularRecordCount_string intValue] / 10.0) > popular_currentPage)
+            {
+                popular_currentPage ++;
+                [self popular_click:nil];     // 热门
+            }
+            else
+            {
+                [self stopLoadingDown];
+                [self stopLoadingUp];
+            }
             break;
         case 2:
-            [self new_click:nil];         // 最新
+            if (ceil([newRecordCount_string intValue] / 10.0) > new_currentPage)
+            {
+                new_currentPage ++;
+                [self new_click:nil];         // 最新
+            }
+            else
+            {
+                [self stopLoadingDown];
+                [self stopLoadingUp];
+            }
             break;
         case 3:
-            [self integral_click:nil];    // 积分
+            if (ceil([integralRecordCount_string intValue] / 10.0) > integral_currentPage)
+            {
+                integral_currentPage ++;
+                [self integral_click:nil];    // 积分
+            }
+            else
+            {
+                [self stopLoadingDown];
+                [self stopLoadingUp];
+            }
             break;
         default:
             break;

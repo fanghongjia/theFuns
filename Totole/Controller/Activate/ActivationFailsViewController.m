@@ -30,6 +30,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    incomeScore_la.text = self.incomeScore_str;
+    
+//    self.failedList_arr = [[NSArray alloc]init];
+    
+    NSLog(@"failedList_arr == %@",self.failedList_arr);
+    NSLog(@"self.incomeScore_str == %@",self.incomeScore_str);
+    
+    
     resule_tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 410)];
     resule_tableView.delegate = self;
     resule_tableView.dataSource = self;
@@ -41,11 +51,7 @@
     resule_tableView.tableHeaderView = head_view;
     resule_tableView.tableFooterView = foot_view;
     
-    incomeScore_la.text = self.incomeScore_str;
     
-    failedList_arr = [[NSMutableArray alloc]init];
-    NSLog(@"failedList_arr == %@",self.failedList_arr);
-    NSLog(@"self.incomeScore_str == %@",self.incomeScore_str);
 }
 - (IBAction)ContinueToScan_click:(id)sender
 {
@@ -65,7 +71,7 @@
 //cell 个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return failedList_arr.count;
+    return self.failedList_arr.count;
 }
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +84,7 @@
     if (cell == nil)
     {        
         cell = [[ActivaeResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
-        cell.barcode_lb.text = [failedList_arr objectAtIndex:indexPath.row];
+        cell.barcode_lb.text = [self.failedList_arr objectAtIndex:indexPath.row];
     }
     
         

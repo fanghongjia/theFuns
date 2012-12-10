@@ -36,6 +36,28 @@ static DataSource *loadImage = nil;
     return loadImage;
 }
 
+//截取特殊符号
++(NSString *)getHTMLChangge:(NSString *)_str
+{
+    
+    if (_str) {
+        NSString *TextString=[[NSString alloc] initWithString:_str];
+        TextString=[[[[[[[[[[TextString stringByReplacingOccurrencesOfString:@"<p>" withString:@"\r"]
+                           stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"]
+                          stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"]
+                          stringByReplacingOccurrencesOfString:@"#red" withString:@""]
+                         stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "]
+                        stringByReplacingOccurrencesOfString:@"&ge;" withString:@"—"]
+                       stringByReplacingOccurrencesOfString:@"&mdash;" withString:@"®"]
+                      stringByReplacingOccurrencesOfString:@"&ldquo;" withString:@"“"]
+                     stringByReplacingOccurrencesOfString:@"&rdquo;" withString:@"”"]
+                    stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+        return  TextString;
+    }
+    return nil;
+}
+
+
 // 加载图片
 - (void)loadImageInThread:(NSString*)url_str withView:(id)view
 {
@@ -229,47 +251,47 @@ operateSource:(NSString *)operateSource
 }
 
 //根据分类获得商品列表     categoryId,pageNo,pageSise
-- (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+- (void)getGiftByCategory:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
     [mArray setParameter:@"categoryId" Parameter:categoryId];
     [mArray setParameter:@"pageNo" Parameter:pageNo];
-    [mArray setParameter:@"pageSise" Parameter:pageSise];
-        
-    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategory" Type:NetWorkTypePOST];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategory" Type:NetWorkTypeGET];
 }
 
 //热门  根据兑换量显示
--(void)getGiftsOrderHot:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+-(void)getGiftsOrderHot:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
     [mArray setParameter:@"categoryId" Parameter:categoryId];
     [mArray setParameter:@"pageNo" Parameter:pageNo];
-    [mArray setParameter:@"pageSise" Parameter:pageSise];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
     
-    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByExchangeAmountDESC" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByExchangeAmountDESC" Type:NetWorkTypeGET];
 }
 
 //最新  根据最新上架顺序显示商品
--(void)getGiftsOrderTime:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+-(void)getGiftsOrderTime:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
     [mArray setParameter:@"categoryId" Parameter:categoryId];
     [mArray setParameter:@"pageNo" Parameter:pageNo];
-    [mArray setParameter:@"pageSise" Parameter:pageSise];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
     
-    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByCreateTimeDESC" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByCreateTimeDESC" Type:NetWorkTypeGET];
 }
 
 //分值  根据价格显示DESC
--(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSise:(NSString *)pageSise
+-(void)getGiftsOrderPrice:(NSString *)categoryId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
     [mArray setParameter:@"categoryId" Parameter:categoryId];
     [mArray setParameter:@"pageNo" Parameter:pageNo];
-    [mArray setParameter:@"pageSise" Parameter:pageSise];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
     
-    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByPriceDESC" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/getGiftsByCategoryOrderByPriceDESC" Type:NetWorkTypeGET];
 }
 
 //商场 查看某一商品详情
@@ -279,29 +301,62 @@ operateSource:(NSString *)operateSource
     
     [mArray setParameter:@"giftId" Parameter:giftId];
     
-    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/giftDetail" Type:NetWorkTypePOST];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/giftDetail" Type:NetWorkTypeGET];
 
 }
 
-//查看正在进行的活动
--(void)getOngoingActivity
+//查看正在进行的活动 pageNo,pageSize
+-(void)getOngoingActivity_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
     [self starDownLoadWtihInfo:mArray MethodStr:@"activityService/getOngoingActivity" Type:NetWorkTypeGET];
 }
 
 //查看往期活动
--(void)getOldActivity
+-(void)getOldActivity_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
     [self starDownLoadWtihInfo:mArray MethodStr:@"activityService/getOldActivity" Type:NetWorkTypeGET];
 }
 
 //查看预告活动
--(void)getPublicActivity
+-(void)getPublicActivity_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
     [self starDownLoadWtihInfo:mArray MethodStr:@"activityService/getPublicActivity" Type:NetWorkTypeGET];
+}
+
+//加入购物车
+-(void)addToCart_giftId:(NSString *)giftId
+{
+//    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+//    [mArray setParameter:@"giftId" Parameter:giftId];
+//    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/addToCart" Type:NetWorkTypePOST];
+    
+    
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,@"mallService/addToCart"];
+    
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];
+    NSLog(@"cookit == %@",cookit);
+
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:giftId forKey:@"giftId"];
+    NSData *addData = [[dict JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
+    [request appendPostData:addData];
+    [request setPostLength:[dict JSONRepresentation].length];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    
+    
+    [self starDownLoadWtihASI:request MethodStr:@"mallService/addToCart" Type:NetWorkTypePOST];
 }
 
 @end

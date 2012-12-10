@@ -157,7 +157,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">mall_top1.png</string>
+							<string key="NSResourceName">mall_top.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="157179962">
@@ -433,6 +433,30 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MallDetailViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="MallSearch_click:">id</string>
+						<string key="back_click:">id</string>
+						<string key="integral_click:">id</string>
+						<string key="new_click:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="MallSearch_click:">
+							<string key="name">MallSearch_click:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="back_click:">
+							<string key="name">back_click:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="integral_click:">
+							<string key="name">integral_click:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="new_click:">
+							<string key="name">new_click:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/MallDetailViewController.h</string>
@@ -451,7 +475,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="back.png">{105, 63}</string>
 			<string key="mall_search.png">{87, 61}</string>
-			<string key="mall_top1.png">{601, 57}</string>
+			<string key="mall_top.png">{601, 57}</string>
 			<string key="top_bar.png">{640, 83}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>

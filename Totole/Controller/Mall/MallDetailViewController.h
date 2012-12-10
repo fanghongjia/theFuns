@@ -12,16 +12,16 @@
 
 @interface MallDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,BgScrollViewDelegate>
 {
-    UITableView *mytableView;
+    UITableView *mytableView; 
     
     NSMutableArray *tempArr,*popular_tempArr,*new_tempArr,*integral_tempArr;
     NSMutableArray *mallIdMut;
     
     BgScrollView *bgScroll;
     int pageNo_int,pageSise_int;
-    
-    NSString *recordCount_string;
-    int currentPage;
+     
+    NSString *recordCount_string,*popularRecordCount_string,*newRecordCount_string,*integralRecordCount_string;
+    int currentPage,popular_currentPage,new_currentPage,integral_currentPage;
     int dataType;
     
     __unsafe_unretained IBOutlet UIImageView *top_imagView;

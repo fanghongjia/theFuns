@@ -32,7 +32,7 @@
     [super viewDidLoad];
     //条形码数组
     tempArr = [[NSMutableArray alloc]init];
-    failedList_arr = [[NSMutableArray alloc]init];
+//    failedList_arr = [[NSMutableArray alloc]init];
     arrValues = [[NSMutableArray alloc] initWithCapacity:1];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShowOnDelay:)
@@ -221,15 +221,26 @@
                                   NSDictionary *respond_dic = [[NSDictionary alloc]init];
                                   respond_dic = [dic2 objectForKey:@"output"];
                                   
-                                  failedList_arr = [[respond_dic objectForKey:@"failedList"]JSONValue];
+                                  failedList_str = [respond_dic objectForKey:@"failedList"];
                                   NSString *incomeScore_str = [respond_dic objectForKey:@"incomeScore"];
-                                  NSLog(@"failedList_arr == %@",failedList_arr);
+                                  NSLog(@"failedList_str == %@",failedList_str);
+                                  
+                                  
+                                  NSString *changeStr = [[[[failedList_str
+                                                          stringByReplacingOccurrencesOfString:@"\"" withString:@""]
+                                                         stringByReplacingOccurrencesOfString:@"[" withString:@""]
+                                                          stringByReplacingOccurrencesOfString:@"]" withString:@""]
+                                                         stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+                                  NSLog(@"changeStr == %@",changeStr);
+                                  NSArray *array = nil;
+                                  array =  [changeStr componentsSeparatedByString:@","];
+                                  NSLog(@"array == %@",array);
                                   
                                   ActivationFailsViewController *resuleVC = [[ActivationFailsViewController alloc]init];
-                                  resuleVC.failedList_arr = failedList_arr;
+                                  resuleVC.failedList_arr = array;
                                   resuleVC.incomeScore_str = incomeScore_str;
                                    NSLog(@"incomeScore_str == %@",incomeScore_str);
-                                  
+                                  NSLog(@"resuleVC.failedList_arr == %@",resuleVC.failedList_arr);
                                   [self.navigationController pushViewController:resuleVC animated:YES];
                                   
                               } loadInfo:@"正在加载..." HUDBackView:self.view];

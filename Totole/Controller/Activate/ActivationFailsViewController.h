@@ -17,8 +17,10 @@ UITableViewDataSource>
     UITableView *resule_tableView;
     __unsafe_unretained IBOutlet UILabel *incomeScore_la;
     NSString *incomeScore_str;
+    
+    NSArray *failedList_arr;
 }
 
-@property (nonatomic,strong)NSMutableArray *failedList_arr;
+@property (nonatomic,strong)NSArray *failedList_arr;
 @property (nonatomic,copy)NSString *incomeScore_str;
 @end

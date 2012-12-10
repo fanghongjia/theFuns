@@ -21,7 +21,7 @@ UITableViewDataSource,UITextFieldDelegate>
 //    NSMutableDictionary *jsonDic;
     NSMutableArray *tempArr;
     
-    NSMutableArray *failedList_arr;
+    NSString *failedList_str;
     
     NSMutableArray *arrTags;
     NSMutableArray *arrValues;

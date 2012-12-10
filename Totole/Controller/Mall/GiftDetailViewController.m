@@ -41,24 +41,41 @@
         NSString *url_string = [outputDic objectForKey:@"avatar"];
         //异步下载图片
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
-//        title_lb.text = self.title_str;
-//        brand_lb.text = self.brand_str;
-//        price_lb.text = self.price_str;
-//        unit_lb.text = self.unit_str;
-//        stockAmount_lb.text = self.stockAmoun_str;
+        title_lb.text = [outputDic objectForKey:@"giftName"];
+        
+
+        brand_lb.text = [@"品牌" stringByAppendingString:[outputDic objectForKey:@"brand"]];
+        
+        price_lb.text = [outputDic objectForKey:@"price"];
+        
+        unit_lb.text = [@"积分/" stringByAppendingString: [outputDic objectForKey:@"unit"]];
+        
+        stockAmount_lb.text = [[@"库存:" stringByAppendingString:[outputDic objectForKey:@"stock"]] stringByAppendingString:[outputDic objectForKey:@"unit"]];
+
+        NSString *HTMLStr = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"description"]];
+        NSLog(@"HTMLStr == %@",HTMLStr);
+        detail_textView.text = [DataSource getHTMLChangge:HTMLStr];
+       
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
     [daSource giftDetail_giftId:self.mallId_str];
     
     myScrollView.contentSize = CGSizeMake(320, 548);
-    // Do any additional setup after loading the view from its nib.
-//    title_lb.text = self.title_str;
-//    brand_lb.text = self.brand_str;
-//    price_lb.text = self.price_str;
-//    unit_lb.text = self.unit_str;
-//    stockAmount_lb.text = self.stockAmoun_str;
-    
+
     NSLog(@"mallId_str == %@",mallId_str);
+}
+- (IBAction)shoppingCart_click:(id)sender
+{
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic3 = response;
+        NSLog(@"GiftDetailViewController  dic3 == %@",dic3);
+        NSDictionary *outputDic = [[NSDictionary alloc]init];
+        outputDic = [dic3 objectForKey:@"output"];
+        
+        
+                
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource addToCart_giftId:self.mallId_str];
 }
 - (IBAction)back_click:(id)sender
 {
