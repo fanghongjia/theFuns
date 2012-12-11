@@ -7,6 +7,7 @@
 //
 
 #import "GiftDetailViewController.h"
+#import "ShoppingCartViewController.h"
 
 @interface GiftDetailViewController ()
 
@@ -14,7 +15,7 @@
 
 @implementation GiftDetailViewController
 
-@synthesize mallId_str,title_str,brand_str,price_str,unit_str,stockAmoun_str;
+@synthesize mallId_str;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,19 +39,21 @@
         outputDic = [dic3 objectForKey:@"output"];
         
         
-        NSString *url_string = [outputDic objectForKey:@"avatar"];
+        url_string = [outputDic objectForKey:@"avatar"];
         //异步下载图片
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
         title_lb.text = [outputDic objectForKey:@"giftName"];
         
 
-        brand_lb.text = [@"品牌" stringByAppendingString:[outputDic objectForKey:@"brand"]];
+        brand_lb.text = [@"品牌:" stringByAppendingString:[outputDic objectForKey:@"brand"]];
         
         price_lb.text = [outputDic objectForKey:@"price"];
         
-        unit_lb.text = [@"积分/" stringByAppendingString: [outputDic objectForKey:@"unit"]];
+        unit_string = [outputDic objectForKey:@"unit"];
         
-        stockAmount_lb.text = [[@"库存:" stringByAppendingString:[outputDic objectForKey:@"stock"]] stringByAppendingString:[outputDic objectForKey:@"unit"]];
+        unit_lb.text = [@"积分/" stringByAppendingString:unit_string ];
+        
+        stockAmount_lb.text = [[@"库存:" stringByAppendingString:[outputDic objectForKey:@"stock"]] stringByAppendingString:unit_string];
 
         NSString *HTMLStr = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"description"]];
         NSLog(@"HTMLStr == %@",HTMLStr);
@@ -64,18 +67,34 @@
 
     NSLog(@"mallId_str == %@",mallId_str);
 }
+//加入购物车 (立即兑换)
 - (IBAction)shoppingCart_click:(id)sender
 {
-    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
-        NSDictionary *dic3 = response;
-        NSLog(@"GiftDetailViewController  dic3 == %@",dic3);
-        NSDictionary *outputDic = [[NSDictionary alloc]init];
-        outputDic = [dic3 objectForKey:@"output"];
-        
-        
-                
-    } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource addToCart_giftId:self.mallId_str];
+    NSMutableDictionary *shopDic = [[NSMutableDictionary alloc]init];
+    
+    
+    [shopDic setValue:self.mallId_str forKey:@"giftId"];
+    NSLog(@"mallId_str == %@",self.mallId_str);
+    NSLog(@"url_string == %@",url_string);
+    [shopDic setValue:url_string forKey:@"avatar"];
+    [shopDic setValue:title_lb.text forKey:@"giftName"];
+    [shopDic setValue:price_lb.text forKey:@"price"];
+    [shopDic setValue:unit_lb.text forKey:@"unit"];
+    [shopDic setValue:@"1" forKey:@"number"];
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    shoppingArr = [NSMutableArray arrayWithArray:[userDefault objectForKey:@"shoppingArr"]];
+    if (!shoppingArr)
+    {
+        shoppingArr = [NSMutableArray arrayWithCapacity:1];
+    }    
+    [shoppingArr insertObject:shopDic atIndex:0];//把购物车需要的信息加入数组
+    [userDefault setValue:shoppingArr forKey:@"shoppingArr"];
+    [userDefault synchronize];
+    
+    ShoppingCartViewController *shoppingCartVC = [[ShoppingCartViewController alloc]init];
+    [self.navigationController pushViewController:shoppingCartVC animated:YES];
+    
 }
 - (IBAction)back_click:(id)sender
 {

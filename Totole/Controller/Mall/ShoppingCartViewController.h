@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ShoppingCartViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *mytableView;
+    NSMutableArray *shopMutArr;
+    __unsafe_unretained IBOutlet UIView *headView;
+    
+    int row;
 }
 
 @end

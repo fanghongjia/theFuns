@@ -41,6 +41,11 @@
 		9F1D2861166260E40080E96E /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D2860166260E40080E96E /* StyledPageControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9FE7455316665E2200962C2F /* pageControIcon_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7455116665E2200962C2F /* pageControIcon_disable@2x.png */; };
 		9FE7455416665E2200962C2F /* pageControIcon_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7455216665E2200962C2F /* pageControIcon_enable@2x.png */; };
+		AF0020601676E06700FABF36 /* ShoppingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF00205F1676E06600FABF36 /* ShoppingCell.m */; };
+		AF0020641676FC7D00FABF36 /* mall_delet.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0020621676FC7D00FABF36 /* mall_delet.png */; };
+		AF0020651676FC7D00FABF36 /* mall_deletHight.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0020631676FC7D00FABF36 /* mall_deletHight.png */; };
+		AF00206C167738B500FABF36 /* mall_buy.png in Resources */ = {isa = PBXBuildFile; fileRef = AF00206A167738B500FABF36 /* mall_buy.png */; };
+		AF00206D167738B500FABF36 /* mallToChange.png in Resources */ = {isa = PBXBuildFile; fileRef = AF00206B167738B500FABF36 /* mallToChange.png */; };
 		AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */ = {isa = PBXBuildFile; fileRef = AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */; settings = {COMPILER_FLAGS = ""; }; };
 		AF1188501665FA58007DB7DD /* register_next.png in Resources */ = {isa = PBXBuildFile; fileRef = AF11884F1665FA58007DB7DD /* register_next.png */; };
 		AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1188511665FF65007DB7DD /* HotelUserRegisterView.m */; settings = {COMPILER_FLAGS = ""; }; };
@@ -225,6 +230,12 @@
 		9F1D2860166260E40080E96E /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = "<group>"; };
 		9FE7455116665E2200962C2F /* pageControIcon_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControIcon_disable@2x.png"; sourceTree = "<group>"; };
 		9FE7455216665E2200962C2F /* pageControIcon_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControIcon_enable@2x.png"; sourceTree = "<group>"; };
+		AF00205E1676E06600FABF36 /* ShoppingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCell.h; sourceTree = "<group>"; };
+		AF00205F1676E06600FABF36 /* ShoppingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCell.m; sourceTree = "<group>"; };
+		AF0020621676FC7D00FABF36 /* mall_delet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_delet.png; sourceTree = "<group>"; };
+		AF0020631676FC7D00FABF36 /* mall_deletHight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_deletHight.png; sourceTree = "<group>"; };
+		AF00206A167738B500FABF36 /* mall_buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_buy.png; sourceTree = "<group>"; };
+		AF00206B167738B500FABF36 /* mallToChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mallToChange.png; sourceTree = "<group>"; };
 		AF1188491665BD4A007DB7DD /* CookPersonal_view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookPersonal_view.h; sourceTree = "<group>"; };
 		AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookPersonal_view.m; sourceTree = "<group>"; };
 		AF11884F1665FA58007DB7DD /* register_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_next.png; sourceTree = "<group>"; };
@@ -742,6 +753,10 @@
 		AF92F6BE166F4A490096DF21 /* mall */ = {
 			isa = PBXGroup;
 			children = (
+				AF00206A167738B500FABF36 /* mall_buy.png */,
+				AF00206B167738B500FABF36 /* mallToChange.png */,
+				AF0020621676FC7D00FABF36 /* mall_delet.png */,
+				AF0020631676FC7D00FABF36 /* mall_deletHight.png */,
 				AF1B67271674A60500754537 /* MallAllProducts.png */,
 				AF1B67281674A60500754537 /* MallIntegralValue.png */,
 				AFE99953167462330040FD29 /* mall_share.png */,
@@ -855,6 +870,8 @@
 				AFC84C111676158E0065BC7D /* ShoppingCartViewController.h */,
 				AFC84C121676158F0065BC7D /* ShoppingCartViewController.m */,
 				AFC84C13167615900065BC7D /* ShoppingCartViewController.xib */,
+				AF00205E1676E06600FABF36 /* ShoppingCell.h */,
+				AF00205F1676E06600FABF36 /* ShoppingCell.m */,
 				AF1B67221674A2AB00754537 /* MallSearchViewController.h */,
 				AF1B67231674A2AC00754537 /* MallSearchViewController.m */,
 				AF1B67241674A2AC00754537 /* MallSearchViewController.xib */,
@@ -869,11 +886,11 @@
 				AFF53EF01663117600882AFD /* ActivateViewController.h */,
 				AFF53EF11663117600882AFD /* ActivateViewController.m */,
 				AFF53EF21663117600882AFD /* ActivateViewController.xib */,
-				AFCF82ED16736F1C00D7E5D3 /* InputCell.h */,
-				AFCF82EE16736F1C00D7E5D3 /* InputCell.m */,
 				AFF53EF91663117600882AFD /* InputPointsViewController.h */,
 				AFF53EFA1663117600882AFD /* InputPointsViewController.m */,
 				AFF53EFB1663117600882AFD /* InputPointsViewController.xib */,
+				AFCF82ED16736F1C00D7E5D3 /* InputCell.h */,
+				AFCF82EE16736F1C00D7E5D3 /* InputCell.m */,
 				AFF53EF31663117600882AFD /* ActivationFailsViewController.h */,
 				AFF53EF41663117600882AFD /* ActivationFailsViewController.m */,
 				AFF53EF51663117600882AFD /* ActivationFailsViewController.xib */,
@@ -1114,6 +1131,10 @@
 				AF1B67311674AA1E00754537 /* activity_top3.png in Resources */,
 				AFC84C001675C1C60065BC7D /* mall_top.png in Resources */,
 				AFC84C15167615910065BC7D /* ShoppingCartViewController.xib in Resources */,
+				AF0020641676FC7D00FABF36 /* mall_delet.png in Resources */,
+				AF0020651676FC7D00FABF36 /* mall_deletHight.png in Resources */,
+				AF00206C167738B500FABF36 /* mall_buy.png in Resources */,
+				AF00206D167738B500FABF36 /* mallToChange.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,6 +1203,7 @@
 				AF1B67251674A2AC00754537 /* MallSearchViewController.m in Sources */,
 				AFC84BF716758AE60065BC7D /* ActivityCell.m in Sources */,
 				AFC84C14167615910065BC7D /* ShoppingCartViewController.m in Sources */,
+				AF0020601676E06700FABF36 /* ShoppingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

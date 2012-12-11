@@ -25,7 +25,7 @@
         [self addSubview:input_TF];
         
         input_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        input_btn.frame = CGRectMake(260, 6, 18, 18);
+        input_btn.frame = CGRectMake(260, 6, 18, 18); 
         [input_btn setBackgroundImage:[UIImage imageNamed:@"activate_plus.png"] forState:UIControlStateNormal];
         [self addSubview:input_btn];
     }

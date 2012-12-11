@@ -42,7 +42,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 46}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="937968478"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -56,7 +55,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{84, 10}, {152, 28}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="743848449"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -87,7 +85,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{259, 8}, {43, 30}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="122495571"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -125,7 +122,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{10, 7}, {52, 31}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="920538567"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -150,7 +146,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{10, 53}, {300, 28}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="157179962"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -165,7 +160,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{10, 53}, {95, 28}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="629062069"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -186,7 +180,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{114, 53}, {90, 28}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="276257830"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -207,7 +200,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{212, 53}, {90, 28}}</string>
 						<reference key="NSSuperview" ref="484864022"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -225,7 +217,6 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="801077798"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -428,42 +419,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">26</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">MallDetailViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="MallSearch_click:">id</string>
-						<string key="back_click:">id</string>
-						<string key="integral_click:">id</string>
-						<string key="new_click:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="MallSearch_click:">
-							<string key="name">MallSearch_click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="back_click:">
-							<string key="name">back_click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="integral_click:">
-							<string key="name">integral_click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="new_click:">
-							<string key="name">new_click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MallDetailViewController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">

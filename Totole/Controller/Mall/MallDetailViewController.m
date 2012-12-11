@@ -42,8 +42,8 @@
             
             [mallIdMut addObject:mallId_string];
         }
-//        NSLog(@"Category mallIdMut  == %@",mallIdMut);
-//        NSLog(@"Category tempArr == %@",tempArr);
+        NSLog(@"Category mallIdMut  == %@",mallIdMut);
+        NSLog(@"Category tempArr == %@",tempArr);
          
         [mytableView reloadData];
          [self stopLoadingDown];

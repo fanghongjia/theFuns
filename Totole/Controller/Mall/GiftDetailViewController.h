@@ -19,12 +19,12 @@
     __unsafe_unretained IBOutlet UILabel *unit_lb;
     __unsafe_unretained IBOutlet UILabel *stockAmount_lb;
     __unsafe_unretained IBOutlet UITextView *detail_textView;
+    
+    NSMutableArray *shoppingArr;
+    
+    NSString *url_string,*unit_string;
 }
 @property(unsafe_unretained, nonatomic) NSString *mallId_str;
-@property(unsafe_unretained, nonatomic) NSString *title_str;
-@property(unsafe_unretained, nonatomic) NSString *brand_str;
-@property(unsafe_unretained, nonatomic) NSString *price_str;
-@property(unsafe_unretained, nonatomic) NSString *unit_str;
-@property(unsafe_unretained, nonatomic) NSString *stockAmoun_str;
+
 
 @end

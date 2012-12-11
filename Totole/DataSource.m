@@ -356,7 +356,7 @@ operateSource:(NSString *)operateSource
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     
     
-    [self starDownLoadWtihASI:request MethodStr:@"mallService/addToCart" Type:NetWorkTypePOST];
+    [self starDownLoadWtihASI:request MethodStr:@"mallService/addToCart" Type:NetWorkTypeGET];
 }
 
 @end
