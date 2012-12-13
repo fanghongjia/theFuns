@@ -359,4 +359,15 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihASI:request MethodStr:@"mallService/addToCart" Type:NetWorkTypeGET];
 }
 
+//退出登录
+-(void)logout
+{
+    ASIFormDataRequest *request=nil;
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+}
+
 @end

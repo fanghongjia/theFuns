@@ -97,4 +97,7 @@ operateSource:(NSString *)operateSource
 //加入购物车
 -(void)addToCart_giftId:(NSString *)giftId;
 
+//退出登录
+-(void)logout;
+
 @end
