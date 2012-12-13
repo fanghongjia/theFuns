@@ -122,6 +122,19 @@
 		AF4459491679BC5A0049BB57 /* StationLettersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4459471679BC590049BB57 /* StationLettersViewController.m */; };
 		AF44594A1679BC5A0049BB57 /* StationLettersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4459481679BC590049BB57 /* StationLettersViewController.xib */; };
 		AF44594D1679BEC40049BB57 /* StationLettersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44594C1679BEC40049BB57 /* StationLettersCell.m */; };
+		AF8BA4561679D5F700B12C5B /* MyboxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8BA4551679D5F700B12C5B /* MyboxCell.m */; };
+		AF8BA45B1679D61000B12C5B /* MyBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8BA4591679D60F00B12C5B /* MyBoxViewController.m */; };
+		AF8BA45C1679D61000B12C5B /* MyBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA45A1679D60F00B12C5B /* MyBoxViewController.xib */; };
+		AF8BA45E1679DEBA00B12C5B /* more_ues.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA45D1679DEBA00B12C5B /* more_ues.png */; };
+		AF8BA4601679EDAE00B12C5B /* moreIntegralProduct.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA45F1679EDAE00B12C5B /* moreIntegralProduct.png */; };
+		AF8BA4641679F15700B12C5B /* AccountHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8BA4621679F15600B12C5B /* AccountHistoryViewController.m */; };
+		AF8BA4651679F15700B12C5B /* AccountHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA4631679F15700B12C5B /* AccountHistoryViewController.xib */; };
+		AF8BA4671679F1FB00B12C5B /* more_search.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA4661679F1FB00B12C5B /* more_search.png */; };
+		AF8BA4691679F43D00B12C5B /* more_Historymore.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA4681679F43D00B12C5B /* more_Historymore.png */; };
+		AF8BA46C1679F5D000B12C5B /* AccountHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8BA46B1679F5CF00B12C5B /* AccountHistoryCell.m */; };
+		AF8BA470167A031B00B12C5B /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8BA46E167A031A00B12C5B /* ChangePasswordViewController.m */; };
+		AF8BA471167A031C00B12C5B /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA46F167A031B00B12C5B /* ChangePasswordViewController.xib */; };
+		AF8BA473167A040400B12C5B /* more_changePassWord.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8BA472167A040400B12C5B /* more_changePassWord.png */; };
 		AF92F6C0166F4A550096DF21 /* mall_search.png in Resources */ = {isa = PBXBuildFile; fileRef = AF92F6BF166F4A550096DF21 /* mall_search.png */; };
 		AF9EC50F16661302005DACF3 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC50E16661302005DACF3 /* tabbar_more.png */; };
 		AFAFE86C1670DC0000D809BD /* mall_star.png in Resources */ = {isa = PBXBuildFile; fileRef = AFAFE86B1670DC0000D809BD /* mall_star.png */; };
@@ -159,7 +172,6 @@
 		AFE96CA616798473006A5BE5 /* ConversionGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE96CA416798473006A5BE5 /* ConversionGuideViewController.xib */; };
 		AFE96CAA1679998E006A5BE5 /* IntegralProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE96CA81679998E006A5BE5 /* IntegralProductViewController.m */; };
 		AFE96CAB1679998E006A5BE5 /* IntegralProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE96CA91679998E006A5BE5 /* IntegralProductViewController.xib */; };
-		AFE96CAD16799A5D006A5BE5 /* moreIntegralProduct.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE96CAC16799A5D006A5BE5 /* moreIntegralProduct.png */; };
 		AFE96CB416799FF2006A5BE5 /* more_exit account.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE96CB316799FF2006A5BE5 /* more_exit account.png */; };
 		AFE99941167444A70040FD29 /* ActivaeResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE99940167444A70040FD29 /* ActivaeResultCell.m */; };
 		AFE99950167461CC0040FD29 /* mall_exchange.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE9994D167461CC0040FD29 /* mall_exchange.png */; };
@@ -314,7 +326,7 @@
 		AF416B31165A28D400FA0846 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AF416B57165A293C00FA0846 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		AF416B58165A293C00FA0846 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		AF416B59165A293C00FA0846 /* QInterFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QInterFace.h; sourceTree = "<group>"; };
+		AF416B59165A293C00FA0846 /* QInterFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QInterFace.h; path = ../QInterFace.h; sourceTree = "<group>"; };
 		AF416B5A165A293C00FA0846 /* QInterFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QInterFace.m; sourceTree = "<group>"; };
 		AF416B5B165A293C00FA0846 /* QNetWorkManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNetWorkManage.h; sourceTree = "<group>"; };
 		AF416B5C165A293C00FA0846 /* QNetWorkManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNetWorkManage.m; sourceTree = "<group>"; };
@@ -389,6 +401,24 @@
 		AF4459481679BC590049BB57 /* StationLettersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationLettersViewController.xib; sourceTree = "<group>"; };
 		AF44594B1679BEC30049BB57 /* StationLettersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationLettersCell.h; sourceTree = "<group>"; };
 		AF44594C1679BEC40049BB57 /* StationLettersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationLettersCell.m; sourceTree = "<group>"; };
+		AF8BA4541679D5F700B12C5B /* MyboxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyboxCell.h; sourceTree = "<group>"; };
+		AF8BA4551679D5F700B12C5B /* MyboxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyboxCell.m; sourceTree = "<group>"; };
+		AF8BA4581679D60F00B12C5B /* MyBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBoxViewController.h; sourceTree = "<group>"; };
+		AF8BA4591679D60F00B12C5B /* MyBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBoxViewController.m; sourceTree = "<group>"; };
+		AF8BA45A1679D60F00B12C5B /* MyBoxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBoxViewController.xib; sourceTree = "<group>"; };
+		AF8BA45D1679DEBA00B12C5B /* more_ues.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_ues.png; sourceTree = "<group>"; };
+		AF8BA45F1679EDAE00B12C5B /* moreIntegralProduct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreIntegralProduct.png; sourceTree = "<group>"; };
+		AF8BA4611679F15600B12C5B /* AccountHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHistoryViewController.h; sourceTree = "<group>"; };
+		AF8BA4621679F15600B12C5B /* AccountHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHistoryViewController.m; sourceTree = "<group>"; };
+		AF8BA4631679F15700B12C5B /* AccountHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountHistoryViewController.xib; sourceTree = "<group>"; };
+		AF8BA4661679F1FB00B12C5B /* more_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_search.png; sourceTree = "<group>"; };
+		AF8BA4681679F43D00B12C5B /* more_Historymore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_Historymore.png; sourceTree = "<group>"; };
+		AF8BA46A1679F5CF00B12C5B /* AccountHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHistoryCell.h; sourceTree = "<group>"; };
+		AF8BA46B1679F5CF00B12C5B /* AccountHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHistoryCell.m; sourceTree = "<group>"; };
+		AF8BA46D167A031900B12C5B /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		AF8BA46E167A031A00B12C5B /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		AF8BA46F167A031B00B12C5B /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		AF8BA472167A040400B12C5B /* more_changePassWord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_changePassWord.png; sourceTree = "<group>"; };
 		AF92F6BF166F4A550096DF21 /* mall_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mall_search.png; path = Totole/Photo/mall_search.png; sourceTree = SOURCE_ROOT; };
 		AF9EC50E16661302005DACF3 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
 		AFAFE86B1670DC0000D809BD /* mall_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_star.png; sourceTree = "<group>"; };
@@ -439,7 +469,6 @@
 		AFE96CA71679998E006A5BE5 /* IntegralProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralProductViewController.h; sourceTree = "<group>"; };
 		AFE96CA81679998E006A5BE5 /* IntegralProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralProductViewController.m; sourceTree = "<group>"; };
 		AFE96CA91679998E006A5BE5 /* IntegralProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntegralProductViewController.xib; sourceTree = "<group>"; };
-		AFE96CAC16799A5D006A5BE5 /* moreIntegralProduct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreIntegralProduct.png; sourceTree = "<group>"; };
 		AFE96CB316799FF2006A5BE5 /* more_exit account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_exit account.png"; sourceTree = "<group>"; };
 		AFE9993F167444A70040FD29 /* ActivaeResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivaeResultCell.h; sourceTree = "<group>"; };
 		AFE99940167444A70040FD29 /* ActivaeResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivaeResultCell.m; sourceTree = "<group>"; };
@@ -724,7 +753,6 @@
 				AF416B7B165A2AC800FA0846 /* SBJSON */,
 				AF416B58165A293C00FA0846 /* MBProgressHUD.h */,
 				AF416B57165A293C00FA0846 /* MBProgressHUD.m */,
-				AF416B59165A293C00FA0846 /* QInterFace.h */,
 				AF416B5A165A293C00FA0846 /* QInterFace.m */,
 				AF416B5B165A293C00FA0846 /* QNetWorkManage.h */,
 				AF416B5C165A293C00FA0846 /* QNetWorkManage.m */,
@@ -765,6 +793,7 @@
 		AF416B7B165A2AC800FA0846 /* SBJSON */ = {
 			isa = PBXGroup;
 			children = (
+				AF416B59165A293C00FA0846 /* QInterFace.h */,
 				AF416B7C165A2AC900FA0846 /* NSObject+SBJson.h */,
 				AF416B7D165A2AC900FA0846 /* NSObject+SBJson.m */,
 				AF416B7E165A2AC900FA0846 /* SBJson.h */,
@@ -854,10 +883,14 @@
 		AFE96C9C16797DD9006A5BE5 /* more */ = {
 			isa = PBXGroup;
 			children = (
+				AF8BA472167A040400B12C5B /* more_changePassWord.png */,
+				AF8BA4681679F43D00B12C5B /* more_Historymore.png */,
+				AF8BA4661679F1FB00B12C5B /* more_search.png */,
+				AF8BA45D1679DEBA00B12C5B /* more_ues.png */,
 				AF4459421679B25E0049BB57 /* moreManagementBack.png */,
+				AF8BA45F1679EDAE00B12C5B /* moreIntegralProduct.png */,
 				AF4459431679B25E0049BB57 /* moreManagementTop.png */,
 				AFE96CB316799FF2006A5BE5 /* more_exit account.png */,
-				AFE96CAC16799A5D006A5BE5 /* moreIntegralProduct.png */,
 				AFE96C9D16797DD9006A5BE5 /* more_help.png */,
 			);
 			path = more;
@@ -988,6 +1021,19 @@
 				AF4459481679BC590049BB57 /* StationLettersViewController.xib */,
 				AF44594B1679BEC30049BB57 /* StationLettersCell.h */,
 				AF44594C1679BEC40049BB57 /* StationLettersCell.m */,
+				AF8BA4581679D60F00B12C5B /* MyBoxViewController.h */,
+				AF8BA4591679D60F00B12C5B /* MyBoxViewController.m */,
+				AF8BA45A1679D60F00B12C5B /* MyBoxViewController.xib */,
+				AF8BA4541679D5F700B12C5B /* MyboxCell.h */,
+				AF8BA4551679D5F700B12C5B /* MyboxCell.m */,
+				AF8BA4611679F15600B12C5B /* AccountHistoryViewController.h */,
+				AF8BA4621679F15600B12C5B /* AccountHistoryViewController.m */,
+				AF8BA4631679F15700B12C5B /* AccountHistoryViewController.xib */,
+				AF8BA46A1679F5CF00B12C5B /* AccountHistoryCell.h */,
+				AF8BA46B1679F5CF00B12C5B /* AccountHistoryCell.m */,
+				AF8BA46D167A031900B12C5B /* ChangePasswordViewController.h */,
+				AF8BA46E167A031A00B12C5B /* ChangePasswordViewController.m */,
+				AF8BA46F167A031B00B12C5B /* ChangePasswordViewController.xib */,
 				AF4459381679A8570049BB57 /* AboutNTAViewController.h */,
 				AF4459391679A8570049BB57 /* AboutNTAViewController.m */,
 				AF44593A1679A8570049BB57 /* AboutNTAViewController.xib */,
@@ -1214,7 +1260,6 @@
 				AFE96C9E16797DD9006A5BE5 /* more_help.png in Resources */,
 				AFE96CA616798473006A5BE5 /* ConversionGuideViewController.xib in Resources */,
 				AFE96CAB1679998E006A5BE5 /* IntegralProductViewController.xib in Resources */,
-				AFE96CAD16799A5D006A5BE5 /* moreIntegralProduct.png in Resources */,
 				AFE96CB416799FF2006A5BE5 /* more_exit account.png in Resources */,
 				AF4459371679A55A0049BB57 /* ManagementViewController.xib in Resources */,
 				AF44593C1679A8570049BB57 /* AboutNTAViewController.xib in Resources */,
@@ -1222,6 +1267,14 @@
 				AF4459441679B25E0049BB57 /* moreManagementBack.png in Resources */,
 				AF4459451679B25E0049BB57 /* moreManagementTop.png in Resources */,
 				AF44594A1679BC5A0049BB57 /* StationLettersViewController.xib in Resources */,
+				AF8BA45C1679D61000B12C5B /* MyBoxViewController.xib in Resources */,
+				AF8BA45E1679DEBA00B12C5B /* more_ues.png in Resources */,
+				AF8BA4601679EDAE00B12C5B /* moreIntegralProduct.png in Resources */,
+				AF8BA4651679F15700B12C5B /* AccountHistoryViewController.xib in Resources */,
+				AF8BA4671679F1FB00B12C5B /* more_search.png in Resources */,
+				AF8BA4691679F43D00B12C5B /* more_Historymore.png in Resources */,
+				AF8BA471167A031C00B12C5B /* ChangePasswordViewController.xib in Resources */,
+				AF8BA473167A040400B12C5B /* more_changePassWord.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1298,6 +1351,11 @@
 				AF4459401679A9EA0049BB57 /* NewbieViewController.m in Sources */,
 				AF4459491679BC5A0049BB57 /* StationLettersViewController.m in Sources */,
 				AF44594D1679BEC40049BB57 /* StationLettersCell.m in Sources */,
+				AF8BA4561679D5F700B12C5B /* MyboxCell.m in Sources */,
+				AF8BA45B1679D61000B12C5B /* MyBoxViewController.m in Sources */,
+				AF8BA4641679F15700B12C5B /* AccountHistoryViewController.m in Sources */,
+				AF8BA46C1679F5D000B12C5B /* AccountHistoryCell.m in Sources */,
+				AF8BA470167A031B00B12C5B /* ChangePasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

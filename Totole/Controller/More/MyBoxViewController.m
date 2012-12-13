@@ -1,20 +1,19 @@
 //
-//  Station]LettersViewController.m
+//  MyBoxViewController.m
 //  Totole
 //
 //  Created by disan disan on 12-12-13.
 //
 //
 
-#import "StationLettersViewController.h"
-#import "StationLettersCell.h"
+#import "MyBoxViewController.h"
+#import "MyboxCell.h"
 
-
-@interface StationLettersViewController ()
+@interface MyBoxViewController ()
 
 @end
 
-@implementation StationLettersViewController
+@implementation MyBoxViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 85, 300, 315) style:UITableViewStylePlain];
+    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 55, 300, 345) style:UITableViewStylePlain];
     mytableView.delegate = self;
     mytableView.dataSource = self;
     mytableView.backgroundColor = [UIColor whiteColor];
@@ -57,21 +56,19 @@
 //cell 个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;   
+    return 3;
 }
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
-    StationLettersCell *cell = (StationLettersCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    MyboxCell *cell = (MyboxCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil)
     {
-        cell = [[StationLettersCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        cell = [[MyboxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
     }
     
     
-    cell.delete_btn.tag = indexPath.row;
-    [cell.delete_btn addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
     
     cell.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -82,14 +79,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 90;
 }
-
--(void)delete:(UIButton *)sender
-{
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {

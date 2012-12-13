@@ -8,6 +8,9 @@
 
 #import "ManagementViewController.h"
 #import "StationLettersViewController.h"
+#import "MyBoxViewController.h"
+#import "AccountHistoryViewController.h"
+#import "ChangePasswordViewController.h"
 
 @interface ManagementViewController ()
 
@@ -49,12 +52,23 @@
 }
 - (IBAction)myBox_click:(id)sender
 {
-    
+    MyBoxViewController *myboxVC = [[MyBoxViewController alloc]init];
+    [self.navigationController pushViewController:myboxVC animated:YES];
 }
 
 - (IBAction)select_click:(UIButton *)sender
 {
-    
+    //账户历史
+    if (sender.tag == 1)
+    {
+        AccountHistoryViewController *accountHistoryVC = [[AccountHistoryViewController alloc]init];
+        [self.navigationController pushViewController:accountHistoryVC animated:YES];
+    }
+    else if (sender.tag == 5)
+    {
+        ChangePasswordViewController *changePassVC = [[ChangePasswordViewController alloc]init];
+        [self.navigationController pushViewController:changePassVC animated:YES];
+    }
 }
 
 

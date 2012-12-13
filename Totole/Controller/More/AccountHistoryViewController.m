@@ -1,26 +1,35 @@
 //
-//  Station]LettersViewController.m
+//  AccountHistoryViewController.m
 //  Totole
 //
 //  Created by disan disan on 12-12-13.
 //
 //
 
-#import "StationLettersViewController.h"
-#import "StationLettersCell.h"
+#import "AccountHistoryViewController.h"
+#import "AccountHistoryCell.h"
 
-
-@interface StationLettersViewController ()
+@interface AccountHistoryViewController ()
 
 @end
 
-@implementation StationLettersViewController
+@implementation AccountHistoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 120, 300, 280) style:UITableViewStylePlain];
+        mytableView.delegate = self;
+        mytableView.dataSource = self;
+        mytableView.backgroundColor = [UIColor whiteColor];
+        mytableView.showsVerticalScrollIndicator = NO;
+        mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        mytableView.layer.cornerRadius = 10.0;
+        mytableView.layer.masksToBounds = YES;
+        [self.view addSubview:mytableView];
     }
     return self;
 }
@@ -29,16 +38,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 85, 300, 315) style:UITableViewStylePlain];
-    mytableView.delegate = self;
-    mytableView.dataSource = self;
-    mytableView.backgroundColor = [UIColor whiteColor];
-    mytableView.showsVerticalScrollIndicator = NO;
-    mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    mytableView.layer.cornerRadius = 10.0;
-    mytableView.layer.masksToBounds = YES;
-    [self.view addSubview:mytableView];
 }
 
 - (IBAction)back_click:(id)sender
@@ -57,21 +56,19 @@
 //cell 个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;   
+    return 3;
 }
 //单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
-    StationLettersCell *cell = (StationLettersCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    AccountHistoryCell *cell = (AccountHistoryCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil)
     {
-        cell = [[StationLettersCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        cell = [[AccountHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
     }
     
     
-    cell.delete_btn.tag = indexPath.row;
-    [cell.delete_btn addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
     
     cell.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -82,14 +79,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 115;
 }
-
--(void)delete:(UIButton *)sender
-{
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {

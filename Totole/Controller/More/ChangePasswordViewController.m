@@ -1,18 +1,18 @@
 //
-//  IntegralProductViewController.m
+//  ChangePasswordViewController.m
 //  Totole
 //
 //  Created by disan disan on 12-12-13.
 //
 //
 
-#import "IntegralProductViewController.h"
+#import "ChangePasswordViewController.h"
 
-@interface IntegralProductViewController ()
+@interface ChangePasswordViewController ()
 
 @end
 
-@implementation IntegralProductViewController
+@implementation ChangePasswordViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,9 +27,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    myScrollView.contentSize = CGSizeMake(320, 4550);
 }
+//提交
+- (IBAction)submit_click:(id)sender
+{
+    
+}
+
 - (IBAction)back_click:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -41,8 +45,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    myScrollView = nil;
-    [super viewDidUnload];
-}
 @end
