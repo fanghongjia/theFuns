@@ -42,7 +42,7 @@
     mytableView.dataSource = self;
     mytableView.backgroundColor = [UIColor clearColor];
     mytableView.showsVerticalScrollIndicator = NO;
-    mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:mytableView];
 
     
@@ -119,7 +119,8 @@
     }
         
 
-    cell.backgroundColor = [UIColor clearColor];    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"back_tob.png"]];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

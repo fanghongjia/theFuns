@@ -77,6 +77,7 @@
     myTableView.backgroundColor = [UIColor clearColor];
     myTableView.showsVerticalScrollIndicator = NO;
     myTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    myTableView.separatorColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1];
     [bgScroll addSubview:myTableView];
        
     Ongoing_currentPage = 1;
@@ -198,6 +199,7 @@
     
     
     cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell_back.png"]];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

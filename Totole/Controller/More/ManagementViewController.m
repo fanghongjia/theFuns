@@ -11,6 +11,10 @@
 #import "MyBoxViewController.h"
 #import "AccountHistoryViewController.h"
 #import "ChangePasswordViewController.h"
+#import "MyOrderViewController.h"
+#import "ShoppingCartViewController.h"
+#import "GiftCollectionViewController.h"
+#import "InviteFriendsViewController.h"
 
 @interface ManagementViewController ()
 
@@ -58,16 +62,40 @@
 
 - (IBAction)select_click:(UIButton *)sender
 {
+    if (sender.tag == 0)
+    {
+        ;
+    }
     //账户历史
-    if (sender.tag == 1)
+    else if (sender.tag == 1)
     {
         AccountHistoryViewController *accountHistoryVC = [[AccountHistoryViewController alloc]init];
         [self.navigationController pushViewController:accountHistoryVC animated:YES];
+    }
+    else if (sender.tag == 2)
+    {
+        MyOrderViewController *myOrderVC = [[MyOrderViewController alloc]init];
+        [self.navigationController pushViewController:myOrderVC animated:YES];
+    }
+    else if (sender.tag == 3)
+    {
+        ShoppingCartViewController *shoppingVC = [[ShoppingCartViewController alloc]init];
+        [self.navigationController pushViewController:shoppingVC animated:YES];
+    }
+    else if (sender.tag == 4)
+    {
+        GiftCollectionViewController *giftCollectionVC = [[GiftCollectionViewController alloc]init];
+        [self.navigationController pushViewController:giftCollectionVC animated:YES];
     }
     else if (sender.tag == 5)
     {
         ChangePasswordViewController *changePassVC = [[ChangePasswordViewController alloc]init];
         [self.navigationController pushViewController:changePassVC animated:YES];
+    }
+    else
+    {
+        InviteFriendsViewController *inviteFriendsVC = [[InviteFriendsViewController alloc]init];
+        [self.navigationController pushViewController:inviteFriendsVC animated:YES];
     }
 }
 

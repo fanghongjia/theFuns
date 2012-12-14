@@ -1,37 +1,27 @@
 //
-//  AccountHistoryViewController.m
+//  MyOrderViewController.m
 //  Totole
 //
-//  Created by disan disan on 12-12-13.
+//  Created by disan disan on 12-12-14.
 //
 //
 
-#import "AccountHistoryViewController.h"
-#import "AccountHistoryCell.h"
+#import "MyOrderViewController.h"
+#import "MyOrderCell.h"
+#import "OrderSearchViewController.h"
 
-@interface AccountHistoryViewController ()
+@interface MyOrderViewController ()
 
 @end
 
-@implementation AccountHistoryViewController
+@implementation MyOrderViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 120, 300, 280) style:UITableViewStylePlain];
-        mytableView.delegate = self;
-        mytableView.dataSource = self;
-        mytableView.backgroundColor = [UIColor whiteColor];
-        mytableView.showsVerticalScrollIndicator = NO;
-        mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        mytableView.separatorColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1];
-        mytableView.layer.cornerRadius = 10.0;
-        mytableView.layer.masksToBounds = YES;
-        [self.view addSubview:mytableView];
-    }
+        }
     return self;
 }
 
@@ -39,7 +29,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 46, 320, 365) style:UITableViewStylePlain];
+    mytableView.delegate = self;
+    mytableView.dataSource = self;
+    mytableView.backgroundColor = [UIColor clearColor];
+    mytableView.showsVerticalScrollIndicator = NO;
+    mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    mytableView.layer.cornerRadius = 10.0;
+    mytableView.layer.masksToBounds = YES;
+    [self.view addSubview:mytableView];
+
 }
+- (IBAction)search_click:(id)sender
+{
+    OrderSearchViewController *orderSearchVC = [[OrderSearchViewController alloc]init];
+    [self.navigationController pushViewController:orderSearchVC animated:YES];
+}
+
 
 - (IBAction)back_click:(id)sender
 {
@@ -63,15 +71,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
-    AccountHistoryCell *cell = (AccountHistoryCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    MyOrderCell *cell = (MyOrderCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil)
     {
-        cell = [[AccountHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        cell = [[MyOrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
     }
     
     
     
     cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell_back.png"]];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -82,6 +91,7 @@
 {
     return 115;
 }
+
 
 - (void)didReceiveMemoryWarning
 {

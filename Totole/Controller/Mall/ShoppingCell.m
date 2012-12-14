@@ -10,7 +10,7 @@
 
 @implementation ShoppingCell
 
-@synthesize imageView;
+@synthesize imageView,backView;
 @synthesize lable_1,lable_unit,lable_price,stockAmount_lb,number_TF;
 @synthesize plus_btn,minu_btn,delete_btn;
 
@@ -21,7 +21,20 @@
     if (self) {
         // Initialization code
         
+        backView = [[UIView alloc]initWithFrame:CGRectMake(7, 12, 66, 66)];
+        backView.backgroundColor = [UIColor whiteColor];
+        backView.layer.masksToBounds = NO;
+        backView.layer.shadowColor = [UIColor blackColor].CGColor;
+        backView.layer.shadowOffset = CGSizeMake(1, 4);
+        backView.layer.shadowOpacity = 0.4;//阴影的透明度
+        backView.layer.shadowRadius = 2.5;
+        [self.contentView addSubview:backView];
+        
         imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 10, 70, 70)];
+        imageView.layer.masksToBounds = YES;
+        imageView.layer.cornerRadius = 6.0;
+        imageView.layer.borderWidth = 1.5;
+        imageView.layer.borderColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1].CGColor ;
         [self.contentView addSubview:imageView];
         
         lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(85, 5, 230, 28)];

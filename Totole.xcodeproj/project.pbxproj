@@ -73,6 +73,21 @@
 		AF1B672F1674AA1E00754537 /* activity_top1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B672C1674AA1E00754537 /* activity_top1.png */; };
 		AF1B67301674AA1E00754537 /* activity_top2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B672D1674AA1E00754537 /* activity_top2.png */; };
 		AF1B67311674AA1E00754537 /* activity_top3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B672E1674AA1E00754537 /* activity_top3.png */; };
+		AF29A59D167AC9A200425D83 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29A59B167AC9A200425D83 /* MyOrderViewController.m */; };
+		AF29A59E167AC9A200425D83 /* MyOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF29A59C167AC9A200425D83 /* MyOrderViewController.xib */; };
+		AF29A5A2167ACA3400425D83 /* MyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29A5A1167ACA3400425D83 /* MyOrderCell.m */; };
+		AF29A5A4167AE75800425D83 /* more_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5A3167AE75800425D83 /* more_cancel.png */; };
+		AF29A5A7167B03C100425D83 /* GiftCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29A5A6167B03C100425D83 /* GiftCollectionCell.m */; };
+		AF29A5B0167B040600425D83 /* GiftCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29A5AE167B03FB00425D83 /* GiftCollectionViewController.m */; };
+		AF29A5B1167B040600425D83 /* GiftCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5AF167B03FF00425D83 /* GiftCollectionViewController.xib */; };
+		AF29A5B3167B112700425D83 /* cell_back.png in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5B2167B112700425D83 /* cell_back.png */; };
+		AF29A5B7167B168300425D83 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29A5B5167B168100425D83 /* InviteFriendsViewController.m */; };
+		AF29A5B8167B168300425D83 /* InviteFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5B6167B168200425D83 /* InviteFriendsViewController.xib */; };
+		AF29A5BA167B186D00425D83 /* more_sederInvite.png in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5B9167B186D00425D83 /* more_sederInvite.png */; };
+		AF29A5BE167B1DE700425D83 /* OrderSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF29A5BC167B1DE300425D83 /* OrderSearchViewController.m */; };
+		AF29A5BF167B1DE700425D83 /* OrderSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5BD167B1DE500425D83 /* OrderSearchViewController.xib */; };
+		AF29A5C1167B266F00425D83 /* more_searchOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5C0167B266F00425D83 /* more_searchOrder.png */; };
+		AF29A5C3167B290700425D83 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = AF29A5C2167B290700425D83 /* search.png */; };
 		AF2D39B916645C9F00720690 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2D39B816645C9F00720690 /* city.plist */; };
 		AF3DB3A5166C4DAC00E29786 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3DB3A4166C4DAC00E29786 /* AVFoundation.framework */; };
 		AF416ACD165A00AE00FA0846 /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = AF416AC9165A00AD00FA0846 /* tabbar_home.png */; };
@@ -315,6 +330,27 @@
 		AF1B672C1674AA1E00754537 /* activity_top1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_top1.png; sourceTree = "<group>"; };
 		AF1B672D1674AA1E00754537 /* activity_top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_top2.png; sourceTree = "<group>"; };
 		AF1B672E1674AA1E00754537 /* activity_top3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_top3.png; sourceTree = "<group>"; };
+		AF29A59A167AC9A200425D83 /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
+		AF29A59B167AC9A200425D83 /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
+		AF29A59C167AC9A200425D83 /* MyOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderViewController.xib; sourceTree = "<group>"; };
+		AF29A5A0167ACA3400425D83 /* MyOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCell.h; sourceTree = "<group>"; };
+		AF29A5A1167ACA3400425D83 /* MyOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCell.m; sourceTree = "<group>"; };
+		AF29A5A3167AE75800425D83 /* more_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_cancel.png; sourceTree = "<group>"; };
+		AF29A5A5167B03C000425D83 /* GiftCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftCollectionCell.h; sourceTree = "<group>"; };
+		AF29A5A6167B03C100425D83 /* GiftCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftCollectionCell.m; sourceTree = "<group>"; };
+		AF29A5AD167B03F900425D83 /* GiftCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftCollectionViewController.h; sourceTree = "<group>"; };
+		AF29A5AE167B03FB00425D83 /* GiftCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftCollectionViewController.m; sourceTree = "<group>"; };
+		AF29A5AF167B03FF00425D83 /* GiftCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftCollectionViewController.xib; sourceTree = "<group>"; };
+		AF29A5B2167B112700425D83 /* cell_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_back.png; sourceTree = "<group>"; };
+		AF29A5B4167B168000425D83 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
+		AF29A5B5167B168100425D83 /* InviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsViewController.m; sourceTree = "<group>"; };
+		AF29A5B6167B168200425D83 /* InviteFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteFriendsViewController.xib; sourceTree = "<group>"; };
+		AF29A5B9167B186D00425D83 /* more_sederInvite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_sederInvite.png; sourceTree = "<group>"; };
+		AF29A5BB167B1DE200425D83 /* OrderSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSearchViewController.h; sourceTree = "<group>"; };
+		AF29A5BC167B1DE300425D83 /* OrderSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSearchViewController.m; sourceTree = "<group>"; };
+		AF29A5BD167B1DE500425D83 /* OrderSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderSearchViewController.xib; sourceTree = "<group>"; };
+		AF29A5C0167B266F00425D83 /* more_searchOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_searchOrder.png; sourceTree = "<group>"; };
+		AF29A5C2167B290700425D83 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		AF2D39B816645C9F00720690 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		AF3DB3A4166C4DAC00E29786 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AF416AC9165A00AD00FA0846 /* tabbar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_home.png; path = ../tabbar_home.png; sourceTree = "<group>"; };
@@ -883,6 +919,11 @@
 		AFE96C9C16797DD9006A5BE5 /* more */ = {
 			isa = PBXGroup;
 			children = (
+				AF29A5C2167B290700425D83 /* search.png */,
+				AF29A5C0167B266F00425D83 /* more_searchOrder.png */,
+				AF29A5B9167B186D00425D83 /* more_sederInvite.png */,
+				AF29A5B2167B112700425D83 /* cell_back.png */,
+				AF29A5A3167AE75800425D83 /* more_cancel.png */,
 				AF8BA472167A040400B12C5B /* more_changePassWord.png */,
 				AF8BA4681679F43D00B12C5B /* more_Historymore.png */,
 				AF8BA4661679F1FB00B12C5B /* more_search.png */,
@@ -1031,9 +1072,25 @@
 				AF8BA4631679F15700B12C5B /* AccountHistoryViewController.xib */,
 				AF8BA46A1679F5CF00B12C5B /* AccountHistoryCell.h */,
 				AF8BA46B1679F5CF00B12C5B /* AccountHistoryCell.m */,
+				AF29A59A167AC9A200425D83 /* MyOrderViewController.h */,
+				AF29A59B167AC9A200425D83 /* MyOrderViewController.m */,
+				AF29A59C167AC9A200425D83 /* MyOrderViewController.xib */,
+				AF29A5A0167ACA3400425D83 /* MyOrderCell.h */,
+				AF29A5A1167ACA3400425D83 /* MyOrderCell.m */,
+				AF29A5BB167B1DE200425D83 /* OrderSearchViewController.h */,
+				AF29A5BC167B1DE300425D83 /* OrderSearchViewController.m */,
+				AF29A5BD167B1DE500425D83 /* OrderSearchViewController.xib */,
+				AF29A5AD167B03F900425D83 /* GiftCollectionViewController.h */,
+				AF29A5AE167B03FB00425D83 /* GiftCollectionViewController.m */,
+				AF29A5AF167B03FF00425D83 /* GiftCollectionViewController.xib */,
+				AF29A5A5167B03C000425D83 /* GiftCollectionCell.h */,
+				AF29A5A6167B03C100425D83 /* GiftCollectionCell.m */,
 				AF8BA46D167A031900B12C5B /* ChangePasswordViewController.h */,
 				AF8BA46E167A031A00B12C5B /* ChangePasswordViewController.m */,
 				AF8BA46F167A031B00B12C5B /* ChangePasswordViewController.xib */,
+				AF29A5B4167B168000425D83 /* InviteFriendsViewController.h */,
+				AF29A5B5167B168100425D83 /* InviteFriendsViewController.m */,
+				AF29A5B6167B168200425D83 /* InviteFriendsViewController.xib */,
 				AF4459381679A8570049BB57 /* AboutNTAViewController.h */,
 				AF4459391679A8570049BB57 /* AboutNTAViewController.m */,
 				AF44593A1679A8570049BB57 /* AboutNTAViewController.xib */,
@@ -1275,6 +1332,15 @@
 				AF8BA4691679F43D00B12C5B /* more_Historymore.png in Resources */,
 				AF8BA471167A031C00B12C5B /* ChangePasswordViewController.xib in Resources */,
 				AF8BA473167A040400B12C5B /* more_changePassWord.png in Resources */,
+				AF29A59E167AC9A200425D83 /* MyOrderViewController.xib in Resources */,
+				AF29A5A4167AE75800425D83 /* more_cancel.png in Resources */,
+				AF29A5B1167B040600425D83 /* GiftCollectionViewController.xib in Resources */,
+				AF29A5B3167B112700425D83 /* cell_back.png in Resources */,
+				AF29A5B8167B168300425D83 /* InviteFriendsViewController.xib in Resources */,
+				AF29A5BA167B186D00425D83 /* more_sederInvite.png in Resources */,
+				AF29A5BF167B1DE700425D83 /* OrderSearchViewController.xib in Resources */,
+				AF29A5C1167B266F00425D83 /* more_searchOrder.png in Resources */,
+				AF29A5C3167B290700425D83 /* search.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1356,6 +1422,12 @@
 				AF8BA4641679F15700B12C5B /* AccountHistoryViewController.m in Sources */,
 				AF8BA46C1679F5D000B12C5B /* AccountHistoryCell.m in Sources */,
 				AF8BA470167A031B00B12C5B /* ChangePasswordViewController.m in Sources */,
+				AF29A59D167AC9A200425D83 /* MyOrderViewController.m in Sources */,
+				AF29A5A2167ACA3400425D83 /* MyOrderCell.m in Sources */,
+				AF29A5A7167B03C100425D83 /* GiftCollectionCell.m in Sources */,
+				AF29A5B0167B040600425D83 /* GiftCollectionViewController.m in Sources */,
+				AF29A5B7167B168300425D83 /* InviteFriendsViewController.m in Sources */,
+				AF29A5BE167B1DE700425D83 /* OrderSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

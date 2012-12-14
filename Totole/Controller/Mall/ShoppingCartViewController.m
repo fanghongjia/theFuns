@@ -38,6 +38,7 @@
     mytableView.backgroundColor = [UIColor whiteColor];
     mytableView.showsVerticalScrollIndicator = NO;
     mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    mytableView.separatorColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1];
     mytableView.layer.cornerRadius = 10.0;
     mytableView.layer.masksToBounds = YES;
     mytableView.tableFooterView = headView;

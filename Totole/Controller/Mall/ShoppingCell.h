@@ -10,6 +10,7 @@
 
 @interface ShoppingCell : UITableViewCell
 {
+    UIView *backView;
     UIImageView *imageView;
     UILabel *lable_1;
     UILabel *lable_price;
@@ -19,6 +20,7 @@
     UITextField *number_TF;
 }
 
+@property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *lable_1;
 @property (nonatomic, strong) UILabel *lable_price;

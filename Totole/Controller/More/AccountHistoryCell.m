@@ -43,7 +43,7 @@
         lable_31.font = [UIFont systemFontOfSize:15.0];
         lable_31.text = @"项目单号:";
         [self addSubview:lable_31];
-        
+         
         lable_32 = [[UILabel alloc]initWithFrame:CGRectMake(80, 45, 240, 20)];
         lable_32.font = [UIFont systemFontOfSize:15.0];
         lable_32.textColor = [UIColor colorWithRed:164/255.0 green:119/255.0 blue:39/255.0 alpha:1];

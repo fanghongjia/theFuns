@@ -1,19 +1,20 @@
 //
-//  AccountHistoryViewController.m
+//  GiftCollectionViewController.m
 //  Totole
 //
-//  Created by disan disan on 12-12-13.
+//  Created by disan disan on 12-12-14.
 //
 //
 
-#import "AccountHistoryViewController.h"
-#import "AccountHistoryCell.h"
+#import "GiftCollectionViewController.h"
+#import "GiftCollectionCell.h"
 
-@interface AccountHistoryViewController ()
+
+@interface GiftCollectionViewController ()
 
 @end
 
-@implementation AccountHistoryViewController
+@implementation GiftCollectionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,16 +22,16 @@
     if (self) {
         // Custom initialization
         
-        mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 120, 300, 280) style:UITableViewStylePlain];
+        mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 46, 320, 365) style:UITableViewStylePlain];
         mytableView.delegate = self;
         mytableView.dataSource = self;
-        mytableView.backgroundColor = [UIColor whiteColor];
+        mytableView.backgroundColor = [UIColor clearColor];
         mytableView.showsVerticalScrollIndicator = NO;
-        mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        mytableView.separatorColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1];
+        mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         mytableView.layer.cornerRadius = 10.0;
         mytableView.layer.masksToBounds = YES;
         [self.view addSubview:mytableView];
+        
     }
     return self;
 }
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (IBAction)back_click:(id)sender
 {
@@ -63,15 +65,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
-    AccountHistoryCell *cell = (AccountHistoryCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    GiftCollectionCell *cell = (GiftCollectionCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil)
     {
-        cell = [[AccountHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        cell = [[GiftCollectionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
     }
     
     
     
     cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell_back.png"]];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -80,8 +83,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 115;
+    return 100;
 }
+
 
 - (void)didReceiveMemoryWarning
 {

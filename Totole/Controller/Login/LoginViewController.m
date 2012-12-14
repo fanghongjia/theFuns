@@ -32,8 +32,13 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //登录成功之后保存账户和密码--------需要修改保存内容-------------------
-    save_mutableArray = [defaults objectForKey:@"Info_mutabArray"];
+    save_mutableArray = [[NSMutableArray alloc]initWithArray:[defaults objectForKey:@"Info_mutabArray"]];  // [defaults objectForKey:@"Info_mutabArray"];
     NSLog(@"save_mutableArray == %@",save_mutableArray);
+    
+    
+    //默认显示最近一次登录的密码
+    account_TF.text = [[save_mutableArray objectAtIndex:0]objectForKey:@"account"];
+    password_TF.text = [[save_mutableArray objectAtIndex:0]objectForKey:@"password"];
     
     //判断是否记住密码
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -108,25 +113,15 @@
             
             NSMutableArray *cookes = [[NSMutableArray alloc]initWithArray:[dic2 objectForKey:@"cookies"]];
             
-            //NSHTTPCookie *cooke=[cookes objectAtIndex:0];            
-//            NSDictionary *dictd=[NSHTTPCookie requestHeaderFieldsWithCookies:cookes];            
-//            NSLog(@"dictd:%@",dictd);
             
             mainDelegate = MYDELEGATE;
             mainDelegate.myCookie = cookes;//[dictd objectForKey:@"Cookie"];
-//            [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
+
             
             
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-            NSString *sessionId_string;
-            sessionId_string = [[dic2 objectForKey:@"output"]objectForKey:@"sessionId"];
 
-            [defaults setObject:sessionId_string forKey:@"sessionId"];
-
-            NSLog(@"sessionId_string == %@",sessionId_string);
-        
         
 //            NSArray *tempArray = [[[dic2  objectForKey:@"output"] objectForKey:@"provinces"] JSONValue];
             
@@ -258,7 +253,7 @@
         //保留这次登录的账号和密码，后面肯定要用到        
 
         [defaults setValue:account_TF.text forKey:@"account"];
-        [defaults setValue:password_TF.text forKey:@"passWord"];
+        [defaults setValue:password_TF.text forKey:@"password"];
         NSLog(@"account_TF.text == %@ password_TF.text == %@",account_TF.text,password_TF.text);
         
         //回调，判断是厨师登录还是饭店登录
