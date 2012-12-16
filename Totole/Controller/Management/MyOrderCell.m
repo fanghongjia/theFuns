@@ -107,7 +107,7 @@
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 6.0;
         imageView.layer.borderWidth = 1.5;
-        imageView.layer.borderColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1].CGColor ;
+        imageView.layer.borderColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1].CGColor ;   
 //        imageView.layer.shadowColor = [UIColor blackColor].CGColor;
 //        imageView.layer.shadowOffset = CGSizeMake(1, 2);
 //        imageView.layer.shadowOpacity = 0.2;//阴影的透明度

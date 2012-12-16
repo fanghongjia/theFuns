@@ -37,9 +37,17 @@
     
     
     //默认显示最近一次登录的密码
-    account_TF.text = [[save_mutableArray objectAtIndex:0]objectForKey:@"account"];
-    password_TF.text = [[save_mutableArray objectAtIndex:0]objectForKey:@"password"];
-    
+    if (save_mutableArray.count == 0)
+    {
+        ;
+    }
+    else
+    {
+        account_TF.text = [[save_mutableArray objectAtIndex:0]objectForKey:@"account"];
+        password_TF.text = [[save_mutableArray objectAtIndex:0]objectForKey:@"password"];
+
+    }
+        
     //判断是否记住密码
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSString *account = [defaults objectForKey:@"account"];
@@ -87,8 +95,16 @@
 
 - (IBAction)showPickView_click:(id)sender 
 {
-    toolbar.hidden = NO;
-    myPickerView.hidden = NO;
+    if (save_mutableArray.count == 0)
+    {
+        ;
+    }
+    else
+    {
+        toolbar.hidden = NO;
+        myPickerView.hidden = NO;        
+    }
+   
 }
 #pragma mark-
 #pragma mark 登录

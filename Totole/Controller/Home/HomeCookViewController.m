@@ -7,6 +7,9 @@
 //
 
 #import "HomeCookViewController.h"
+#import "ManagementViewController.h"
+#import "GiftCollectionViewController.h"
+
 
 @interface HomeCookViewController ()
 
@@ -45,12 +48,12 @@
     }
     else if (sender == management_btn)
     {
-        ManagementCenterViewController *managementVC = [[ManagementCenterViewController alloc]init];
+        ManagementViewController *managementVC = [[ManagementViewController alloc]init];
         [self.navigationController pushViewController:managementVC animated:YES]; 
     }
     else if (sender == myFavorites_btn)
     {   
-        MyFavoritesViewController *myFavoritesVC = [[MyFavoritesViewController alloc]init];
+        GiftCollectionViewController *myFavoritesVC = [[GiftCollectionViewController alloc]init];
         [self.navigationController pushViewController:myFavoritesVC animated:YES];
     }
 }

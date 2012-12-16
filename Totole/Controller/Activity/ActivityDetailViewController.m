@@ -1,16 +1,19 @@
 //
-//  AnnouncementViewController.m
+//  ActivityDetailViewController.m
 //  Totole
 //
-//  Created by  on 12-10-29.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Created by disan disan on 12-12-16.
+//
 //
 
-#import "AnnouncementViewController.h"
-#import "AnnouncementCell.h"
-#import "AnnouncementDetailViewController.h"
+#import "ActivityDetailViewController.h"
+#import "ActivityDetailCell.h"
 
-@implementation AnnouncementViewController
+@interface ActivityDetailViewController ()
+
+@end
+
+@implementation ActivityDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,21 +24,10 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBarHidden = YES;
     
     mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 135, 320, 265) style:UITableViewStylePlain];
     mytableView.delegate = self;
@@ -44,17 +36,24 @@
     mytableView.showsVerticalScrollIndicator = NO;
     mytableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     mytableView.separatorColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1];
+//    mytableView.layer.cornerRadius = 10.0;
+//    mytableView.layer.masksToBounds = YES;
     [self.view addSubview:mytableView];
 }
-- (IBAction)annountlist_click:(id)sender
+- (IBAction)activityList_click:(id)sender
 {
-    [topImageView setImage:[UIImage imageNamed:@"announcement_top1.png"]];
-//    mytableView.hidden = NO;
+    [topView setImage:[UIImage imageNamed:@"activity_list.png"]];
+    mytableView.hidden = NO;
 }
-- (IBAction)annountMessage_click:(id)sender
+- (IBAction)avtivityRule_click:(id)sender
 {
-    [topImageView setImage:[UIImage imageNamed:@"announcement_top2.png"]];
-//    mytableView.hidden = YES;
+    [topView setImage:[UIImage imageNamed:@"activity_rule.png"]];
+    mytableView.hidden = YES;
+}
+
+- (IBAction)back_click:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -74,10 +73,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
-    AnnouncementCell *cell = (AnnouncementCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    ActivityDetailCell *cell = (ActivityDetailCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
     if (cell == nil)
     {
-        cell = [[AnnouncementCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+        cell = [[ActivityDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
     }
     
     
@@ -92,27 +91,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 90;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)didReceiveMemoryWarning
 {
-    AnnouncementDetailViewController *detailVC = [[AnnouncementDetailViewController alloc]init];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload
-{
-    topImageView = nil;
+
+
+- (void)viewDidUnload {
+    topView = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 @end

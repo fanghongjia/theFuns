@@ -8,6 +8,7 @@
 
 #import "AccountHistoryViewController.h"
 #import "AccountHistoryCell.h"
+#import "AccountSearchViewController.h"
 
 @interface AccountHistoryViewController ()
 
@@ -44,6 +45,11 @@
 - (IBAction)back_click:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)accountSearch_click:(id)sender
+{
+    AccountSearchViewController *accountSearchVC = [[AccountSearchViewController alloc]init];
+    [self.navigationController pushViewController:accountSearchVC animated:YES];
 }
 
 #pragma mark -
@@ -88,5 +94,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+  
 @end

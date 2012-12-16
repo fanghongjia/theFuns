@@ -8,6 +8,7 @@
 
 #import "ActivityViewController.h"
 #import "ActivityCell.h"
+#import "ActivityDetailViewController.h"
 
 @implementation ActivityViewController
 
@@ -213,7 +214,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (dataType == 0)
+    {
+        ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc]init];
+        [self.navigationController pushViewController:activityDetailVC animated:YES];
+    }
 }
 
 #pragma mark -

@@ -27,7 +27,7 @@
         backView.layer.shadowRadius = 2.5;
         [self.contentView addSubview:backView];
         
-        imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 7, 70, 70)];
+        imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 7, 90, 60)];
         imageView.backgroundColor = [UIColor clearColor];
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 6.0;

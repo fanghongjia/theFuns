@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnnouncementViewController : UIViewController
+@interface AnnouncementViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+{
+    UITableView *mytableView;
+    __unsafe_unretained IBOutlet UIImageView *topImageView;
+}
 
 @end

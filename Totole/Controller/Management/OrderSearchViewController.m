@@ -28,6 +28,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UITapGestureRecognizer*tapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                  action:@selector(handleBackgroundTap:)];
+    tapRecognizer.cancelsTouchesInView= NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+}
+
+- (void) handleBackgroundTap:(UITapGestureRecognizer *)sender
+{
+    UIWindow* keyWindow=[[UIApplication sharedApplication] keyWindow];
+    [keyWindow endEditing:YES];
 }
 
 - (IBAction)back_click:(id)sender

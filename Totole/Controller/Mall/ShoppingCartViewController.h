@@ -15,6 +15,7 @@
     NSMutableArray *shopMutArr;
     __unsafe_unretained IBOutlet UIView *headView;
     
+    
     int row;
 }
 

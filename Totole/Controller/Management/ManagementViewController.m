@@ -15,6 +15,7 @@
 #import "ShoppingCartViewController.h"
 #import "GiftCollectionViewController.h"
 #import "InviteFriendsViewController.h"
+#import "MyInformateCookViewController.h"
 
 @interface ManagementViewController ()
 
@@ -64,7 +65,8 @@
 {
     if (sender.tag == 0)
     {
-        ;
+        MyInformateCookViewController *myInformateCookVC = [[MyInformateCookViewController alloc]init];
+        [self.navigationController pushViewController:myInformateCookVC animated:YES];
     }
     //账户历史
     else if (sender.tag == 1)

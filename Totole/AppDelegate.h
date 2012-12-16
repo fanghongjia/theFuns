@@ -17,8 +17,8 @@
 #import "MallViewController.h"
 #import "ActivityViewController.h"
 #import "AnnouncementViewController.h"
-#import "ManagementCenterViewController.h"
-#import "MyFavoritesViewController.h"
+
+
 #import "StartView.h"
 #import "MoreViewController.h"
 
