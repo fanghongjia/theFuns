@@ -98,7 +98,7 @@
     cell.lable_unit.text = [[shopMutArr objectAtIndex:indexPath.row]objectForKey:@"unit"];
     cell.number_TF.text = [[shopMutArr objectAtIndex:indexPath.row]objectForKey:@"number"];
     
-    cell.delete_btn.tag = indexPath.row;
+    cell.delete_btn.tag = indexPath.row;   
     
     [cell.plus_btn addTarget:self action:@selector(plus:) forControlEvents:UIControlEventTouchUpInside];
     [cell.minu_btn addTarget:self action:@selector(minu:) forControlEvents:UIControlEventTouchUpInside];
@@ -133,7 +133,7 @@
     [shopMutArr removeObjectAtIndex:sender.tag];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:shopMutArr forKey:@"shoppingArr"];
-    
+      
     NSLog(@"shopMutArr.count == %d",shopMutArr.count);
     NSLog(@"shopMutArr == %@",shopMutArr);
     

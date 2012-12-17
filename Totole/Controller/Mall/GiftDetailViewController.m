@@ -41,12 +41,22 @@
         
         url_string = [outputDic objectForKey:@"avatar"];
         //异步下载图片
+        head_imagView.contentMode = UIViewContentModeScaleAspectFit;
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
         title_lb.text = [outputDic objectForKey:@"giftName"];
         
 
-        brand_lb.text = [@"品牌:" stringByAppendingString:[outputDic objectForKey:@"brand"]];
-        
+//        NSString *string_brand = [outputDic objectForKey:@"brand"];
+//        NSLog(@"string_ == %d",string_brand.length);
+        if (![outputDic objectForKey:@"brand"])
+        {
+             brand_lb.text = @"";
+        }
+        else
+        {
+            brand_lb.text = [@"品牌:" stringByAppendingString:[outputDic objectForKey:@"brand"]];
+        }
+
         price_lb.text = [outputDic objectForKey:@"price"];
         
         unit_string = [outputDic objectForKey:@"unit"];
@@ -96,6 +106,46 @@
     [self.navigationController pushViewController:shoppingCartVC animated:YES];
     
 }
+//加入收藏
+- (IBAction)addToFavorite_click:(id)sender
+{
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic3 = response;
+        NSLog(@"addToFavorite_click  dic3 == %@",dic3);
+        
+        if ([[[dic3 objectForKey:@"output"]objectForKey:@"resultCode"] isEqual:@"OK"])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
+                                                           message:@"收藏成功!"
+                                                          delegate:nil
+                                                 cancelButtonTitle:@"确定"
+                                                 otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if([[[dic3 objectForKey:@"output"]objectForKey:@"errorMessage"] isEqual:@"unLogin"])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
+                                                           message:@"请先登录!"
+                                                          delegate:nil
+                                                 cancelButtonTitle:@"确定"
+                                                 otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else 
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
+                                                           message:@"收藏失败!"
+                                                          delegate:nil
+                                                 cancelButtonTitle:@"确定"
+                                                 otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource addToFavorite_giftId:self.mallId_str];
+}
+
+
 - (IBAction)back_click:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];

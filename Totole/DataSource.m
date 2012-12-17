@@ -359,6 +359,73 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihASI:request MethodStr:@"mallService/addToCart" Type:NetWorkTypeGET];
 }
 
+//添加到收藏夹
+-(void)addToFavorite_giftId:(NSString *)giftId
+{
+    NSLog(@"giftId  == %@",giftId);
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,[NSString stringWithFormat:@"userService/addToFavorite?giftId=%@",giftId]];
+    
+   // NSString *str=@"http://61.172.246.12:8383/webservice/ws/userService/addToFavorite?giftId=22";
+    
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];
+    
+    [self starDownLoadWtihASI:request MethodStr:@"userService/addToFavorite" Type:NetWorkTypeGET];
+}
+
+//显示我收藏的商品列表
+-(void)myFavorites_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,[NSString stringWithFormat:@"userService/myFavorites?pageNo=%@&pageSize=%@",pageNo,pageSize]];
+    
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];    
+    
+    [self starDownLoadWtihASI:request MethodStr:@"userService/myFavorites" Type:NetWorkTypeGET];
+}
+
+//删除收藏的商品
+-(void)deleteFavorite_collectId:(NSString *)collectId
+{
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,[NSString stringWithFormat:@"userService/deleteFavorite?collectId=%@",collectId]];
+    
+    // NSString *str=@"http://61.172.246.12:8383/webservice/ws/userService/addToFavorite?giftId=22";
+    
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
+    mainDelegate = MYDELEGATE;
+    NSMutableArray *cookit=[[mainDelegate myCookie] mutableCopy];
+    [request setUseCookiePersistence:YES];
+    [request setRequestCookies:cookit];
+    
+    [self starDownLoadWtihASI:request MethodStr:@"userService/deleteFavorite" Type:NetWorkTypeGET];
+}
+
+//搜索商品 mallService/searchGift  {keyword:"电视"，categoryId:"2"，priceId:"3"}
+-(void)searchGift_keyword:(NSString *)keyword categoryId:(NSString *)categoryId priceId:(NSString *)priceId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    /*
+    NSLog(@"%@ ,%@ ,%@ ,%@ ,%@",keyword,categoryId,priceId,pageNo,pageSize);
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,[NSString stringWithFormat:@"mallService/searchGift?keyword=%@&categoryId=%@&priceId=%@&pageNo=%@&pageSize=%@",keyword,categoryId,priceId,pageNo,pageSize]];
+
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
+    [self starDownLoadWtihASI:request MethodStr:@"mallService/searchGift" Type:NetWorkTypeGET];
+     */
+    
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"keyword" Parameter:keyword];
+    [mArray setParameter:@"categoryId" Parameter:categoryId];
+    [mArray setParameter:@"priceId" Parameter:priceId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/searchGift" Type:NetWorkTypeGET];
+}
+
 //退出登录
 -(void)logout
 {

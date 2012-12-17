@@ -36,21 +36,22 @@
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 6.0;
         imageView.layer.borderWidth = 1.5;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.layer.borderColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1].CGColor ;
         [self addSubview:imageView];
         
         lable_11 = [[UILabel alloc]initWithFrame:CGRectMake(90, 10, 240, 20)];
-        lable_11.text = @"索尼冷死了所发生的";
+//        lable_11.text = @"";
         lable_11.backgroundColor = [UIColor clearColor];
         lable_11.font = [UIFont systemFontOfSize:15.0];
         [self addSubview:lable_11];
         
-        lable_21 = [[UILabel alloc]initWithFrame:CGRectMake(90, 30, 220, 20)];
-        lable_21.font = [UIFont systemFontOfSize:15.0];
-        lable_21.textColor = [UIColor colorWithRed:122/255.0 green:130/255.0 blue:146/255.0 alpha:1];
-        lable_21.backgroundColor = [UIColor clearColor];
-        lable_21.text = @"品牌:索尼ljljljljk接口";
-        [self addSubview:lable_21];
+//        lable_21 = [[UILabel alloc]initWithFrame:CGRectMake(90, 30, 220, 20)];
+//        lable_21.font = [UIFont systemFontOfSize:15.0];
+//        lable_21.textColor = [UIColor colorWithRed:122/255.0 green:130/255.0 blue:146/255.0 alpha:1];
+//        lable_21.backgroundColor = [UIColor clearColor];
+//        lable_21.text = @"品牌:索尼ljljljljk接口";
+//        [self addSubview:lable_21];
         
         UIImageView *imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(90, 55, 10, 17)];
         [imageView1 setImage:[UIImage imageNamed:@"mall_star.png"]];
@@ -60,13 +61,13 @@
         lable_31.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:16];
         lable_31.backgroundColor = [UIColor clearColor];
         lable_31.textColor = [UIColor orangeColor];
-        lable_31.text = @"205.00";
+//        lable_31.text = @"";
         [self addSubview:lable_31];
         
         lable_32 = [[UILabel alloc]initWithFrame:CGRectMake(170, 53, 80, 20)];
         lable_32.font = [UIFont systemFontOfSize:15.0];
         lable_32.backgroundColor = [UIColor clearColor];
-        lable_32.text = @"积分/对";
+//        lable_32.text = @"积分/对";
         [self addSubview:lable_32];
         
         btn_delete = [UIButton buttonWithType:UIButtonTypeCustom];

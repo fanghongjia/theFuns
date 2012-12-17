@@ -7,6 +7,7 @@
 //
 
 #import "MallViewController.h"
+#import "MallSearchViewController.h"
 
 @implementation MallViewController
 
@@ -54,21 +55,35 @@
         tempArr = [[[dic3 objectForKey:@"output"] objectForKey:@"categorys"] JSONValue];
         NSLog(@"dic_categorys == %@",tempArr);
         
+        
         categoryIdMut = [[NSMutableArray alloc]init];
+        categoryNameMut = [[NSMutableArray alloc]init];
         
         for (int i = 0; i<tempArr.count; i++)
         {
             NSString *categoryId_string = [[tempArr objectAtIndex:i] objectForKey:@"categoryId"];
+            NSString *categoryName_str = [[tempArr objectAtIndex:i] objectForKey:@"categoryName"];
                         
             [categoryIdMut addObject:categoryId_string];
+            [categoryNameMut addObject:categoryName_str];
         }
         NSLog(@"categoryIdMut  == %@",categoryIdMut);
         
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:categoryIdMut forKey:@"categoryIdMut"];
+        [defaults setValue:categoryNameMut forKey:@"categoryNameMut"];
         
         
         [mytableView reloadData];
     } loadInfo:@"正在加载..." HUDBackView:self.view];
     [daSource getGiftCategorys];
+}
+
+//搜索
+- (IBAction)MallSearch_click:(id)sender
+{
+    MallSearchViewController *mallSearckVC = [[MallSearchViewController alloc]init];
+    [self.navigationController pushViewController:mallSearckVC animated:YES];
 }
 
 #pragma mark -
@@ -96,10 +111,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
         
 
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 3, 33, 33)];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 30, 30)];
         NSString *url_string = [[tempArr objectAtIndex:indexPath.row] objectForKey:@"image"];
-        
-        
+        imageView.backgroundColor = [UIColor clearColor];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         NSLog(@"url_string == %@",url_string);
         [self loadImageInThread:[tempArr objectAtIndex:indexPath.row] withView:imageView];
         

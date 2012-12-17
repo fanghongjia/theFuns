@@ -34,6 +34,8 @@
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 6.0;
         imageView.layer.borderWidth = 1.5;
+        imageView.backgroundColor = [UIColor whiteColor];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.layer.borderColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1].CGColor ;
         [self.contentView addSubview:imageView];
         

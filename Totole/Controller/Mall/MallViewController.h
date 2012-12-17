@@ -16,7 +16,7 @@
     UITableView *mytableView;
     
     NSArray *tempArr;
-    NSMutableArray *categoryIdMut;
+    NSMutableArray *categoryIdMut,*categoryNameMut;
     
     dispatch_queue_t loadImageQueue;
     

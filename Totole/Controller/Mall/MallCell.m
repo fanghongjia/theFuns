@@ -18,7 +18,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        backView = [[UIView alloc]initWithFrame:CGRectMake(12, 9, 66, 66)];
+        backView = [[UIView alloc]initWithFrame:CGRectMake(12, 10, 66, 66)];
         backView.backgroundColor = [UIColor whiteColor];
         backView.layer.masksToBounds = NO;
         backView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -27,17 +27,14 @@
         backView.layer.shadowRadius = 2.5;
         [self.contentView addSubview:backView];
         
-        imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 7, 90, 60)];
-        imageView.backgroundColor = [UIColor clearColor];
+        imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 8, 70, 70)];
+        imageView.backgroundColor = [UIColor whiteColor];
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 6.0;
         imageView.layer.borderWidth = 1.5;
         imageView.layer.borderColor = [UIColor colorWithRed:247/255.0 green:223/255.0 blue:207/255.0 alpha:1].CGColor ;
-//        imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-//        imageView.layer.shadowOffset = CGSizeMake(1, 2);
-//        imageView.layer.shadowOpacity = 0.2;//阴影的透明度
-//        imageView.layer.shadowRadius = 1.5;
-       [self.contentView addSubview:imageView];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.contentView addSubview:imageView];
         
         lable_1 = [[UILabel alloc]initWithFrame:CGRectMake(85, 5, 240, 25)];
         lable_1.backgroundColor = [UIColor clearColor];

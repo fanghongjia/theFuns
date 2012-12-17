@@ -35,13 +35,13 @@
         [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
         recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
         NSLog(@"recordCount_string == %@",recordCount_string);
-        
+         
         for (int i = 0; i<tempArr.count; i++)
         {
             NSString *mallId_string = [[tempArr objectAtIndex:i] objectForKey:@"id"];
             
             [mallIdMut addObject:mallId_string];
-        }
+        } 
         NSLog(@"Category mallIdMut  == %@",mallIdMut);
         NSLog(@"Category tempArr == %@",tempArr);
          
@@ -92,7 +92,7 @@
     mallIdMut = [[NSMutableArray alloc]init];
     
     [self refreshData];
-
+  
     [super viewDidLoad];
 }
 //搜索

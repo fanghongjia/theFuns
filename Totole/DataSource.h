@@ -97,6 +97,18 @@ operateSource:(NSString *)operateSource
 //加入购物车
 -(void)addToCart_giftId:(NSString *)giftId;
 
+//添加到收藏夹
+-(void)addToFavorite_giftId:(NSString *)giftId;
+
+//显示我收藏的商品列表
+-(void)myFavorites_pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//删除收藏的商品
+-(void)deleteFavorite_collectId:(NSString *)collectId;
+
+//搜索商品 mallService/searchGift  {keyword:"电视"，categoryId:"2"，priceId:"3"}
+-(void)searchGift_keyword:(NSString *)keyword categoryId:(NSString *)categoryId priceId:(NSString *)priceId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
 //退出登录
 -(void)logout;
 
