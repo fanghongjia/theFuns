@@ -20,17 +20,19 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
         
         _startScrollView = [[UIScrollView alloc]initWithFrame:frame];
-        [_startScrollView setContentSize:CGSizeMake(frame.size.width*3, frame.size.height)];
+        [_startScrollView setContentSize:CGSizeMake(frame.size.width*3, frame.size.height)];  
         [_startScrollView setPagingEnabled:YES];
         _startScrollView.delegate = self;
         [_startScrollView setShowsHorizontalScrollIndicator:NO];
         [self addSubview:_startScrollView];
         
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<3; i++)
+        {
             CGRect vFrame = CGRectMake(frame.size.width*i, 0, frame.size.width, frame.size.height);
             UIImageView *adView = [[UIImageView alloc]initWithFrame:vFrame];
             [adView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"firstLogin_%d.png",i+1]]];
-            if (i==2) {
+            if (i==2)
+            {
                 UIImage *starimg = [UIImage imageNamed:@"stare_experience.png"];
                 UIButton *starBtn = [[UIButton alloc]initWithFrame:CGRectMake(192/2, 763/2, starimg.size.width/2, starimg.size.height/2)];
                 [starBtn setImage:starimg forState:UIControlStateNormal];

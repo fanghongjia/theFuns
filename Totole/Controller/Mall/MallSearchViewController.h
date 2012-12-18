@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MallSearchViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,BgScrollViewDelegate>
 {
     
@@ -27,6 +28,10 @@
     UITableView *mytableView;
     
     BgScrollView *bgScroll;
+    
+    NSMutableArray *tempArr;
+    
+    NSString *recordCount_string;
 }
 
 @end

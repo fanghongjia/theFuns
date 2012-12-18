@@ -24,14 +24,16 @@
         NSDictionary *dic3 = response;
         NSLog(@"myFavorites_pageNo  dic3 == %@",dic3);
         
+        [self stopLoadingDown];
+        [self stopLoadingUp];
+        
         [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"myFavorites"] JSONValue]];
         
         NSLog(@"tempArr == %@",tempArr);
         recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
         
         [mytableView reloadData];
-        [self stopLoadingDown];
-        [self stopLoadingUp];
+        
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
     [daSource myFavorites_pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];

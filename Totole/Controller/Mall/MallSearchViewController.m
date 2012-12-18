@@ -7,6 +7,8 @@
 //
 
 #import "MallSearchViewController.h"
+#import "MallCell.h"
+#import "GiftDetailViewController.h"
 
 @interface MallSearchViewController ()
 
@@ -19,8 +21,50 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        bgScroll = [[BgScrollView alloc] initWithFrame:CGRectMake(0,122,320,290 + REFRESH_HEADER_HEIGHT) andType:1];
+        bgScroll.delegate = self;
+        bgScroll.BgDelegate = self;
+        bgScroll.contentSize = CGSizeMake(320, 290 + REFRESH_HEADER_HEIGHT + 1);
+        [self.view addSubview:bgScroll];
+        
+        mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 290) style:UITableViewStylePlain];
+        mytableView.delegate = self;
+        mytableView.dataSource = self;
+        mytableView.backgroundColor = [UIColor clearColor];
+        mytableView.showsVerticalScrollIndicator = NO;
+        mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        mytableView.layer.cornerRadius = 10.0;
+        mytableView.layer.masksToBounds = YES;
+        [bgScroll addSubview:mytableView];
+        
+        mytableView.hidden = YES;
+        bgScroll.hidden = YES;
     }
     return self;
+}
+
+-(void)refreshData
+{
+    key_TF.text = str_keyword;
+    NSLog(@"str_categoryId == %@",str_categoryId);
+    
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic3 = response;
+        NSLog(@"searchGift_keyword  dic3 == %@",dic3);
+        
+        [tempArr addObjectsFromArray:[[[dic3 objectForKey:@"output"] objectForKey:@"giftList"] JSONValue]];
+        
+        NSLog(@"tempArr == %@",tempArr);
+        recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+        
+        [mytableView reloadData];
+        [self stopLoadingDown];
+        [self stopLoadingUp];
+
+        
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource searchGift_keyword:str_keyword categoryId:str_categoryId priceId:str_priceId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
 }
 
 - (void)viewDidLoad
@@ -38,26 +82,15 @@
 //    <option value="5">3000-6000</option>
 //    <option value="6">6000以上</option>
     
+    tempArr = [[NSMutableArray alloc]initWithCapacity:1];
+    
     UITapGestureRecognizer*tapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                                   action:@selector(handleBackgroundTap:)];
     tapRecognizer.cancelsTouchesInView= NO;
     [self.view addGestureRecognizer:tapRecognizer];
     
-    bgScroll = [[BgScrollView alloc] initWithFrame:CGRectMake(0,122,320,290 + REFRESH_HEADER_HEIGHT) andType:1];
-    bgScroll.delegate = self;
-    bgScroll.BgDelegate = self;
-    bgScroll.contentSize = CGSizeMake(320, 365 + REFRESH_HEADER_HEIGHT + 1);
-    [self.view addSubview:bgScroll];
     
-    mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 290) style:UITableViewStylePlain];
-    mytableView.delegate = self;
-    mytableView.dataSource = self;
-    mytableView.backgroundColor = [UIColor clearColor];
-    mytableView.showsVerticalScrollIndicator = NO;
-    mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    mytableView.layer.cornerRadius = 10.0;
-    mytableView.layer.masksToBounds = YES;
-    [bgScroll addSubview:mytableView];
+    
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -69,6 +102,10 @@
     valueIDMurArray = [[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6", nil];
     
     currentPage = 1;
+    
+    str_keyword = @"";
+    str_categoryId = @"";
+    str_priceId = @"";
 }
 
 - (void) handleBackgroundTap:(UITapGestureRecognizer *)sender
@@ -78,12 +115,16 @@
 }
 - (IBAction)allProducts_click:(id)sender
 {
+    [self.view bringSubviewToFront:pickerView_1];
+    [self.view bringSubviewToFront:My_toolbar];
     My_toolbar.hidden = NO;
     pickerView_1.hidden = NO;
     pickerView_2.hidden = YES;
 }
 - (IBAction)value_click:(id)sender
 {
+    [self.view bringSubviewToFront:pickerView_2];
+    [self.view bringSubviewToFront:My_toolbar];
     My_toolbar.hidden = NO;
     pickerView_1.hidden = YES;
     pickerView_2.hidden = NO;
@@ -111,19 +152,133 @@
     pickerView_1.hidden = YES;
     pickerView_2.hidden = YES;
 }
+
+//搜索
 - (IBAction)search_click:(id)sender
 {
-    key_TF.text = str_keyword;
-    
-    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
-        NSDictionary *dic3 = response;
-        NSLog(@"searchGift_keyword  dic3 == %@",dic3);
-        
-        
-        
-    } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource searchGift_keyword:str_keyword categoryId:str_categoryId priceId:str_priceId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    mytableView.hidden = NO;
+    bgScroll.hidden = NO;
+    [tempArr removeAllObjects];
+    [self refreshData];
 }
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+//cell 个数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return tempArr.count;
+}
+//单元格的内容
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = [indexPath row];
+    NSString *TableSampleIdentifier = [NSString stringWithFormat:@"%d"@"%d",indexPath.section,indexPath.row];
+    MallCell *cell = (MallCell *)[tableView dequeueReusableCellWithIdentifier: TableSampleIdentifier];
+    if (cell == nil)
+    {
+        cell = [[MallCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+    }
+    
+    NSString *url_string = [[tempArr objectAtIndex:row] objectForKey:@"avatar"];
+    [[DataSource shareInstance] loadImageInThread:url_string withView:cell.imageView];
+    
+    cell.lable_1.text = [[tempArr objectAtIndex:row] objectForKey:@"name"];
+    
+    cell.lable_price.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"price"]];
+    
+    cell.lable_unit.text = [@"积分/" stringByAppendingString:[[tempArr objectAtIndex:row] objectForKey:@"unit"]];
+    
+    NSString *stockAmount_str = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:row] objectForKey:@"stockAmount"]];
+    NSString *unit_str = [[tempArr objectAtIndex:row] objectForKey:@"unit"];
+    cell.stockAmount_lb.text = [[@"库存" stringByAppendingString:stockAmount_str]stringByAppendingString:unit_str];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell_back.png"]];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //title_str,brand_str,price_str,unit_str,stockAmoun_str;
+    GiftDetailViewController *giftDetailVC = [[GiftDetailViewController alloc]init];
+    NSString *mallId;
+    
+    mallId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"id"];
+    giftDetailVC.mallId_str = mallId;
+    [self.navigationController pushViewController:giftDetailVC animated:YES];
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	[bgScroll bgScrollViewDidScroll];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	[bgScroll bgScrollViewDidEndDragging];
+}
+
+#pragma mark -
+#pragma mark BgScrollViewDelegate
+- (void)stopLoadingDown
+{
+ 	[bgScroll stopLoadingDown];
+}
+
+- (void)startLoadingDown
+{
+    
+    //    if (ceil([recordCount_string intValue] / 10.0) > currentPage)
+    //    {
+    //        currentPage ++;
+    //    }
+	//上拉获取更多信息
+    
+    if (ceil([recordCount_string intValue] / 10.0) > currentPage)
+    {
+        currentPage ++;
+        [self refreshData];
+    }
+    else
+    {
+        [self stopLoadingDown];
+        [self stopLoadingUp];
+    }
+    
+}
+
+- (void)startLoadingUp
+{
+    //    currentPage = 1;
+    // 下拉刷新
+    
+    //上拉获取更多信息
+    
+    [self refreshData];
+}
+
+- (void)stopLoadingUp
+{
+    [bgScroll stopLoadingUp];
+}
+
 
 #pragma mark -
 #pragma mark Picker DataSource Methods

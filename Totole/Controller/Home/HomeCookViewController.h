@@ -10,8 +10,10 @@
 
 #import "AnnouncementViewController.h"
 
+#import "StyledPageControl.h"
 
-@interface HomeCookViewController : UIViewController
+
+@interface HomeCookViewController : UIViewController<UITabBarControllerDelegate,UIScrollViewDelegate>
 {
     IBOutlet UIButton *mall_btn;
     
@@ -19,6 +21,12 @@
     IBOutlet UIButton *announcement_btn;
     IBOutlet UIButton *management_btn;
     IBOutlet UIButton *myFavorites_btn;
+    __unsafe_unretained IBOutlet UIScrollView *scroll;
+    
+    NSMutableArray *tempArr;
+
+    __strong StyledPageControl  *_pageControl;
+
 }
 
 @end

@@ -108,7 +108,7 @@ static inline ASIFormDataRequest *setASIRequest(NSArray *infoArr,NetWorkType tpy
         
 //        NSLog(@"tempDict == %@",tempDict);
         NSString *str=[tempDict JSONRepresentation];
-//        NSLog(@"str:%@",str);
+        NSLog(@"str:%@",str);
         [request appendPostData:[str dataUsingEncoding:NSUTF8StringEncoding]];
         [request setPostLength:str.length];
         [request addRequestHeader:@"Content-Type" value:@"application/json"];

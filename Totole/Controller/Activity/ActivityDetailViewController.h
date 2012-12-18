@@ -8,11 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActivityDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ActivityDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,BgScrollViewDelegate>
 {
       UITableView *mytableView;
     __unsafe_unretained IBOutlet UIImageView *topView;
+    __unsafe_unretained IBOutlet UILabel *label_title;
+    
+    int currentPage;
+    
+    BgScrollView *bgScroll;
+    
+    NSMutableArray *tempArr;
+    
+    NSString *recordCount_string;
+    
+    NSString *str_type;
 }
+
+@property (nonatomic, assign) NSString *str_activityId,*str_activityType,*str_issueNum;
 
 
 @end

@@ -124,7 +124,7 @@ Class object_getClass(id object);
         
         
         if (object_getClass(self.delegate)==delegateClass) {
-            
+//            NSLog(@"====== %@", request.responseString);
             if (finshBlock) {
                 finshBlock([request.responseString JSONValue]);
             }

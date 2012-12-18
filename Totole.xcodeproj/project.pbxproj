@@ -46,6 +46,8 @@
 		AF0020651676FC7D00FABF36 /* mall_deletHight.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0020631676FC7D00FABF36 /* mall_deletHight.png */; };
 		AF00206C167738B500FABF36 /* mall_buy.png in Resources */ = {isa = PBXBuildFile; fileRef = AF00206A167738B500FABF36 /* mall_buy.png */; };
 		AF00206D167738B500FABF36 /* mallToChange.png in Resources */ = {isa = PBXBuildFile; fileRef = AF00206B167738B500FABF36 /* mallToChange.png */; };
+		AF0A52BA16807B9D00A07D07 /* ShoppingSpreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0A52B816807B9C00A07D07 /* ShoppingSpreeViewController.m */; };
+		AF0A52BB16807B9D00A07D07 /* ShoppingSpreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0A52B916807B9C00A07D07 /* ShoppingSpreeViewController.xib */; };
 		AF11884B1665BD4A007DB7DD /* CookPersonal_view.m in Sources */ = {isa = PBXBuildFile; fileRef = AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */; settings = {COMPILER_FLAGS = ""; }; };
 		AF1188501665FA58007DB7DD /* register_next.png in Resources */ = {isa = PBXBuildFile; fileRef = AF11884F1665FA58007DB7DD /* register_next.png */; };
 		AF1188531665FF65007DB7DD /* HotelUserRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1188511665FF65007DB7DD /* HotelUserRegisterView.m */; settings = {COMPILER_FLAGS = ""; }; };
@@ -308,6 +310,9 @@
 		AF0020631676FC7D00FABF36 /* mall_deletHight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_deletHight.png; sourceTree = "<group>"; };
 		AF00206A167738B500FABF36 /* mall_buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_buy.png; sourceTree = "<group>"; };
 		AF00206B167738B500FABF36 /* mallToChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mallToChange.png; sourceTree = "<group>"; };
+		AF0A52B716807B9B00A07D07 /* ShoppingSpreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingSpreeViewController.h; sourceTree = "<group>"; };
+		AF0A52B816807B9C00A07D07 /* ShoppingSpreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingSpreeViewController.m; sourceTree = "<group>"; };
+		AF0A52B916807B9C00A07D07 /* ShoppingSpreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingSpreeViewController.xib; sourceTree = "<group>"; };
 		AF1188491665BD4A007DB7DD /* CookPersonal_view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookPersonal_view.h; sourceTree = "<group>"; };
 		AF11884A1665BD4A007DB7DD /* CookPersonal_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookPersonal_view.m; sourceTree = "<group>"; };
 		AF11884F1665FA58007DB7DD /* register_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_next.png; sourceTree = "<group>"; };
@@ -1104,6 +1109,9 @@
 				AFC35036167DF437008C46BC /* ActivityDetailViewController.xib */,
 				AFC35039167DF449008C46BC /* ActivityDetailCell.h */,
 				AFC3503A167DF449008C46BC /* ActivityDetailCell.m */,
+				AF0A52B716807B9B00A07D07 /* ShoppingSpreeViewController.h */,
+				AF0A52B816807B9C00A07D07 /* ShoppingSpreeViewController.m */,
+				AF0A52B916807B9C00A07D07 /* ShoppingSpreeViewController.xib */,
 			);
 			name = Activity;
 			path = Controller/Activity;
@@ -1457,6 +1465,7 @@
 				AFC35047167E06E7008C46BC /* announcement_top1.png in Resources */,
 				AFC35048167E06E7008C46BC /* announcement_top2.png in Resources */,
 				AFC3504D167E08D1008C46BC /* AnnouncementDetailViewController.xib in Resources */,
+				AF0A52BB16807B9D00A07D07 /* ShoppingSpreeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,6 +1561,7 @@
 				AFC3503B167DF449008C46BC /* ActivityDetailCell.m in Sources */,
 				AFC35044167E043C008C46BC /* AnnouncementCell.m in Sources */,
 				AFC3504C167E08D1008C46BC /* AnnouncementDetailViewController.m in Sources */,
+				AF0A52BA16807B9D00A07D07 /* ShoppingSpreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@
 		CGRect rect = self.frame;
         // Initialization code.
 		self.backgroundColor = [UIColor clearColor];
-		textPull = [[NSString alloc] initWithString:NSLocalizedString(@"下拉刷新...",@"")];
+		textPull = [[NSString alloc] initWithString:NSLocalizedString(@"上拉刷新...",@"")];
 		textRelease = [[NSString alloc] initWithString:NSLocalizedString(@"松开即可刷新...",@"")];
 		textLoading = [[NSString alloc] initWithString:NSLocalizedString(@"加载中...", nil)];
 

@@ -217,6 +217,9 @@
     if (dataType == 0)
     {
         ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc]init];
+        activityDetailVC.str_activityId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityId"];
+        activityDetailVC.str_activityType = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityType"];
+        activityDetailVC.str_issueNum = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"issueNum"];
         [self.navigationController pushViewController:activityDetailVC animated:YES];
     }
 }

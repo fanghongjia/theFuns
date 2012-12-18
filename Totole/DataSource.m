@@ -409,21 +409,49 @@ operateSource:(NSString *)operateSource
 //搜索商品 mallService/searchGift  {keyword:"电视"，categoryId:"2"，priceId:"3"}
 -(void)searchGift_keyword:(NSString *)keyword categoryId:(NSString *)categoryId priceId:(NSString *)priceId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
-    /*
+ 
     NSLog(@"%@ ,%@ ,%@ ,%@ ,%@",keyword,categoryId,priceId,pageNo,pageSize);
-    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,[NSString stringWithFormat:@"mallService/searchGift?keyword=%@&categoryId=%@&priceId=%@&pageNo=%@&pageSize=%@",keyword,categoryId,priceId,pageNo,pageSize]];
+    NSString *str=[NSString stringWithFormat:@"%@%@",ServerMainAddress,[NSString stringWithFormat:@"mallService/searchGift?&pageNo=%@&pageSize=%@",pageNo,pageSize]];
 
     ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:str]];
-    [self starDownLoadWtihASI:request MethodStr:@"mallService/searchGift" Type:NetWorkTypeGET];
-     */
     
+    NSMutableDictionary *dictd=[NSMutableDictionary dictionary];
+    [dictd setObject:keyword forKey:@"keyword"];
+    [dictd setObject:categoryId forKey:@"categoryId"];
+    [dictd setObject:priceId forKey:@"priceId"];
+    NSString *strd=[dictd JSONRepresentation];
+    NSLog(@"strd:%@",strd);
+    
+    [request appendPostData:[strd dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setPostLength:strd.length];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+
+    [self starDownLoadWtihASI:request MethodStr:@"mallService/searchGift" Type:NetWorkTypeGET];
+}
+
+//获得首页幻灯片图片列表 
+-(void)getPptImages
+{
     NSMutableArray *mArray = [[NSMutableArray alloc] init];
-    [mArray setParameter:@"keyword" Parameter:keyword];
-    [mArray setParameter:@"categoryId" Parameter:categoryId];
-    [mArray setParameter:@"priceId" Parameter:priceId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"bulletinService/getPptImages" Type:NetWorkTypeGET];
+}
+
+//显示优惠活动列表  
+-(void)getPreferentialGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
     [mArray setParameter:@"pageNo" Parameter:pageNo];
     [mArray setParameter:@"pageSize" Parameter:pageSize];
-    [self starDownLoadWtihInfo:mArray MethodStr:@"mallService/searchGift" Type:NetWorkTypeGET];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"preferentialService/getPreferentialGifts" Type:NetWorkTypeGET];
+}
+
+//显示活动详情 
+-(void)getActivityDetail_itemId:(NSString *)itemId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"itemId" Parameter:itemId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"preferentialService/getActivityDetail" Type:NetWorkTypeGET];
 }
 
 //退出登录

@@ -109,6 +109,15 @@ operateSource:(NSString *)operateSource
 //搜索商品 mallService/searchGift  {keyword:"电视"，categoryId:"2"，priceId:"3"}
 -(void)searchGift_keyword:(NSString *)keyword categoryId:(NSString *)categoryId priceId:(NSString *)priceId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
+//获得首页幻灯片图片列表
+-(void)getPptImages;
+
+//显示优惠活动列表
+-(void)getPreferentialGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//显示活动详情
+-(void)getActivityDetail_itemId:(NSString *)itemId;
+
 //退出登录
 -(void)logout;
 

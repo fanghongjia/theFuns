@@ -10,7 +10,9 @@
 
 #import "AnnouncementViewController.h"
 
-@interface HomeViewController : UIViewController<UITabBarControllerDelegate>
+#import "StyledPageControl.h"
+
+@interface HomeViewController : UIViewController<UITabBarControllerDelegate,UIScrollViewDelegate>
 {
     IBOutlet UIButton *activate_btn;
     IBOutlet UIButton *mall_btn;
@@ -19,6 +21,13 @@
     
     IBOutlet UIButton *management_btn;
     IBOutlet UIButton *myFavorites_btn;
+    
+    NSMutableArray *tempArr;
+    
+    __unsafe_unretained IBOutlet UIScrollView *scroll;
+    
+    __strong StyledPageControl  *_pageControl;
+
 }
 
 @end
