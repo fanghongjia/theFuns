@@ -118,6 +118,26 @@ operateSource:(NSString *)operateSource
 //显示活动详情
 -(void)getActivityDetail_itemId:(NSString *)itemId;
 
+//显示秒杀活动列表
+-(void)getMiaoShaGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//秒杀  显示活动详情
+-(void)getmiaoShaDetail_itemId:(NSString *)itemId;
+
+//在线抽奖的礼品列表
+-(void)getOnlineLotteryGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//在线抽奖  显示活动详情
+-(void)getonlinDetail_itemId:(NSString *)itemId;
+
+//显示增价拍卖列表
+-(void)getAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//显示团购活动列表
+-(void)getTogetherBuyGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//减价拍卖 
+-(void)getSubtractAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 //退出登录
 -(void)logout;
 

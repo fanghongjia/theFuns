@@ -10,6 +10,9 @@
 #import "ActivityDetailCell.h"
 #import "ShoppingSpreeViewController.h"
 
+#import "SpikeViewController.h"
+#import "LotteryViewController.h"
+
 @interface ActivityDetailViewController ()
 
 @end
@@ -29,31 +32,144 @@
 
 -(void)refreshData
 {
-    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
-                            {
-                                NSDictionary *dic3 = response;
-                                NSLog(@"dic3 == %@",dic3);
-                                
-                                tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
-                                NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
-                                
-                                recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
-                                
-                                
-                                [self stopLoadingDown];
-                                [self stopLoadingUp];
-                                [mytableView reloadData];
-                                
-                                
-                                
-                            }loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getPreferentialGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    
+    //秒杀
+    if ([type isEqualToString:@"1"])
+    {
+        DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+                                {
+                                    NSDictionary *dic3 = response;
+                                    NSLog(@"dic3 == %@",dic3);
+                                    
+                                    tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
+                                    NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
+                                    
+                                    recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+                                    
+                                    
+                                    [self stopLoadingDown];
+                                    [self stopLoadingUp];
+                                    [mytableView reloadData];
+
+                                }loadInfo:@"正在加载..." HUDBackView:nil];
+        [daSource getMiaoShaGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];;
+    }
+    //在线抽奖
+    else if ([type isEqualToString: @"2"])
+    {
+        DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+                                {
+                                    NSDictionary *dic3 = response;
+                                    NSLog(@"dic3 == %@",dic3);
+                                    
+                                    tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
+                                    NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
+                                    
+                                    recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+                                    
+                                    
+                                    [self stopLoadingDown];
+                                    [self stopLoadingUp];
+                                    [mytableView reloadData];
+   
+                                }loadInfo:@"正在加载..." HUDBackView:nil];
+        [daSource getOnlineLotteryGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    }
+    //优惠活动
+    else if ([type isEqualToString: @"5"])
+    {
+        DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+                                {
+                                    NSDictionary *dic3 = response;
+                                    NSLog(@"dic3 == %@",dic3);
+                                    
+                                    tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
+                                    NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
+                                    
+                                    recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+                                    
+                                    
+                                    [self stopLoadingDown];
+                                    [self stopLoadingUp];
+                                    [mytableView reloadData];
+
+                                }loadInfo:@"正在加载..." HUDBackView:nil];
+        [daSource getPreferentialGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    }
+    //增价拍卖
+    else if ([type isEqualToString: @"6"])
+    {
+        DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+                                {
+                                    NSDictionary *dic3 = response;
+                                    NSLog(@"dic3 == %@",dic3);
+                                    
+                                    tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
+                                    NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
+                                    
+                                    recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+                                    
+                                    
+                                    [self stopLoadingDown];
+                                    [self stopLoadingUp];
+                                    [mytableView reloadData];
+                                    
+                                }loadInfo:@"正在加载..." HUDBackView:nil];
+        [daSource getAuctionGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    }
+    
+    //团购 
+    else if ([type isEqualToString: @"7"])
+    {
+        DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+                                {
+                                    NSDictionary *dic3 = response;
+                                    NSLog(@"dic3 == %@",dic3);
+                                    
+                                    tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
+                                    NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
+                                    
+                                    recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+                                    
+                                    
+                                    [self stopLoadingDown];
+                                    [self stopLoadingUp];
+                                    [mytableView reloadData];
+                                    
+                                }loadInfo:@"正在加载..." HUDBackView:nil];
+        [daSource getTogetherBuyGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    }
+    //减价拍卖 
+    else if ([type isEqualToString: @"8"])
+    {
+        DataSource *daSource = [DataSource interFaceWithBlocks:^(id response)
+                                {
+                                    NSDictionary *dic3 = response;
+                                    NSLog(@"dic3 == %@",dic3);
+                                    
+                                    tempArr = [[[dic3 objectForKey:@"output"]objectForKey:@"giftList"]JSONValue];
+                                    NSLog(@"getPreferentialGifts_activityId tempArr == %@",tempArr);
+                                    
+                                    recordCount_string = [[dic3 objectForKey:@"output"] objectForKey:@"recordCount"];
+                                    
+                                    
+                                    [self stopLoadingDown];
+                                    [self stopLoadingUp];
+                                    [mytableView reloadData];
+   
+                                }loadInfo:@"正在加载..." HUDBackView:nil];
+        [daSource getSubtractAuctionGifts_activityId:self.str_activityId pageNo:[NSString stringWithFormat:@"%d",currentPage] pageSize:@"10"];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSLog(@"str_activityType == %@",self.str_activityType);
+    
+    type = [NSString stringWithFormat:@"%@",self.str_activityType];
     
     currentPage = 1;
     str_type = self.str_activityType;
@@ -120,18 +236,44 @@
         cell = [[ActivityDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];        
     }
     
-    
-    
-    [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"avatar"] withView:cell.imageView];
-    
-    
-    cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
-    cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"price"]];
-    
-    NSString *strtype = [NSString stringWithFormat:@"%@",str_type];
-    if ([strtype isEqualToString:@"5"])
+    if ([type isEqualToString: @"1"])
     {
-         cell.lable_21.text = @"优惠积分:";
+        [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"avatar"] withView:cell.imageView];
+        cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
+        cell.lable_21.text = @"秒杀积分:";
+        cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"miaoShaPrice"]];
+        NSString *str_price = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"price"]];
+        cell.lable_31.text = [@"原积分:"stringByAppendingString:str_price];
+        NSString *str_activityStock = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityStock"]];
+        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
+                         stringByAppendingString:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"unit"]];
+        cell.lable_41.text = str;
+        
+    }
+    else if ([type isEqualToString: @"2"])
+    {
+        [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"picture"] withView:cell.imageView];
+        cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
+        cell.lable_21.text = @"所需积分:";
+        cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityPrice"]];
+        
+        
+        NSString *str_participantsNo = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"participantsNo"]];
+        cell.lable_31.text = [@"中奖名额:"stringByAppendingString:str_participantsNo];
+        
+        NSString *str_activityStock = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityStock"]];
+        NSString *str = [@"参与用户:"stringByAppendingString:str_activityStock];
+        cell.lable_41.text = str;
+    }
+    //优惠活动
+    else if ([type isEqualToString: @"5"])
+    {
+        [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"avatar"] withView:cell.imageView];
+        cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
+        cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"price"]];
+        
+        
+        cell.lable_21.text = @"优惠积分:";
         
         NSString *str_preferentialPrice = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"preferentialPrice"]];
         
@@ -145,10 +287,55 @@
         NSString *str2 =[[@"    兑换上限:"stringByAppendingString:str_exchangeLimit]
                          stringByAppendingString:@"个"];
         cell.lable_41.text = [str stringByAppendingString:str2];
+
     }
-    
-   
-   
+    else if ([type isEqualToString: @"6"])
+    {
+        [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"picture"] withView:cell.imageView];
+        cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
+        cell.lable_21.text = @"当前价:";
+        cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"currentPrice"]];
+        NSString *str_currentPrice = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"startPrice"]];
+        cell.lable_31.text = [@"起拍价:"stringByAppendingString:str_currentPrice];
+        
+        NSString *str_activityStock = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityStock"]];
+        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
+                         stringByAppendingString:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"unit"]];
+        cell.lable_41.text = str;
+    }
+    else if ([type isEqualToString: @"7"])
+    {
+        [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"picture"] withView:cell.imageView];
+        cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
+        cell.lable_21.text = @"当前团购价:";
+        cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"currentPrice"]];
+        NSString *str_currentPrice = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"price"]];
+        cell.lable_31.text = [@"商场原价:"stringByAppendingString:str_currentPrice];
+        
+        NSString *str_activityStock = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityStock"]];
+        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
+                         stringByAppendingString:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"unit"]];
+        
+        NSString *str_participantsNo = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"participantsNo"]];
+        NSString *str2 =[[@" 已团购数:"stringByAppendingString:str_participantsNo]
+                         stringByAppendingString:@"人"];
+        cell.lable_41.text = [str stringByAppendingString:str2];
+        
+    }
+    else if ([type isEqualToString: @"8"])
+    {
+        [[DataSource shareInstance] loadImageInThread:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"picture"] withView:cell.imageView];
+        cell.lable_11.text = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"giftName"];
+        cell.lable_21.text = @"秒杀积分:";
+        cell.lable_22.text = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"currentPrice"]];
+        NSString *str_currentPrice = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"startPrice"]];
+        cell.lable_31.text = [@"原积分:"stringByAppendingString:str_currentPrice];
+        
+        NSString *str_activityStock = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityStock"]];
+        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
+                         stringByAppendingString:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"unit"]];
+        cell.lable_41.text = str;
+    }
     
     cell.backgroundColor = [UIColor clearColor];
     cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell_back.png"]];
@@ -160,9 +347,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShoppingSpreeViewController *shoppingSpreeVC = [[ShoppingSpreeViewController alloc]init];
-    shoppingSpreeVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
-    [self.navigationController pushViewController:shoppingSpreeVC animated:YES];
+    if ([type isEqualToString: @"1"])
+    {
+        SpikeViewController *spikeVC = [[SpikeViewController alloc]init];
+        spikeVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
+        [self.navigationController pushViewController:spikeVC animated:YES];
+    }
+    else if ([type isEqualToString: @"2"])
+    {
+        LotteryViewController *lotteryVC = [[LotteryViewController alloc]init];
+        lotteryVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
+        [self.navigationController pushViewController:lotteryVC animated:YES];
+    }
+    //优惠活动
+    else if ([type isEqualToString: @"5"])
+    {
+        ShoppingSpreeViewController *shoppingSpreeVC = [[ShoppingSpreeViewController alloc]init];
+        shoppingSpreeVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
+        [self.navigationController pushViewController:shoppingSpreeVC animated:YES];
+    }
+    else if ([type isEqualToString: @"6"])
+    {
+        
+    }
+    else if ([type isEqualToString: @"7"])
+    {
+        
+    }
+    else if ([type isEqualToString: @"8"])
+    {
+        
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

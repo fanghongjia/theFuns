@@ -68,6 +68,14 @@
 		AF18CC18166F85D10027343F /* mall_top1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC15166F85D10027343F /* mall_top1.png */; };
 		AF18CC19166F85D10027343F /* mall_top2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC16166F85D10027343F /* mall_top2.png */; };
 		AF18CC1A166F85D10027343F /* mall_top3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF18CC17166F85D10027343F /* mall_top3.png */; };
+		AF1B29E51681A8DF00889A91 /* SpikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1B29E31681A8DF00889A91 /* SpikeViewController.m */; };
+		AF1B29E61681A8DF00889A91 /* SpikeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1B29E41681A8DF00889A91 /* SpikeViewController.xib */; };
+		AF1B29E81681AE3B00889A91 /* spike.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B29E71681AE3B00889A91 /* spike.png */; };
+		AF1B29EA1681BA9600889A91 /* miaoshaBack.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B29E91681BA9600889A91 /* miaoshaBack.png */; };
+		AF1B29EC1681BC4200889A91 /* discount.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B29EB1681BC4200889A91 /* discount.png */; };
+		AF1B29F01681BD5600889A91 /* LotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1B29EE1681BD5500889A91 /* LotteryViewController.m */; };
+		AF1B29F11681BD5600889A91 /* LotteryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1B29EF1681BD5600889A91 /* LotteryViewController.xib */; };
+		AF1B29F31681C68900889A91 /* back_list.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B29F21681C68900889A91 /* back_list.png */; };
 		AF1B67251674A2AC00754537 /* MallSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1B67231674A2AC00754537 /* MallSearchViewController.m */; };
 		AF1B67261674A2AC00754537 /* MallSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1B67241674A2AC00754537 /* MallSearchViewController.xib */; };
 		AF1B67291674A60500754537 /* MallAllProducts.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1B67271674A60500754537 /* MallAllProducts.png */; };
@@ -354,6 +362,16 @@
 		AF18CC15166F85D10027343F /* mall_top1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_top1.png; sourceTree = "<group>"; };
 		AF18CC16166F85D10027343F /* mall_top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_top2.png; sourceTree = "<group>"; };
 		AF18CC17166F85D10027343F /* mall_top3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mall_top3.png; sourceTree = "<group>"; };
+		AF1B29E21681A8DF00889A91 /* SpikeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpikeViewController.h; sourceTree = "<group>"; };
+		AF1B29E31681A8DF00889A91 /* SpikeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpikeViewController.m; sourceTree = "<group>"; };
+		AF1B29E41681A8DF00889A91 /* SpikeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpikeViewController.xib; sourceTree = "<group>"; };
+		AF1B29E71681AE3B00889A91 /* spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spike.png; sourceTree = "<group>"; };
+		AF1B29E91681BA9600889A91 /* miaoshaBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miaoshaBack.png; sourceTree = "<group>"; };
+		AF1B29EB1681BC4200889A91 /* discount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discount.png; sourceTree = "<group>"; };
+		AF1B29ED1681BD5500889A91 /* LotteryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryViewController.h; sourceTree = "<group>"; };
+		AF1B29EE1681BD5500889A91 /* LotteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryViewController.m; sourceTree = "<group>"; };
+		AF1B29EF1681BD5600889A91 /* LotteryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LotteryViewController.xib; sourceTree = "<group>"; };
+		AF1B29F21681C68900889A91 /* back_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_list.png; sourceTree = "<group>"; };
 		AF1B67221674A2AB00754537 /* MallSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallSearchViewController.h; sourceTree = "<group>"; };
 		AF1B67231674A2AC00754537 /* MallSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallSearchViewController.m; sourceTree = "<group>"; };
 		AF1B67241674A2AC00754537 /* MallSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MallSearchViewController.xib; sourceTree = "<group>"; };
@@ -838,6 +856,10 @@
 		AF1B672B1674A9FB00754537 /* activity */ = {
 			isa = PBXGroup;
 			children = (
+				AF1B29F21681C68900889A91 /* back_list.png */,
+				AF1B29EB1681BC4200889A91 /* discount.png */,
+				AF1B29E91681BA9600889A91 /* miaoshaBack.png */,
+				AF1B29E71681AE3B00889A91 /* spike.png */,
 				AFC35045167E06E7008C46BC /* announcement_top1.png */,
 				AFC35046167E06E7008C46BC /* announcement_top2.png */,
 				AFC35040167DF833008C46BC /* activity_top.png */,
@@ -1112,6 +1134,12 @@
 				AF0A52B716807B9B00A07D07 /* ShoppingSpreeViewController.h */,
 				AF0A52B816807B9C00A07D07 /* ShoppingSpreeViewController.m */,
 				AF0A52B916807B9C00A07D07 /* ShoppingSpreeViewController.xib */,
+				AF1B29E21681A8DF00889A91 /* SpikeViewController.h */,
+				AF1B29E31681A8DF00889A91 /* SpikeViewController.m */,
+				AF1B29E41681A8DF00889A91 /* SpikeViewController.xib */,
+				AF1B29ED1681BD5500889A91 /* LotteryViewController.h */,
+				AF1B29EE1681BD5500889A91 /* LotteryViewController.m */,
+				AF1B29EF1681BD5600889A91 /* LotteryViewController.xib */,
 			);
 			name = Activity;
 			path = Controller/Activity;
@@ -1466,6 +1494,12 @@
 				AFC35048167E06E7008C46BC /* announcement_top2.png in Resources */,
 				AFC3504D167E08D1008C46BC /* AnnouncementDetailViewController.xib in Resources */,
 				AF0A52BB16807B9D00A07D07 /* ShoppingSpreeViewController.xib in Resources */,
+				AF1B29E61681A8DF00889A91 /* SpikeViewController.xib in Resources */,
+				AF1B29E81681AE3B00889A91 /* spike.png in Resources */,
+				AF1B29EA1681BA9600889A91 /* miaoshaBack.png in Resources */,
+				AF1B29EC1681BC4200889A91 /* discount.png in Resources */,
+				AF1B29F11681BD5600889A91 /* LotteryViewController.xib in Resources */,
+				AF1B29F31681C68900889A91 /* back_list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1562,6 +1596,8 @@
 				AFC35044167E043C008C46BC /* AnnouncementCell.m in Sources */,
 				AFC3504C167E08D1008C46BC /* AnnouncementDetailViewController.m in Sources */,
 				AF0A52BA16807B9D00A07D07 /* ShoppingSpreeViewController.m in Sources */,
+				AF1B29E51681A8DF00889A91 /* SpikeViewController.m in Sources */,
+				AF1B29F01681BD5600889A91 /* LotteryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

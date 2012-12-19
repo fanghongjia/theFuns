@@ -454,6 +454,74 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihInfo:mArray MethodStr:@"preferentialService/getActivityDetail" Type:NetWorkTypeGET];
 }
 
+//显示 秒杀 活动列表
+-(void)getMiaoShaGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"miaoShaService/getMiaoShaGifts" Type:NetWorkTypeGET];
+
+}
+
+//秒杀  显示活动详情
+-(void)getmiaoShaDetail_itemId:(NSString *)itemId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"itemId" Parameter:itemId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"miaoShaService/getActivityDetail" Type:NetWorkTypeGET];
+}
+
+
+//在线抽奖的礼品列表
+-(void)getOnlineLotteryGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"onlineLotteryService/getOnlineLotteryGifts" Type:NetWorkTypeGET];
+}
+
+//在线抽奖  显示活动详情
+-(void)getonlinDetail_itemId:(NSString *)itemId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"itemId" Parameter:itemId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"onlineLotteryService/getActivityDetail" Type:NetWorkTypeGET];
+}
+
+//显示增价拍卖列表
+-(void)getAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"auctionService/getActivityRule" Type:NetWorkTypeGET];
+}
+
+//显示团购活动列表
+-(void)getTogetherBuyGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"togetherBuyService/getTogetherBuyGifts" Type:NetWorkTypeGET];
+}
+
+//减价拍卖
+-(void)getSubtractAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
+    [mArray setParameter:@"pageNo" Parameter:pageNo];
+    [mArray setParameter:@"pageSize" Parameter:pageSize];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"subtractAuctionService/getSubtractAuctionGifts" Type:NetWorkTypeGET];
+}
+
 //退出登录
 -(void)logout
 {

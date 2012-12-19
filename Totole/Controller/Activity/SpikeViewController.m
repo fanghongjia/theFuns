@@ -1,18 +1,18 @@
 //
-//  ShoppingSpreeViewController.m
+//  SpikeViewController.m
 //  Totole
 //
-//  Created by disan disan on 12-12-18.
+//  Created by disan disan on 12-12-19.
 //
 //
 
-#import "ShoppingSpreeViewController.h"
+#import "SpikeViewController.h"
 
-@interface ShoppingSpreeViewController ()
+@interface SpikeViewController ()
 
 @end
 
-@implementation ShoppingSpreeViewController
+@implementation SpikeViewController
 
 @synthesize str_itemId;
 
@@ -29,53 +29,33 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
 
-    tempArr = [[NSMutableArray alloc]initWithCapacity:1];
     
     DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
         NSDictionary *dic3 = response;
         NSLog(@"getActivityDetail_itemId  dic3 == %@",dic3);
         NSDictionary *outputDic = [[NSDictionary alloc]init];
         outputDic = [dic3 objectForKey:@"output"];
-        
 
-        
-        
         NSString *url_string = [outputDic objectForKey:@"picture"];
         //异步下载图片
         head_imagView.contentMode = UIViewContentModeScaleAspectFit;
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
-        title_lb.text = [outputDic objectForKey:@"giftName"];
+        label_11.text = [outputDic objectForKey:@"giftName"];
         
-        
-        //        NSString *string_brand = [outputDic objectForKey:@"brand"];
-        //        NSLog(@"string_ == %d",string_brand.length);
-        if (![outputDic objectForKey:@"brand"])
-        {
-            brand_lb.text = @"";
-        }
-        else
-        {
-            brand_lb.text = [@"品牌:" stringByAppendingString:[outputDic objectForKey:@"brand"]];
-        }
-        
+
         NSString *str_activityStock = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"activityStock"]];
         NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
                          stringByAppendingString:[outputDic objectForKey:@"unit"]];
+        label_21.text = str;
         
-        NSString *str_exchangeLimit = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"exchangeLimit"]];
-        NSString *str2 =[[@"    兑换上限:"stringByAppendingString:str_exchangeLimit]
-                         stringByAppendingString:@"个"];
-        brand_lb.text = [str stringByAppendingString:str2];
+        NSString *miaoShaPrice_string = [outputDic objectForKey:@"miaoShaPrice"];
+        label_31.text = @"秒杀积分:" ;        
+        label_32.text = [NSString stringWithFormat:@"%@",miaoShaPrice_string];
         
-        
-        price_lb.text = @"优惠积分";
-        
-        unit_string = [outputDic objectForKey:@"price"];
-            
-        unit_lb.text = unit_string;//[@"积分/" stringByAppendingString:unit_string ];
-        
-        stockAmount_lb.text = [@"原积分:" stringByAppendingString:[outputDic objectForKey:@"preferentialPrice"]] ;
+
+        label_41.text = [@"原积分:" stringByAppendingString:[outputDic objectForKey:@"price"]];
         
         NSString *HTMLStr = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"description"]];
         NSLog(@"HTMLStr == %@",HTMLStr);
@@ -83,12 +63,11 @@
         
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getActivityDetail_itemId:self.str_itemId];
+    [daSource getmiaoShaDetail_itemId:self.str_itemId];
     
     myScrollView.contentSize = CGSizeMake(320, 548);
 }
 
-//加入收藏
 - (IBAction)addToFavorite_click:(id)sender
 {
     DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
@@ -140,15 +119,14 @@
 }
 
 - (void)viewDidUnload {
-    head_imagView = nil;
-    title_lb = nil;
-    brand_lb = nil;
-    price_lb = nil;
-    unit_lb = nil;
-    stockAmount_lb = nil;
-    detail_textView = nil;
     myScrollView = nil;
+    head_imagView = nil;
+    detail_textView = nil;
+    label_11 = nil;
+    label_21 = nil;
+    label_31 = nil;
+    label_32 = nil;
+    label_41 = nil;
     [super viewDidUnload];
 }
-
 @end

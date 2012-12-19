@@ -1,18 +1,18 @@
 //
-//  ShoppingSpreeViewController.m
+//  LotteryViewController.m
 //  Totole
 //
-//  Created by disan disan on 12-12-18.
+//  Created by disan disan on 12-12-19.
 //
 //
 
-#import "ShoppingSpreeViewController.h"
+#import "LotteryViewController.h"
 
-@interface ShoppingSpreeViewController ()
+@interface LotteryViewController ()
 
 @end
 
-@implementation ShoppingSpreeViewController
+@implementation LotteryViewController
 
 @synthesize str_itemId;
 
@@ -29,8 +29,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
-    tempArr = [[NSMutableArray alloc]initWithCapacity:1];
     
     DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
         NSDictionary *dic3 = response;
@@ -38,44 +36,23 @@
         NSDictionary *outputDic = [[NSDictionary alloc]init];
         outputDic = [dic3 objectForKey:@"output"];
         
-
-        
-        
         NSString *url_string = [outputDic objectForKey:@"picture"];
         //异步下载图片
         head_imagView.contentMode = UIViewContentModeScaleAspectFit;
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
-        title_lb.text = [outputDic objectForKey:@"giftName"];
+        label_11.text = [outputDic objectForKey:@"giftName"];
         
-        
-        //        NSString *string_brand = [outputDic objectForKey:@"brand"];
-        //        NSLog(@"string_ == %d",string_brand.length);
-        if (![outputDic objectForKey:@"brand"])
-        {
-            brand_lb.text = @"";
-        }
-        else
-        {
-            brand_lb.text = [@"品牌:" stringByAppendingString:[outputDic objectForKey:@"brand"]];
-        }
         
         NSString *str_activityStock = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"activityStock"]];
-        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
-                         stringByAppendingString:[outputDic objectForKey:@"unit"]];
+        NSString *str = [@"参与用户数:"stringByAppendingString:str_activityStock];
+        label_21.text = str;
         
-        NSString *str_exchangeLimit = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"exchangeLimit"]];
-        NSString *str2 =[[@"    兑换上限:"stringByAppendingString:str_exchangeLimit]
-                         stringByAppendingString:@"个"];
-        brand_lb.text = [str stringByAppendingString:str2];
+        NSString *activityPrice_string = [outputDic objectForKey:@"activityPrice"];
+        label_31.text = @"所需积分:" ;
+        label_32.text = [NSString stringWithFormat:@"%@",activityPrice_string];
         
         
-        price_lb.text = @"优惠积分";
-        
-        unit_string = [outputDic objectForKey:@"price"];
-            
-        unit_lb.text = unit_string;//[@"积分/" stringByAppendingString:unit_string ];
-        
-        stockAmount_lb.text = [@"原积分:" stringByAppendingString:[outputDic objectForKey:@"preferentialPrice"]] ;
+        label_41.text = [@"中奖名额:" stringByAppendingString:[outputDic objectForKey:@"participantsNo"]];
         
         NSString *HTMLStr = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"description"]];
         NSLog(@"HTMLStr == %@",HTMLStr);
@@ -83,12 +60,15 @@
         
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getActivityDetail_itemId:self.str_itemId];
+    [daSource getonlinDetail_itemId:self.str_itemId];
     
     myScrollView.contentSize = CGSizeMake(320, 548);
 }
+- (IBAction)back_click:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
-//加入收藏
 - (IBAction)addToFavorite_click:(id)sender
 {
     DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
@@ -127,12 +107,6 @@
     [daSource addToFavorite_giftId:self.str_itemId];
 }
 
-
-- (IBAction)back_click:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -140,14 +114,14 @@
 }
 
 - (void)viewDidUnload {
-    head_imagView = nil;
-    title_lb = nil;
-    brand_lb = nil;
-    price_lb = nil;
-    unit_lb = nil;
-    stockAmount_lb = nil;
-    detail_textView = nil;
     myScrollView = nil;
+    head_imagView = nil;
+    detail_textView = nil;
+    label_11 = nil;
+    label_21 = nil;
+    label_31 = nil;
+    label_32 = nil;
+    label_41 = nil;
     [super viewDidUnload];
 }
 

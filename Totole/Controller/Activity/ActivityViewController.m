@@ -216,11 +216,47 @@
 {
     if (dataType == 0)
     {
-        ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc]init];
-        activityDetailVC.str_activityId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityId"];
-        activityDetailVC.str_activityType = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityType"];
-        activityDetailVC.str_issueNum = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"issueNum"];
-        [self.navigationController pushViewController:activityDetailVC animated:YES];
+//        NSString *str_type = [NSString stringWithFormat:@"%@",[[tempArr objectAtIndex:indexPath.row] objectForKey:@"activityType"]];
+//        NSLog(@"str_type == %@",str_type);
+//
+//        if ([str_type isEqualToString:@"1"])
+//        {
+//            NSLog(@"11111");
+//        }
+//        else if ([str_type isEqualToString:@"2"])
+//        {
+//            NSLog(@"22222");
+//        }
+//        else if ([str_type isEqualToString:@"4"])
+//        {
+//            NSLog(@"44444");
+//        }
+//        else if ([str_type isEqualToString:@"5"])
+//        {
+            ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc]init];
+            activityDetailVC.str_activityId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityId"];
+            activityDetailVC.str_activityType = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"activityType"];
+            activityDetailVC.str_issueNum = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"issueNum"];
+            
+            
+            
+            
+            [self.navigationController pushViewController:activityDetailVC animated:YES];
+//        }
+//        else if ([str_type isEqualToString:@"6"])
+//        {
+//            NSLog(@"66666");
+//        }
+//        else if ([str_type isEqualToString:@"7"])
+//        {
+//            NSLog(@"7777");
+//        }
+//        else if ([str_type isEqualToString:@"8"])
+//        {
+//            NSLog(@"8888");
+//        }
+        
+        
     }
 }
 

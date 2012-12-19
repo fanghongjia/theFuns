@@ -23,6 +23,8 @@
     NSString *recordCount_string;
     
     NSString *str_type;
+    
+    NSString *type;
 }
 
 @property (nonatomic, assign) NSString *str_activityId,*str_activityType,*str_issueNum;
