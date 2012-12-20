@@ -233,6 +233,14 @@
 		AFEB4046167DD4D6000C943F /* MyInformateHotelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFEB4044167DD4D6000C943F /* MyInformateHotelViewController.xib */; };
 		AFEB4048167DD552000C943F /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = AFEB4047167DD552000C943F /* save.png */; };
 		AFEB404A167DD611000C943F /* myInformateHotel.png in Resources */ = {isa = PBXBuildFile; fileRef = AFEB4049167DD611000C943F /* myInformateHotel.png */; };
+		AFEBDCF81682B45C004CDE64 /* AddAuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEBDCF61682B45C004CDE64 /* AddAuctionViewController.m */; };
+		AFEBDCF91682B45C004CDE64 /* AddAuctionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFEBDCF71682B45C004CDE64 /* AddAuctionViewController.xib */; };
+		AFEBDCFE1682B47A004CDE64 /* MinusAuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEBDCFC1682B47A004CDE64 /* MinusAuctionViewController.m */; };
+		AFEBDCFF1682B47A004CDE64 /* MinusAuctionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFEBDCFD1682B47A004CDE64 /* MinusAuctionViewController.xib */; };
+		AFEBDD011682E6A7004CDE64 /* bidNow.png in Resources */ = {isa = PBXBuildFile; fileRef = AFEBDD001682E6A7004CDE64 /* bidNow.png */; };
+		AFEBDD051682FD37004CDE64 /* BuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEBDD031682FD36004CDE64 /* BuyViewController.m */; };
+		AFEBDD061682FD37004CDE64 /* BuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFEBDD041682FD37004CDE64 /* BuyViewController.xib */; };
+		AFEBDD081682FEE8004CDE64 /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = AFEBDD071682FEE8004CDE64 /* buy.png */; };
 		AFF53EE11663113F00882AFD /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EDF1663113F00882AFD /* AnnouncementViewController.m */; settings = {COMPILER_FLAGS = ""; }; };
 		AFF53EE21663113F00882AFD /* AnnouncementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF53EE01663113F00882AFD /* AnnouncementViewController.xib */; };
 		AFF53EE71663115600882AFD /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF53EE51663115600882AFD /* ActivityViewController.m */; settings = {COMPILER_FLAGS = ""; }; };
@@ -602,6 +610,17 @@
 		AFEB4044167DD4D6000C943F /* MyInformateHotelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInformateHotelViewController.xib; sourceTree = "<group>"; };
 		AFEB4047167DD552000C943F /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		AFEB4049167DD611000C943F /* myInformateHotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myInformateHotel.png; sourceTree = "<group>"; };
+		AFEBDCF51682B45C004CDE64 /* AddAuctionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAuctionViewController.h; sourceTree = "<group>"; };
+		AFEBDCF61682B45C004CDE64 /* AddAuctionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAuctionViewController.m; sourceTree = "<group>"; };
+		AFEBDCF71682B45C004CDE64 /* AddAuctionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAuctionViewController.xib; sourceTree = "<group>"; };
+		AFEBDCFB1682B47A004CDE64 /* MinusAuctionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinusAuctionViewController.h; sourceTree = "<group>"; };
+		AFEBDCFC1682B47A004CDE64 /* MinusAuctionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinusAuctionViewController.m; sourceTree = "<group>"; };
+		AFEBDCFD1682B47A004CDE64 /* MinusAuctionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinusAuctionViewController.xib; sourceTree = "<group>"; };
+		AFEBDD001682E6A7004CDE64 /* bidNow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bidNow.png; sourceTree = "<group>"; };
+		AFEBDD021682FD36004CDE64 /* BuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyViewController.h; sourceTree = "<group>"; };
+		AFEBDD031682FD36004CDE64 /* BuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewController.m; sourceTree = "<group>"; };
+		AFEBDD041682FD37004CDE64 /* BuyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyViewController.xib; sourceTree = "<group>"; };
+		AFEBDD071682FEE8004CDE64 /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
 		AFF53EDE1663113F00882AFD /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementViewController.h; sourceTree = "<group>"; };
 		AFF53EDF1663113F00882AFD /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementViewController.m; sourceTree = "<group>"; };
 		AFF53EE01663113F00882AFD /* AnnouncementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementViewController.xib; sourceTree = "<group>"; };
@@ -856,6 +875,8 @@
 		AF1B672B1674A9FB00754537 /* activity */ = {
 			isa = PBXGroup;
 			children = (
+				AFEBDD071682FEE8004CDE64 /* buy.png */,
+				AFEBDD001682E6A7004CDE64 /* bidNow.png */,
 				AF1B29F21681C68900889A91 /* back_list.png */,
 				AF1B29EB1681BC4200889A91 /* discount.png */,
 				AF1B29E91681BA9600889A91 /* miaoshaBack.png */,
@@ -1140,6 +1161,15 @@
 				AF1B29ED1681BD5500889A91 /* LotteryViewController.h */,
 				AF1B29EE1681BD5500889A91 /* LotteryViewController.m */,
 				AF1B29EF1681BD5600889A91 /* LotteryViewController.xib */,
+				AFEBDCF51682B45C004CDE64 /* AddAuctionViewController.h */,
+				AFEBDCF61682B45C004CDE64 /* AddAuctionViewController.m */,
+				AFEBDCF71682B45C004CDE64 /* AddAuctionViewController.xib */,
+				AFEBDCFB1682B47A004CDE64 /* MinusAuctionViewController.h */,
+				AFEBDCFC1682B47A004CDE64 /* MinusAuctionViewController.m */,
+				AFEBDCFD1682B47A004CDE64 /* MinusAuctionViewController.xib */,
+				AFEBDD021682FD36004CDE64 /* BuyViewController.h */,
+				AFEBDD031682FD36004CDE64 /* BuyViewController.m */,
+				AFEBDD041682FD37004CDE64 /* BuyViewController.xib */,
 			);
 			name = Activity;
 			path = Controller/Activity;
@@ -1500,6 +1530,11 @@
 				AF1B29EC1681BC4200889A91 /* discount.png in Resources */,
 				AF1B29F11681BD5600889A91 /* LotteryViewController.xib in Resources */,
 				AF1B29F31681C68900889A91 /* back_list.png in Resources */,
+				AFEBDCF91682B45C004CDE64 /* AddAuctionViewController.xib in Resources */,
+				AFEBDCFF1682B47A004CDE64 /* MinusAuctionViewController.xib in Resources */,
+				AFEBDD011682E6A7004CDE64 /* bidNow.png in Resources */,
+				AFEBDD061682FD37004CDE64 /* BuyViewController.xib in Resources */,
+				AFEBDD081682FEE8004CDE64 /* buy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,6 +1633,9 @@
 				AF0A52BA16807B9D00A07D07 /* ShoppingSpreeViewController.m in Sources */,
 				AF1B29E51681A8DF00889A91 /* SpikeViewController.m in Sources */,
 				AF1B29F01681BD5600889A91 /* LotteryViewController.m in Sources */,
+				AFEBDCF81682B45C004CDE64 /* AddAuctionViewController.m in Sources */,
+				AFEBDCFE1682B47A004CDE64 /* MinusAuctionViewController.m in Sources */,
+				AFEBDD051682FD37004CDE64 /* BuyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

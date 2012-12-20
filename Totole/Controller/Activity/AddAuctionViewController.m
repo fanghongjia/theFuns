@@ -1,18 +1,18 @@
 //
-//  SpikeViewController.m
+//  AddAuctionViewController.m
 //  Totole
 //
-//  Created by disan disan on 12-12-19.
+//  Created by disan disan on 12-12-20.
 //
 //
 
-#import "SpikeViewController.h"
+#import "AddAuctionViewController.h"
 
-@interface SpikeViewController ()
+@interface AddAuctionViewController ()
 
 @end
 
-@implementation SpikeViewController
+@implementation AddAuctionViewController
 
 @synthesize str_itemId;
 
@@ -24,46 +24,73 @@
     }
     return self;
 }
-
+//
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
- 
     DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
         NSDictionary *dic3 = response;
-        NSLog(@"getActivityDetail_itemId  dic3 == %@",dic3);
+        NSLog(@"getAddAuctionDetail_itemId  dic3 == %@",dic3);
         NSDictionary *outputDic = [[NSDictionary alloc]init];
         outputDic = [dic3 objectForKey:@"output"];
-
+        
         NSString *url_string = [outputDic objectForKey:@"picture"];
         //异步下载图片
         head_imagView.contentMode = UIViewContentModeScaleAspectFit;
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
         label_11.text = [outputDic objectForKey:@"giftName"];
         
-
+        
         NSString *str_activityStock = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"activityStock"]];
-        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
-                         stringByAppendingString:[outputDic objectForKey:@"unit"]];
-        label_21.text = str;
+        NSString *str_unit = [outputDic objectForKey:@"unit"];
+        NSString *str = [[@"库存:"stringByAppendingString:str_activityStock] stringByAppendingString:str_unit];
         
-        NSString *miaoShaPrice_string = [outputDic objectForKey:@"miaoShaPrice"];
-        label_31.text = @"秒杀积分:" ;        
-        label_32.text = [NSString stringWithFormat:@"%@",miaoShaPrice_string];
+        NSString *str_minIncrease = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"minIncrease"]];
+        NSString *str1 = [@"  最低加价:"stringByAppendingString:str_minIncrease];
+        
+        NSString *str_maxIncrease = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"maxIncrease"]];
+        NSString *str2 = [@"  最高加价:"stringByAppendingString:str_maxIncrease];
+        label_21.text = [[str stringByAppendingString:str1]stringByAppendingString:str2];
+        
+        NSLog(@"auctionMembers == %@",[outputDic objectForKey:@"auctionMembers"]);
+        
+        
+        label_32.text = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"currentPrice"]];
+//        NSArray *array_memberName =[[outputDic objectForKey:@"auctionMembers"]objectForKey:@"memberName" ];
+//        
+//        if (![[[outputDic objectForKey:@"auctionMembers"]objectForKey:@"memberName" ] isEqual:nil])
+//        {
+//            label_33.text = [@"(   "stringByAppendingString:@"出价)"];
+//        }
+//        else
+//        {
+//            NSString *str_memberName= [[[outputDic objectForKey:@"auctionMembers"]objectAtIndex:0]objectForKey:@"memberName"];
+//            label_33.text = [[@"("stringByAppendingString:str_memberName]stringByAppendingString:@"出价)"];
+//        }
+        
+        
+        
+        NSString *str_startPrice = [outputDic objectForKey:@"startPrice"];
+        label_41.text = [@"起拍价:" stringByAppendingString:str_startPrice];
+
+        NSString *str_price = [outputDic objectForKey:@"price"];
+        label_42.text = [@"商城价:" stringByAppendingString:str_price];
         
 
-        label_41.text = [@"原积分:" stringByAppendingString:[outputDic objectForKey:@"price"]];
-        
         NSString *HTMLStr = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"description"]];
         NSLog(@"HTMLStr == %@",HTMLStr);
         detail_textView.text = [DataSource getHTMLChangge:HTMLStr];
         
-        
+         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getmiaoShaDetail_itemId:self.str_itemId];
+    [daSource getAddAuctionDetail_itemId:self.str_itemId];
     
-    myScrollView.contentSize = CGSizeMake(320, 548);
+    myScrollView.contentSize = CGSizeMake(320, 548+135);
+}
+- (IBAction)back_click:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)addToFavorite_click:(id)sender
@@ -103,28 +130,24 @@
     } loadInfo:@"正在加载..." HUDBackView:nil];
     [daSource addToFavorite_giftId:self.str_itemId];
 }
-
-
-- (IBAction)back_click:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     myScrollView = nil;
     head_imagView = nil;
     detail_textView = nil;
     label_11 = nil;
     label_21 = nil;
-    label_31 = nil;
+    label_33 = nil;
     label_32 = nil;
     label_41 = nil;
+    label_42 = nil;
     [super viewDidUnload];
 }
+
 @end

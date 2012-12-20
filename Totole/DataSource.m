@@ -499,7 +499,15 @@ operateSource:(NSString *)operateSource
     [mArray setParameter:@"activityId" Parameter:activityId];
     [mArray setParameter:@"pageNo" Parameter:pageNo];
     [mArray setParameter:@"pageSize" Parameter:pageSize];
-    [self starDownLoadWtihInfo:mArray MethodStr:@"auctionService/getActivityRule" Type:NetWorkTypeGET];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"auctionService/getAuctionGifts" Type:NetWorkTypeGET];
+}
+
+//增价  显示活动详情
+-(void)getAddAuctionDetail_itemId:(NSString *)itemId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"itemId" Parameter:itemId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"auctionService/getActivityDetail" Type:NetWorkTypeGET];
 }
 
 //显示团购活动列表
@@ -512,6 +520,14 @@ operateSource:(NSString *)operateSource
     [self starDownLoadWtihInfo:mArray MethodStr:@"togetherBuyService/getTogetherBuyGifts" Type:NetWorkTypeGET];
 }
 
+//团购  显示活动详情  
+-(void)gettogetherBuyDetail_itemId:(NSString *)itemId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"itemId" Parameter:itemId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"togetherBuyService/getActivityDetail" Type:NetWorkTypeGET];
+}
+
 //减价拍卖
 -(void)getSubtractAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize
 {
@@ -520,6 +536,23 @@ operateSource:(NSString *)operateSource
     [mArray setParameter:@"pageNo" Parameter:pageNo];
     [mArray setParameter:@"pageSize" Parameter:pageSize];
     [self starDownLoadWtihInfo:mArray MethodStr:@"subtractAuctionService/getSubtractAuctionGifts" Type:NetWorkTypeGET];
+}
+
+//减价  显示活动详情 
+-(void)getsubtractAuctionDetail_itemId:(NSString *)itemId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"itemId" Parameter:itemId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"subtractAuctionService/getActivityDetail" Type:NetWorkTypeGET];
+}
+
+//显示活动规则 
+-(void)getActivityRule:(NSString *)activityId
+{
+    NSMutableArray *mArray = [[NSMutableArray alloc] init];
+    [mArray setParameter:@"activityId" Parameter:activityId];
+    [self starDownLoadWtihInfo:mArray MethodStr:@"preferentialService/getActivityRule" Type:NetWorkTypeGET];
+
 }
 
 //退出登录

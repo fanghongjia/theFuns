@@ -12,6 +12,9 @@
 
 #import "SpikeViewController.h"
 #import "LotteryViewController.h"
+#import "AddAuctionViewController.h"
+#import "MinusAuctionViewController.h"
+#import "BuyViewController.h"
 
 @interface ActivityDetailViewController ()
 
@@ -193,19 +196,35 @@
 //    mytableView.layer.masksToBounds = YES;
     [bgScroll addSubview:mytableView];
     
-    
+    [myWebView setScalesPageToFit:NO];
     [self refreshData];
    
 }
 - (IBAction)activityList_click:(id)sender
 {
     [topView setImage:[UIImage imageNamed:@"activity_list.png"]];
+    bgScroll.hidden = NO;
     mytableView.hidden = NO;
+    myWebView.hidden = YES;
 }
 - (IBAction)avtivityRule_click:(id)sender
 {
     [topView setImage:[UIImage imageNamed:@"activity_rule.png"]];
+    bgScroll.hidden = YES;
     mytableView.hidden = YES;
+    myWebView.hidden = NO;
+    
+
+    DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
+        NSDictionary *dic3 = response;
+        NSLog(@"getActivityRule  dic3 == %@",dic3);
+        NSDictionary *outputDic = [[NSDictionary alloc]init];
+        outputDic = [dic3 objectForKey:@"output"];
+        [myWebView loadHTMLString:[outputDic objectForKey:@"activityRule"] baseURL:nil];
+
+    } loadInfo:@"正在加载..." HUDBackView:nil];
+    [daSource getActivityRule:self.str_activityId];
+   
 }
 
 - (IBAction)back_click:(id)sender
@@ -248,7 +267,7 @@
         NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
                          stringByAppendingString:[[tempArr objectAtIndex:indexPath.row]objectForKey:@"unit"]];
         cell.lable_41.text = str;
-        
+
     }
     else if ([type isEqualToString: @"2"])
     {
@@ -366,17 +385,27 @@
         shoppingSpreeVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
         [self.navigationController pushViewController:shoppingSpreeVC animated:YES];
     }
+    //增价
     else if ([type isEqualToString: @"6"])
     {
-        
+        AddAuctionViewController *addAutionVC = [[AddAuctionViewController alloc]init];
+        addAutionVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
+        [self.navigationController pushViewController:addAutionVC animated:YES];
+  
     }
+    //团购
     else if ([type isEqualToString: @"7"])
     {
-        
+        BuyViewController *buyVC = [[BuyViewController alloc]init];
+        buyVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
+        [self.navigationController pushViewController:buyVC animated:YES];
     }
+    //减价
     else if ([type isEqualToString: @"8"])
     {
-        
+        MinusAuctionViewController *minusAutionVC= [[MinusAuctionViewController alloc]init];
+        minusAutionVC.str_itemId = [[tempArr objectAtIndex:indexPath.row]objectForKey:@"itemId"];
+        [self.navigationController pushViewController:minusAutionVC animated:YES];
     }
     
 }
@@ -455,6 +484,7 @@
 - (void)viewDidUnload {
     topView = nil;
     label_title = nil;
+    myWebView = nil;
     [super viewDidUnload];
 }
 @end

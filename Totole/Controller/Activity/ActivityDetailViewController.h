@@ -25,6 +25,8 @@
     NSString *str_type;
     
     NSString *type;
+
+    __unsafe_unretained IBOutlet UIWebView *myWebView;
 }
 
 @property (nonatomic, assign) NSString *str_activityId,*str_activityType,*str_issueNum;

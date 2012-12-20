@@ -133,11 +133,24 @@ operateSource:(NSString *)operateSource
 //显示增价拍卖列表
 -(void)getAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
+//增价  显示活动详情
+-(void)getAddAuctionDetail_itemId:(NSString *)itemId;
+
 //显示团购活动列表
 -(void)getTogetherBuyGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
 
+//团购  显示活动详情
+-(void)gettogetherBuyDetail_itemId:(NSString *)itemId;
+
 //减价拍卖 
 -(void)getSubtractAuctionGifts_activityId:(NSString *)activityId pageNo:(NSString *)pageNo pageSize:(NSString *)pageSize;
+
+//减价  显示活动详情
+-(void)getsubtractAuctionDetail_itemId:(NSString *)itemId;
+
+//显示活动规则
+-(void)getActivityRule:(NSString *)activityId;
+
 //退出登录
 -(void)logout;
 

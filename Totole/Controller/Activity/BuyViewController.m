@@ -1,18 +1,18 @@
 //
-//  SpikeViewController.m
+//  BuyViewController.m
 //  Totole
 //
-//  Created by disan disan on 12-12-19.
+//  Created by disan disan on 12-12-20.
 //
 //
 
-#import "SpikeViewController.h"
+#import "BuyViewController.h"
 
-@interface SpikeViewController ()
+@interface BuyViewController ()
 
 @end
 
-@implementation SpikeViewController
+@implementation BuyViewController
 
 @synthesize str_itemId;
 
@@ -29,31 +29,32 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
- 
     DataSource *daSource = [DataSource interFaceWithBlocks:^(id response) {
         NSDictionary *dic3 = response;
-        NSLog(@"getActivityDetail_itemId  dic3 == %@",dic3);
+        NSLog(@"gettogetherBuyDetail_itemId  dic3 == %@",dic3);
         NSDictionary *outputDic = [[NSDictionary alloc]init];
         outputDic = [dic3 objectForKey:@"output"];
-
+        
         NSString *url_string = [outputDic objectForKey:@"picture"];
         //异步下载图片
         head_imagView.contentMode = UIViewContentModeScaleAspectFit;
         [[DataSource shareInstance] loadImageInThread:url_string withView:head_imagView];
         label_11.text = [outputDic objectForKey:@"giftName"];
         
-
+        
         NSString *str_activityStock = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"activityStock"]];
         NSString *str = [[@"库存:"stringByAppendingString:str_activityStock]
                          stringByAppendingString:[outputDic objectForKey:@"unit"]];
-        label_21.text = str;
+        NSString *str_participantsNo = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"participantsNo"]];
+        NSString *str2 = [[@"  已团购数:" stringByAppendingString:str_participantsNo]stringByAppendingString:@"人"];
+        label_21.text = [str stringByAppendingString:str2];
         
-        NSString *miaoShaPrice_string = [outputDic objectForKey:@"miaoShaPrice"];
-        label_31.text = @"秒杀积分:" ;        
-        label_32.text = [NSString stringWithFormat:@"%@",miaoShaPrice_string];
+        NSString *str_currentPrice = [outputDic objectForKey:@"currentPrice"];
+        label_31.text = @"当前团购价:";
+        label_32.text = [NSString stringWithFormat:@"%@",str_currentPrice];
         
-
-        label_41.text = [@"原积分:" stringByAppendingString:[outputDic objectForKey:@"price"]];
+        
+        label_41.text = [@"商场原价: " stringByAppendingString:[outputDic objectForKey:@"price"]];
         
         NSString *HTMLStr = [NSString stringWithFormat:@"%@",[outputDic objectForKey:@"description"]];
         NSLog(@"HTMLStr == %@",HTMLStr);
@@ -61,9 +62,9 @@
         
         
     } loadInfo:@"正在加载..." HUDBackView:nil];
-    [daSource getmiaoShaDetail_itemId:self.str_itemId];
+    [daSource gettogetherBuyDetail_itemId:self.str_itemId];
     
-    myScrollView.contentSize = CGSizeMake(320, 548);
+    myScrollView.contentSize = CGSizeMake(320, 548+80);
 }
 
 - (IBAction)addToFavorite_click:(id)sender
@@ -110,6 +111,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -127,4 +129,5 @@
     label_41 = nil;
     [super viewDidUnload];
 }
+
 @end
